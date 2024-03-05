@@ -115,6 +115,9 @@ class Dice
         @random.rand(0.0...competence)
     end
 
+    # Método que indica si se descarta un arma/escudo en función de sus usos disponibles
+    #
+    # @return devuelve true o false si se descarta o no 
     def dicard_element(uses_left)
         probabilidad=1-uses_left.to_f/@@MAX_USES.to_f
         if(@random.rand < probabilidad)

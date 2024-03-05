@@ -20,4 +20,8 @@ class GameState
         @current_player=current_player # Representa el índice del jugador actual
         @winner=winner
         @log=log
+    end
+
+    # Método que devuelve el estado de cada atributo del juego
+    attr_reader :labyrinthv, :players, :monsters, :current_player, :winner, :log
 end

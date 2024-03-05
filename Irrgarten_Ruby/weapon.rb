@@ -33,6 +33,9 @@ class Weapon
         end
     end
 
+    # Método que indica si se descartará el arma 
+    # 
+    # @return devuelve true o false si se descarta o no
     def discard
         Dice.dicard_element(@uses)
     end
