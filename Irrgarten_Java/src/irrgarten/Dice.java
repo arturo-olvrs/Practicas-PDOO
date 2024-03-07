@@ -12,34 +12,34 @@ import java.util.Random;
 public class Dice {
     
     // Número máximo de usos de armas y escudos
-    private static int MAX_USES = 5;
+    private static final int MAX_USES = 5;
 
     // Valor máximo para la inteligencia de jugadores y monstruos
-    private static float MAX_INTELLIGENCE = 10.0f;
+    private static final float MAX_INTELLIGENCE = 10.0f;
 
     // Valor máximo para la fuerza de jugadores y monstruos
-    private static float MAX_STRENGTH = 10.0f;
+    private static final float MAX_STRENGTH = 10.0f;
 
     // Probabilidad de que un jugador sea resucitado en cada turno
-    private static float RESURRECT_PROB = 0.3f;
+    private static final float RESURRECT_PROB = 0.3f;
 
     // Número máximo de armas recibidas al ganar un combate
-    private static int WEAPONS_REWARD = 2;
+    private static final int WEAPONS_REWARD = 2;
 
     // Número máximo de escudos recibidos al ganar un combate
-    private static int SHIELDS_REWARD = 3;
+    private static final int SHIELDS_REWARD = 3;
 
     // Número máximo de unidades de salud recibidas al ganar un combate
-    private static int HEALTH_REWARD = 5;
+    private static final int HEALTH_REWARD = 5;
 
     // Máxima potencia de las armas
-    private static int MAX_ATTACK = 3;
+    private static final int MAX_ATTACK = 3;
 
     // Máxima potencia de los escudos
-    private static int MAX_SHIELD = 2;
+    private static final int MAX_SHIELD = 2;
     
-    // Generado de números aleatorios
-    private static Random generator = new Random();
+    // Generador de números aleatorios
+    private static final Random generator = new Random();
     
     /**
      * Genera una fila o columna aleatoria en el tablero
