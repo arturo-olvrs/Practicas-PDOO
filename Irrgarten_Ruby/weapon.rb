@@ -14,7 +14,7 @@ class Weapon
     #
     # @param power poder del arma
     # @param uses usos que tiene el arma
-    def initialize(power=0, uses=0)
+    def initialize(power, uses)
         @power = power
         @uses = uses
     end
@@ -27,9 +27,9 @@ class Weapon
     def attack
         if @uses > 0
             @uses -= 1
-            @power
+            return @power
         else
-            0 
+            return 0 
         end
     end
 
@@ -37,7 +37,7 @@ class Weapon
     # 
     # @return devuelve true o false si se descarta o no
     def discard
-        Dice.dicard_element(@uses)
+         return Dice.dicard_element(@uses)
     end
 
     # Método que muestra en una cadena el estado del arma, en cuanto a 
@@ -45,7 +45,7 @@ class Weapon
     #
     # @return devuelve una cadena que muestra usos y poder del arma
     def to_s
-        "W[#{@power}, #{@uses}]"
+        return "W[#{@power}, #{@uses}]"
     end
 
 end

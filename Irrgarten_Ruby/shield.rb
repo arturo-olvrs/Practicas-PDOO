@@ -14,7 +14,7 @@ class Shield
     #
     # @param protection protección del escudo
     # @param uses usos que tiene el escudo
-    def initialize(protection=0, uses=0)
+    def initialize(protection, uses)
         @protection = protection
         @uses = uses
     end
@@ -27,9 +27,9 @@ class Shield
     def attack
         if @uses > 0
             @uses -= 1
-            @protection
+            return @protection
         else
-            0 
+            return 0 
         end
     end
 
@@ -37,7 +37,7 @@ class Shield
     # 
     # @return devuelve true o false si se descarta o no
     def discard
-        Dice.dicard_element(@uses)
+        return Dice.dicard_element(@uses)
     end
 
     # Método que muestra en una cadena el estado del escudo, en cuanto a 
@@ -45,7 +45,7 @@ class Shield
     #
     # @return devuelve una cadena que muestra usos y protección del escudo
     def to_s
-        "S[#{@protection}, #{@uses}]"
+        return "S[#{@protection}, #{@uses}]"
     end
 
 end
