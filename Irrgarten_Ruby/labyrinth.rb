@@ -1,6 +1,4 @@
 module Irrgarten
-# Author: Joaquin Avilés de la Fuente
-# Author: Arturo Olivares Martos
 
 require_relative 'dice'
 # require_relative 'player' # No hace falta
@@ -8,9 +6,10 @@ require_relative 'dice'
 require_relative 'directions'
 require_relative 'orientation' # // TODO: Hace falta orientation.rb?
 
-    # Clase Labyrinth
-    # 
-    # Clase que representa el tablero en sí, el laberinto del juego
+    # Clase que representa el tablero en sí, el laberinto del juego.
+    #
+    # @author Joaquin Avilés de la Fuente
+    # @author Arturo Olivares Martos
     class Labyrinth
         
         @@BLOCK_CHAR = 'X'      # Caracter que representa un obstáculo
@@ -171,6 +170,7 @@ require_relative 'orientation' # // TODO: Hace falta orientation.rb?
                     @labyrinth[row][col] = @@MONSTER_CHAR
                 else # Si no, pone la posición vacía
                     @labyrinth[row][col] = @@EMPTY_CHAR
+                end
             end
         end
         

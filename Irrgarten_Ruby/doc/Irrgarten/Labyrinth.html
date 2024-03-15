@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  Class: Irrgarten::Labyrinth
+  
+    &mdash; Documentation by YARD 0.9.26
+  
+</title>
+
+  <link rel="stylesheet" href="../css/style.css" type="text/css" />
+
+  <link rel="stylesheet" href="../css/common.css" type="text/css" />
+
+<script type="text/javascript">
+  pathId = "Irrgarten::Labyrinth";
+  relpath = '../';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div class="nav_wrap">
+      <iframe id="nav" src="../class_list.html?1"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="../_index.html">Index (L)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../Irrgarten.html" title="Irrgarten (module)">Irrgarten</a></span></span>
+     &raquo; 
+    <span class="title">Labyrinth</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="../class_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <div id="content"><h1>Class: Irrgarten::Labyrinth
+  
+  
+  
+</h1>
+<div class="box_info">
+  
+  <dl>
+    <dt>Inherits:</dt>
+    <dd>
+      <span class="inheritName">Object</span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next">Irrgarten::Labyrinth</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+    </dd>
+  </dl>
+  
+
+  
+  
+  
+  
+  
+
+  
+
+  
+  <dl>
+    <dt>Defined in:</dt>
+    <dd>labyrinth.rb</dd>
+  </dl>
+  
+</div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>Clase que representa el tablero en sí, el laberinto del juego.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Author:</p>
+<ul class="author">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'>
+<p>Joaquin Avilés de la Fuente</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'>
+<p>Arturo Olivares Martos</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div>
+  
+    <h2>
+      Constant Summary
+      <small><a href="#" class="constants_summary_toggle">collapse</a></small>
+    </h2>
+
+    <dl class="constants">
+      
+        <dt id="BLOCK_CHAR-classvariable" class="">@@BLOCK_CHAR =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>Caracter que representa un obstáculo</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>X</span><span class='tstring_end'>&#39;</span></span></pre></dd>
+      
+        <dt id="EMPTY_CHAR-classvariable" class="">@@EMPTY_CHAR =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>Caracter que representa un espacio vacío</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>-</span><span class='tstring_end'>&#39;</span></span></pre></dd>
+      
+        <dt id="MONSTER_CHAR-classvariable" class="">@@MONSTER_CHAR =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>Caracter que representa un monstruo</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>M</span><span class='tstring_end'>&#39;</span></span></pre></dd>
+      
+        <dt id="COMBAT_CHAR-classvariable" class="">@@COMBAT_CHAR =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>Caracter que representa un combate</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>C</span><span class='tstring_end'>&#39;</span></span></pre></dd>
+      
+        <dt id="EXIT_CHAR-classvariable" class="">@@EXIT_CHAR =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>Caracter que representa la salida</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>E</span><span class='tstring_end'>&#39;</span></span></pre></dd>
+      
+        <dt id="ROW-classvariable" class="">@@ROW =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>Variables de clase que representan la fila y columna actual en la que se está trabajando</p>
+
+<pre class="code ruby"><code class="ruby">Para no acceder directamente con 0 y 1.
+Evita así errores de que se de primero la columna y luego la fila.
+</code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='int'>0</span></pre></dd>
+      
+        <dt id="COL-classvariable" class="">@@COL =
+          
+        </dt>
+        <dd><pre class="code"><span class='int'>1</span></pre></dd>
+      
+    </dl>
+  
+
+
+
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small><a href="#" class="summary_toggle">collapse</a></small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#add_block-instance_method" title="#add_block (instance method)">#<strong>add_block</strong>(orientation, start_row, start_col, length)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#add_monster-instance_method" title="#add_monster (instance method)">#<strong>add_monster</strong>(row, col, monster)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Si la posición suministrada está dentro del tablero y está vacía,       anota en el laberinto la presencia de un monstruo, guarda la referencia del monstruo en el       atributo contenedor adecuado e indica al monstruo cual es su posición actual (setPos).</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#have_a_winner-instance_method" title="#have_a_winner (instance method)">#<strong>have_a_winner</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Devuelve true si hay un jugador en la casilla de salida y false si no hay ninguno.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>(n_rows, n_cols, exit_row, exit_col)  &#x21d2; Labyrinth </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Constructor de la clase Labyrinth.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#put_player-instance_method" title="#put_player (instance method)">#<strong>put_player</strong>(direction, player)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#spread_players-instance_method" title="#spread_players (instance method)">#<strong>spread_players</strong>(players)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#to_s-instance_method" title="#to_s (instance method)">#<strong>to_s</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Método que genera una cadena de caracteres con la información del laberinto.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#valid_moves-instance_method" title="#valid_moves (instance method)">#<strong>valid_moves</strong>(row, col)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+<div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <h3 class="signature first" id="initialize-instance_method">
+  
+    #<strong>initialize</strong>(n_rows, n_cols, exit_row, exit_col)  &#x21d2; <tt><span class='object_link'><a href="" title="Irrgarten::Labyrinth (class)">Labyrinth</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Constructor de la clase Labyrinth. Inicializa los atributos de la clase.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>n_rows</span>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>número de filas del laberinto</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>n_cols</span>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>número de columnas del laberinto</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>exit_row</span>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>fila de la salida</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>exit_col</span>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>columna de la salida</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'labyrinth.rb', line 33</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_n_rows'>n_rows</span><span class='comma'>,</span> <span class='id identifier rubyid_n_cols'>n_cols</span><span class='comma'>,</span> <span class='id identifier rubyid_exit_row'>exit_row</span><span class='comma'>,</span> <span class='id identifier rubyid_exit_col'>exit_col</span><span class='rparen'>)</span>
+    <span class='ivar'>@n_rows</span> <span class='op'>=</span> <span class='id identifier rubyid_n_rows'>n_rows</span><span class='period'>.</span><span class='id identifier rubyid_to_i'>to_i</span>
+    <span class='ivar'>@n_cols</span> <span class='op'>=</span> <span class='id identifier rubyid_n_cols'>n_cols</span><span class='period'>.</span><span class='id identifier rubyid_to_i'>to_i</span>
+    <span class='ivar'>@exit_row</span> <span class='op'>=</span> <span class='id identifier rubyid_exit_row'>exit_row</span><span class='period'>.</span><span class='id identifier rubyid_to_i'>to_i</span>
+    <span class='ivar'>@exit_col</span> <span class='op'>=</span> <span class='id identifier rubyid_exit_col'>exit_col</span><span class='period'>.</span><span class='id identifier rubyid_to_i'>to_i</span>
+
+    <span class='ivar'>@monsters</span>  <span class='op'>=</span> <span class='const'>Array</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='ivar'>@n_rows</span><span class='rparen'>)</span> <span class='lbrace'>{</span><span class='const'>Array</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='ivar'>@n_cols</span><span class='rparen'>)</span><span class='rbrace'>}</span> <span class='comment'># Matriz de monstruos
+</span>    <span class='ivar'>@players</span>   <span class='op'>=</span> <span class='const'>Array</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='ivar'>@n_rows</span><span class='rparen'>)</span> <span class='lbrace'>{</span><span class='const'>Array</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='ivar'>@n_cols</span><span class='rparen'>)</span><span class='rbrace'>}</span> <span class='comment'># Matriz de jugadores
+</span>    <span class='ivar'>@labyrinth</span> <span class='op'>=</span> <span class='const'>Array</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='ivar'>@n_rows</span><span class='rparen'>)</span> <span class='lbrace'>{</span><span class='const'>Array</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='ivar'>@n_cols</span><span class='comma'>,</span> <span class='cvar'>@@EMPTY_CHAR</span><span class='rparen'>)</span><span class='rbrace'>}</span> <span class='comment'># Matriz del laberinto. Valor por defecto: @@EMPTY_CHAR
+</span>
+    <span class='ivar'>@labyrinth</span><span class='lbracket'>[</span><span class='id identifier rubyid_exit_row'>exit_row</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='id identifier rubyid_exit_col'>exit_col</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='cvar'>@@EXIT_CHAR</span> <span class='comment'># Pone la salida en el laberinto
+</span><span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="add_block-instance_method">
+  
+    #<strong>add_block</strong>(orientation, start_row, start_col, length)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+92
+93
+94</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'labyrinth.rb', line 92</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_add_block'>add_block</span><span class='lparen'>(</span><span class='id identifier rubyid_orientation'>orientation</span><span class='comma'>,</span> <span class='id identifier rubyid_start_row'>start_row</span><span class='comma'>,</span> <span class='id identifier rubyid_start_col'>start_col</span><span class='comma'>,</span> <span class='id identifier rubyid_length'>length</span><span class='rparen'>)</span>
+    <span class='comment'># Sig. Práctica
+</span><span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="add_monster-instance_method">
+  
+    #<strong>add_monster</strong>(row, col, monster)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Si la posición suministrada está dentro del tablero y está vacía,</p>
+
+<pre class="code ruby"><code class="ruby">anota en el laberinto la presencia de un monstruo, guarda la referencia del monstruo en el
+atributo contenedor adecuado e indica al monstruo cual es su posición actual (setPos).
+</code></pre>
+
+<p>Si la posición no está vacía, no hace nada.</p>
+
+<p>Si la posición no está dentro del tablero, no hace nada.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>row</span>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>fila de la posición</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>col</span>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>columna de la posición</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>monster</span>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>monstruo a añadir</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+80
+81
+82
+83
+84
+85
+86</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'labyrinth.rb', line 80</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_add_monster'>add_monster</span><span class='lparen'>(</span><span class='id identifier rubyid_row'>row</span><span class='comma'>,</span> <span class='id identifier rubyid_col'>col</span><span class='comma'>,</span> <span class='id identifier rubyid_monster'>monster</span><span class='rparen'>)</span>
+    <span class='kw'>if</span> <span class='lparen'>(</span><span class='id identifier rubyid_pos_ok'>pos_ok</span><span class='lparen'>(</span><span class='id identifier rubyid_row'>row</span><span class='comma'>,</span> <span class='id identifier rubyid_col'>col</span><span class='rparen'>)</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_empty_pos'>empty_pos</span><span class='lparen'>(</span><span class='id identifier rubyid_row'>row</span><span class='comma'>,</span> <span class='id identifier rubyid_col'>col</span><span class='rparen'>)</span><span class='rparen'>)</span>
+        <span class='ivar'>@labyrinth</span><span class='lbracket'>[</span><span class='id identifier rubyid_row'>row</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='id identifier rubyid_col'>col</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='cvar'>@@MONSTER_CHAR</span>
+        <span class='id identifier rubyid_monster'>monster</span><span class='period'>.</span><span class='id identifier rubyid_pos'>pos</span><span class='lparen'>(</span><span class='id identifier rubyid_row'>row</span><span class='comma'>,</span> <span class='id identifier rubyid_col'>col</span><span class='rparen'>)</span>
+        <span class='ivar'>@monsters</span><span class='lbracket'>[</span><span class='id identifier rubyid_row'>row</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='id identifier rubyid_col'>col</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_monster'>monster</span>
+    <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="have_a_winner-instance_method">
+  
+    #<strong>have_a_winner</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Devuelve true si hay un jugador en la casilla de salida y false si no hay ninguno.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+52
+53
+54</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'labyrinth.rb', line 52</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_have_a_winner'>have_a_winner</span>
+    <span class='kw'>return</span> <span class='ivar'>@players</span><span class='lbracket'>[</span><span class='id identifier rubyid_exit_row'>exit_row</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='id identifier rubyid_exit_col'>exit_col</span><span class='rbracket'>]</span> <span class='op'>!=</span> <span class='kw'>nil</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="put_player-instance_method">
+  
+    #<strong>put_player</strong>(direction, player)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+88
+89
+90</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'labyrinth.rb', line 88</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_put_player'>put_player</span><span class='lparen'>(</span><span class='id identifier rubyid_direction'>direction</span><span class='comma'>,</span> <span class='id identifier rubyid_player'>player</span><span class='rparen'>)</span>
+    <span class='comment'># Sig. Práctica
+</span><span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="spread_players-instance_method">
+  
+    #<strong>spread_players</strong>(players)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+47
+48
+49</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'labyrinth.rb', line 47</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_spread_players'>spread_players</span><span class='lparen'>(</span><span class='id identifier rubyid_players'>players</span><span class='rparen'>)</span>
+    <span class='comment'># Sig. Práctica
+</span><span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="to_s-instance_method">
+  
+    #<strong>to_s</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Método que genera una cadena de caracteres con la información del laberinto</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        
+        <div class='inline'>
+<p>cadena de caracteres con la información del laberinto</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'labyrinth.rb', line 59</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_to_s'>to_s</span>
+    <span class='ivar'>@labyrinth</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_row'>row</span><span class='op'>|</span>
+        <span class='id identifier rubyid_row'>row</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_cell'>cell</span><span class='op'>|</span>
+            <span class='id identifier rubyid_print'>print</span> <span class='id identifier rubyid_cell'>cell</span>
+        <span class='kw'>end</span>
+        <span class='id identifier rubyid_print'>print</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span>
+    <span class='kw'>end</span>
+
+    <span class='comment'># // TODO: Imprimir también la posición de los jugadores? Esperar a ver qué se tiene en @players
+</span><span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="valid_moves-instance_method">
+  
+    #<strong>valid_moves</strong>(row, col)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+96
+97
+98</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'labyrinth.rb', line 96</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_valid_moves'>valid_moves</span><span class='lparen'>(</span><span class='id identifier rubyid_row'>row</span><span class='comma'>,</span> <span class='id identifier rubyid_col'>col</span><span class='rparen'>)</span>
+    <span class='comment'># Sig. Práctica
+</span><span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+      <div id="footer">
+  Generated by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.26 (ruby-3.0.2).
+</div>
+
+    </div>
+  </body>
+</html>

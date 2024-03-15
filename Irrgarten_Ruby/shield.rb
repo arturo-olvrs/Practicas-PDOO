@@ -1,14 +1,12 @@
 module Irrgarten
-# Author: Joaquín Avilés de la Fuente
-# Author: Arturo Olivares Martos
 
     require_relative 'dice'
 
-    # Clase Shield
-    # 
     # Esta clase representa los escudos que utiliza el jugador en las defensas
     # durante los combates.
-
+    #
+    # @author Joaquin Avilés de la Fuente
+    # @author Arturo Olivares Martos
     class Shield
 
         # Constructor de la clase

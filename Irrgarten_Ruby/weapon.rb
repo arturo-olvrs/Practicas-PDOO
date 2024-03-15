@@ -1,14 +1,12 @@
 module Irrgarten
-# Author: Joaquin Avilés de la Fuente
-# Author: Arturo Olivares Martos
 
 require_relative 'dice'
 
-    # Clase Weapon
-    # 
     # Esta clase representa las armas que utiliza el jugador en los ataques
     # durante los combates.
-
+    #
+    # @author Joaquin Avilés de la Fuente
+    # @author Arturo Olivares Martos
     class Weapon
 
         # Constructor de la clase

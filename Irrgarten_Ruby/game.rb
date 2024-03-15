@@ -1,6 +1,8 @@
+# Este módulo principal contiene las clases y módulos que representan el juego **Irrgarten**.
+#
+# @author Joaquin Avilés de la Fuente
+# @author Arturo Olivares Martos
 module Irrgarten
-# Author: Joaquin Avilés de la Fuente
-# Author: Arturo Olivares Martos
 
 require_relative 'dice'
 require_relative 'player'
@@ -10,17 +12,23 @@ require_relative 'game_state'
 require_relative 'game_character'   # // TODO: Hace falta game_character.rb?
 require_relative 'orientation'
 
-    # Clase Game
-    # 
-    # Clase que representa el estado del juego en sí
+    # Clase que representa el juego Irrgarten. Esta clase se encarga de gestionar el estado del juego,
+    # las acciones de los jugadores y los monstruos, y de generar un estado del juego que pueda ser
+    # consultado por la interfaz de usuario.
+    #
+    # @author Joaquin Avilés de la Fuente
+    # @author Arturo Olivares Martos
     class Game
         @@MAX_ROUNDS = 10 # Número máximo de rondas de cada combate
 
 
-        #------------PERSONALIZAR----------------
+        ####------------PERSONALIZAR----------------
+
+
         @@ROWS = 10 # Número de filas del laberinto
         @@COLS = 10 # Número de columnas del laberinto
 
+        # Información de los monstruos a añadir al laberinto
         @@MONSTER_INIT = [
             ["Monster 0", 0, 0],
             ["Monster 1", 1, 1],
@@ -28,17 +36,18 @@ require_relative 'orientation'
             ["Monster 3", 3, 3]
         ]
 
+        # Información de los bloques de obstáculos a añadir al laberinto
         @@BLOCKS = [
             [Orientation::HORIZONTAL,   0, 0,   3],
             [Orientation::VERTICAL,     0, 1,   4],
             [Orientation::HORIZONTAL,   3, 0,   8],
             [Orientation::VERTICAL,     2, 2,   5]
         ]
-        #----------------------------------------
+        ####----------------------------------------
 
         # Constructor de la clase Game. Inicializa los atributos de la clase.
         #
-        # @param n_players número de jugadores
+        # @param n_players [int] número de jugadores
         def initialize(n_players)
             @players = Array.new
             @monsters = Array.new
@@ -62,17 +71,20 @@ require_relative 'orientation'
         end
 
         # Delega en el método del laberinto que indica si hay un ganador.
+        #
+        # @return [boolean] **true** si hay un ganador, **false** en caso contrario
         def finished
             return @labyrinth.have_a_winner
         end
 
-        def next_step(preferred_direction)
+
+        #def next_step(preferred_direction)
             # Sig. Práctica
-        end
+        #end
 
         # Genera una instancia de GameState integrando toda la información del estado del juego.
         #
-        # @return GameState con la información del estado del juego
+        # @return [GameState] con la información del estado del juego
         def game_state
             players_str = ""
             @players.each do |player|

@@ -1,15 +1,14 @@
 module Irrgarten
-# Author: Joaquin Avilés de la Fuente
-# Author: Arturo Olivares Martos
 
 require_relative 'dice'
 require_relative 'weapon'
 require_relative 'shield'
 require_relative 'directions'
 
-    # Clase Player
-    # 
-    # Clase que representa al jugador del juego
+    # Clase que representa al jugador del juego.
+    #
+    # @author Joaquin Avilés de la Fuente
+    # @author Arturo Olivares Martos
     class Player
         
         @@MAX_WEAPONS = 2       # Número máximo de armas que puede tener un jugador

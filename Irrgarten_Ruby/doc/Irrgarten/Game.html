@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  Class: Irrgarten::Game
+  
+    &mdash; Documentation by YARD 0.9.26
+  
+</title>
+
+  <link rel="stylesheet" href="../css/style.css" type="text/css" />
+
+  <link rel="stylesheet" href="../css/common.css" type="text/css" />
+
+<script type="text/javascript">
+  pathId = "Irrgarten::Game";
+  relpath = '../';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div class="nav_wrap">
+      <iframe id="nav" src="../class_list.html?1"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="../_index.html">Index (G)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../Irrgarten.html" title="Irrgarten (module)">Irrgarten</a></span></span>
+     &raquo; 
+    <span class="title">Game</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="../class_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <div id="content"><h1>Class: Irrgarten::Game
+  
+  
+  
+</h1>
+<div class="box_info">
+  
+  <dl>
+    <dt>Inherits:</dt>
+    <dd>
+      <span class="inheritName">Object</span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next">Irrgarten::Game</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+    </dd>
+  </dl>
+  
+
+  
+  
+  
+  
+  
+
+  
+
+  
+  <dl>
+    <dt>Defined in:</dt>
+    <dd>game.rb</dd>
+  </dl>
+  
+</div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>Clase que representa el juego Irrgarten. Esta clase se encarga de gestionar el estado del juego, las acciones de los jugadores y los monstruos, y de generar un estado del juego que pueda ser consultado por la interfaz de usuario.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Author:</p>
+<ul class="author">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'>
+<p>Joaquin Avilés de la Fuente</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'>
+<p>Arturo Olivares Martos</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div>
+  
+    <h2>
+      Constant Summary
+      <small><a href="#" class="constants_summary_toggle">collapse</a></small>
+    </h2>
+
+    <dl class="constants">
+      
+        <dt id="MAX_ROUNDS-classvariable" class="">@@MAX_ROUNDS =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>Número máximo de rondas de cada combate</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='int'>10</span></pre></dd>
+      
+        <dt id="ROWS-classvariable" class="">@@ROWS =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>Número de filas del laberinto</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='int'>10</span></pre></dd>
+      
+        <dt id="COLS-classvariable" class="">@@COLS =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>Número de columnas del laberinto</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='int'>10</span></pre></dd>
+      
+        <dt id="MONSTER_INIT-classvariable" class="">@@MONSTER_INIT =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>Información de los monstruos a añadir al laberinto</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='lbracket'>[</span>
+    <span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Monster 0</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='int'>0</span><span class='comma'>,</span> <span class='int'>0</span><span class='rbracket'>]</span><span class='comma'>,</span>
+    <span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Monster 1</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='int'>1</span><span class='comma'>,</span> <span class='int'>1</span><span class='rbracket'>]</span><span class='comma'>,</span>
+    <span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Monster 2</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='int'>2</span><span class='comma'>,</span> <span class='int'>2</span><span class='rbracket'>]</span><span class='comma'>,</span>
+    <span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Monster 3</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='int'>3</span><span class='comma'>,</span> <span class='int'>3</span><span class='rbracket'>]</span>
+<span class='rbracket'>]</span></pre></dd>
+      
+        <dt id="BLOCKS-classvariable" class="">@@BLOCKS =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>Información de los bloques de obstáculos a añadir al laberinto</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='lbracket'>[</span>
+    <span class='lbracket'>[</span><span class='const'><span class='object_link'><a href="Orientation.html" title="Irrgarten::Orientation (module)">Orientation</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Orientation.html#HORIZONTAL-constant" title="Irrgarten::Orientation::HORIZONTAL (constant)">HORIZONTAL</a></span></span><span class='comma'>,</span>   <span class='int'>0</span><span class='comma'>,</span> <span class='int'>0</span><span class='comma'>,</span>   <span class='int'>3</span><span class='rbracket'>]</span><span class='comma'>,</span>
+    <span class='lbracket'>[</span><span class='const'><span class='object_link'><a href="Orientation.html" title="Irrgarten::Orientation (module)">Orientation</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Orientation.html#VERTICAL-constant" title="Irrgarten::Orientation::VERTICAL (constant)">VERTICAL</a></span></span><span class='comma'>,</span>     <span class='int'>0</span><span class='comma'>,</span> <span class='int'>1</span><span class='comma'>,</span>   <span class='int'>4</span><span class='rbracket'>]</span><span class='comma'>,</span>
+    <span class='lbracket'>[</span><span class='const'><span class='object_link'><a href="Orientation.html" title="Irrgarten::Orientation (module)">Orientation</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Orientation.html#HORIZONTAL-constant" title="Irrgarten::Orientation::HORIZONTAL (constant)">HORIZONTAL</a></span></span><span class='comma'>,</span>   <span class='int'>3</span><span class='comma'>,</span> <span class='int'>0</span><span class='comma'>,</span>   <span class='int'>8</span><span class='rbracket'>]</span><span class='comma'>,</span>
+    <span class='lbracket'>[</span><span class='const'><span class='object_link'><a href="Orientation.html" title="Irrgarten::Orientation (module)">Orientation</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Orientation.html#VERTICAL-constant" title="Irrgarten::Orientation::VERTICAL (constant)">VERTICAL</a></span></span><span class='comma'>,</span>     <span class='int'>2</span><span class='comma'>,</span> <span class='int'>2</span><span class='comma'>,</span>   <span class='int'>5</span><span class='rbracket'>]</span>
+<span class='rbracket'>]</span></pre></dd>
+      
+    </dl>
+  
+
+
+
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small><a href="#" class="summary_toggle">collapse</a></small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#finished-instance_method" title="#finished (instance method)">#<strong>finished</strong>  &#x21d2; boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Delega en el método del laberinto que indica si hay un ganador.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#game_state-instance_method" title="#game_state (instance method)">#<strong>game_state</strong>  &#x21d2; GameState </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Genera una instancia de GameState integrando toda la información del estado del juego.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>(n_players)  &#x21d2; Game </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Constructor de la clase Game.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+<div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <h3 class="signature first" id="initialize-instance_method">
+  
+    #<strong>initialize</strong>(n_players)  &#x21d2; <tt><span class='object_link'><a href="" title="Irrgarten::Game (class)">Game</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Constructor de la clase Game. Inicializa los atributos de la clase.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>n_players</span>
+      
+      
+        <span class='type'>(<tt>int</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>número de jugadores</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'game.rb', line 51</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_n_players'>n_players</span><span class='rparen'>)</span>
+    <span class='ivar'>@players</span> <span class='op'>=</span> <span class='const'>Array</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
+    <span class='ivar'>@monsters</span> <span class='op'>=</span> <span class='const'>Array</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
+
+    <span class='comment'># Inicializa el array de jugadores
+</span>    <span class='id identifier rubyid_n_players'>n_players</span><span class='period'>.</span><span class='id identifier rubyid_times'>times</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_i'>i</span><span class='op'>|</span>
+        <span class='ivar'>@players</span><span class='period'>.</span><span class='id identifier rubyid_push'>push</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="Player.html" title="Irrgarten::Player (class)">Player</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Player.html#initialize-instance_method" title="Irrgarten::Player#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span><span class='comma'>,</span> <span class='const'><span class='object_link'><a href="Dice.html" title="Irrgarten::Dice (class)">Dice</a></span></span><span class='period'>.</span><span class='id identifier rubyid_random_intelligence'><span class='object_link'><a href="Dice.html#random_intelligence-class_method" title="Irrgarten::Dice.random_intelligence (method)">random_intelligence</a></span></span><span class='comma'>,</span> <span class='const'><span class='object_link'><a href="Dice.html" title="Irrgarten::Dice (class)">Dice</a></span></span><span class='period'>.</span><span class='id identifier rubyid_random_strength'><span class='object_link'><a href="Dice.html#random_strength-class_method" title="Irrgarten::Dice.random_strength (method)">random_strength</a></span></span><span class='rparen'>)</span><span class='rparen'>)</span>
+    <span class='kw'>end</span>
+
+    <span class='ivar'>@current_player_index</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="Dice.html" title="Irrgarten::Dice (class)">Dice</a></span></span><span class='period'>.</span><span class='id identifier rubyid_who_starts'><span class='object_link'><a href="Dice.html#who_starts-class_method" title="Irrgarten::Dice.who_starts (method)">who_starts</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_n_players'>n_players</span><span class='rparen'>)</span>  <span class='comment'># Índice del jugador que comienza la partida
+</span>    <span class='ivar'>@current_player</span> <span class='op'>=</span> <span class='ivar'>@players</span><span class='lbracket'>[</span><span class='ivar'>@current_player_index</span><span class='rbracket'>]</span>    <span class='comment'># Jugador que tiene el turno actual
+</span>
+    <span class='comment'># Inicializa el laberinto
+</span>    <span class='ivar'>@labyrinth</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="Labyrinth.html" title="Irrgarten::Labyrinth (class)">Labyrinth</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Labyrinth.html#initialize-instance_method" title="Irrgarten::Labyrinth#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='cvar'>@@ROWS</span><span class='comma'>,</span> <span class='cvar'>@@COLS</span><span class='comma'>,</span> <span class='const'><span class='object_link'><a href="Dice.html" title="Irrgarten::Dice (class)">Dice</a></span></span><span class='period'>.</span><span class='id identifier rubyid_random_pos'><span class='object_link'><a href="Dice.html#random_pos-class_method" title="Irrgarten::Dice.random_pos (method)">random_pos</a></span></span><span class='lparen'>(</span><span class='cvar'>@@ROWS</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='const'><span class='object_link'><a href="Dice.html" title="Irrgarten::Dice (class)">Dice</a></span></span><span class='period'>.</span><span class='id identifier rubyid_random_pos'><span class='object_link'><a href="Dice.html#random_pos-class_method" title="Irrgarten::Dice.random_pos (method)">random_pos</a></span></span><span class='lparen'>(</span><span class='cvar'>@@COLS</span><span class='rparen'>)</span><span class='rparen'>)</span>
+    <span class='ivar'>@labyrinth</span><span class='period'>.</span><span class='id identifier rubyid_configure_labyrinth'>configure_labyrinth</span><span class='lparen'>(</span><span class='rparen'>)</span>
+    <span class='ivar'>@labyrinth</span><span class='period'>.</span><span class='id identifier rubyid_spread_players'>spread_players</span><span class='lparen'>(</span><span class='ivar'>@players</span><span class='rparen'>)</span>
+    <span class='comment'># // TODO: Revisar orden de llamada
+</span>
+    <span class='ivar'>@log</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Game just started.\n</span><span class='tstring_end'>&quot;</span></span>
+
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="finished-instance_method">
+  
+    #<strong>finished</strong>  &#x21d2; <tt>boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Delega en el método del laberinto que indica si hay un ganador.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>boolean</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p><strong>true</strong> si hay un ganador, <strong>false</strong> en caso contrario</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+76
+77
+78</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'game.rb', line 76</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_finished'>finished</span>
+    <span class='kw'>return</span> <span class='ivar'>@labyrinth</span><span class='period'>.</span><span class='id identifier rubyid_have_a_winner'>have_a_winner</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="game_state-instance_method">
+  
+    #<strong>game_state</strong>  &#x21d2; <tt><span class='object_link'><a href="GameState.html" title="Irrgarten::GameState (class)">GameState</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Genera una instancia de GameState integrando toda la información del estado del juego.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="GameState.html" title="Irrgarten::GameState (class)">GameState</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>con la información del estado del juego</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'game.rb', line 88</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_game_state'>game_state</span>
+    <span class='id identifier rubyid_players_str'>players_str</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span>
+    <span class='ivar'>@players</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_player'>player</span><span class='op'>|</span>
+        <span class='id identifier rubyid_players_str'>players_str</span> <span class='op'>+=</span> <span class='id identifier rubyid_player'>player</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span>
+    <span class='kw'>end</span>
+
+    <span class='id identifier rubyid_monsters_str'>monsters_str</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span>
+    <span class='ivar'>@monsters</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_monster'>monster</span><span class='op'>|</span>
+        <span class='id identifier rubyid_monsters_str'>monsters_str</span> <span class='op'>+=</span> <span class='id identifier rubyid_monster'>monster</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span>
+    <span class='kw'>end</span>
+
+    <span class='kw'>return</span> <span class='const'><span class='object_link'><a href="GameState.html" title="Irrgarten::GameState (class)">GameState</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="GameState.html#initialize-instance_method" title="Irrgarten::GameState#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='ivar'>@labyrinth</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='comma'>,</span> <span class='id identifier rubyid_players_str'>players_str</span><span class='comma'>,</span> <span class='id identifier rubyid_monsters_str'>monsters_str</span><span class='comma'>,</span> <span class='id identifier rubyid_current_player_index'>current_player_index</span><span class='comma'>,</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_finished'>finished</span><span class='comma'>,</span> <span class='ivar'>@log</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+      <div id="footer">
+  Generated by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.26 (ruby-3.0.2).
+</div>
+
+    </div>
+  </body>
+</html>

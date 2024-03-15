@@ -1,9 +1,10 @@
 module Irrgarten
-# Author: Joaquín Avilés de la Fuente
-# Author: Arturo Olivares Martos
 
-    # Este módulo define las direcciones posibles de un 
-    # objeto en el tablero
+
+    # Este módulo define las direcciones posibles de un objeto en el tablero.
+    
+    # @author Joaquín Avilés de la Fuente
+    # @author Arturo Olivares Martos
     module Directions
         LEFT = :left
         RIGHT = :right

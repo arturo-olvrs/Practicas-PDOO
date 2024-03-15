@@ -1,13 +1,11 @@
 module Irrgarten
-# Author: Joaquin Avilés de la Fuente
-# Author: Arturo Olivares Martos
 
 require_relative 'dice'
 
-    # Clase Monster
-    # 
-    # Clase que representa a los monstruos del juego
-
+    # Clase que representa a los monstruos del juego.
+    #
+    # @author Joaquin Avilés de la Fuente
+    # @author Arturo Olivares Martos
     class Monster
         @@INITIAL_HEALTH = 5 # Salud inicial de los monstruos
 

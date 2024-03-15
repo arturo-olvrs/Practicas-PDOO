@@ -1,9 +1,9 @@
 module Irrgarten
-# Author: Joaquin Avilés de la Fuente
-# Author: Arturo Olivares Martos
 
-    # Este módulo define las orientaciones posibles de 
-    # un objeto en el tablero
+    # Este módulo define las orientaciones posibles de un objeto en el tablero.
+    #
+    # @author Joaquin Avilés de la Fuente
+    # @author Arturo Olivares Martos
     module Orientation
         VERTICAL = :vertical
         HORIZONTAL = :horizontal

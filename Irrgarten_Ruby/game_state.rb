@@ -1,14 +1,12 @@
 module Irrgarten
-# Author: Joaquín Avilés de la Fuente
-# Author: Arturo Olivares Martos
 
-    # Clase Game_State
-    # 
     # Esta clase permitirá, de forma muy sencilla, almacenar una representación del estado completo del
     # juego: el estado del laberinto, el estado de los jugadores, el estado de los monstruos, el índice del
     # jugador que tiene el turno, un indicador sobre si ya hay un ganador y un atributo adicional para
     # guardar en una cadena de caracteres eventos interesantes que hayan ocurrido desde el turno anterior.
-
+    #
+    # @author Joaquin Avilés de la Fuente
+    # @author Arturo Olivares Martos
     class GameState
         
         # Método que devuelve el estado del juego
