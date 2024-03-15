@@ -7,7 +7,7 @@ require_relative 'player'
 require_relative 'monster'
 require_relative 'labyrinth'
 require_relative 'game_state'
-require_relative 'game_character'
+require_relative 'game_character'   # // TODO: NO DUDA. Hace falta?
 require_relative 'orientation'
 
     # Clase Game
@@ -81,7 +81,7 @@ require_relative 'orientation'
             # // TODO: Cómo se imprimen los monsters, players y labyrinth
             # Se llama a finished o a winner
 
-            return game_state.new(labyrinth, players, current_player_index, self.finished, @log)
+            return GameState.new(labyrinth, players, current_player_index, self.finished, @log)
         end
 
         private

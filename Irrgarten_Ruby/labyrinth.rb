@@ -3,10 +3,10 @@ module Irrgarten
 # Author: Arturo Olivares Martos
 
 require_relative 'dice'
-require_relative 'player'
-require_relative 'monster'
+# require_relative 'player' # No hace falta
+# require_relative 'monster'  # No hace falta
 require_relative 'directions'
-require_relative 'orientation'
+require_relative 'orientation' # // TODO: NO DUDA. Hace falta?
 
     # Clase Labyrinth
     # 
