@@ -6,7 +6,7 @@ require_relative 'dice'
 # require_relative 'player' # No hace falta
 # require_relative 'monster'  # No hace falta
 require_relative 'directions'
-require_relative 'orientation' # // TODO: NO DUDA. Hace falta?
+require_relative 'orientation' # // TODO: Hace falta orientation.rb?
 
     # Clase Labyrinth
     # 
@@ -19,9 +19,11 @@ require_relative 'orientation' # // TODO: NO DUDA. Hace falta?
         @@COMBAT_CHAR = 'C'     # Caracter que representa un combate
         @@EXIT_CHAR = 'E'       # Caracter que representa la salida
 
+        # Variables de clase que representan la fila y columna actual en la que se está trabajando
+        #       Para no acceder directamente con 0 y 1.
+        #       Evita así errores de que se de primero la columna y luego la fila.
         @@ROW = 0
         @@COL = 1
-        # // TODO: Prgeuntar qué son @@ROW y @@COL
 
         # Constructor de la clase Labyrinth. Inicializa los atributos de la clase.
         #
@@ -30,10 +32,10 @@ require_relative 'orientation' # // TODO: NO DUDA. Hace falta?
         # @param exit_row fila de la salida
         # @param exit_col columna de la salida
         def initialize(n_rows, n_cols, exit_row, exit_col)
-            @n_rows = n_rows
-            @n_cols = n_cols
-            @exit_row = exit_row
-            @exit_col = exit_col
+            @n_rows = n_rows.to_i
+            @n_cols = n_cols.to_i
+            @exit_row = exit_row.to_i
+            @exit_col = exit_col.to_i
 
             @monsters  = Array.new(@n_rows) {Array.new(@n_cols)} # Matriz de monstruos
             @players   = Array.new(@n_rows) {Array.new(@n_cols)} # Matriz de jugadores
@@ -56,19 +58,21 @@ require_relative 'orientation' # // TODO: NO DUDA. Hace falta?
         #
         # @return cadena de caracteres con la información del laberinto
         def to_s
-            # // TODO: Qué debe representar en el to_s. Tb monsters y players?
             @labyrinth.each do |row|
                 row.each do |cell|
                     print cell
                 end
                 print "\n"
             end
+
+            # // TODO: Imprimir también la posición de los jugadores? Esperar a ver qué se tiene en @players
         end
 
         # Si la posición suministrada está dentro del tablero y está vacía,
         #       anota en el laberinto la presencia de un monstruo, guarda la referencia del monstruo en el
         #       atributo contenedor adecuado e indica al monstruo cual es su posición actual (setPos).
         # Si la posición no está vacía, no hace nada.
+        #
         # Si la posición no está dentro del tablero, no hace nada.
         #
         # @param row fila de la posición
@@ -77,10 +81,9 @@ require_relative 'orientation' # // TODO: NO DUDA. Hace falta?
         def add_monster(row, col, monster)
             if (pos_ok(row, col) && empty_pos(row, col))
                 @labyrinth[row][col] = @@MONSTER_CHAR
-                monster.pos = row, col
+                monster.pos(row, col)
                 @monsters[row][col] = monster
             end
-            # // TODO: Else??. QUé hacer si la pos no es correcta
         end
 
         def put_player(direction, player)
@@ -121,7 +124,6 @@ require_relative 'orientation' # // TODO: NO DUDA. Hace falta?
         # @return true si la posición suministrada alberga exclusivamente un monstruo y false si no es así.
         def monster_pos(row, col)
             return (@labyrinth[row][col] == @@MONSTER_CHAR) # && (@players[row][col] == nil). No es necesario pq si está habrá un combate
-            # // TODO: Preguntar si es necesario el segundo condicional
         end
 
         # Método que indica si la posición suministrada es la de salida
@@ -205,7 +207,6 @@ require_relative 'orientation' # // TODO: NO DUDA. Hace falta?
                 row = Dice.rand(@n_rows)
                 col = Dice.rand(@n_cols)
             end while !empty_pos(row, col)
-            # // TODO: En el DC, pone que no depende del dado
 
             return row, col
         end

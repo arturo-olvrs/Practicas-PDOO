@@ -7,7 +7,7 @@ require_relative 'player'
 require_relative 'monster'
 require_relative 'labyrinth'
 require_relative 'game_state'
-require_relative 'game_character'   # // TODO: NO DUDA. Hace falta?
+require_relative 'game_character'   # // TODO: Hace falta game_character.rb?
 require_relative 'orientation'
 
     # Clase Game
@@ -18,11 +18,9 @@ require_relative 'orientation'
 
 
         #------------PERSONALIZAR----------------
-        # // TODO: Preguntar cómo definimos las dimensiones
         @@ROWS = 10 # Número de filas del laberinto
         @@COLS = 10 # Número de columnas del laberinto
 
-        # // TODO: Preguntar cómo definimos el número de monstruos
         @@MONSTER_INIT = [
             ["Monster 0", 0, 0],
             ["Monster 1", 1, 1],
@@ -30,7 +28,6 @@ require_relative 'orientation'
             ["Monster 3", 3, 3]
         ]
 
-        # // TODO: Preguntar cómo definimos los bloques
         @@BLOCKS = [
             [Orientation::HORIZONTAL,   0, 0,   3],
             [Orientation::VERTICAL,     0, 1,   4],
@@ -48,21 +45,20 @@ require_relative 'orientation'
 
             # Inicializa el array de jugadores
             n_players.times do |i|
-                # // TODO: Importante guardar i como char?
                 @players.push(Player.new(i, Dice.random_intelligence, Dice.random_strength))
             end
 
             @current_player_index = Dice.who_starts(n_players)  # Índice del jugador que comienza la partida
+            @current_player = @players[@current_player_index]    # Jugador que tiene el turno actual
 
             # Inicializa el laberinto
             @labyrinth = Labyrinth.new(@@ROWS, @@COLS, Dice.random_pos(@@ROWS), Dice.random_pos(@@COLS))
             @labyrinth.configure_labyrinth()
             @labyrinth.spread_players(@players)
-            # // TODO: NO DUDA. Revisar orden de llamada
+            # // TODO: Revisar orden de llamada
 
             @log = "Game just started.\n"
 
-            # // TODO: Por qué hay current_player
         end
 
         # Delega en el método del laberinto que indica si hay un ganador.
@@ -78,10 +74,17 @@ require_relative 'orientation'
         #
         # @return GameState con la información del estado del juego
         def game_state
-            # // TODO: Cómo se imprimen los monsters, players y labyrinth
-            # Se llama a finished o a winner
+            players_str = ""
+            @players.each do |player|
+                players_str += player.to_s + "\n"
+            end
 
-            return GameState.new(labyrinth, players, current_player_index, self.finished, @log)
+            monsters_str = ""
+            @monsters.each do |monster|
+                monsters_str += monster.to_s + "\n"
+            end
+
+            return GameState.new(@labyrinth.to_s, players_str, monsters_str, current_player_index, self.finished, @log)
         end
 
         private
@@ -112,6 +115,7 @@ require_relative 'orientation'
         # Actualiza los dos atributos que indican el jugador con el turno pasando al siguiente jugador.
         def next_player
             @current_player_index = (@current_player_index + 1) % @players.size
+            @current_player = @players[@current_player_index]
         end
 
         def actual_direction(preferred_direction)

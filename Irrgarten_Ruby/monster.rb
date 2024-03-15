@@ -21,8 +21,8 @@ require_relative 'dice'
         # @param strength Fuerza del monstruo
         def initialize(name, intelligence, strength)
             @name = name
-            @intelligence = intelligence
-            @strength = strength
+            @intelligence = intelligence.to_f
+            @strength = strength.to_f
             @health = @@INITIAL_HEALTH
 
             @row = @@INVALID_POS
@@ -50,10 +50,11 @@ require_relative 'dice'
 
         # Modificador de la posición del monstruo
         #
-        # @param coords coordenadas de la posición del monstruo
-        def pos=(coords)
-            @row, @col = coords
-            # // TODO: Preguntar cómo se pone. Si hay que cambiarlo, cambiar en todo
+        # @param row fila de la posición del monstruo
+        # @param col columna de la posición del monstruo
+        def pos(row, col)
+            @row = row
+            @col = col
         end
 
         # Método que genera una cadena de caracteres con la información del monstruo

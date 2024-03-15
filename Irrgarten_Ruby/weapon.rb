@@ -16,8 +16,8 @@ require_relative 'dice'
         # @param power poder del arma
         # @param uses usos que tiene el arma
         def initialize(power, uses)
-            @power = power
-            @uses = uses
+            @power = power.to_f
+            @uses = uses.to_i
         end
 
         # Método que devuelve el poder del arma y decrementa 

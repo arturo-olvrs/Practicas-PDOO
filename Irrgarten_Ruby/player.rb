@@ -17,7 +17,7 @@ require_relative 'directions'
         @@INITIAL_HEALTH = 10   # Salud inicial de los jugadores
         @@HITS2LOSE = 3         # Número de golpes que puede recibir un jugador antes de morir
 
-        @@INVALID_POS = -1 # Posición inválida
+        @@INVALID_POS = -1      # Posición inválida
         
         # Constructor de la clase Player. Inicializa los atributos de la clase.
         # La posición inicial del jugador es inválida
@@ -26,17 +26,17 @@ require_relative 'directions'
         # @param intelligence Inteligencia del jugador
         # @param strength Fuerza del jugador
         def initialize(number, intelligence, strength)
-            @number = number # // TODO: Por qué es char en vez de int
+            @number = number
             @name = "Player #{@number}"
-            @intelligence = intelligence
-            @strength = strength
-            # // TODO: ¿En todos los constructores se debe poner to_i o to_f por si se pasa otra cosa?
-            # Qué pasa si espera float y recibe 3 en vez de 3.0
+            @intelligence = intelligence.to_f
+            @strength = strength.to_f
             @health = @@INITIAL_HEALTH
             @weapons = Array.new           # Array de armas
             @shields = Array.new           # Array de escudos
+
             @row = @@INVALID_POS
             @col = @@INVALID_POS
+
             @consecutive_hits = 0   # Número de golpes consecutivos recibidos. Al crearse está en 0
         end
 
@@ -54,10 +54,11 @@ require_relative 'directions'
 
         # Modificador de la posición del jugador
         #
-        # @param coords coordenadas de la posición del jugador
-        def pos=(coords)
-            @row, @col = coords
-            # // TODO: Preguntar cómo se pone. Si hay que cambiarlo, cambiar en todo
+        # @param row fila de la posición del jugador
+        # @param col columna de la posición del jugador
+        def pos(row, col)
+            @row = row
+            @col = col
         end
 
         # Método que informa sobre si un jugador ha muerto o no.
@@ -107,17 +108,15 @@ require_relative 'directions'
         end
 
         # Método que genera una nueva arma
-        # // TODO: La añade a la lista de armas?
         #
-        # @return devuelve un nuevo objeto de tipo Weapon
+        # @return devuelve un nuevo objeto de tipo Weapon. NO lo añade a la lista de armas
         def new_weapon
             return Weapon.new(Dice.weapon_power, Dice.uses_left)
         end
 
         # Método que genera un nuevo escudo
-        # // TODO: La añade a la lista de escudos?
         #
-        # @return devuelve un nuevo objeto de tipo Shield
+        # @return devuelve un nuevo objeto de tipo Shield. NO lo añade a la lista de escudos
         def new_shield
             return Shield.new(Dice.shield_power, Dice.uses_left)
         end

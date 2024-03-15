@@ -6,7 +6,6 @@ module Irrgarten
     # 
     # Esta clase se encargará de tomar las decisiones relazionadas con el azar del juego
 
-    # // TODO: Por qué depende de directions
     
     class Dice
         @@MAX_USES = 5 # Número máximo de usos de armas y escudos

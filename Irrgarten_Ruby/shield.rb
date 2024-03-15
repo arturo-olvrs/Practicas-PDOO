@@ -16,8 +16,8 @@ module Irrgarten
         # @param protection protección del escudo
         # @param uses usos que tiene el escudo
         def initialize(protection, uses)
-            @protection = protection
-            @uses = uses
+            @protection = protection.to_f
+            @uses = uses.to_i
         end
 
         # Método que devuelve la protección del escudo y decrementa 
