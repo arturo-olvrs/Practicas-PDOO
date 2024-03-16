@@ -6,7 +6,7 @@
 <title>
   Class: Irrgarten::GameState
   
-    &mdash; Documentation by YARD 0.9.26
+    &mdash; Documentation by YARD 0.9.36
   
 </title>
 
@@ -148,7 +148,7 @@
       <li class="public ">
   <span class="summary_signature">
     
-      <a href="#current_player-instance_method" title="#current_player (instance method)">#<strong>current_player</strong>  &#x21d2; Object </a>
+      <a href="#current_player-instance_method" title="#current_player (instance method)">#<strong>current_player</strong>  &#x21d2; int </a>
     
 
     
@@ -168,7 +168,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Método que devuelve el estado de cada atributo del juego.</p>
+<p>Método que devuelve el índice del jugador que tiene el turno.</p>
 </div></span>
   
 </li>
@@ -177,7 +177,7 @@
       <li class="public ">
   <span class="summary_signature">
     
-      <a href="#labyrinth-instance_method" title="#labyrinth (instance method)">#<strong>labyrinth</strong>  &#x21d2; Object </a>
+      <a href="#labyrinth-instance_method" title="#labyrinth (instance method)">#<strong>labyrinth</strong>  &#x21d2; String </a>
     
 
     
@@ -197,7 +197,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Método que devuelve el estado de cada atributo del juego.</p>
+<p>Método que devuelve el estado del laberinto.</p>
 </div></span>
   
 </li>
@@ -206,7 +206,7 @@
       <li class="public ">
   <span class="summary_signature">
     
-      <a href="#log-instance_method" title="#log (instance method)">#<strong>log</strong>  &#x21d2; Object </a>
+      <a href="#log-instance_method" title="#log (instance method)">#<strong>log</strong>  &#x21d2; String </a>
     
 
     
@@ -226,7 +226,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Método que devuelve el estado de cada atributo del juego.</p>
+<p>Método que devuelve la cadena de caracteres con eventos interesantes.</p>
 </div></span>
   
 </li>
@@ -235,7 +235,7 @@
       <li class="public ">
   <span class="summary_signature">
     
-      <a href="#monsters-instance_method" title="#monsters (instance method)">#<strong>monsters</strong>  &#x21d2; Object </a>
+      <a href="#monsters-instance_method" title="#monsters (instance method)">#<strong>monsters</strong>  &#x21d2; String </a>
     
 
     
@@ -255,7 +255,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Método que devuelve el estado de cada atributo del juego.</p>
+<p>Método que devuelve el estado de los monstruos.</p>
 </div></span>
   
 </li>
@@ -264,7 +264,7 @@
       <li class="public ">
   <span class="summary_signature">
     
-      <a href="#players-instance_method" title="#players (instance method)">#<strong>players</strong>  &#x21d2; Object </a>
+      <a href="#players-instance_method" title="#players (instance method)">#<strong>players</strong>  &#x21d2; String </a>
     
 
     
@@ -284,7 +284,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Método que devuelve el estado de cada atributo del juego.</p>
+<p>Método que devuelve el estado de los jugadores.</p>
 </div></span>
   
 </li>
@@ -293,7 +293,7 @@
       <li class="public ">
   <span class="summary_signature">
     
-      <a href="#winner-instance_method" title="#winner (instance method)">#<strong>winner</strong>  &#x21d2; Object </a>
+      <a href="#winner-instance_method" title="#winner (instance method)">#<strong>winner</strong>  &#x21d2; boolean </a>
     
 
     
@@ -313,7 +313,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Método que devuelve el estado de cada atributo del juego.</p>
+<p>Método que devuelve si hay un ganador o no.</p>
 </div></span>
   
 </li>
@@ -382,7 +382,107 @@
   </div>
 </div>
 <div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
   
+    <li>
+      
+        <span class='name'>labyrinth</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>estado del laberinto</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>players</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>estado de los jugadores</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>monsters</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>estado de los monstruos</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>current_player</span>
+      
+      
+        <span class='type'>(<tt>int</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>índice del jugador que tiene el turno</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>winner</span>
+      
+      
+        <span class='type'>(<tt>boolean</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Indica si hay ya un ganador o no</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>log</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>cadena de caracteres con eventos interesantes</p>
+</div>
+      
+    </li>
+  
+</ul>
+
 
 </div><table class="source_code">
   <tr>
@@ -390,17 +490,17 @@
       <pre class="lines">
 
 
-15
-16
-17
-18
-19
-20
-21
-22</pre>
+22
+23
+24
+25
+26
+27
+28
+29</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'game_state.rb', line 15</span>
+      <pre class="code"><span class="info file"># File 'game_state.rb', line 22</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span> <span class='lparen'>(</span><span class='id identifier rubyid_labyrinth'>labyrinth</span><span class='comma'>,</span> <span class='id identifier rubyid_players'>players</span><span class='comma'>,</span> <span class='id identifier rubyid_monsters'>monsters</span><span class='comma'>,</span> <span class='id identifier rubyid_current_player'>current_player</span><span class='comma'>,</span> <span class='id identifier rubyid_winner'>winner</span><span class='comma'>,</span> <span class='id identifier rubyid_log'>log</span><span class='rparen'>)</span>
     <span class='ivar'>@labyrinth</span><span class='op'>=</span><span class='id identifier rubyid_labyrinth'>labyrinth</span>
@@ -425,7 +525,7 @@
       <div class="method_details first">
   <h3 class="signature first" id="current_player-instance_method">
   
-    #<strong>current_player</strong>  &#x21d2; <tt>Object</tt>  <span class="extras">(readonly)</span>
+    #<strong>current_player</strong>  &#x21d2; <tt>int</tt>  <span class="extras">(readonly)</span>
   
 
   
@@ -434,13 +534,31 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Método que devuelve el estado de cada atributo del juego</p>
+<p>Método que devuelve el índice del jugador que tiene el turno</p>
 
 
   </div>
 </div>
 <div class="tags">
   
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>int</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Devuelve el índice del jugador que tiene el turno</p>
+</div>
+      
+    </li>
+  
+</ul>
 
 </div><table class="source_code">
   <tr>
@@ -448,12 +566,12 @@
       <pre class="lines">
 
 
-25
-26
-27</pre>
+45
+46
+47</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'game_state.rb', line 25</span>
+      <pre class="code"><span class="info file"># File 'game_state.rb', line 45</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_current_player'>current_player</span>
   <span class='ivar'>@current_player</span>
@@ -468,7 +586,7 @@
       <div class="method_details ">
   <h3 class="signature " id="labyrinth-instance_method">
   
-    #<strong>labyrinth</strong>  &#x21d2; <tt>Object</tt>  <span class="extras">(readonly)</span>
+    #<strong>labyrinth</strong>  &#x21d2; <tt>String</tt>  <span class="extras">(readonly)</span>
   
 
   
@@ -477,13 +595,31 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Método que devuelve el estado de cada atributo del juego</p>
+<p>Método que devuelve el estado del laberinto</p>
 
 
   </div>
 </div>
 <div class="tags">
   
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Devuelve el estado del laberinto</p>
+</div>
+      
+    </li>
+  
+</ul>
 
 </div><table class="source_code">
   <tr>
@@ -491,12 +627,12 @@
       <pre class="lines">
 
 
-25
-26
-27</pre>
+33
+34
+35</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'game_state.rb', line 25</span>
+      <pre class="code"><span class="info file"># File 'game_state.rb', line 33</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_labyrinth'>labyrinth</span>
   <span class='ivar'>@labyrinth</span>
@@ -511,7 +647,7 @@
       <div class="method_details ">
   <h3 class="signature " id="log-instance_method">
   
-    #<strong>log</strong>  &#x21d2; <tt>Object</tt>  <span class="extras">(readonly)</span>
+    #<strong>log</strong>  &#x21d2; <tt>String</tt>  <span class="extras">(readonly)</span>
   
 
   
@@ -520,13 +656,31 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Método que devuelve el estado de cada atributo del juego</p>
+<p>Método que devuelve la cadena de caracteres con eventos interesantes</p>
 
 
   </div>
 </div>
 <div class="tags">
   
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Devuelve la cadena de caracteres con eventos interesantes</p>
+</div>
+      
+    </li>
+  
+</ul>
 
 </div><table class="source_code">
   <tr>
@@ -534,12 +688,12 @@
       <pre class="lines">
 
 
-25
-26
-27</pre>
+53
+54
+55</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'game_state.rb', line 25</span>
+      <pre class="code"><span class="info file"># File 'game_state.rb', line 53</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_log'>log</span>
   <span class='ivar'>@log</span>
@@ -554,7 +708,7 @@
       <div class="method_details ">
   <h3 class="signature " id="monsters-instance_method">
   
-    #<strong>monsters</strong>  &#x21d2; <tt>Object</tt>  <span class="extras">(readonly)</span>
+    #<strong>monsters</strong>  &#x21d2; <tt>String</tt>  <span class="extras">(readonly)</span>
   
 
   
@@ -563,13 +717,31 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Método que devuelve el estado de cada atributo del juego</p>
+<p>Método que devuelve el estado de los monstruos</p>
 
 
   </div>
 </div>
 <div class="tags">
   
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Devuelve el estado de los monstruos</p>
+</div>
+      
+    </li>
+  
+</ul>
 
 </div><table class="source_code">
   <tr>
@@ -577,12 +749,12 @@
       <pre class="lines">
 
 
-25
-26
-27</pre>
+41
+42
+43</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'game_state.rb', line 25</span>
+      <pre class="code"><span class="info file"># File 'game_state.rb', line 41</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_monsters'>monsters</span>
   <span class='ivar'>@monsters</span>
@@ -597,7 +769,7 @@
       <div class="method_details ">
   <h3 class="signature " id="players-instance_method">
   
-    #<strong>players</strong>  &#x21d2; <tt>Object</tt>  <span class="extras">(readonly)</span>
+    #<strong>players</strong>  &#x21d2; <tt>String</tt>  <span class="extras">(readonly)</span>
   
 
   
@@ -606,13 +778,31 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Método que devuelve el estado de cada atributo del juego</p>
+<p>Método que devuelve el estado de los jugadores</p>
 
 
   </div>
 </div>
 <div class="tags">
   
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Devuelve el estado de los jugadores</p>
+</div>
+      
+    </li>
+  
+</ul>
 
 </div><table class="source_code">
   <tr>
@@ -620,12 +810,12 @@
       <pre class="lines">
 
 
-25
-26
-27</pre>
+37
+38
+39</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'game_state.rb', line 25</span>
+      <pre class="code"><span class="info file"># File 'game_state.rb', line 37</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_players'>players</span>
   <span class='ivar'>@players</span>
@@ -640,7 +830,7 @@
       <div class="method_details ">
   <h3 class="signature " id="winner-instance_method">
   
-    #<strong>winner</strong>  &#x21d2; <tt>Object</tt>  <span class="extras">(readonly)</span>
+    #<strong>winner</strong>  &#x21d2; <tt>boolean</tt>  <span class="extras">(readonly)</span>
   
 
   
@@ -649,13 +839,31 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Método que devuelve el estado de cada atributo del juego</p>
+<p>Método que devuelve si hay un ganador o no</p>
 
 
   </div>
 </div>
 <div class="tags">
   
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>boolean</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Devuelve si hay un ganador o no</p>
+</div>
+      
+    </li>
+  
+</ul>
 
 </div><table class="source_code">
   <tr>
@@ -663,12 +871,12 @@
       <pre class="lines">
 
 
-25
-26
-27</pre>
+49
+50
+51</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'game_state.rb', line 25</span>
+      <pre class="code"><span class="info file"># File 'game_state.rb', line 49</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_winner'>winner</span>
   <span class='ivar'>@winner</span>
@@ -684,9 +892,9 @@
 </div>
 
       <div id="footer">
-  Generated by
-  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.26 (ruby-3.0.2).
+  Generated on Sat Mar 16 11:42:56 2024 by
+  <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.36 (ruby-3.0.2).
 </div>
 
     </div>

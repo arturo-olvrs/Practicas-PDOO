@@ -11,37 +11,36 @@ require_relative 'dice'
 
         # Constructor de la clase
         #
-        # @param power poder del arma
-        # @param uses usos que tiene el arma
+        # @param power [float] poder del arma
+        # @param uses [int] usos que tiene el arma
         def initialize(power, uses)
             @power = power.to_f
             @uses = uses.to_i
         end
 
-        # Método que devuelve el poder del arma y decrementa 
-        # el número de usos en uno
+        # Método que devuelve el poder del arma y decrementa el número de usos en uno
         #
-        # @return Si tiene algún uso disponible devuelve el poder del arma
-        # en caso contrario (uses=0) devuelve 0
+        # @return [float] Si tiene algún uso disponible devuelve el poder del arma. En caso contrario (uses=0) devuelve 0
         def attack
             if @uses > 0
                 @uses -= 1
                 return @power
             else
-                return 0
+                return 0.0
             end
         end
 
-        # Método que indica si se descartará el arma 
-        # 
-        # @return devuelve true o false si se descarta o no
+        # Método que indica si se descartará el arma en función de sus usos
+        #
+        # @see Dice#dicard_element
+        # @return [boolean] devuelve **true** o **false** si se descarta o no
         def discard
             return Dice.dicard_element(@uses)
         end
 
-        # Método que muestra en una cadena el estado del arma, en cuanto a  uso y poder
+        # Método que muestra en una cadena el estado del arma, en cuanto a  uso y poder.
         #
-        # @return devuelve una cadena que muestra usos y poder del arma
+        # @return [String] devuelve una cadena que muestra usos y poder del arma.
         def to_s
             return "W[#{@power}, #{@uses}]"
         end

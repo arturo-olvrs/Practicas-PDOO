@@ -6,7 +6,7 @@
 <title>
   Class: Irrgarten::Monster
   
-    &mdash; Documentation by YARD 0.9.26
+    &mdash; Documentation by YARD 0.9.36
   
 </title>
 
@@ -177,8 +177,7 @@
 
 </div>
         </dt>
-        <dd><pre class="code"><span class='op'>-</span><span class='int'>1</span> <span class='comment'># Posición inválida
-</span></pre></dd>
+        <dd><pre class="code"><span class='op'>-</span><span class='int'>1</span></pre></dd>
       
     </dl>
   
@@ -200,7 +199,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#attack-instance_method" title="#attack (instance method)">#<strong>attack</strong>  &#x21d2; Object </a>
+      <a href="#attack-instance_method" title="#attack (instance method)">#<strong>attack</strong>  &#x21d2; float </a>
     
 
     
@@ -224,7 +223,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#dead-instance_method" title="#dead (instance method)">#<strong>dead</strong>  &#x21d2; Object </a>
+      <a href="#dead-instance_method" title="#dead (instance method)">#<strong>dead</strong>  &#x21d2; boolean </a>
     
 
     
@@ -245,10 +244,10 @@
 </li>
 
       
-        <li class="public ">
+        <li class="private ">
   <span class="summary_signature">
     
-      <a href="#defend-instance_method" title="#defend (instance method)">#<strong>defend</strong>(recieved_attack)  &#x21d2; Object </a>
+      <a href="#got_wounded-instance_method" title="#got_wounded (instance method)">#<strong>got_wounded</strong>  &#x21d2; Object </a>
     
 
     
@@ -256,13 +255,15 @@
   
   
   
-  
+  <span class="note title private">private</span>
   
   
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Método que reduce la salud del monstruo en 1.</p>
+</div></span>
   
 </li>
 
@@ -320,7 +321,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#to_s-instance_method" title="#to_s (instance method)">#<strong>to_s</strong>  &#x21d2; Object </a>
+      <a href="#to_s-instance_method" title="#to_s (instance method)">#<strong>to_s</strong>  &#x21d2; String </a>
     
 
     
@@ -373,7 +374,7 @@
         <span class='name'>name</span>
       
       
-        <span class='type'></span>
+        <span class='type'>(<tt>String</tt>)</span>
       
       
       
@@ -389,7 +390,7 @@
         <span class='name'>intelligence</span>
       
       
-        <span class='type'></span>
+        <span class='type'>(<tt>float</tt>)</span>
       
       
       
@@ -405,7 +406,7 @@
         <span class='name'>strength</span>
       
       
-        <span class='type'></span>
+        <span class='type'>(<tt>float</tt>)</span>
       
       
       
@@ -425,18 +426,18 @@
       <pre class="lines">
 
 
-20
-21
 22
 23
 24
 25
 26
 27
-28</pre>
+28
+29
+30</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'monster.rb', line 20</span>
+      <pre class="code"><span class="info file"># File 'monster.rb', line 22</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_intelligence'>intelligence</span><span class='comma'>,</span> <span class='id identifier rubyid_strength'>strength</span><span class='rparen'>)</span>
     <span class='ivar'>@name</span> <span class='op'>=</span> <span class='id identifier rubyid_name'>name</span>
@@ -462,7 +463,7 @@
       <div class="method_details first">
   <h3 class="signature first" id="attack-instance_method">
   
-    #<strong>attack</strong>  &#x21d2; <tt>Object</tt> 
+    #<strong>attack</strong>  &#x21d2; <tt>float</tt> 
   
 
   
@@ -471,7 +472,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Método que devuelve la intensidad del ataque de un monstruo. Delega en Dice.intensity</p>
+<p>Método que devuelve la intensidad del ataque de un monstruo.</p>
 
 
   </div>
@@ -484,18 +485,25 @@
     <li>
       
       
-        <span class='type'></span>
+        <span class='type'>(<tt>float</tt>)</span>
       
       
       
-        
+        &mdash;
         <div class='inline'>
-<p>intensidad del ataque</p>
+<p>intensidad del ataque del monstruo</p>
 </div>
       
     </li>
   
 </ul>
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><span class='object_link'><a href="Dice.html#intensity-class_method" title="Irrgarten::Dice.intensity (method)">Dice.intensity</a></span></li>
+    
+  </ul>
 
 </div><table class="source_code">
   <tr>
@@ -503,12 +511,12 @@
       <pre class="lines">
 
 
-41
-42
-43</pre>
+44
+45
+46</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'monster.rb', line 41</span>
+      <pre class="code"><span class="info file"># File 'monster.rb', line 44</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_attack'>attack</span>
     <span class='kw'>return</span> <span class='const'><span class='object_link'><a href="Dice.html" title="Irrgarten::Dice (class)">Dice</a></span></span><span class='period'>.</span><span class='id identifier rubyid_intensity'><span class='object_link'><a href="Dice.html#intensity-class_method" title="Irrgarten::Dice.intensity (method)">intensity</a></span></span><span class='lparen'>(</span><span class='ivar'>@strength</span><span class='rparen'>)</span>
@@ -521,7 +529,7 @@
       <div class="method_details ">
   <h3 class="signature " id="dead-instance_method">
   
-    #<strong>dead</strong>  &#x21d2; <tt>Object</tt> 
+    #<strong>dead</strong>  &#x21d2; <tt>boolean</tt> 
   
 
   
@@ -543,13 +551,13 @@
     <li>
       
       
-        <span class='type'></span>
+        <span class='type'>(<tt>boolean</tt>)</span>
       
       
       
-        
+        &mdash;
         <div class='inline'>
-<p>true si el monstruo ha muerto, false en caso contrario</p>
+<p><strong>true</strong> si el monstruo ha muerto, <strong>false</strong> en caso contrario</p>
 </div>
       
     </li>
@@ -562,12 +570,12 @@
       <pre class="lines">
 
 
-34
-35
-36</pre>
+36
+37
+38</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'monster.rb', line 34</span>
+      <pre class="code"><span class="info file"># File 'monster.rb', line 36</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_dead'>dead</span>
     <span class='kw'>return</span> <span class='ivar'>@health</span> <span class='op'>&lt;=</span> <span class='int'>0</span>
@@ -578,30 +586,41 @@
 </div>
     
       <div class="method_details ">
-  <h3 class="signature " id="defend-instance_method">
+  <h3 class="signature " id="got_wounded-instance_method">
   
-    #<strong>defend</strong>(recieved_attack)  &#x21d2; <tt>Object</tt> 
-  
-
+    #<strong>got_wounded</strong>  &#x21d2; <tt>Object</tt>  <span class="extras">(private)</span>
   
 
   
-</h3><table class="source_code">
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Método que reduce la salud del monstruo en 1</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-45
-46
-47</pre>
+71
+72
+73</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'monster.rb', line 45</span>
+      <pre class="code"><span class="info file"># File 'monster.rb', line 71</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_defend'>defend</span><span class='lparen'>(</span><span class='id identifier rubyid_recieved_attack'>recieved_attack</span><span class='rparen'>)</span>
-    <span class='comment'># Sig. Práctica
-</span><span class='kw'>end</span></pre>
+<span class='kw'>def</span> <span class='id identifier rubyid_got_wounded'>got_wounded</span>
+    <span class='ivar'>@health</span> <span class='op'>-=</span> <span class='int'>1</span>
+<span class='kw'>end</span></pre>
     </td>
   </tr>
 </table>
@@ -633,7 +652,7 @@
         <span class='name'>row</span>
       
       
-        <span class='type'></span>
+        <span class='type'>(<tt>int</tt>)</span>
       
       
       
@@ -649,7 +668,7 @@
         <span class='name'>col</span>
       
       
-        <span class='type'></span>
+        <span class='type'>(<tt>int</tt>)</span>
       
       
       
@@ -669,13 +688,13 @@
       <pre class="lines">
 
 
-53
-54
-55
-56</pre>
+56
+57
+58
+59</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'monster.rb', line 53</span>
+      <pre class="code"><span class="info file"># File 'monster.rb', line 56</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_pos'>pos</span><span class='lparen'>(</span><span class='id identifier rubyid_row'>row</span><span class='comma'>,</span> <span class='id identifier rubyid_col'>col</span><span class='rparen'>)</span>
     <span class='ivar'>@row</span> <span class='op'>=</span> <span class='id identifier rubyid_row'>row</span>
@@ -689,7 +708,7 @@
       <div class="method_details ">
   <h3 class="signature " id="to_s-instance_method">
   
-    #<strong>to_s</strong>  &#x21d2; <tt>Object</tt> 
+    #<strong>to_s</strong>  &#x21d2; <tt>String</tt> 
   
 
   
@@ -711,11 +730,11 @@
     <li>
       
       
-        <span class='type'></span>
+        <span class='type'>(<tt>String</tt>)</span>
       
       
       
-        
+        &mdash;
         <div class='inline'>
 <p>cadena de caracteres con la información del monstruo</p>
 </div>
@@ -730,12 +749,12 @@
       <pre class="lines">
 
 
-61
-62
-63</pre>
+64
+65
+66</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'monster.rb', line 61</span>
+      <pre class="code"><span class="info file"># File 'monster.rb', line 64</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_to_s'>to_s</span>
     <span class='kw'>return</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>M[n:</span><span class='embexpr_beg'>#{</span><span class='ivar'>@name</span><span class='embexpr_end'>}</span><span class='tstring_content'>, i:</span><span class='embexpr_beg'>#{</span><span class='ivar'>@intelligence</span><span class='embexpr_end'>}</span><span class='tstring_content'>, s:</span><span class='embexpr_beg'>#{</span><span class='ivar'>@strength</span><span class='embexpr_end'>}</span><span class='tstring_content'>, h:</span><span class='embexpr_beg'>#{</span><span class='ivar'>@health</span><span class='embexpr_end'>}</span><span class='tstring_content'>, p:(</span><span class='embexpr_beg'>#{</span><span class='ivar'>@row</span><span class='embexpr_end'>}</span><span class='tstring_content'>, </span><span class='embexpr_beg'>#{</span><span class='ivar'>@col</span><span class='embexpr_end'>}</span><span class='tstring_content'>)]</span><span class='tstring_end'>&quot;</span></span>
@@ -750,9 +769,9 @@
 </div>
 
       <div id="footer">
-  Generated by
-  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.26 (ruby-3.0.2).
+  Generated on Sat Mar 16 11:42:56 2024 by
+  <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.36 (ruby-3.0.2).
 </div>
 
     </div>

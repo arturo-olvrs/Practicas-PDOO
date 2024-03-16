@@ -6,6 +6,8 @@ module Irrgarten
     # @author Joaquin Avilés de la Fuente
     # @author Arturo Olivares Martos
     class TestP1
+
+        # Método que realiza las pruebas unitarias de la práctica 1
         def main
             # ...
         end

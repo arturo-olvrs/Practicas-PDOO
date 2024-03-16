@@ -10,20 +10,21 @@ require_relative 'directions'
     # @author Joaquin Avilés de la Fuente
     # @author Arturo Olivares Martos
     class Player
-        
+
         @@MAX_WEAPONS = 2       # Número máximo de armas que puede tener un jugador
         @@MAX_SHIELDS = 3       # Número máximo de escudos que puede tener un jugador
         @@INITIAL_HEALTH = 10   # Salud inicial de los jugadores
         @@HITS2LOSE = 3         # Número de golpes que puede recibir un jugador antes de morir
 
-        @@INVALID_POS = -1      # Posición inválida
-        
+        # Posición inválida
+        @@INVALID_POS = -1
+
         # Constructor de la clase Player. Inicializa los atributos de la clase.
         # La posición inicial del jugador es inválida
         #
-        # @param number Número del jugador
-        # @param intelligence Inteligencia del jugador
-        # @param strength Fuerza del jugador
+        # @param number [char] Número del jugador
+        # @param intelligence [float] Inteligencia del jugador
+        # @param strength [float] Fuerza del jugador
         def initialize(number, intelligence, strength)
             @number = number
             @name = "Player #{@number}"
@@ -48,13 +49,22 @@ require_relative 'directions'
             reset_hits()
         end
 
-        # Consultores de @row, @col y @number
-        attr_reader :row, :col, :number
+        # Consultor de @row
+        # @return [int] fila de la posición del jugador
+        attr_reader :row
+
+        # Consultor de @col
+        # @return [int] columna de la posición del jugador
+        attr_reader :col
+
+        # Consultor de @number
+        # @return [char] número del jugador
+        attr_reader :number
 
         # Modificador de la posición del jugador
         #
-        # @param row fila de la posición del jugador
-        # @param col columna de la posición del jugador
+        # @param row [int] fila de la posición del jugador
+        # @param col [int] columna de la posición del jugador
         def pos(row, col)
             @row = row
             @col = col
@@ -63,66 +73,66 @@ require_relative 'directions'
         # Método que informa sobre si un jugador ha muerto o no.
         # Un jugador ha muerto si su salud es menor o igual que 0
         #
-        # @return true si el jugador ha muerto, false en caso contrario
+        # @return [boolean] **true** si el jugador ha muerto, **false** en caso contrario
         def dead
             return @health <= 0
         end
 
-        def move(direction, valid_moves)
+        # def move(direction, valid_moves)
             # Sig. Práctica
-        end
+        #end
 
         # Calcula la suma de la fuerza del jugador y la suma de lo aportado por sus armas (sum_weapons).
         #
-        # @return la intensidad del ataque
+        # @return [float] la intensidad del ataque
         def attack
             return @strength + self.sum_weapons
         end
 
-        def defend(received_attack)
+        # def defend(received_attack)
             # Este método delega su funcionalidad en el método manageHit. Sig. Práctica
-        end
+        #end
 
-        def receive_reward
+        #def receive_reward
             # Sig. Práctica
-        end
+        #end
 
         # Método que genera una cadena de caracteres con la información del jugador
         #
-        # @return cadena de caracteres con la información del jugador
+        # @return [String] cadena de caracteres con la información del jugador
         def to_s
             return "#{@name}[i:#{@intelligence}, s:#{@strength}, h:#{@health}, w:#{@weapons}, sh:#{@shields},
                     p:(#{@row}, #{@col}), ch:#{@consecutive_hits}]"
-            
+
         end
 
 
         private
-        def receive_weapon(w)
+        # def receive_weapon(w)
             # Sig. Práctica
-        end
+        # end
 
-        def receive_shield(s)
+        # def receive_shield(s)
             # Sig. Práctica
-        end
+        # end
 
         # Método que genera una nueva arma
         #
-        # @return devuelve un nuevo objeto de tipo Weapon. NO lo añade a la lista de armas
+        # @return [Weapom] devuelve un nuevo objeto de tipo Weapon. NO lo añade a la lista de armas
         def new_weapon
             return Weapon.new(Dice.weapon_power, Dice.uses_left)
         end
 
         # Método que genera un nuevo escudo
         #
-        # @return devuelve un nuevo objeto de tipo Shield. NO lo añade a la lista de escudos
+        # @return [Shield] devuelve un nuevo objeto de tipo Shield. NO lo añade a la lista de escudos
         def new_shield
             return Shield.new(Dice.shield_power, Dice.uses_left)
         end
 
         # Devuelve la suma del resultado de llamar al método attack de todas sus armas.
-        # 
-        # @return la apotación de las armas al ataque
+        #
+        # @return [float] la apotación de las armas al ataque
         def sum_weapons
             sum = 0
             @weapons.each do |w|
@@ -133,7 +143,7 @@ require_relative 'directions'
 
         # Devuelve la suma del resultado de llamar al método protect de todos sus escudos.
         #
-        # @return la apotación de los escudos a la defensa
+        # @return [float] la apotación de los escudos a la defensa
         def sum_shields
             sum = 0
             @shields.each do |s|
@@ -144,14 +154,14 @@ require_relative 'directions'
 
         # Calcula la suma de la inteligencia con el aporte de los escudos (sum_shields).
         #
-        # @return la energía defensiva
+        # @return [float] la energía defensiva
         def defensive_energy
             return @intelligence + sum_shields
         end
 
-        def manage_hit(received_attack)
+        # def manage_hit(received_attack)
             # Sig. Práctica
-        end
+        # end
 
         # Fija el valor del contador de impactos consecutivos a cero.
         def reset_hits
@@ -167,6 +177,6 @@ require_relative 'directions'
         def inc_consecutive_hits
             @consecutive_hits += 1
         end
-        
+
     end
 end

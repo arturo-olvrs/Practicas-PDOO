@@ -5,7 +5,8 @@ module Irrgarten
     # @author Joaquin Avilés de la Fuente
     # @author Arturo Olivares Martos
     module GameCharacter
-        PLAYER =:player 
-        MONSTER =:monster 
+
+        PLAYER =:player         # Tipo de personaje jugador
+        MONSTER =:monster       # Tipo de personaje monstruo
     end
 end

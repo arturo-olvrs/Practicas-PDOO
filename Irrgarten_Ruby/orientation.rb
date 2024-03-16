@@ -5,7 +5,7 @@ module Irrgarten
     # @author Joaquin Avilés de la Fuente
     # @author Arturo Olivares Martos
     module Orientation
-        VERTICAL = :vertical
-        HORIZONTAL = :horizontal
+        VERTICAL = :vertical        # Orientación vertical
+        HORIZONTAL = :horizontal    # Orientación horizontal
     end
 end

@@ -11,38 +11,37 @@ module Irrgarten
 
         # Constructor de la clase
         #
-        # @param protection protección del escudo
-        # @param uses usos que tiene el escudo
+        # @param protection [float] protección del escudo
+        # @param uses [int] usos que tiene el escudo
         def initialize(protection, uses)
             @protection = protection.to_f
             @uses = uses.to_i
         end
 
-        # Método que devuelve la protección del escudo y decrementa 
-        # el número de usos en uno
+        # Método que devuelve la protección del escudo y decrementa el número de usos en uno.
         #
-        # @return Si tiene algún uso disponible devuelve la protección del escudo
-        # en caso contrario (uses=0) devuelve 0
+        # @return [float] Si tiene algún uso disponible devuelve la protección del escudo. En caso contrario (uses=0) devuelve 0
         def attack
             if @uses > 0
                 @uses -= 1
                 return @protection
             else
-                return 0 
+                return 0.0
             end
         end
 
-        # Método que indica si se descartará el escudo 
-        # 
-        # @return devuelve true o false si se descarta o no
+        # Método que indica si se descartará el escudo.
+        #
+        # @see Dice#dicard_element
+        # @return [boolean] devuelve **true** o **false** si se descarta o no
         def discard
             return Dice.dicard_element(@uses)
         end
 
-        # Método que muestra en una cadena el estado del escudo, en cuanto a 
+        # Método que muestra en una cadena el estado del escudo, en cuanto a
         # uso y protección
         #
-        # @return devuelve una cadena que muestra usos y protección del escudo
+        # @return [String] devuelve una cadena que muestra usos y protección del escudo
         def to_s
             return "S[#{@protection}, #{@uses}]"
         end

@@ -84,7 +84,7 @@ require_relative 'orientation'
 
         # Genera una instancia de GameState integrando toda la información del estado del juego.
         #
-        # @return [GameState] con la información del estado del juego
+        # @return [GameState] Objeto GameState con la información del estado del juego
         def game_state
             players_str = ""
             @players.each do |player|
@@ -103,7 +103,7 @@ require_relative 'orientation'
 
         # Configura el laberinto añadiendo bloques de obstáculos y monstruos.
         # Los monstruos, además de en el laberinto son guardados en el contenedor propio de esta clase para
-        #       este tipo de objetos.
+        # este tipo de objetos.
         def configure_labyrinth
 
             # Añade los bloques de obstáculos al laberinto
@@ -112,7 +112,7 @@ require_relative 'orientation'
                 @labyrinth.add_block(orienation, row, col, length)
             end
 
-            
+
             # Añade los monstruos al laberinto y al contenedor de monstruos
             @@MONSTER_INIT.each do |monster_info|
                 name, row, col = monster_info
@@ -130,21 +130,21 @@ require_relative 'orientation'
             @current_player = @players[@current_player_index]
         end
 
-        def actual_direction(preferred_direction)
+        #def actual_direction(preferred_direction)
             # Sig. Práctica
-        end
+        #end
 
-        def combat(monster)
+        #def combat(monster)
             # Sig. Práctica
-        end
+        #end
 
-        def manage_reward(winner)
+        #def manage_reward(winner)
             # Sig. Práctica
-        end
+        #end
 
-        def manage_resurrection()
+        #def manage_resurrection()
             # Sig. Práctica
-        end
+        #end
 
         # Añade al final del atributo log el mensaje indicando que el jugador ha ganado el combate.
         def log_player_won

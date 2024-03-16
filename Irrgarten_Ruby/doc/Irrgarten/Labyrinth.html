@@ -6,7 +6,7 @@
 <title>
   Class: Irrgarten::Labyrinth
   
-    &mdash; Documentation by YARD 0.9.26
+    &mdash; Documentation by YARD 0.9.36
   
 </title>
 
@@ -231,11 +231,7 @@
           <div class="docstring">
   <div class="discussion">
     
-<p>Variables de clase que representan la fila y columna actual en la que se está trabajando</p>
-
-<pre class="code ruby"><code class="ruby">Para no acceder directamente con 0 y 1.
-Evita así errores de que se de primero la columna y luego la fila.
-</code></pre>
+<p>Variable que representa el orden de la fila en un array con dos componentes</p>
 
 
   </div>
@@ -248,7 +244,18 @@ Evita así errores de que se de primero la columna y luego la fila.
         <dd><pre class="code"><span class='int'>0</span></pre></dd>
       
         <dt id="COL-classvariable" class="">@@COL =
-          
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>Variable que representa el orden de la columna en un array con dos componentes</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
         </dt>
         <dd><pre class="code"><span class='int'>1</span></pre></dd>
       
@@ -272,28 +279,6 @@ Evita así errores de que se de primero la columna y luego la fila.
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#add_block-instance_method" title="#add_block (instance method)">#<strong>add_block</strong>(orientation, start_row, start_col, length)  &#x21d2; Object </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'></div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
       <a href="#add_monster-instance_method" title="#add_monster (instance method)">#<strong>add_monster</strong>(row, col, monster)  &#x21d2; Object </a>
     
 
@@ -309,7 +294,127 @@ Evita así errores de que se de primero la columna y luego la fila.
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Si la posición suministrada está dentro del tablero y está vacía,       anota en el laberinto la presencia de un monstruo, guarda la referencia del monstruo en el       atributo contenedor adecuado e indica al monstruo cual es su posición actual (setPos).</p>
+<p>Si la posición suministrada está dentro del tablero y está vacía, anota en el laberinto la presencia de un monstruo, guarda la referencia del monstruo en el atributo contenedor adecuado e indica al monstruo cual es su posición actual (Monster#pos).</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="private ">
+  <span class="summary_signature">
+    
+      <a href="#can_step_on-instance_method" title="#can_step_on (instance method)">#<strong>can_step_on</strong>(row, col)  &#x21d2; boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  <span class="note title private">private</span>
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Indica si la posición suministrada está dentro del laberinto y se puede acceder; es decir, corresponde con una de estas tres opciones: casilla vacía, casilla donde habita un monstruo o salida.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="private ">
+  <span class="summary_signature">
+    
+      <a href="#combat_pos-instance_method" title="#combat_pos (instance method)">#<strong>combat_pos</strong>(row, col)  &#x21d2; boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  <span class="note title private">private</span>
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Método que indica si la posición suministrada alberga un combate (jugador y monstruo).</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="private ">
+  <span class="summary_signature">
+    
+      <a href="#dir_2_pos-instance_method" title="#dir_2_pos (instance method)">#<strong>dir_2_pos</strong>(row, col, direction)  &#x21d2; int [] </a>
+    
+
+    
+  </span>
+  
+  
+  
+  <span class="note title private">private</span>
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Este método calcula la posición del laberinto a la que se llegaría si desde la posición suministrada se avanza en la dirección pasada como parámetro.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="private ">
+  <span class="summary_signature">
+    
+      <a href="#empty_pos-instance_method" title="#empty_pos (instance method)">#<strong>empty_pos</strong>(row, col)  &#x21d2; boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  <span class="note title private">private</span>
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Método que indica si la posición suministrada está vacía.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="private ">
+  <span class="summary_signature">
+    
+      <a href="#exit_pos-instance_method" title="#exit_pos (instance method)">#<strong>exit_pos</strong>(row, col)  &#x21d2; boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  <span class="note title private">private</span>
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Método que indica si la posición suministrada es la de salida.</p>
 </div></span>
   
 </li>
@@ -318,7 +423,7 @@ Evita así errores de que se de primero la columna y luego la fila.
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#have_a_winner-instance_method" title="#have_a_winner (instance method)">#<strong>have_a_winner</strong>  &#x21d2; Object </a>
+      <a href="#have_a_winner-instance_method" title="#have_a_winner (instance method)">#<strong>have_a_winner</strong>  &#x21d2; boolean </a>
     
 
     
@@ -333,7 +438,7 @@ Evita así errores de que se de primero la columna y luego la fila.
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Devuelve true si hay un jugador en la casilla de salida y false si no hay ninguno.</p>
+<p>Método que informa sobre si hay un ganador; es decir, si ningún jugador ha llegado a la salida.</p>
 </div></span>
   
 </li>
@@ -365,10 +470,10 @@ Evita así errores de que se de primero la columna y luego la fila.
 </li>
 
       
-        <li class="public ">
+        <li class="private ">
   <span class="summary_signature">
     
-      <a href="#put_player-instance_method" title="#put_player (instance method)">#<strong>put_player</strong>(direction, player)  &#x21d2; Object </a>
+      <a href="#monster_pos-instance_method" title="#monster_pos (instance method)">#<strong>monster_pos</strong>(row, col)  &#x21d2; boolean </a>
     
 
     
@@ -376,21 +481,23 @@ Evita así errores de que se de primero la columna y luego la fila.
   
   
   
-  
+  <span class="note title private">private</span>
   
   
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Método que indica si la posición suministrada alberga exclusivamente un monstruo.</p>
+</div></span>
   
 </li>
 
       
-        <li class="public ">
+        <li class="private ">
   <span class="summary_signature">
     
-      <a href="#spread_players-instance_method" title="#spread_players (instance method)">#<strong>spread_players</strong>(players)  &#x21d2; Object </a>
+      <a href="#pos_ok-instance_method" title="#pos_ok (instance method)">#<strong>pos_ok</strong>(row, col)  &#x21d2; boolean </a>
     
 
     
@@ -398,13 +505,39 @@ Evita así errores de que se de primero la columna y luego la fila.
   
   
   
-  
+  <span class="note title private">private</span>
   
   
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Método que indica si la posición suministrada está dentro del tablero.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="private ">
+  <span class="summary_signature">
+    
+      <a href="#random_empty_pos-instance_method" title="#random_empty_pos (instance method)">#<strong>random_empty_pos</strong>  &#x21d2; int [] </a>
+    
+
+    
+  </span>
+  
+  
+  
+  <span class="note title private">private</span>
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Utilizando el dado, genera una posición aleatoria en el laberinto (fila y columna) asegurando que esta esté vacía.</p>
+</div></span>
   
 </li>
 
@@ -412,7 +545,7 @@ Evita así errores de que se de primero la columna y luego la fila.
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#to_s-instance_method" title="#to_s (instance method)">#<strong>to_s</strong>  &#x21d2; Object </a>
+      <a href="#to_s-instance_method" title="#to_s (instance method)">#<strong>to_s</strong>  &#x21d2; string </a>
     
 
     
@@ -433,10 +566,10 @@ Evita así errores de que se de primero la columna y luego la fila.
 </li>
 
       
-        <li class="public ">
+        <li class="private ">
   <span class="summary_signature">
     
-      <a href="#valid_moves-instance_method" title="#valid_moves (instance method)">#<strong>valid_moves</strong>(row, col)  &#x21d2; Object </a>
+      <a href="#update_old_pos-instance_method" title="#update_old_pos (instance method)">#<strong>update_old_pos</strong>(row, col)  &#x21d2; Object </a>
     
 
     
@@ -444,13 +577,15 @@ Evita así errores de que se de primero la columna y luego la fila.
   
   
   
-  
+  <span class="note title private">private</span>
   
   
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Este método solo realiza su función si la posición suministrada está dentro del laberinto.</p>
+</div></span>
   
 </li>
 
@@ -487,7 +622,7 @@ Evita así errores de que se de primero la columna y luego la fila.
         <span class='name'>n_rows</span>
       
       
-        <span class='type'></span>
+        <span class='type'>(<tt>int</tt>)</span>
       
       
       
@@ -503,7 +638,7 @@ Evita así errores de que se de primero la columna y luego la fila.
         <span class='name'>n_cols</span>
       
       
-        <span class='type'></span>
+        <span class='type'>(<tt>int</tt>)</span>
       
       
       
@@ -519,7 +654,7 @@ Evita así errores de que se de primero la columna y luego la fila.
         <span class='name'>exit_row</span>
       
       
-        <span class='type'></span>
+        <span class='type'>(<tt>int</tt>)</span>
       
       
       
@@ -535,7 +670,7 @@ Evita así errores de que se de primero la columna y luego la fila.
         <span class='name'>exit_col</span>
       
       
-        <span class='type'></span>
+        <span class='type'>(<tt>int</tt>)</span>
       
       
       
@@ -596,37 +731,7 @@ Evita así errores de que se de primero la columna y luego la fila.
 
     
       <div class="method_details first">
-  <h3 class="signature first" id="add_block-instance_method">
-  
-    #<strong>add_block</strong>(orientation, start_row, start_col, length)  &#x21d2; <tt>Object</tt> 
-  
-
-  
-
-  
-</h3><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-92
-93
-94</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'labyrinth.rb', line 92</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_add_block'>add_block</span><span class='lparen'>(</span><span class='id identifier rubyid_orientation'>orientation</span><span class='comma'>,</span> <span class='id identifier rubyid_start_row'>start_row</span><span class='comma'>,</span> <span class='id identifier rubyid_start_col'>start_col</span><span class='comma'>,</span> <span class='id identifier rubyid_length'>length</span><span class='rparen'>)</span>
-    <span class='comment'># Sig. Práctica
-</span><span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="add_monster-instance_method">
+  <h3 class="signature first" id="add_monster-instance_method">
   
     #<strong>add_monster</strong>(row, col, monster)  &#x21d2; <tt>Object</tt> 
   
@@ -637,11 +742,7 @@ Evita así errores de que se de primero la columna y luego la fila.
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Si la posición suministrada está dentro del tablero y está vacía,</p>
-
-<pre class="code ruby"><code class="ruby">anota en el laberinto la presencia de un monstruo, guarda la referencia del monstruo en el
-atributo contenedor adecuado e indica al monstruo cual es su posición actual (setPos).
-</code></pre>
+<p>Si la posición suministrada está dentro del tablero y está vacía, anota en el laberinto la presencia de un monstruo, guarda la referencia del monstruo en el atributo contenedor adecuado e indica al monstruo cual es su posición actual (Monster#pos).</p>
 
 <p>Si la posición no está vacía, no hace nada.</p>
 
@@ -659,7 +760,7 @@ atributo contenedor adecuado e indica al monstruo cual es su posición actual (s
         <span class='name'>row</span>
       
       
-        <span class='type'></span>
+        <span class='type'>(<tt>int</tt>)</span>
       
       
       
@@ -675,7 +776,7 @@ atributo contenedor adecuado e indica al monstruo cual es su posición actual (s
         <span class='name'>col</span>
       
       
-        <span class='type'></span>
+        <span class='type'>(<tt>int</tt>)</span>
       
       
       
@@ -691,13 +792,13 @@ atributo contenedor adecuado e indica al monstruo cual es su posición actual (s
         <span class='name'>monster</span>
       
       
-        <span class='type'></span>
+        <span class='type'>(<tt><span class='object_link'><a href="Monster.html" title="Irrgarten::Monster (class)">Monster</a></span></tt>)</span>
       
       
       
         &mdash;
         <div class='inline'>
-<p>monstruo a añadir</p>
+<p>monstruo que se añade al laberinto</p>
 </div>
       
     </li>
@@ -711,16 +812,16 @@ atributo contenedor adecuado e indica al monstruo cual es su posición actual (s
       <pre class="lines">
 
 
-80
-81
-82
 83
 84
 85
-86</pre>
+86
+87
+88
+89</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'labyrinth.rb', line 80</span>
+      <pre class="code"><span class="info file"># File 'labyrinth.rb', line 83</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_add_monster'>add_monster</span><span class='lparen'>(</span><span class='id identifier rubyid_row'>row</span><span class='comma'>,</span> <span class='id identifier rubyid_col'>col</span><span class='comma'>,</span> <span class='id identifier rubyid_monster'>monster</span><span class='rparen'>)</span>
     <span class='kw'>if</span> <span class='lparen'>(</span><span class='id identifier rubyid_pos_ok'>pos_ok</span><span class='lparen'>(</span><span class='id identifier rubyid_row'>row</span><span class='comma'>,</span> <span class='id identifier rubyid_col'>col</span><span class='rparen'>)</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_empty_pos'>empty_pos</span><span class='lparen'>(</span><span class='id identifier rubyid_row'>row</span><span class='comma'>,</span> <span class='id identifier rubyid_col'>col</span><span class='rparen'>)</span><span class='rparen'>)</span>
@@ -735,9 +836,9 @@ atributo contenedor adecuado e indica al monstruo cual es su posición actual (s
 </div>
     
       <div class="method_details ">
-  <h3 class="signature " id="have_a_winner-instance_method">
+  <h3 class="signature " id="can_step_on-instance_method">
   
-    #<strong>have_a_winner</strong>  &#x21d2; <tt>Object</tt> 
+    #<strong>can_step_on</strong>(row, col)  &#x21d2; <tt>boolean</tt>  <span class="extras">(private)</span>
   
 
   
@@ -746,13 +847,67 @@ atributo contenedor adecuado e indica al monstruo cual es su posición actual (s
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Devuelve true si hay un jugador en la casilla de salida y false si no hay ninguno.</p>
+<p>Indica si la posición suministrada está dentro del laberinto y se puede acceder; es decir, corresponde con una de estas tres opciones: casilla vacía, casilla donde habita un monstruo o salida</p>
 
 
   </div>
 </div>
 <div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
   
+    <li>
+      
+        <span class='name'>row</span>
+      
+      
+        <span class='type'>(<tt>int</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>fila de la posición</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>col</span>
+      
+      
+        <span class='type'>(<tt>int</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>columna de la posición</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>boolean</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p><strong>true</strong> si la posición suministrada está dentro del laberinto y se puede acceder y <strong>false</strong> si no es así.</p>
+</div>
+      
+    </li>
+  
+</ul>
 
 </div><table class="source_code">
   <tr>
@@ -760,12 +915,485 @@ atributo contenedor adecuado e indica al monstruo cual es su posición actual (s
       <pre class="lines">
 
 
-52
-53
-54</pre>
+155
+156
+157</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'labyrinth.rb', line 52</span>
+      <pre class="code"><span class="info file"># File 'labyrinth.rb', line 155</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_can_step_on'>can_step_on</span><span class='lparen'>(</span><span class='id identifier rubyid_row'>row</span><span class='comma'>,</span> <span class='id identifier rubyid_col'>col</span><span class='rparen'>)</span>
+    <span class='kw'>return</span> <span class='id identifier rubyid_pos_ok'>pos_ok</span><span class='lparen'>(</span><span class='id identifier rubyid_row'>row</span><span class='comma'>,</span> <span class='id identifier rubyid_col'>col</span><span class='rparen'>)</span> <span class='op'>&amp;&amp;</span> <span class='lparen'>(</span><span class='id identifier rubyid_empty_pos'>empty_pos</span><span class='lparen'>(</span><span class='id identifier rubyid_row'>row</span><span class='comma'>,</span> <span class='id identifier rubyid_col'>col</span><span class='rparen'>)</span> <span class='op'>||</span> <span class='id identifier rubyid_monster_pos'>monster_pos</span><span class='lparen'>(</span><span class='id identifier rubyid_row'>row</span><span class='comma'>,</span> <span class='id identifier rubyid_col'>col</span><span class='rparen'>)</span> <span class='op'>||</span> <span class='id identifier rubyid_exit_pos'>exit_pos</span><span class='lparen'>(</span><span class='id identifier rubyid_row'>row</span><span class='comma'>,</span> <span class='id identifier rubyid_col'>col</span><span class='rparen'>)</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="combat_pos-instance_method">
+  
+    #<strong>combat_pos</strong>(row, col)  &#x21d2; <tt>boolean</tt>  <span class="extras">(private)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Método que indica si la posición suministrada alberga un combate (jugador y monstruo)</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>row</span>
+      
+      
+        <span class='type'>(<tt>int</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>fila de la posición</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>col</span>
+      
+      
+        <span class='type'>(<tt>int</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>columna de la posición</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>boolean</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p><strong>true</strong> si la posición suministrada alberga un combate (jugador y monstruo) y <strong>false</strong> si no es así.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+145
+146
+147</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'labyrinth.rb', line 145</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_combat_pos'>combat_pos</span><span class='lparen'>(</span><span class='id identifier rubyid_row'>row</span><span class='comma'>,</span> <span class='id identifier rubyid_col'>col</span><span class='rparen'>)</span>
+    <span class='kw'>return</span> <span class='lparen'>(</span><span class='ivar'>@labyrinth</span><span class='lbracket'>[</span><span class='id identifier rubyid_row'>row</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='id identifier rubyid_col'>col</span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='cvar'>@@COMBAT_CHAR</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="dir_2_pos-instance_method">
+  
+    #<strong>dir_2_pos</strong>(row, col, direction)  &#x21d2; <tt>int []</tt>  <span class="extras">(private)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Este método calcula la posición del laberinto a la que se llegaría si desde la posición suministrada se avanza en la dirección pasada como parámetro. No es necesario realizar comprobaciones relativas a no generar posiciones fuera del laberinto.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>row</span>
+      
+      
+        <span class='type'>(<tt>int</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>fila de la posición</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>col</span>
+      
+      
+        <span class='type'>(<tt>int</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>columna de la posición</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>direction</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Directions.html" title="Irrgarten::Directions (module)">Directions</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>dirección en la que se avanza</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>int []</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>posición a la que se llegaría si se avanza en la dirección pasada como parámetro</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'labyrinth.rb', line 190</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_dir_2_pos'>dir_2_pos</span><span class='lparen'>(</span><span class='id identifier rubyid_row'>row</span><span class='comma'>,</span> <span class='id identifier rubyid_col'>col</span><span class='comma'>,</span> <span class='id identifier rubyid_direction'>direction</span><span class='rparen'>)</span>
+    <span class='kw'>case</span> <span class='id identifier rubyid_direction'>direction</span>
+        <span class='kw'>when</span> <span class='const'><span class='object_link'><a href="Directions.html" title="Irrgarten::Directions (module)">Directions</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Directions.html#LEFT-constant" title="Irrgarten::Directions::LEFT (constant)">LEFT</a></span></span>
+            <span class='kw'>return</span> <span class='id identifier rubyid_row'>row</span><span class='comma'>,</span> <span class='id identifier rubyid_col'>col</span><span class='op'>-</span><span class='int'>1</span>
+        <span class='kw'>when</span> <span class='const'><span class='object_link'><a href="Directions.html" title="Irrgarten::Directions (module)">Directions</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Directions.html#RIGHT-constant" title="Irrgarten::Directions::RIGHT (constant)">RIGHT</a></span></span>
+            <span class='kw'>return</span> <span class='id identifier rubyid_row'>row</span><span class='comma'>,</span> <span class='id identifier rubyid_col'>col</span><span class='op'>+</span><span class='int'>1</span>
+        <span class='kw'>when</span> <span class='const'><span class='object_link'><a href="Directions.html" title="Irrgarten::Directions (module)">Directions</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Directions.html#UP-constant" title="Irrgarten::Directions::UP (constant)">UP</a></span></span>
+            <span class='kw'>return</span> <span class='id identifier rubyid_row'>row</span><span class='op'>-</span><span class='int'>1</span><span class='comma'>,</span> <span class='id identifier rubyid_col'>col</span>
+        <span class='kw'>when</span> <span class='const'><span class='object_link'><a href="Directions.html" title="Irrgarten::Directions (module)">Directions</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Directions.html#DOWN-constant" title="Irrgarten::Directions::DOWN (constant)">DOWN</a></span></span>
+            <span class='kw'>return</span> <span class='id identifier rubyid_row'>row</span><span class='op'>+</span><span class='int'>1</span><span class='comma'>,</span> <span class='id identifier rubyid_col'>col</span>
+    <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="empty_pos-instance_method">
+  
+    #<strong>empty_pos</strong>(row, col)  &#x21d2; <tt>boolean</tt>  <span class="extras">(private)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Método que indica si la posición suministrada está vacía</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>row</span>
+      
+      
+        <span class='type'>(<tt>int</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>fila de la posición</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>col</span>
+      
+      
+        <span class='type'>(<tt>int</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>columna de la posición</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>boolean</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p><strong>true</strong> si la posición suministrada está vacía y <strong>false</strong> si no lo está.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+118
+119
+120</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'labyrinth.rb', line 118</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_empty_pos'>empty_pos</span><span class='lparen'>(</span><span class='id identifier rubyid_row'>row</span><span class='comma'>,</span> <span class='id identifier rubyid_col'>col</span><span class='rparen'>)</span>
+    <span class='kw'>return</span> <span class='lparen'>(</span><span class='ivar'>@labyrinth</span><span class='lbracket'>[</span><span class='id identifier rubyid_row'>row</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='id identifier rubyid_col'>col</span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='cvar'>@@EMPTY_CHAR</span><span class='rparen'>)</span> <span class='op'>&amp;&amp;</span> <span class='lparen'>(</span><span class='ivar'>@players</span><span class='lbracket'>[</span><span class='id identifier rubyid_row'>row</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='id identifier rubyid_col'>col</span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="exit_pos-instance_method">
+  
+    #<strong>exit_pos</strong>(row, col)  &#x21d2; <tt>boolean</tt>  <span class="extras">(private)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Método que indica si la posición suministrada es la de salida</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>row</span>
+      
+      
+        <span class='type'>(<tt>int</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>fila de la posición</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>col</span>
+      
+      
+        <span class='type'>(<tt>int</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>columna de la posición</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>boolean</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p><strong>true</strong> si la posición suministrada es la de salida y <strong>false</strong> si no lo es.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+136
+137
+138</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'labyrinth.rb', line 136</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_exit_pos'>exit_pos</span><span class='lparen'>(</span><span class='id identifier rubyid_row'>row</span><span class='comma'>,</span> <span class='id identifier rubyid_col'>col</span><span class='rparen'>)</span>
+    <span class='kw'>return</span> <span class='lparen'>(</span><span class='ivar'>@labyrinth</span><span class='lbracket'>[</span><span class='id identifier rubyid_row'>row</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='id identifier rubyid_col'>col</span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='cvar'>@@EXIT_CHAR</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="have_a_winner-instance_method">
+  
+    #<strong>have_a_winner</strong>  &#x21d2; <tt>boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Método que informa sobre si hay un ganador; es decir, si ningún jugador ha llegado a la salida.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>boolean</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p><strong>true</strong> si hay un ganador y <strong>false</strong> si no lo hay</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+54
+55
+56</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'labyrinth.rb', line 54</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_have_a_winner'>have_a_winner</span>
     <span class='kw'>return</span> <span class='ivar'>@players</span><span class='lbracket'>[</span><span class='id identifier rubyid_exit_row'>exit_row</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='id identifier rubyid_exit_col'>exit_col</span><span class='rbracket'>]</span> <span class='op'>!=</span> <span class='kw'>nil</span>
@@ -776,29 +1404,94 @@ atributo contenedor adecuado e indica al monstruo cual es su posición actual (s
 </div>
     
       <div class="method_details ">
-  <h3 class="signature " id="put_player-instance_method">
+  <h3 class="signature " id="monster_pos-instance_method">
   
-    #<strong>put_player</strong>(direction, player)  &#x21d2; <tt>Object</tt> 
-  
-
+    #<strong>monster_pos</strong>(row, col)  &#x21d2; <tt>boolean</tt>  <span class="extras">(private)</span>
   
 
   
-</h3><table class="source_code">
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Método que indica si la posición suministrada alberga exclusivamente un monstruo</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>row</span>
+      
+      
+        <span class='type'>(<tt>int</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>fila de la posición</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>col</span>
+      
+      
+        <span class='type'>(<tt>int</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>columna de la posición</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>boolean</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p><strong>true</strong> si la posición suministrada alberga exclusivamente un monstruo y <strong>false</strong> si no es así.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-88
-89
-90</pre>
+127
+128
+129</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'labyrinth.rb', line 88</span>
+      <pre class="code"><span class="info file"># File 'labyrinth.rb', line 127</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_put_player'>put_player</span><span class='lparen'>(</span><span class='id identifier rubyid_direction'>direction</span><span class='comma'>,</span> <span class='id identifier rubyid_player'>player</span><span class='rparen'>)</span>
-    <span class='comment'># Sig. Práctica
+<span class='kw'>def</span> <span class='id identifier rubyid_monster_pos'>monster_pos</span><span class='lparen'>(</span><span class='id identifier rubyid_row'>row</span><span class='comma'>,</span> <span class='id identifier rubyid_col'>col</span><span class='rparen'>)</span>
+    <span class='kw'>return</span> <span class='lparen'>(</span><span class='ivar'>@labyrinth</span><span class='lbracket'>[</span><span class='id identifier rubyid_row'>row</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='id identifier rubyid_col'>col</span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='cvar'>@@MONSTER_CHAR</span><span class='rparen'>)</span> <span class='comment'># &amp;&amp; (@players[row][col] == nil). No es necesario pq si está habrá un combate
 </span><span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -806,30 +1499,164 @@ atributo contenedor adecuado e indica al monstruo cual es su posición actual (s
 </div>
     
       <div class="method_details ">
-  <h3 class="signature " id="spread_players-instance_method">
+  <h3 class="signature " id="pos_ok-instance_method">
   
-    #<strong>spread_players</strong>(players)  &#x21d2; <tt>Object</tt> 
-  
-
+    #<strong>pos_ok</strong>(row, col)  &#x21d2; <tt>boolean</tt>  <span class="extras">(private)</span>
   
 
   
-</h3><table class="source_code">
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Método que indica si la posición suministrada está dentro del tablero</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>row</span>
+      
+      
+        <span class='type'>(<tt>int</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>fila de la posición</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>col</span>
+      
+      
+        <span class='type'>(<tt>int</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>columna de la posición</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>boolean</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p><strong>true</strong> si la posición suministrada está dentro del tablero y <strong>false</strong> si no lo está.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-47
-48
-49</pre>
+109
+110
+111</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'labyrinth.rb', line 47</span>
+      <pre class="code"><span class="info file"># File 'labyrinth.rb', line 109</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_spread_players'>spread_players</span><span class='lparen'>(</span><span class='id identifier rubyid_players'>players</span><span class='rparen'>)</span>
-    <span class='comment'># Sig. Práctica
-</span><span class='kw'>end</span></pre>
+<span class='kw'>def</span> <span class='id identifier rubyid_pos_ok'>pos_ok</span><span class='lparen'>(</span><span class='id identifier rubyid_row'>row</span><span class='comma'>,</span> <span class='id identifier rubyid_col'>col</span><span class='rparen'>)</span>
+    <span class='kw'>return</span> <span class='lparen'>(</span><span class='int'>0</span><span class='op'>&lt;=</span><span class='id identifier rubyid_row'>row</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_row'>row</span><span class='op'>&lt;</span><span class='ivar'>@n_rows</span><span class='rparen'>)</span> <span class='op'>&amp;&amp;</span> <span class='lparen'>(</span><span class='int'>0</span><span class='op'>&lt;=</span><span class='id identifier rubyid_col'>col</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_col'>col</span><span class='op'>&lt;</span><span class='ivar'>@n_cols</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="random_empty_pos-instance_method">
+  
+    #<strong>random_empty_pos</strong>  &#x21d2; <tt>int []</tt>  <span class="extras">(private)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Utilizando el dado, genera una posición aleatoria en el laberinto (fila y columna) asegurando que esta esté vacía. Genera internamente posiciones hasta que se cumple esta restricción y una vez generada se devuelve. Si no hay posiciones vacías se producirá un bucle infinito.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>int []</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>posición aleatoria en el laberinto</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+208
+209
+210
+211
+212
+213
+214
+215</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'labyrinth.rb', line 208</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_random_empty_pos'>random_empty_pos</span>
+    <span class='kw'>begin</span>
+        <span class='id identifier rubyid_row'>row</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="Dice.html" title="Irrgarten::Dice (class)">Dice</a></span></span><span class='period'>.</span><span class='id identifier rubyid_rand'>rand</span><span class='lparen'>(</span><span class='ivar'>@n_rows</span><span class='rparen'>)</span>
+        <span class='id identifier rubyid_col'>col</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="Dice.html" title="Irrgarten::Dice (class)">Dice</a></span></span><span class='period'>.</span><span class='id identifier rubyid_rand'>rand</span><span class='lparen'>(</span><span class='ivar'>@n_cols</span><span class='rparen'>)</span>
+    <span class='kw'>end</span> <span class='kw'>while</span> <span class='op'>!</span><span class='id identifier rubyid_empty_pos'>empty_pos</span><span class='lparen'>(</span><span class='id identifier rubyid_row'>row</span><span class='comma'>,</span> <span class='id identifier rubyid_col'>col</span><span class='rparen'>)</span>
+
+    <span class='kw'>return</span> <span class='id identifier rubyid_row'>row</span><span class='comma'>,</span> <span class='id identifier rubyid_col'>col</span>
+<span class='kw'>end</span></pre>
     </td>
   </tr>
 </table>
@@ -838,7 +1665,7 @@ atributo contenedor adecuado e indica al monstruo cual es su posición actual (s
       <div class="method_details ">
   <h3 class="signature " id="to_s-instance_method">
   
-    #<strong>to_s</strong>  &#x21d2; <tt>Object</tt> 
+    #<strong>to_s</strong>  &#x21d2; <tt>string</tt> 
   
 
   
@@ -860,11 +1687,11 @@ atributo contenedor adecuado e indica al monstruo cual es su posición actual (s
     <li>
       
       
-        <span class='type'></span>
+        <span class='type'>(<tt>string</tt>)</span>
       
       
       
-        
+        &mdash;
         <div class='inline'>
 <p>cadena de caracteres con la información del laberinto</p>
 </div>
@@ -879,8 +1706,6 @@ atributo contenedor adecuado e indica al monstruo cual es su posición actual (s
       <pre class="lines">
 
 
-59
-60
 61
 62
 63
@@ -888,10 +1713,12 @@ atributo contenedor adecuado e indica al monstruo cual es su posición actual (s
 65
 66
 67
-68</pre>
+68
+69
+70</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'labyrinth.rb', line 59</span>
+      <pre class="code"><span class="info file"># File 'labyrinth.rb', line 61</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_to_s'>to_s</span>
     <span class='ivar'>@labyrinth</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_row'>row</span><span class='op'>|</span>
@@ -909,30 +1736,93 @@ atributo contenedor adecuado e indica al monstruo cual es su posición actual (s
 </div>
     
       <div class="method_details ">
-  <h3 class="signature " id="valid_moves-instance_method">
+  <h3 class="signature " id="update_old_pos-instance_method">
   
-    #<strong>valid_moves</strong>(row, col)  &#x21d2; <tt>Object</tt> 
-  
-
+    #<strong>update_old_pos</strong>(row, col)  &#x21d2; <tt>Object</tt>  <span class="extras">(private)</span>
   
 
   
-</h3><table class="source_code">
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Este método solo realiza su función si la posición suministrada está dentro del laberinto. Si es el caso, si en esa posición el laberinto estaba indicando el estado de combate, el estado de esa casilla del laberinto pasa a indicar que simplemente hay un monstruo. En otro caso, el estado de esa casilla del laberinto pasa a indicar que está vacía.</p>
+
+<p>Este método es llamado cuando un jugador abandona una casilla y se encarga de dejar la casilla que se abandona en el estado correcto.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>row</span>
+      
+      
+        <span class='type'>(<tt>int</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>fila de la posición</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>col</span>
+      
+      
+        <span class='type'>(<tt>int</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>columna de la posición</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-96
-97
-98</pre>
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'labyrinth.rb', line 96</span>
+      <pre class="code"><span class="info file"># File 'labyrinth.rb', line 169</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_valid_moves'>valid_moves</span><span class='lparen'>(</span><span class='id identifier rubyid_row'>row</span><span class='comma'>,</span> <span class='id identifier rubyid_col'>col</span><span class='rparen'>)</span>
-    <span class='comment'># Sig. Práctica
-</span><span class='kw'>end</span></pre>
+<span class='kw'>def</span> <span class='id identifier rubyid_update_old_pos'>update_old_pos</span><span class='lparen'>(</span><span class='id identifier rubyid_row'>row</span><span class='comma'>,</span> <span class='id identifier rubyid_col'>col</span><span class='rparen'>)</span>
+    <span class='kw'>if</span> <span class='lparen'>(</span><span class='id identifier rubyid_pos_ok'>pos_ok</span><span class='lparen'>(</span><span class='id identifier rubyid_row'>row</span><span class='comma'>,</span> <span class='id identifier rubyid_col'>col</span><span class='rparen'>)</span><span class='rparen'>)</span>
+        <span class='comment'># Si la posición es la de un combate, pone un monstruo en la posición
+</span>        <span class='kw'>if</span> <span class='lparen'>(</span><span class='id identifier rubyid_combat_pos'>combat_pos</span><span class='lparen'>(</span><span class='id identifier rubyid_row'>row</span><span class='comma'>,</span> <span class='id identifier rubyid_col'>col</span><span class='rparen'>)</span><span class='rparen'>)</span>
+            <span class='ivar'>@labyrinth</span><span class='lbracket'>[</span><span class='id identifier rubyid_row'>row</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='id identifier rubyid_col'>col</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='cvar'>@@MONSTER_CHAR</span>
+        <span class='kw'>else</span> <span class='comment'># Si no, pone la posición vacía
+</span>            <span class='ivar'>@labyrinth</span><span class='lbracket'>[</span><span class='id identifier rubyid_row'>row</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='id identifier rubyid_col'>col</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='cvar'>@@EMPTY_CHAR</span>
+        <span class='kw'>end</span>
+    <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
     </td>
   </tr>
 </table>
@@ -943,9 +1833,9 @@ atributo contenedor adecuado e indica al monstruo cual es su posición actual (s
 </div>
 
       <div id="footer">
-  Generated by
-  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.26 (ruby-3.0.2).
+  Generated on Sat Mar 16 11:42:56 2024 by
+  <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.36 (ruby-3.0.2).
 </div>
 
     </div>
