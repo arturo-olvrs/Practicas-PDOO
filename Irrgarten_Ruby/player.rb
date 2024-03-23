@@ -101,8 +101,8 @@ require_relative 'directions'
         #
         # @return [String] cadena de caracteres con la información del jugador
         def to_s
-            return "#{@name}[i:#{@intelligence}, s:#{@strength}, h:#{@health}, w:#{@weapons}, sh:#{@shields},
-                    p:(#{@row}, #{@col}), ch:#{@consecutive_hits}]"
+            return "#{@name}[i:#{@intelligence}, s:#{@strength}, h:#{@health}, w:#{@weapons}, sh:#{@shields}, " + 
+            "p:(#{@row}, #{@col}), ch:#{@consecutive_hits}]"
 
         end
 
