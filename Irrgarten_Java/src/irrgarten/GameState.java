@@ -14,8 +14,17 @@ public class GameState {
     private boolean winner;
     private String log;
 
-    // Constructor para inicializar todos los atributos
-    public GameState(String labyrinth, String players, String monsters, int currentPlayer, boolean winner, String log) {
+    /**
+     * Constructor de la clase GameState
+     * @param labyrinth Estado del laberinto
+     * @param players Estado de los jugadores
+     * @param monsters Estado de los monstruos
+     * @param currentPlayer Identificador del jugador actual
+     * @param winner Indicador de si hay un ganador
+     * @param log Eventos interesantes a lo largo de la partida
+     */
+    public GameState(String labyrinth, String players, String monsters, 
+            int currentPlayer, boolean winner, String log) {
         this.labyrinth = labyrinth;
         this.players = players;
         this.monsters = monsters;
@@ -24,27 +33,50 @@ public class GameState {
         this.log = log;
     }
 
-    // Consultores para acceder a los atributos
+    /**
+     * Consultor del estado del laberinto
+     * @return Estado del laberinto
+     */
     public String getLabyrinth() {
         return labyrinth;
     }
-
+    
+    /**
+     * Consultor del estado de los jugadores
+     * @return Estado de los jugadores
+     */
     public String getPlayers() {
         return players;
     }
 
+    /**
+     * Consultor del estado de los monstruos
+     * @return Estado de los monstruos
+     */
     public String getMonsters() {
         return monsters;
     }
 
+    /**
+     * Consultor para identificar el jugador actual
+     * @return Índice del jugador actual
+     */
     public int getCurrentPlayer() {
         return currentPlayer;
     }
 
+    /**
+     * Consultor de si ya hay un ganador
+     * @return True si hay ganador, false en caso constrario
+     */
     public boolean getWinner() {
         return winner;
     }
 
+    /**
+     * Consultor de eventos interesantes de la partida
+     * @return Eventos interesantes de la partida
+     */
     public String getLog() {
         return log;
     }
