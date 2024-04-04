@@ -16,7 +16,7 @@ public class Monster {
     
     private String name;
     private float intelligence;
-    private float strenght;
+    private float strength;
     private float health;
     private int row;
     private int col;
@@ -32,7 +32,7 @@ public class Monster {
         this.name=name;
         this.intelligence=intelligence;
         this.health=INITIAL_HEALTH;
-        this.strenght=strength;
+        this.strength=strength;
         this.row=INVALID_POS;
         this.col=INVALID_POS;
     }
@@ -42,7 +42,7 @@ public class Monster {
      * @return devuelve true si está muerto y false en caso contrario
      */
     public boolean dead(){
-        return (this.health==0);
+        return (this.health<=0);
     }
     
     /**
@@ -50,7 +50,7 @@ public class Monster {
      * @return devuelve el valor de fuerza del ataque
      */
     public float attack(){
-        return Dice.intensity(this.strenght);
+        return Dice.intensity(this.strength);
     }
     
     // SIGUIENTE PRACTICA
@@ -73,7 +73,7 @@ public class Monster {
      * @return devuelve una cadena con la información del monstruo y su posición
      */
     public String toString(){
-        return "M["+this.name+", i:"+this.intelligence+ ", s:"+this.strenght+", h:"
+        return "M["+this.name+", i:"+this.intelligence+ ", s:"+this.strength+", h:"
                 +this.health+", p:("+this.row+", "+this.col+")]";
     }
     

@@ -18,7 +18,7 @@ public class Player {
     // Número de unidades de salud inicial
     private static final int INTIAL_HEALTH=10;
    
-    
+    // Número de golpes que puede recibir un jugador antes de morir
     private static final int HITS2LOSE=3;
     
     // Posición inválida para inicializar row y col en el constructor
@@ -44,10 +44,18 @@ public class Player {
      */
     public Player (char number, float intelligence, float strength){
         this.number=number;
-        this.name= "Player #"+number;
+        this.name= "Player "+number;
         this.intelligence=intelligence;
         this.strength=strength;
         this.consecutiveHits=0;
+        this.health=INTIAL_HEALTH;
+
+        // Hay que inicializar los ArrayList
+        weapons= new ArrayList<Weapon>();
+        shields= new ArrayList<Shield>();
+
+        this.row=INVALID_POS;
+        this.col=INVALID_POS;
     }
     
     /**
@@ -55,11 +63,11 @@ public class Player {
      * al resucitar
      */
     public void resurrect(){
-        this.consecutiveHits=0;
         this.health=INTIAL_HEALTH;
+        resetHits();
         // Inicializamos los vectores como vacío
-        this.weapons=new ArrayList<>();
-        this.shields=new ArrayList<>();
+        this.weapons.clear();
+        this.shields.clear();
     }
     
     /**
@@ -77,6 +85,14 @@ public class Player {
     public int getCol(){
         return this.col;
     }
+
+    /**
+     * Informa sobre el número del jugador
+     * @return Número del jugador
+     */
+    public char getNumber(){
+        return this.number;
+    }
     
     /**
      * Definimos la posición del jugador en el tablero
@@ -93,7 +109,7 @@ public class Player {
      * @return Devuelve true si está vivo, en caso contrario devuelve false
      */
     public boolean dead(){
-        return (this.health==0);
+        return (this.health<=0);
     }
     
     /**
@@ -138,7 +154,7 @@ public class Player {
      */
     public String toString(){
         String toReturn= this.name+"[i:"+this.intelligence+", s:"+this.strength;
-        toReturn+=", h:"+this.health+", w:";
+        toReturn+=", h:"+this.health+", ";
         
         // Bucles para mostrar con un formato determinado el array de
         // armas y escudos del jugador
@@ -157,7 +173,7 @@ public class Player {
         toWeapons+=this.shields.get(tamShields-1)+"]";
         
         // Definimos el formato final para el toString
-        toReturn+=toWeapons+", sh:"+toShields+", p("+this.row+", "+this.col+")";
+        toReturn+="w: " + toWeapons+", sh:"+toShields+", p:("+this.row+", "+this.col+")";
         toReturn+=", ch:"+this.consecutiveHits+"]";
         
         return toReturn;

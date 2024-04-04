@@ -86,7 +86,7 @@ require_relative 'directions'
         #
         # @return [float] la intensidad del ataque
         def attack
-            return @strength + self.sum_weapons
+            return @strength + self.sum_weapons # Self no es necesario
         end
 
         # def defend(received_attack)
@@ -101,8 +101,9 @@ require_relative 'directions'
         #
         # @return [String] cadena de caracteres con la información del jugador
         def to_s
-            return "#{@name}[i:#{@intelligence}, s:#{@strength}, h:#{@health}, w:#{@weapons}, sh:#{@shields}, " + 
+            return "#{@name}[i:#{@intelligence}, s:#{@strength}, h:#{@health}, w:#{@weapons}, sh:#{@shields}, " +
             "p:(#{@row}, #{@col}), ch:#{@consecutive_hits}]"
+            # // TODO: Comprobar que funciona igual que en Java
 
         end
 

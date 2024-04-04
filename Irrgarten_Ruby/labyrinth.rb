@@ -59,11 +59,12 @@ require_relative 'orientation' # // TODO: Hace falta orientation.rb?
         #
         # @return [string] cadena de caracteres con la información del laberinto
         def to_s
+            str = ""
             @labyrinth.each do |row|
                 row.each do |cell|
-                    print cell
+                    str += cell + " "
                 end
-                print "\n"
+                str += "\n"
             end
 
             # // TODO: Imprimir también la posición de los jugadores? Esperar a ver qué se tiene en @players
@@ -188,7 +189,7 @@ require_relative 'orientation' # // TODO: Hace falta orientation.rb?
         #
         # @return [int []] posición a la que se llegaría si se avanza en la dirección pasada como parámetro
         def dir_2_pos(row, col, direction)
-            case direction
+            case direction  # switch en Ruby
                 when Directions::LEFT
                     return row, col-1
                 when Directions::RIGHT
@@ -197,6 +198,8 @@ require_relative 'orientation' # // TODO: Hace falta orientation.rb?
                     return row-1, col
                 when Directions::DOWN
                     return row+1, col
+                # else para caso por defecto
+                # Importante que no hace falta break
             end
         end
 
@@ -207,8 +210,8 @@ require_relative 'orientation' # // TODO: Hace falta orientation.rb?
         # @return [int []] posición aleatoria en el laberinto
         def random_empty_pos
             begin
-                row = Dice.rand(@n_rows)
-                col = Dice.rand(@n_cols)
+                row = Dice.random_pos(@n_rows)
+                col = Dice.random_pos(@n_cols)
             end while !empty_pos(row, col)
 
             return row, col

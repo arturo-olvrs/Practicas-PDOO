@@ -22,9 +22,7 @@ require_relative 'orientation'
         @@MAX_ROUNDS = 10 # Número máximo de rondas de cada combate
 
 
-        ####------------PERSONALIZAR----------------
-
-
+        #### ---------------------- PERSONALIZACIÓN LABERINTO ----------------
         @@ROWS = 10 # Número de filas del laberinto
         @@COLS = 10 # Número de columnas del laberinto
 
@@ -43,7 +41,7 @@ require_relative 'orientation'
             [Orientation::HORIZONTAL,   3, 0,   8],
             [Orientation::VERTICAL,     2, 2,   5]
         ]
-        ####----------------------------------------
+        #### ---------------------- PERSONALIZACIÓN LABERINTO ----------------
 
         # Constructor de la clase Game. Inicializa los atributos de la clase.
         #
@@ -54,7 +52,7 @@ require_relative 'orientation'
 
             # Inicializa el array de jugadores
             n_players.times do |i|
-                @players.push(Player.new(i, Dice.random_intelligence, Dice.random_strength))
+                @players.push(Player.new(i.to_s, Dice.random_intelligence, Dice.random_strength))
             end
 
             @current_player_index = Dice.who_starts(n_players)  # Índice del jugador que comienza la partida
@@ -86,17 +84,17 @@ require_relative 'orientation'
         #
         # @return [GameState] Objeto GameState con la información del estado del juego
         def game_state
-            players_str = ""
+        info_players = ""
             @players.each do |player|
-                players_str += player.to_s + "\n"
+                info_players += player.to_s + ",\t"
             end
 
-            monsters_str = ""
+        info_monsters = ""
             @monsters.each do |monster|
-                monsters_str += monster.to_s + "\n"
+                info_monsters += monster.to_s + ",\t"
             end
 
-            return GameState.new(@labyrinth.to_s, players_str, monsters_str, current_player_index, self.finished, @log)
+            return GameState.new(@labyrinth.to_s, info_players, info_monsters, current_player_index, self.finished, @log)
         end
 
         private
@@ -108,8 +106,8 @@ require_relative 'orientation'
 
             # Añade los bloques de obstáculos al laberinto
             @@BLOCKS.each do |block|
-                oientation, row, col, length = block
-                @labyrinth.add_block(orienation, row, col, length)
+                orientation, row, col, length = block
+                @labyrinth.add_block(orientation, row, col, length)
             end
 
 
@@ -148,7 +146,7 @@ require_relative 'orientation'
 
         # Añade al final del atributo log el mensaje indicando que el jugador ha ganado el combate.
         def log_player_won
-            log += "Player #{@current_player_index} won.\n"
+            log += "Player #{@current_player_index} won the fight.\n"
         end
 
         # Añade al final del atributo log el mensaje indicando que el monstruo ha ganado el combate.

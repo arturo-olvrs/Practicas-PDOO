@@ -36,7 +36,7 @@ public class Labyrinth {
     // e información general del laberinto
     private Monster [][] monsters;
     private Player [][] players;
-    private char [][] laberinto;
+    private char [][] labyrinth;
     
     /**
      * Constructor de la clase
@@ -52,20 +52,20 @@ public class Labyrinth {
         this.exitRow=exitRow;
         
         // Definimos tamaño del laberinto, players y monsters
-        this.laberinto= new char [nRows][nCols];
-        this.players=new Player [nRows][nCols];
-        this.monsters=new Monster [nRows][nCols];
+        this.labyrinth  = new char   [nRows][nCols];
+        this.players    = new Player [nRows][nCols];
+        this.monsters   = new Monster[nRows][nCols];
         
         // Inicializaremos la matrice laberinto con valor por defecto
         // EMPTY_CHAR
         for (int i=0; i<this.nRows; i++){
             for(int j=0; j<this.nCols; j++){
-                this.laberinto[i][j]=EMPTY_CHAR;
+                this.labyrinth[i][j]=EMPTY_CHAR;
             }
         }
         
         // Definimos casilla salida
-        this.laberinto[exitRow][exitCol]=EXIT_CHAR;
+        this.labyrinth[exitRow][exitCol]=EXIT_CHAR;
     }
     
     /**
@@ -96,7 +96,7 @@ public class Labyrinth {
         String toReturn="";
         for(int r=0; r<this.nRows; r++){
             for(int c=0; c<this.nCols; c++){
-                toReturn+=this.laberinto[r][c]+" ";
+                toReturn+=this.labyrinth[r][c]+" ";
             }
             toReturn+="\n";
         }
@@ -113,10 +113,9 @@ public class Labyrinth {
      */
     public void addMonster (int row, int col, Monster monster){
         if (posOk(row, col) && (emptyPos(row, col))){
-            Monster host= monster;
-            host.setPos(row,col);
+            monster.setPos(row,col);
             this.monsters[row][col]=monster;
-            this.laberinto[row][col]=MONSTER_CHAR;
+            this.labyrinth[row][col]=MONSTER_CHAR;
         }
     }
     
@@ -147,7 +146,7 @@ public class Labyrinth {
      * @param col
      * @return 
      */
-    public ArrayList<Directions> validMoves(int row, int col){
+    public int[] validMoves(int row, int col){
         throw new UnsupportedOperationException();
     }
     
@@ -168,7 +167,7 @@ public class Labyrinth {
      * @return True si está vacía la casilla, false en caso contrario
      */
     private boolean emptyPos(int row, int col){
-        return (this.laberinto[row][col]==EMPTY_CHAR);
+        return (this.labyrinth[row][col]==EMPTY_CHAR) && (this.players[row][col]==null);
     }
     
     /**
@@ -178,7 +177,7 @@ public class Labyrinth {
      * @return True si hay un monstruo en la casilla, false en caso contrario
      */
     private boolean monsterPos(int row, int col){
-        return (this.laberinto[row][col]==MONSTER_CHAR);        
+        return (this.labyrinth[row][col]==MONSTER_CHAR);        
     }
     
     /**
@@ -188,7 +187,7 @@ public class Labyrinth {
      * @return True si la casilla es la de salida, false en caso contrario
      */
     private boolean exitPos(int row, int col){
-        return (this.laberinto[row][col]==EXIT_CHAR);
+        return (this.labyrinth[row][col]==EXIT_CHAR);
     }
     
     /**
@@ -198,7 +197,7 @@ public class Labyrinth {
      * @return True si hay un combate en la casilla, false en caso contrario
      */
     private boolean combatPos(int row, int col){
-        return (this.laberinto[row][col]==COMBAT_CHAR);
+        return (this.labyrinth[row][col]==COMBAT_CHAR);
     }
     
     /**
@@ -209,9 +208,11 @@ public class Labyrinth {
      * @return True si cumple las características pedida, false en caso contrario
      */
     private boolean canStepOn(int row, int col){
-        boolean comprobacion=this.monsterPos(row, col) || this.exitPos(row, col) ||
-                this.emptyPos(row, col);
-        return (comprobacion && this.posOk(row, col));
+        boolean comprobacion=this.posOk(row, col);
+        comprobacion = comprobación && (this.monsterPos(row, col) || this.exitPos(row, col) ||
+                this.emptyPos(row, col));
+
+        return comprobacion;
     }
     
     /**
@@ -223,11 +224,11 @@ public class Labyrinth {
      */
     private void updateOldPos(int row, int col){
         if (this.posOk(row, col)){
-            if(this.laberinto[row][col]==COMBAT_CHAR){
-                this.laberinto[row][col]=MONSTER_CHAR;
+            if(combatPos(row, col)){
+                this.labyrinth[row][col]=MONSTER_CHAR;
             }
             else{
-                this.laberinto[row][col]=EMPTY_CHAR;
+                this.labyrinth[row][col]=EMPTY_CHAR;
             }
         }
     }
@@ -240,25 +241,25 @@ public class Labyrinth {
      * @param direction Dirección en la que nos desplazamos
      * @return Nueva posición tras el desplazamiento en una unidad
      */
-    private ArrayList<Integer> dir2Pos(int row, int col, Directions direction){
+    private int[] dir2Pos(int row, int col, Directions direction){
+        int[] toReturn= new int[2];
+        toReturn[ROW]=row;
+        toReturn[COL]=col;
+        
         switch(direction){
-            case LEFT:
-                row--;
+            case Directions.LEFT:
+                toReturn[COL]--;
                 break;
-            case RIGHT:
-                row++;
+            case Directions.RIGHT:
+                toReturn[COL]++;
                 break;
-            case UP:
-                col++;
+            case Directions.UP:
+                toReturn[ROW]--;
                 break;
-            case DOWN:
-                col--;
+            case Directions.DOWN:
+                toReturn[ROW]++;
                 break;
         }
-        // Importante añadir los paréntesis al final de ArrayList<>
-        ArrayList<Integer> toReturn= new ArrayList<>();
-        toReturn.add(row);
-        toReturn.add(col);
         
         return toReturn;
     }
@@ -267,17 +268,16 @@ public class Labyrinth {
      * Define una posición random en el laberinto, la cual debe estar vacía
      * @return Posición random dentro del laberinto
      */
-    private ArrayList<Integer> randomEmptyPos(){
-        int row=Dice.randomPos(this.nRows);
-        int col=Dice.randomPos(this.nCols);
-        while (!this.emptyPos(row, col)){
+    private int[] randomEmptyPos(){
+        int row, col;
+        do{
             row=Dice.randomPos(this.nRows);
             col=Dice.randomPos(this.nCols);
-        }
+        }while (!this.emptyPos(row, col))
         
-        ArrayList<Integer> toReturn= new ArrayList<>();
-        toReturn.add(row);
-        toReturn.add(col);
+        int[] toReturn= new int[2]; // = {row, col};
+        toReturn[ROW]=row;
+        toReturn[COL]=col;
         
         return toReturn;
     }
