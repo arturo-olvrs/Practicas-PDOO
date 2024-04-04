@@ -21,10 +21,13 @@ require_relative 'orientation'
     class Game
         @@MAX_ROUNDS = 10 # Número máximo de rondas de cada combate
 
+        ####---------------------- PERSONALIZACIÓN LABERINTO ----------------
 
-        #### ---------------------- PERSONALIZACIÓN LABERINTO ----------------
-        @@ROWS = 10 # Número de filas del laberinto
-        @@COLS = 10 # Número de columnas del laberinto
+        # Número de filas del laberinto
+        @@ROWS = 10
+
+        # Número de columnas del laberinto
+        @@COLS = 10
 
         # Información de los monstruos a añadir al laberinto
         @@MONSTER_INIT = [
@@ -47,6 +50,7 @@ require_relative 'orientation'
         #
         # @param n_players [int] número de jugadores
         def initialize(n_players)
+
             @players = Array.new
             @monsters = Array.new
 
@@ -146,41 +150,41 @@ require_relative 'orientation'
 
         # Añade al final del atributo log el mensaje indicando que el jugador ha ganado el combate.
         def log_player_won
-            log += "Player #{@current_player_index} won the fight.\n"
+            @log += "Player #{@current_player_index} won the fight.\n"
         end
 
         # Añade al final del atributo log el mensaje indicando que el monstruo ha ganado el combate.
         def log_monster_won
-            log += "Monster won the fight.\n"
+            @log += "Monster won the fight.\n"
         end
 
         # Añade al final del atributo log el mensaje indicando que el jugador ha resucitado.
         def log_resurrected
-            log += "Player #{@current_player_index} resurrected.\n"
+            @log += "Player #{@current_player_index} resurrected.\n"
         end
 
         # Añade al final del atributo log el mensaje indicando que el jugador ha perdido el turno por estar muerto.
         def log_player_skip_turn
-            log += "Player #{@current_player_index} skipped turn (is dead).\n"
+            @log += "Player #{@current_player_index} skipped turn (is dead).\n"
         end
 
         # Añade al final del atributo log el mensaje indicando que el jugador no ha
-        #           seguido las instrucciones del jugador humano (no fue posible).
+        # seguido las instrucciones del jugador humano (no fue posible).
         def log_player_no_orders
-            log += "Player #{@current_player_index} didn't follow orders, it was not possible.\n"
+            @log += "Player #{@current_player_index} didn't follow orders, it was not possible.\n"
         end
 
         # Añade al final del atributo log el mensaje indicando que el jugador se ha movido a una casilla vacía o no le ha sido posible moverse.
         def log_no_monster
-            log += "Player #{@current_player_index} moved to an empty cell or it was not possible to move.\n"
+            @log += "Player #{@current_player_index} moved to an empty cell or it was not possible to move.\n"
         end
 
         # Añade al final del atributo log el mensaje indicando que se han producido rounds de max rondas de combate.
         #
-        # @param rounds número de rondas de combate que ya se han producido
-        # @param max número máximo de rondas de combate
+        # @param rounds [int] número de rondas de combate que ya se han producido
+        # @param max [int] número máximo de rondas de combate
         def log_rounds(rounds, max)
-            log += "Rounds: #{rounds}/#{max}.\n"
+            @log += "Rounds: #{rounds}/#{max}.\n"
         end
 
     end
