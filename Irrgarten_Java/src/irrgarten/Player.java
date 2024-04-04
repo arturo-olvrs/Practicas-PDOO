@@ -9,36 +9,78 @@ import java.util.ArrayList;
  * @author Joaquín Avilés de la Fuente
  */
 public class Player {
-    // Cantidad máxima de armas que puede llevar
+    /**
+     * Número máximo de armas que puede llevar un jugador.
+     */
     private static final int MAX_WEAPONS=2;
     
-    // Cantidad máxima de escudos que puede llevar
+    /**
+     * Número máximo de escudos que puede llevar un jugador.
+     */
     private static final int MAX_SHIELDS=3;
     
-    // Número de unidades de salud inicial
+    /**
+     * Número de unidades de salud inicial de los jugadores.
+     */
     private static final int INTIAL_HEALTH=10;
    
-    // Número de golpes que puede recibir un jugador antes de morir
+    /**
+     * Número de golpes que puede recibir un jugador antes de morir.
+     */
     private static final int HITS2LOSE=3;
     
-    // Posición inválida para inicializar row y col en el constructor
+    /**
+     * Posición inválida para inicializar row y col en el constructor.
+     */
     private static final int INVALID_POS=-1;
     
+
+
+    /**
+     * Nombre del jugador.
+     */
     private String name;
+    /**
+     * Número identificador del jugador.
+     */
     private char number;
+    /**
+     * Inteligencia del jugador.
+     */
     private float intelligence;
+    /**
+     * Fuerza del jugador.
+     */
     private float strength;
+    /**
+     * Salud del jugador.
+     */
     private float health;
+    /**
+     * Fila en la que se encuentra el jugador.
+     */
     private int row;
+    /**
+     * Columna en la que se encuentra el jugador.
+     */
     private int col;
+    /**
+     * Número de golpes consecutivos que ha recibido el jugador.
+     */
     private int consecutiveHits;
     
-    private ArrayList<Weapon> weapons; // ArrayList de armas
-    private ArrayList<Shield> shields; // ArrayList de escudos
+    /**
+     * ArrayList de armas que lleva el jugador.
+     */
+    private ArrayList<Weapon> weapons;
+    /**
+     * ArrayList de escudos que lleva el jugador.
+     */
+    private ArrayList<Shield> shields;
     
     /**
      * Constructor de la clase Player
-     * @param number número identificador
+     * @param number número identificador del jugador
      * @param intelligence inteligencia del jugador
      * @param strength fuerza del jugador
      */

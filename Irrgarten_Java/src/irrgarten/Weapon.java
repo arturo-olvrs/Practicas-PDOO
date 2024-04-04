@@ -9,7 +9,13 @@ package irrgarten;
  * @author Joaquín Avilés de la Fuente
  */
 public class Weapon {
+    /**
+     * Potencia del arma.
+     */
     private float power;
+    /**
+     * Número de usos disponibles del arma.
+     */
     private int uses;
 
     /**

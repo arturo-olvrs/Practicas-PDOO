@@ -8,25 +8,48 @@ package irrgarten;
  */
 public class Monster {
     
-    // Número de unidades de salud inicial
+    /**
+     * Número de unidades de salud inicial de los monstruos
+     */
     private static final int INITIAL_HEALTH=5;
        
-    // Posición inválida para inicializar row y col en el constructor
+    /**
+     * Posición inválida para inicializar row y col en el constructor
+     */
     private static final int INVALID_POS=-1;
     
+
+    /**
+     * Nombre del monstruo
+     */
     private String name;
+    /**
+     * Inteligencia del monstruo
+     */
     private float intelligence;
+    /**
+     * Fuerza del monstruo
+     */
     private float strength;
+    /**
+     * Salud del monstruo
+     */
     private float health;
+    /**
+     * Fila en la que se encuentra el monstruo
+     */
     private int row;
+    /**
+     * Columna en la que se encuentra el monstruo
+     */
     private int col;
     
     /**
      * Constructor de la clase
      * 
-     * @param name valor inicial 
-     * @param intelligence valor inicial
-     * @param strength valor inicial
+     * @param name Valor inicial para el nombre
+     * @param intelligence Valor inicial para la inteligencia
+     * @param strength Valor inicial para la fuerza
      */
     public Monster(String name, float intelligence, float strength){
         this.name=name;
@@ -39,7 +62,7 @@ public class Monster {
     
     /**
      * Comprueba si está muerto el mostruo
-     * @return devuelve true si está muerto y false en caso contrario
+     * @return Devuelve true si está muerto y false en caso contrario
      */
     public boolean dead(){
         return (this.health<=0);
@@ -47,13 +70,17 @@ public class Monster {
     
     /**
      * Indica la fuerza de ataque del monstruo
-     * @return devuelve el valor de fuerza del ataque
+     * @return Devuelve el valor de fuerza del ataque
      */
     public float attack(){
         return Dice.intensity(this.strength);
     }
     
-    // SIGUIENTE PRACTICA
+    /**
+     * SIGUIENTE PRACTICA
+     * @param receivedAttack
+     * @return
+     */
     public boolean defend(float receivedAttack){
         throw new UnsupportedOperationException();
     }

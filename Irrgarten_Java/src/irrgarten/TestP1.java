@@ -7,6 +7,10 @@ package irrgarten;
  * @author Joaquín Avilés de la Fuente
  */
 public class TestP1 {
+
+    /**
+     * Método principal del programa
+     */
     public static void main ( String [ ] args ) {
         System.out.println("Hello, World!");
     }

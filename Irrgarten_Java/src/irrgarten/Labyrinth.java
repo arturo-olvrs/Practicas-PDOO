@@ -13,29 +13,76 @@ import java.util.ArrayList;
  */
 public class Labyrinth {
     // Constantes que indicarán el estado de la casilla
+    /**
+     * Carácter que indica que hay un obstáculo en la casilla.
+     */
     private static final char BLOCK_CHAR='X';
+    /**
+     * Carácter que indica que hay un jugador en la casilla.
+     */
     private static final char EMPTY_CHAR='-';
+    /**
+     * Carácter que indica que hay un monstruo en la casilla.
+     */
     private static final char MONSTER_CHAR='M';
+    /**
+     * Carácter que indica que hay un combate en la casilla.
+     */
     private static final char COMBAT_CHAR='C';
+    /**
+     * Carácter que indica que hay un jugador en la casilla.
+     */
     private static final char EXIT_CHAR='E';
     
     // Variables que representa el orden de la fila y la columna en un array con 
     // dos componentes
+    /**
+     * Índice de la fila en un array de dos componentes.
+     */
     private static final int ROW=0;
+    /**
+     * Índice de la columna en un array de dos componentes.
+     */
     private static final int COL=1;
     
     // Variables que indican el tamaño del laberinto
+    /**
+     * Número de filas del laberinto.
+     */
     private int nRows;
+    /**
+     * Número de columnas del laberinto.
+     */
     private int nCols;
     
     // Variables que indican la casilla de salida
+    /**
+     * Fila de la casilla de salida.
+     */
     private int exitRow;
+    /**
+     * Columna de la casilla de salida.
+     */
     private int exitCol;
     
     // Matrices que almacenan información de los monstruos, jugadores
     // e información general del laberinto
+    /**
+     * Matriz que almacena los monstruos en el laberinto.
+     */
     private Monster [][] monsters;
+    /**
+     * Matriz que almacena los jugadores en el laberinto.
+     */
     private Player [][] players;
+    /**
+     * Matriz que almacena el estado de cada casilla del laberinto.
+     * @see EMPTY_CHAR
+     * @see BLOCK_CHAR
+     * @see MONSTER_CHAR
+     * @see COMBAT_CHAR
+     * @see EXIT_CHAR
+     */
     private char [][] labyrinth;
     
     /**
@@ -273,7 +320,7 @@ public class Labyrinth {
         do{
             row=Dice.randomPos(this.nRows);
             col=Dice.randomPos(this.nCols);
-        }while (!this.emptyPos(row, col))
+        }while (!this.emptyPos(row, col));
         
         int[] toReturn= new int[2]; // = {row, col};
         toReturn[ROW]=row;

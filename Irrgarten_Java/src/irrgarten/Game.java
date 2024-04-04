@@ -4,40 +4,86 @@ package irrgarten;
 import java.util.ArrayList;
 
 /**
- *
+ * Clase que representa el juego Irrgarten. Esta clase se encarga de gestionar el estado del juego,
+ * las acciones de los jugadores y los monstruos, y de generar un estado del juego que pueda ser
+ * consultado por la interfaz de usuario.
+ * 
  * @author Joaquín Avilés de la Fuente
  * @author Arturo Olivares Martos
  */
 public class Game {
-    // Máximo de rondas de un combate
+    /**
+     * Número máximo de rondas que puede durar un combate.
+     */
     private static final int MAX_ROUNDS=10;
     
 // ---------------------- PERSONALIZACIÓN LABERINTO ---------------- //
     // Tamaño del laberinto
+    /**
+     * Número de filas del laberinto.
+     */
     private static final int ROWS=10;
+    /**
+     * Número de columnas del laberinto.
+     */
     private static final int COLS=10;
     
-    // Monstruos a incluirç
+
+    // Monstruos a incluir
+    /**
+     * Número de monstruos a incluir en el laberinto.
+     */
     private static final int NUM_MONSTERS=4;
+    /**
+     * Posiciones iniciales de los monstruos en el laberinto.
+     */
     private static final int [][] INIT_MONSTERS= {{0,0}, {1,1}, {2,2}, {3,3}};
     
     // Bloques a incluir
+    /**
+     * Número de bloques a incluir en el laberinto.
+     */
     private static final int NUM_BLOCKS=4;
     // Object es la clase raíz de la jerarquía de Java, por lo que todas las clases
     // existentes se pueden definir como Object, haciendo después el
     // correspondiente casting para usar el tipo de dato que queramos
     // y sea el correcto con el que hay
+    /**
+     * Bloques iniciales a incluir en el laberinto.
+     */
     private static final Object [][] INIT_BLOCKS=
     { {Orientation.HORIZONTAL,0,0,3}, {Orientation.HORIZONTAL,3,3,5}, 
       {Orientation.VERTICAL,  5,6,2}, {Orientation.VERTICAL,  6,5,3} };
 
 // ---------------------- PERSONALIZACIÓN LABERINTO ---------------- //
     
+    /**
+     * Índice del jugador actual.
+     */
     private int currentPlayerIndex;
-    private Player currentPlayer; // TODO: porque se añade currentPlayer? no lo pone que hay que añadirlo
+    /**
+     * Jugador actual.
+     */
+    private Player currentPlayer;
+
+    /**
+     * Log del juego. Informa de las acciones que se han producido en el juego.
+     */
     private String log;
+
+    /**
+     * Vector de jugadores que participan en el juego.
+     */
     private ArrayList<Player> players;
+
+    /**
+     * Vector de monstruos presentes en el juego.
+     */
     private ArrayList<Monster> monsters;
+
+    /**
+     * Laberinto en el que se desarrolla el juego.
+     */
     private Labyrinth labyrinth;
     
     /**
@@ -238,9 +284,11 @@ public class Game {
     /**
      * Se actualiza el log con la información de que se han producido rounds
      * de max rounds en el combate actual
+     * 
+     * @param rounds Número de rounds que se han producido
+     * @param max Número máximo de rounds que puede durar un combate
      */
     private void logRounds(int rounds, int max){
         this.log+= "Rounds: "+rounds+"/"+max+".\n";
-        // TODO: para que se pasa max si tenemos la constante MAX_ROUNDS 
     }
 }

@@ -7,11 +7,30 @@ package irrgarten;
  * @author Joaquín Avilés de la Fuente
  */
 public class GameState {
+
+    /**
+     * Estado del laberinto
+     */
     private String labyrinth;
+    /**
+     * Estado de los jugadores
+     */
     private String players;
+    /**
+     * Estado de los monstruos
+     */
     private String monsters;
+    /**
+     * Identificador del jugador actual
+     */
     private int currentPlayer;
+    /**
+     * Indicador de si hay un ganador
+     */
     private boolean winner;
+    /**
+     * Eventos interesantes a lo largo de la partida
+     */
     private String log;
 
     /**

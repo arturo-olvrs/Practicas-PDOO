@@ -9,7 +9,13 @@ package irrgarten;
  */
 public class Shield {
     
+    /**
+     * Protección que proporciona el escudo.
+     */
     private float protection;
+    /**
+     * Número de usos disponibles del escudo.
+     */
     private int uses;
     
     /**

@@ -11,34 +11,54 @@ import java.util.Random;
  */
 public class Dice {
     
-    // Número máximo de usos de armas y escudos
+    /**
+     * Número máximo de usos de armas y escudos.
+     */
     private static final int MAX_USES = 5;
 
-    // Valor máximo para la inteligencia de jugadores y monstruos
+    /**
+     * Valor máximo para la inteligencia de jugadores y monstruos.
+     */
     private static final float MAX_INTELLIGENCE = 10.0f;
 
-    // Valor máximo para la fuerza de jugadores y monstruos
+    /**
+     * Valor máximo para la fuerza de jugadores y monstruos.
+     */
     private static final float MAX_STRENGTH = 10.0f;
 
-    // Probabilidad de que un jugador sea resucitado en cada turno
+    /**
+     * Probabilidad de que un jugador sea resucitado en cada turno.
+     */
     private static final float RESURRECT_PROB = 0.3f;
 
-    // Número máximo de armas recibidas al ganar un combate
+    /**
+     * Número máximo de armas recibidas al ganar un combate.
+     */
     private static final int WEAPONS_REWARD = 2;
 
-    // Número máximo de escudos recibidos al ganar un combate
+    /**
+     * Número máximo de escudos recibidos al ganar un combate.
+     */
     private static final int SHIELDS_REWARD = 3;
 
-    // Número máximo de unidades de salud recibidas al ganar un combate
+    /**
+     * Número máximo de unidades de salud recibidas al ganar un combate
+     */
     private static final int HEALTH_REWARD = 5;
 
-    // Máxima potencia de las armas
+    /**
+     * Máxima potencia de las armas.
+     */
     private static final int MAX_ATTACK = 3;
 
-    // Máxima potencia de los escudos
+    /**
+     * Máxima potencia de los escudos.
+     */
     private static final int MAX_SHIELD = 2;
     
-    // Generador de números aleatorios
+    /**
+     * Generador de números aleatorios.
+     */
     private static final Random generator = new Random();
     
     /**
@@ -121,7 +141,7 @@ public class Dice {
     }
 
     /**
-     * Método que devuelve un valor aleatorio en el intervalo [0, MAX_SHIELD).
+     * Método que devuelve un valor aleatorio en el intervalo [0, MAX_SHIELD[.
      * @return Un valor aleatorio de potencia de escudo.
      */
     public static float shieldPower() {
