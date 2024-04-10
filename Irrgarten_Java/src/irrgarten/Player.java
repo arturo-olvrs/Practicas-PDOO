@@ -1,6 +1,7 @@
 package irrgarten;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 /**
  * Clase que almacena información de cada jugador
@@ -155,13 +156,27 @@ public class Player {
     }
     
     /**
-     * No sabemos que hace todavía
-     * @param direction
-     * @param validMoves
-     * @return 
+     * Método que informa sobre la dirección en la que se va a mover el jugador
+     * 
+     * @param direction  Dirección en la que se quiere mover el jugador
+     * @param validMoves  Lista de movimientos válidos
+     * @return  Devuelve la dirección en la que se mueve el jugador
      */
-    public Directions move(Directions direction, Directions [] validMoves){
-        throw new UnsupportedOperationException();
+    public Directions move(Directions direction, ArrayList<Directions> validMoves){
+        int size = validMoves.size();
+        boolean contained = validMoves.contains(direction);
+
+        Directions toReturn;
+
+        if ((size > 0) && !contained){ // El jugador se puede mover, pero no en la dirección deseada
+            toReturn = validMoves.get(0);
+        }
+        else{
+            toReturn = direction;
+            // TODO: Si size==0 ?? No hay movimientos válidos, a dónde me muevo?
+        }
+
+        return toReturn;
     }
     
     /**
@@ -174,19 +189,32 @@ public class Player {
     }
     
     /**
-     * No sabmos que hace todavía
-     * @param receivedAttack
-     * @return 
+     * Método que permite al jugador defenderse de un ataque.
+     * Relega en #manageHit(float) la gestión de la defensa.
+     * @param receivedAttack Intensidad del ataque recibido
+     * @return  // TODO: Devuelve true o false si se ha defendido o no ????
+     * @see #manageHit(float)
      */
     public boolean defend(float receivedAttack){
         return this.manageHit(receivedAttack);
     }
     
     /**
-     * No sabmos que hace todavía
+     * Método que actualiza las armas, escudos y salud del jugador tras recibir una recompensa.     * 
      */
     public void receiveReward(){
-        throw new UnsupportedOperationException();
+        // Weapons rewards
+        int wRepard = Dice.weaponsReward();
+        for (int i=0; i<wRepard; i++)
+            this.weapons.add(this.newWeapon());
+        
+        // Shields rewards
+        int sReward = Dice.shieldsReward();
+        for (int i=0; i<sReward; i++)
+            this.shields.add(this.newShield());
+
+        // Health reward
+        this.health+=Dice.healthReward();
     }
     
     /**
@@ -222,19 +250,48 @@ public class Player {
     }
 
     /**
-     * No sabmos que hace todavía
-     * @param w 
+     * Método que actualiza las armas del jugador tras recibir un arma.
+     * En primer lugar, se eliminan las armas que han de ser descartadas.
+     * Después, se añade el arma al jugador si cabe.
      */
     private void receiveWeapon(Weapon w){
-        throw new UnsupportedOperationException();
+        // Iteramos sobre las armas del jugador, viendo si tienen que ser descartadas
+        Iterator<Weapon> iterator = weapons.iterator();
+        while (iterator.hasNext()) {
+            Weapon wi = iterator.next();
+            if (wi.discard())
+                iterator.remove();
+        }
+
+        // TODO: Preguntar si se itera así
+
+        // Añadimos el escudo al jugador si cabe
+        if (weapons.size() < MAX_WEAPONS)
+            weapons.add(s);
     }
     
     /**
-     * No sabmos que hace todavía
-     * @param s 
+     * Método que actualiza los escudos del jugador tras recibir un escudo.
+     * En primer lugar, se eliminan los escudos que han de ser descartados.
+     * Después, se añade el escudo al jugador si cabe.
+     * 
+     * @param s  Escudo que recibe el jugador
      */
     private void receiveShield(Shield s){
-        throw new UnsupportedOperationException();
+
+        // Iteramos sobre los escudos del jugador, viendo si tienen que ser descartados
+        Iterator<Shield> iterator = shields.iterator();
+        while (iterator.hasNext()) {
+            Shield si = iterator.next();
+            if (si.discard())
+                iterator.remove();
+        }
+
+        // TODO: Preguntar si se itera así
+
+        // Añadimos el escudo al jugador si cabe
+        if (shields.size() < MAX_SHIELDS)
+            shields.add(s);
     }
     
     /**
@@ -291,12 +348,32 @@ public class Player {
     }
     
     /**
-     * No sabmos que hace todavía
-     * @param receivedAttack
-     * @return 
+     * Método que gestiona el ataque recibido por el jugador.
+     * 
+     * @param receivedAttack Intensidad del ataque recibido
+     * @return // TODO: Devuelve true o false si se ha defendido o no ????
      */
     private boolean manageHit(float receivedAttack){
-        throw new UnsupportedOperationException();
+
+        // Se contabiliza el ataque recibido
+        if (this.defensiveEnergy() < receivedAttack){
+            // El jugador no se ha defendido
+            this.gotWounded();
+            this.incConsecutiveHits();
+        }
+        else{
+            // El jugador se ha defendido
+            this.resetHits();
+        }
+
+
+        // Se comprueba si el jugador ha perdido
+        boolean lose = (this.consecutiveHits==this.HITS2LOSE) || this.dead();
+
+        if (lose)   // Si ha perdido se resetea el contador de golpes consecutivos
+            resetHits();
+
+        return lose;
     }
 
     /**

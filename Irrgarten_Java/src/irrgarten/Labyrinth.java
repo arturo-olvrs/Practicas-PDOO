@@ -44,6 +44,11 @@ public class Labyrinth {
      * Índice de la columna en un array de dos componentes.
      */
     private static final int COL=1;
+
+    /**
+     * Índice que indica una posición inválida.
+     */
+    private static final int INVALID_POS = -1;
     
     // Variables que indican el tamaño del laberinto
     /**
@@ -116,11 +121,19 @@ public class Labyrinth {
     }
     
     /**
-     * SIGUIENTE PRACTICA
-     * @param players 
+     * Distribuye una lista de jugadores por el laberinto.
+     * @param players ArrayList con los jugadores a repartir por el Laberinto
      */
-    public void spreadPlayer (ArrayList<Player> players){
-        throw new UnsupportedOperationException();
+    public void spreadPlayers (ArrayList<Player> players){
+
+        // TODO: Es necesario iterators??
+
+        // Itera sobre todos los jugadores. Busca una casilla libre y luego pone el jugador
+        for (int i=0; i<players.size(); i++){
+            
+            int [] pos = randomEmptyPos();
+            putPlayer2D(INVALID_POS, INVALID_POS, pos[ROW], pos[COL], players.get(i));
+        }
     }
     
     /**
@@ -159,7 +172,7 @@ public class Labyrinth {
      * @param monster Monstruo que se implementara en el laberinto
      */
     public void addMonster (int row, int col, Monster monster){
-        if (posOk(row, col) && (emptyPos(row, col))){
+        if (posOK(row, col) && (emptyPos(row, col))){
             monster.setPos(row,col);
             this.monsters[row][col]=monster;
             this.labyrinth[row][col]=MONSTER_CHAR;
@@ -167,34 +180,81 @@ public class Labyrinth {
     }
     
     /**
-     * SIGUIENTE PRACTICA
-     * @param direction
-     * @param player
-     * @return 
+     * Método que mueve un jugador en el laberinto en una dirección.
+     * Informa sobre si se encuentra con un monstruo.
+     * 
+     * @param direction Dirección en la que ha de moverse el jugador
+     * @param player Jugador a desplazar
+     * @return El monstruo con el que se ha encontrado. Devuelve *null* si no hay monstro
      */
     public Monster putPlayer(Directions direction, Player player){
-        throw new UnsupportedOperationException();
+        int oldRow = getRow();
+        int oldCol = getCol();
+
+        int[] newPos = dir2Pos(oldRow, oldCol, direction);
+
+        Monster monster = putPlayer2D(oldRow, oldCol, newPos[ROW], nowPos[COL], player);
+
+        return monster;
     }
     
     /**
-     * SIGUIENT PRACTICA
-     * @param orientation
-     * @param startRow
-     * @param startCol
-     * @param length 
+     * Método que añade un bloque al laberinto.
+     *
+     * @param orientation Orientación del bloque, vertical u horizontal
+     * @param startRow Fila de inicio del bloque
+     * @param startCol Columna de inicio del bloque
+     * @param length Longitud del bloque
      */
     public void addBlock (Orientation orientation, int startRow, int startCol, int length){
-        throw new UnsupportedOperationException();
+        
+        int incRow, incCol; // Incremento de la fila y columna
+        if (orientation == Orientation.VERTICAL){
+            // Si la orientación es vertical, incrementamos la fila
+            incRow = 1;
+            incCol = 0;
+        }
+        else{
+            // Si la orientación es horizontal, incrementamos la columna
+            incRow = 0;
+            incCol = 1;            
+        }
+
+        // (row, col) posición actual
+        int row=startRow;
+        int col=startCol;
+
+        // Mientras la posición sea correcta, la casilla esté vacía y la longitud sea mayor que 0
+        // Se actualiza la casilla en cuestión
+        while (posOK(row, col) && emptyPos(row, col) && length>0){
+            this.labyrinth[row][col]=BLOCK_CHAR;
+            row+=incRow;
+            col+=incCol;
+            length--;
+        }
     }
     
     /**
-     * SIGUIENTE PRACTICA
-     * @param row
-     * @param col
-     * @return 
+     * Calcula las direcciones hacia las que se puede mover un jugador desde una
+     * posición dada.
+     * @param row Fila desde la que se quiere ver hacia donde se puede mover
+     * @param col Columna desde la que se quiere ver hacia donde se puede mover
+     * @return Direcciones en las que se puede mover desde (row, col)
      */
-    public int[] validMoves(int row, int col){
-        throw new UnsupportedOperationException();
+    public ArrayList<Directions> validMoves(int row, int col){
+        
+        output = new ArrayList<Directions>();
+
+        if (canStepOn(row+1, col))
+            output.add(Directions.DOWN);
+        if (canStepOn(row-1, col))
+            output.add(Directions.UP);
+        if (canStepOn(row, col+1))
+            output.add(Directions.RIGHT);
+        if (canStepOn(row, col-1))
+            output.add(Directions.LEFT);
+
+        return output;
     }
     
     /**
@@ -203,7 +263,7 @@ public class Labyrinth {
      * @param col Columna a comprobar
      * @return True si es correcta la posición, false en caso contrario
      */
-    private boolean posOk(int row, int col){
+    private boolean posOK(int row, int col){
         return (0<=row && row<this.nRows && 0<=col && col<this.nCols);
     }
     
@@ -255,7 +315,7 @@ public class Labyrinth {
      * @return True si cumple las características pedida, false en caso contrario
      */
     private boolean canStepOn(int row, int col){
-        boolean comprobacion=this.posOk(row, col);
+        boolean comprobacion=this.posOK(row, col);
         comprobacion = comprobación && (this.monsterPos(row, col) || this.exitPos(row, col) ||
                 this.emptyPos(row, col));
 
@@ -270,7 +330,7 @@ public class Labyrinth {
      * @param col Columna a comprobar
      */
     private void updateOldPos(int row, int col){
-        if (this.posOk(row, col)){
+        if (this.posOK(row, col)){
             if(combatPos(row, col)){
                 this.labyrinth[row][col]=MONSTER_CHAR;
             }
@@ -321,6 +381,7 @@ public class Labyrinth {
             row=Dice.randomPos(this.nRows);
             col=Dice.randomPos(this.nCols);
         }while (!this.emptyPos(row, col));
+        // TODO: Alguna forma de indicar cuando se entra en bucle infinito porque no hay pos libres?
         
         int[] toReturn= new int[2]; // = {row, col};
         toReturn[ROW]=row;
@@ -330,15 +391,53 @@ public class Labyrinth {
     }
     
     /**
-     * SIGUIENTE PRACTICA
-     * @param oldRow
-     * @param oldCol
-     * @param row
-     * @param col
-     * @param player
-     * @return 
+     * Método que mueve un jugador en el laberinto en una dirección.
+     * Va desde (oldRow, oldCol) a (row, col).
+     *  
+     * @param oldRow  Posición antigua del jugador (fila)
+     * @param oldCol  Posición antigua del jugador (columna)
+     * @param row  Nueva posición del jugador (fila)
+     * @param col  Nueva posición del jugador (columna)
+     * @param player Jugador a mover
+     * @return  Monstruo que hay en la casilla a la que se llega.
      */
-    public Monster putPlayer2D(int oldRow, int oldCol, int row, int col, Player player){
-        throw new UnsupportedOperationException();
+    private Monster putPlayer2D(int oldRow, int oldCol, int row, int col, Player player){
+        // TODO: Por qué se llama así el método?
+
+        Monster output = null;  // Monstruo que hay en la casilla a la que se llega
+
+        if (canStepOn(row, col)){
+
+            // TODO: Por qué posOK si eso ya lo comprueba canStepOn?
+            if (posOK(oldRow, oldCol)){ç
+
+                // Si el jugador estaba en la casilla, se actualiza la casilla (liberándola en players)
+                // y se actualiza la posición antigua.
+                if (players.get(oldRow, oldCol)==player){
+                    
+                    updateOldPos(oldRow, oldCol);
+                    this.players[oldRow][oldCol]=null;                    
+                }
+            }
+
+
+            // Si llego a una casilla con monstruo, se devuelve el monstruo y se actualiza a COMBAT_CHAR
+            if (monsterPos(row, col)){
+                // TODO: Hay que usar exactamente el mismo método que en el otro caso? set (row, col, COMBAT_CHAR)??
+                this.labyrinth[row][col]=COMBAT_CHAR;
+                output = this.monsters[row][col];
+            }
+            else{
+                // No hay monstruo. Simplemente reflejo el jugador en la casilla
+                this.labyrinth[row][col]=player.getNumber();
+            }
+
+            // Actualizo la posición del jugador
+            this.players[row][col]=player;
+            player.setPos(row, col);
+            
+        } // canStepOn(row, col)
+
+        return output;
     }
 }

@@ -113,7 +113,7 @@ public class Dice {
      * @return La cantidad de armas recibidas.
      */
     public static int weaponsReward() {
-        return generator.nextInt(WEAPONS_REWARD + 1); // +1 pq debe estar en el cerradp
+        return generator.nextInt(WEAPONS_REWARD + 1); // +1 pq debe estar en el cerrado
     }
 
     /**

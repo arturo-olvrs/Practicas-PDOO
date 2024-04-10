@@ -104,10 +104,9 @@ public class Game {
         this.monsters=new ArrayList<Monster>();
         
         // Creamos los nplayers y los introducimos en el vector de players
-        for(int i=0; i<nplayers; i++){
-            // TODO: No se si debemos hacer setPos de cada jugador aquí, si es así cuidado con exitCasilla
+        for(int i=0; i<nplayers; i++)
             this.players.add(new Player(Character.forDigit(i, 10)), Dice.randomIntelligence(), Dice.randomStrength());
-        }
+        
                 
         // Definimos el jugador que empezará, es decir, el currentPlayer
         this.currentPlayerIndex=Dice.whoStarts(nplayers);
@@ -117,8 +116,9 @@ public class Game {
         this.labyrinth= new Labyrinth(ROWS, COLS, exitRow, exitCol);
         // Se configura con bloques y mosntruos el laberinto
         this.configureLabyrinth();
-        this.spreadPlayers(nplayers);
-        // TODO: Revisar orden de llamada
+
+        // Se distribuyen los jugadores por el laberinto
+        this.labyrinth.spreadPlayers(nplayers);
         
         // Inicializamos log
         this.log="Game just started.\n";
@@ -134,12 +134,52 @@ public class Game {
     }
     
     /**
-     * SIGUIENTE PRACTICA
-     * @param preferredDirection
-     * @return 
+     * Método que estudia un turno completo del juego. Gestiona el paso de un turno a otro.
+     * @param preferredDirection  Dirección a la que se pretende mover el jugador
+     * @return True si se finalizo el juego, false en caso contrario
      */
     public boolean nextStep (Directions preferredDirection){
-        throw new UnsupportedOperationException();  
+        
+        // Reseteamos el log
+        log = "";
+
+        if (currentPlayer.dead()){
+            // Si el jugador está muerto, se ve si se resucita o no
+            manageResurrection();
+        }
+        else{
+
+            // Se obtiene la dirección real a la que se mueve el jugador.
+            // Si no se puede mover, se indica en el log
+            Directions direction = this.actualDirection(preferredDirection);
+            if (direction != preferredDirection){
+                logPlayerNoOrders();
+            }
+
+            // Se mueve al jugador
+            Monster monster = this.labyrinth.putPlayer(direction, currentPlayer);
+
+
+            // Se estudia si hay un monstruo en la casilla a la que se ha movido el jugador
+            if (monster == null){
+                logNoMonster();
+            }
+            else{
+                // Se lleva a cabo el combate
+                GameCharacter winner = combat(monster);
+                // Se gestiona la recompensa
+                manageReward(winner);
+            }// if (monster == null)
+            
+            
+        }// if (currentPlayer.dead())
+
+
+        boolean endGame = finished();
+        if (!endGame)   // Si no ha finalizado el juego, se pasa al siguiente
+            nextPlayer();
+
+        return endGame;
     }
     
     /**
@@ -200,36 +240,88 @@ public class Game {
     }
     
     /**
-     * SIGUIENTE PRACTICA
-     * @param preferredDirection
-     * @return 
+     * Método que mueve de hecho al jugador. Se intenta que se mueva a la casilla
+     * indicada por la dirección, y si no es posible, se moverá en otra dirección.
+     * 
+     * @param preferredDirection  Dirección a la que se pretende mover el jugador
+     * @return   Dirección a la que se ha movido el jugador
      */
     private Directions actualDirection(Directions preferredDirection){
-        throw new UnsupportedOperationException();
+        
+        // Se obtiene la fila y columna actual del jugador
+        int currentRow = this.currentPlayer.getRow();
+        int currentCol = this.currentPlayer.getCol();
+
+        // Direcciones posibles desde la casilla actual
+        ArrayList<Directions> validMoves = this.labyrinth.validMoves(currentRow, currentCol);
+
+        // Se mueve al jugador
+        return currentPlayer.move(preferredDirection, validMoves);
     }
     
     /**
-     * SIGUIENTE PRACTICA
-     * @param monster
-     * @return 
+     * Método encargado de llevar a cabo un combate entre el jugador actual y un monstruo.
+     * 
+     * @param monster Monstruo con el que se va a combatir.
+     * @return GameCharacter: Jugador o Monstruo, tipo de rol del ganador del combate.
      */
     private GameCharacter combat(Monster monster){
-        throw new UnsupportedOperationException();
+        int rounds=0;   // Inicializamos el número de rounds a 0
+
+        // Suponemos que el jugador ganará, y empieza este atacando.
+        GameCharacter winner=GameCharacter.PLAYER;
+        boolean lose = monster.defend(currentPlayer.attack());
+
+
+        // Bucle que simula el combate entre el jugador y el monstruo, de forma alternada.
+        while (!lose && rounds<MAX_ROUNDS){
+
+            rounds++;   // Incrementamos el número de rounds
+            
+            // Suponemos que el monstruo ganará, y continua este atacando.
+            winner = GameCharacter.MONSTER;
+            lose = currentPlayer.defend(monster.attack());
+
+            if (!lose){
+
+                // Suponemos que el jugador ganará, y continua este atacando.
+                winner = GameCharacter.PLAYER;
+                lose = monster.defend(currentPlayer.attack());
+            }
+        } // while (!lose && rounds<MAX_ROUNDS)
+
+        this.logRounds(rounds, MAX_ROUNDS);
+        return winner;        
     }
     
     /**
-     * SIGUIENTE PRACTICA
-     * @param winner 
+     * Método que gestiona las recompensas que se producen al finalizar un combate.
+     * Se encarga de actualizar el log con la información de si ha ganado el jugador
+     * o el monstruo.
+     * 
+     * @param winner Tipo de personaje que ha ganado el combate, puede ser un jugador o un monstruo.
+     * @see GameCharacter
      */
-    private void manageRewart (GameCharacter winner){
-        throw new UnsupportedOperationException();
+    private void manageReward (GameCharacter winner){
+        if (winner == GameCharacter.PLAYER){
+            this.currentPlayer.receiveReward();
+            this.logPlayerWon();
+        }
+        else{
+            this.logMonsterWon();
+        }
     }
     
     /**
-     * SIGUIENTE PRACTICA
+     * Método que gestiona la resurrección de un jugador al finalizar un combate.
      */
     private void manageResurrection (){
-        throw new UnsupportedOperationException();
+        if (Dice.resurrectPlayer()){
+            this.currentPlayer.resurrect();
+            this.logResurrected();
+        }            
+        else
+            this.logPlayerSkipTurn();
     }     
     
     /**

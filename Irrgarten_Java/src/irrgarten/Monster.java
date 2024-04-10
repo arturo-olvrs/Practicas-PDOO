@@ -77,12 +77,23 @@ public class Monster {
     }
     
     /**
-     * SIGUIENTE PRACTICA
-     * @param receivedAttack
-     * @return
+     * Método que permite al monstruo defenderse de un ataque.
+     * @param receivedAttack Intensidad del ataque recibido.
+     * @return // TODO: Devuelve true o false si se ha defendido o no ????
      */
     public boolean defend(float receivedAttack){
-        throw new UnsupportedOperationException();
+
+        boolean isDead = this.dead();
+        
+        if (!isDead){
+            if (Dice.intensity(this.intelligence) < receivedAttack){
+                // Si está vivo y el ataque le vence, se contabiliza
+                this.gotWounded();
+                isDead = this.dead();
+            }
+        }
+
+        return isDead;
     }
     
     /**

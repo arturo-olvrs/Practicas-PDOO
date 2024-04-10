@@ -27,6 +27,16 @@ public class Shield {
         this.protection = protection;
         this.uses = uses;
     }
+
+
+    /**
+     * Método que determina si se descarta el escudo.
+     * @return true si se descarta el escudo, false en caso contrario.
+     * @see Dice#discardElement(int)
+     */
+    public boolean discard() {
+        return Dice.discardElement(this.uses)
+    }
     
     
 
