@@ -74,17 +74,17 @@ public class Game {
     /**
      * Vector de jugadores que participan en el juego.
      */
-    private ArrayList<Player> players;
+    private final ArrayList<Player> players;
 
     /**
      * Vector de monstruos presentes en el juego.
      */
-    private ArrayList<Monster> monsters;
+    private final ArrayList<Monster> monsters;
 
     /**
      * Laberinto en el que se desarrolla el juego.
      */
-    private Labyrinth labyrinth;
+    private final Labyrinth labyrinth;
     
     /**
      * Constructor de la clase Game, que inicializará los jugadores a jugar 
@@ -100,12 +100,13 @@ public class Game {
         int exitCol=Dice.randomPos(COLS);
 
         // Inicializamos los vectores de jugadores y monstruos
-        this.players=new ArrayList<Player>();
-        this.monsters=new ArrayList<Monster>();
+        this.players=new ArrayList<>();
+        this.monsters=new ArrayList<>();
         
         // Creamos los nplayers y los introducimos en el vector de players
         for(int i=0; i<nplayers; i++)
-            this.players.add(new Player(Character.forDigit(i, 10)), Dice.randomIntelligence(), Dice.randomStrength());
+            this.players.add(new Player(Character.forDigit(i, 10),
+                                    Dice.randomIntelligence(), Dice.randomStrength()));
         
                 
         // Definimos el jugador que empezará, es decir, el currentPlayer
@@ -118,7 +119,7 @@ public class Game {
         this.configureLabyrinth();
 
         // Se distribuyen los jugadores por el laberinto
-        this.labyrinth.spreadPlayers(nplayers);
+        this.labyrinth.spreadPlayers(this.players);
         
         // Inicializamos log
         this.log="Game just started.\n";
@@ -274,17 +275,18 @@ public class Game {
 
 
         // Bucle que simula el combate entre el jugador y el monstruo, de forma alternada.
-        while (!lose && rounds<MAX_ROUNDS){
+
+        while (!lose && rounds<MAX_ROUNDS){ // Si el monstruo no ha terminado y no se han superado los rounds
 
             rounds++;   // Incrementamos el número de rounds
             
-            // Suponemos que el monstruo ganará, y continua este atacando.
+            // Suponemos que el monstruo ganará, y continúa este atacando.
             winner = GameCharacter.MONSTER;
             lose = currentPlayer.defend(monster.attack());
 
-            if (!lose){
+            if (!lose){ // Si el jugador no ha muerto
 
-                // Suponemos que el jugador ganará, y continua este atacando.
+                // Suponemos que el jugador ganará, y continúa este atacando.
                 winner = GameCharacter.PLAYER;
                 lose = monster.defend(currentPlayer.attack());
             }

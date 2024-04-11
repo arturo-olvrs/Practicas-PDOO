@@ -22,15 +22,15 @@ public class Monster {
     /**
      * Nombre del monstruo
      */
-    private String name;
+    private final String name;
     /**
      * Inteligencia del monstruo
      */
-    private float intelligence;
+    private final float intelligence;
     /**
      * Fuerza del monstruo
      */
-    private float strength;
+    private final float strength;
     /**
      * Salud del monstruo
      */
@@ -79,7 +79,7 @@ public class Monster {
     /**
      * Método que permite al monstruo defenderse de un ataque.
      * @param receivedAttack Intensidad del ataque recibido.
-     * @return // TODO: Devuelve true o false si se ha defendido o no ????
+     * @return Devuelve true si el monstruo ha muerto y false en caso contrario.
      */
     public boolean defend(float receivedAttack){
 
@@ -110,6 +110,7 @@ public class Monster {
      * Muestra las características del monstruo
      * @return devuelve una cadena con la información del monstruo y su posición
      */
+    @Override
     public String toString(){
         return "M["+this.name+", i:"+this.intelligence+ ", s:"+this.strength+", h:"
                 +this.health+", p:("+this.row+", "+this.col+")]";

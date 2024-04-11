@@ -73,11 +73,11 @@ public class Player {
     /**
      * ArrayList de armas que lleva el jugador.
      */
-    private ArrayList<Weapon> weapons;
+    private final ArrayList<Weapon> weapons;        // Se pone final porque no se asigna a otra cosa.
     /**
      * ArrayList de escudos que lleva el jugador.
      */
-    private ArrayList<Shield> shields;
+    private final ArrayList<Shield> shields;        // Se pone final porque no se asigna a otra cosa.
     
     /**
      * Constructor de la clase Player
@@ -94,8 +94,8 @@ public class Player {
         this.health=INTIAL_HEALTH;
 
         // Hay que inicializar los ArrayList
-        weapons= new ArrayList<Weapon>();
-        shields= new ArrayList<Shield>();
+        weapons= new ArrayList<>();
+        shields= new ArrayList<>();
 
         this.row=INVALID_POS;
         this.col=INVALID_POS;
@@ -173,8 +173,8 @@ public class Player {
         }
         else{
             toReturn = direction;
-            // TODO: Si size==0 ?? No hay movimientos válidos, a dónde me muevo?
         }
+        // Si size==0, se devuelve la dirección deseada y ya se comprobará en putPlayer2D que no se puede mover
 
         return toReturn;
     }
@@ -190,9 +190,9 @@ public class Player {
     
     /**
      * Método que permite al jugador defenderse de un ataque.
-     * Relega en #manageHit(float) la gestión de la defensa.
+     * Relega en manageHit(float) la gestión de la defensa.
      * @param receivedAttack Intensidad del ataque recibido
-     * @return  // TODO: Devuelve true o false si se ha defendido o no ????
+     * @return  Devuelve true si el jugador ha muerto y false en caso contrario.
      * @see #manageHit(float)
      */
     public boolean defend(float receivedAttack){
@@ -222,6 +222,7 @@ public class Player {
      * del estado interno del jugador.
      * @return Representación en forma de cadena de caracteres del estado interno del jugador.
      */
+    @Override
     public String toString(){
         String toReturn= this.name+"[i:"+this.intelligence+", s:"+this.strength;
         toReturn+=", h:"+this.health+", ";
@@ -256,18 +257,16 @@ public class Player {
      */
     private void receiveWeapon(Weapon w){
         // Iteramos sobre las armas del jugador, viendo si tienen que ser descartadas
-        Iterator<Weapon> iterator = weapons.iterator();
-        while (iterator.hasNext()) {
-            Weapon wi = iterator.next();
-            if (wi.discard())
-                iterator.remove();
+        for (int i=0; i<weapons.size(); i++){
+            if (weapons.get(i).discard()){
+                weapons.remove(i);
+                i--;
+            }
         }
-
-        // TODO: Preguntar si se itera así
 
         // Añadimos el escudo al jugador si cabe
         if (weapons.size() < MAX_WEAPONS)
-            weapons.add(s);
+            weapons.add(w);
     }
     
     /**
@@ -280,14 +279,12 @@ public class Player {
     private void receiveShield(Shield s){
 
         // Iteramos sobre los escudos del jugador, viendo si tienen que ser descartados
-        Iterator<Shield> iterator = shields.iterator();
-        while (iterator.hasNext()) {
-            Shield si = iterator.next();
-            if (si.discard())
-                iterator.remove();
+        for (int i=0; i<shields.size(); i++){
+            if (shields.get(i).discard()){
+                shields.remove(i);
+                i--;
+            }
         }
-
-        // TODO: Preguntar si se itera así
 
         // Añadimos el escudo al jugador si cabe
         if (shields.size() < MAX_SHIELDS)
@@ -351,7 +348,7 @@ public class Player {
      * Método que gestiona el ataque recibido por el jugador.
      * 
      * @param receivedAttack Intensidad del ataque recibido
-     * @return // TODO: Devuelve true o false si se ha defendido o no ????
+     * @return Devuelve true si el jugador ha muerto y false en caso contrario.
      */
     private boolean manageHit(float receivedAttack){
 
@@ -368,7 +365,7 @@ public class Player {
 
 
         // Se comprueba si el jugador ha perdido
-        boolean lose = (this.consecutiveHits==this.HITS2LOSE) || this.dead();
+        boolean lose = (this.consecutiveHits==Player.HITS2LOSE) || this.dead();
 
         if (lose)   // Si ha perdido se resetea el contador de golpes consecutivos
             resetHits();

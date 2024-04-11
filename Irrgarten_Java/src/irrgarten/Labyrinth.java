@@ -54,32 +54,32 @@ public class Labyrinth {
     /**
      * Número de filas del laberinto.
      */
-    private int nRows;
+    private final int nRows;
     /**
      * Número de columnas del laberinto.
      */
-    private int nCols;
+    private final int nCols;
     
     // Variables que indican la casilla de salida
     /**
      * Fila de la casilla de salida.
      */
-    private int exitRow;
+    private final int exitRow;
     /**
      * Columna de la casilla de salida.
      */
-    private int exitCol;
+    private final int exitCol;
     
     // Matrices que almacenan información de los monstruos, jugadores
     // e información general del laberinto
     /**
      * Matriz que almacena los monstruos en el laberinto.
      */
-    private Monster [][] monsters;
+    private final Monster [][] monsters;
     /**
      * Matriz que almacena los jugadores en el laberinto.
      */
-    private Player [][] players;
+    private final Player [][] players;
     /**
      * Matriz que almacena el estado de cada casilla del laberinto.
      * @see EMPTY_CHAR
@@ -88,7 +88,7 @@ public class Labyrinth {
      * @see COMBAT_CHAR
      * @see EXIT_CHAR
      */
-    private char [][] labyrinth;
+    private final char [][] labyrinth;
     
     /**
      * Constructor de la clase
@@ -126,8 +126,6 @@ public class Labyrinth {
      */
     public void spreadPlayers (ArrayList<Player> players){
 
-        // TODO: Es necesario iterators??
-
         // Itera sobre todos los jugadores. Busca una casilla libre y luego pone el jugador
         for (int i=0; i<players.size(); i++){
             
@@ -152,6 +150,7 @@ public class Labyrinth {
       * 
       * @return Cadena de carácteres que indican el estado de cada casilla del laberinto
       */
+    @Override
     public String toString(){
         String toReturn="";
         for(int r=0; r<this.nRows; r++){
@@ -188,12 +187,12 @@ public class Labyrinth {
      * @return El monstruo con el que se ha encontrado. Devuelve *null* si no hay monstro
      */
     public Monster putPlayer(Directions direction, Player player){
-        int oldRow = getRow();
-        int oldCol = getCol();
+        int oldRow = player.getRow();
+        int oldCol = player.getCol();
 
         int[] newPos = dir2Pos(oldRow, oldCol, direction);
 
-        Monster monster = putPlayer2D(oldRow, oldCol, newPos[ROW], nowPos[COL], player);
+        Monster monster = putPlayer2D(oldRow, oldCol, newPos[ROW], newPos[COL], player);
 
         return monster;
     }
@@ -243,7 +242,7 @@ public class Labyrinth {
      */
     public ArrayList<Directions> validMoves(int row, int col){
         
-        output = new ArrayList<Directions>();
+        ArrayList<Directions> output = new ArrayList<>();
 
         if (canStepOn(row+1, col))
             output.add(Directions.DOWN);
@@ -316,7 +315,7 @@ public class Labyrinth {
      */
     private boolean canStepOn(int row, int col){
         boolean comprobacion=this.posOK(row, col);
-        comprobacion = comprobación && (this.monsterPos(row, col) || this.exitPos(row, col) ||
+        comprobacion = comprobacion && (this.monsterPos(row, col) || this.exitPos(row, col) ||
                 this.emptyPos(row, col));
 
         return comprobacion;
@@ -354,16 +353,16 @@ public class Labyrinth {
         toReturn[COL]=col;
         
         switch(direction){
-            case Directions.LEFT:
+            case LEFT:
                 toReturn[COL]--;
                 break;
-            case Directions.RIGHT:
+            case RIGHT:
                 toReturn[COL]++;
                 break;
-            case Directions.UP:
+            case UP:
                 toReturn[ROW]--;
                 break;
-            case Directions.DOWN:
+            case DOWN:
                 toReturn[ROW]++;
                 break;
         }
@@ -381,7 +380,6 @@ public class Labyrinth {
             row=Dice.randomPos(this.nRows);
             col=Dice.randomPos(this.nCols);
         }while (!this.emptyPos(row, col));
-        // TODO: Alguna forma de indicar cuando se entra en bucle infinito porque no hay pos libres?
         
         int[] toReturn= new int[2]; // = {row, col};
         toReturn[ROW]=row;
@@ -402,18 +400,16 @@ public class Labyrinth {
      * @return  Monstruo que hay en la casilla a la que se llega.
      */
     private Monster putPlayer2D(int oldRow, int oldCol, int row, int col, Player player){
-        // TODO: Por qué se llama así el método?
 
         Monster output = null;  // Monstruo que hay en la casilla a la que se llega
 
         if (canStepOn(row, col)){
 
-            // TODO: Por qué posOK si eso ya lo comprueba canStepOn?
-            if (posOK(oldRow, oldCol)){ç
+            if (posOK(oldRow, oldCol)){
 
                 // Si el jugador estaba en la casilla, se actualiza la casilla (liberándola en players)
                 // y se actualiza la posición antigua.
-                if (players.get(oldRow, oldCol)==player){
+                if (players[oldRow][oldCol]==player){
                     
                     updateOldPos(oldRow, oldCol);
                     this.players[oldRow][oldCol]=null;                    
@@ -423,7 +419,6 @@ public class Labyrinth {
 
             // Si llego a una casilla con monstruo, se devuelve el monstruo y se actualiza a COMBAT_CHAR
             if (monsterPos(row, col)){
-                // TODO: Hay que usar exactamente el mismo método que en el otro caso? set (row, col, COMBAT_CHAR)??
                 this.labyrinth[row][col]=COMBAT_CHAR;
                 output = this.monsters[row][col];
             }

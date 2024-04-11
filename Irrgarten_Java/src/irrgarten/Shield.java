@@ -12,7 +12,7 @@ public class Shield {
     /**
      * Protección que proporciona el escudo.
      */
-    private float protection;
+    private final float protection;
     /**
      * Número de usos disponibles del escudo.
      */
@@ -35,7 +35,7 @@ public class Shield {
      * @see Dice#discardElement(int)
      */
     public boolean discard() {
-        return Dice.discardElement(this.uses)
+        return Dice.discardElement(this.uses);
     }
     
     
@@ -58,6 +58,7 @@ public class Shield {
      * del estado interno del objeto.
      * @return Representación en forma de cadena de caracteres del estado interno del objeto.
      */
+    @Override
     public String toString() {
         return "S[" + protection + ", " + uses + "]";
     }

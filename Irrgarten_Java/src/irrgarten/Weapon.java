@@ -12,7 +12,7 @@ public class Weapon {
     /**
      * Potencia del arma.
      */
-    private float power;
+    private final float power;
     /**
      * Número de usos disponibles del arma.
      */
@@ -46,6 +46,7 @@ public class Weapon {
      * del estado interno del objeto.
      * @return Representación en forma de cadena de caracteres del estado interno del objeto.
      */
+    @Override
     public String toString() {
         return "W[" + power + ", " + uses + "]";
     }
