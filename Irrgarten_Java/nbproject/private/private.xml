@@ -3,11 +3,18 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
+            <file>file:/home/arturoolvrs/Desktop/Practicas-PDOO/Irrgarten_Java/src/irrgarten/controller/Controller.java</file>
+            <file>file:/home/arturoolvrs/Desktop/Practicas-PDOO/Irrgarten_Java/src/irrgarten/TestP3.java</file>
+            <file>file:/home/arturoolvrs/Desktop/Practicas-PDOO/Irrgarten_Java/src/irrgarten/UI/TextUI.java</file>
+            <file>file:/home/arturoolvrs/Desktop/Practicas-PDOO/Irrgarten_Java/src/irrgarten/Game.java</file>
+=======
             <file>file:/home/joaquiin_724/Documentos/Practicas-PDOO/Irrgarten_Java/src/irrgarten/Player.java</file>
             <file>file:/home/joaquiin_724/Documentos/Practicas-PDOO/Irrgarten_Java/src/irrgarten/Dice.java</file>
             <file>file:/home/joaquiin_724/Documentos/Practicas-PDOO/Irrgarten_Java/src/irrgarten/GameCharacter.java</file>
             <file>file:/home/joaquiin_724/Documentos/Practicas-PDOO/Irrgarten_Java/src/irrgarten/Game.java</file>
             <file>file:/home/joaquiin_724/Documentos/Practicas-PDOO/Irrgarten_Java/src/irrgarten/GameState.java</file>
+>>>>>>> 30515be88692cec0ff83f83549c8bcf4fd9b4f03
         </group>
     </open-files>
 </project-private>

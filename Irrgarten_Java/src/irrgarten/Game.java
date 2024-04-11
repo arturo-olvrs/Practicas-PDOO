@@ -1,4 +1,3 @@
-
 package irrgarten;
 
 import java.util.ArrayList;
@@ -22,22 +21,22 @@ public class Game {
     /**
      * Número de filas del laberinto.
      */
-    private static final int ROWS=10;
+    private static final int ROWS=4;
     /**
      * Número de columnas del laberinto.
      */
-    private static final int COLS=10;
+    private static final int COLS=4;
     
 
     // Monstruos a incluir
     /**
      * Número de monstruos a incluir en el laberinto.
      */
-    private static final int NUM_MONSTERS=4;
+    private static final int NUM_MONSTERS=5;
     /**
      * Posiciones iniciales de los monstruos en el laberinto.
      */
-    private static final int [][] INIT_MONSTERS= {{0,0}, {1,1}, {2,2}, {3,3}};
+    private static final int [][] INIT_MONSTERS= {{0,0}, {1,1}, {2,2}, {3,3}, {0,3}};
     
     // Bloques a incluir
     /**
@@ -122,7 +121,7 @@ public class Game {
         this.labyrinth.spreadPlayers(this.players);
         
         // Inicializamos log
-        this.log="Game just started.\n";
+        this.log="- Game just started.\n";
     }
     
     /**
@@ -197,12 +196,12 @@ public class Game {
         
         // Formato jugadores
         for (int i=0; i<this.players.size(); i++){
-            infoPlayers+=this.players.get(i).toString()+",\t";
+            infoPlayers+=this.players.get(i).toString()+"\n";
         }
         
         // Formato monstruos
         for (int i=0; i<this.monsters.size(); i++){
-            infoMonsters+=this.monsters.get(i).toString()+",\t";
+            infoMonsters+=this.monsters.get(i).toString()+"\n";
         }
         
         // Estado general del juego
@@ -245,7 +244,7 @@ public class Game {
      * indicada por la dirección, y si no es posible, se moverá en otra dirección.
      * 
      * @param preferredDirection  Dirección a la que se pretende mover el jugador
-     * @return   Dirección a la que se ha movido el jugador
+     * @return   Dirección a la que se moverá el jugador (si es válida)
      */
     private Directions actualDirection(Directions preferredDirection){
         
@@ -276,7 +275,7 @@ public class Game {
 
         // Bucle que simula el combate entre el jugador y el monstruo, de forma alternada.
 
-        while (!lose && rounds<MAX_ROUNDS){ // Si el monstruo no ha terminado y no se han superado los rounds
+        while (!lose && rounds<MAX_ROUNDS){ // Si el monstruo no ha muerto y no se han superado los rounds
 
             rounds++;   // Incrementamos el número de rounds
             
@@ -331,7 +330,7 @@ public class Game {
      * ha ganado el combate
      */
     private void logPlayerWon(){
-        this.log+= "Player "+this.currentPlayerIndex+" won the fight.\n";
+        this.log+= "- Player "+this.currentPlayerIndex+" won the fight.\n";
     }
     
     /**
@@ -339,7 +338,7 @@ public class Game {
      * ha ganado el combate al jugador actual
      */
     private void logMonsterWon(){
-        this.log+= "Monster won the fight.\n";
+        this.log+= "- Monster won the fight.\n";
     }
     
     /**
@@ -347,7 +346,7 @@ public class Game {
      * ha ganado resucitado
      */
     private void logResurrected(){
-        this.log+= "Player "+this.currentPlayerIndex+" resurrected.\n";
+        this.log+= "- Player "+this.currentPlayerIndex+" resurrected.\n";
     }
     
     /**
@@ -355,7 +354,7 @@ public class Game {
      * ha perdido su turno por estar muerto
      */
     private void logPlayerSkipTurn(){
-        this.log+= "Player "+this.currentPlayerIndex+" skipped turn (is dead).\n";
+        this.log+= "- Player "+this.currentPlayerIndex+" skipped turn (is dead).\n";
     }
     
     /**
@@ -364,7 +363,7 @@ public class Game {
      * cambio
      */
     private void logPlayerNoOrders(){
-        this.log+= "Player "+this.currentPlayerIndex+" didn't follow orders, it was not possible.\n";
+        this.log+= "- Player "+this.currentPlayerIndex+" didn't follow orders, it was not possible.\n";
     }
     
     /**
@@ -372,7 +371,7 @@ public class Game {
      * se ha desplazado a una casilla vacía o no ha sido posible el desplazamiento
      */
     private void logNoMonster(){
-        this.log+= "Player "+this.currentPlayerIndex+" moved to an empty square or it was not possible to move.\n";
+        this.log+= "- Player "+this.currentPlayerIndex+" moved to an empty square or it was not possible to move.\n";
     }
     
     /**
@@ -383,6 +382,6 @@ public class Game {
      * @param max Número máximo de rounds que puede durar un combate
      */
     private void logRounds(int rounds, int max){
-        this.log+= "Rounds: "+rounds+"/"+max+".\n";
+        this.log+= "- Rounds: "+rounds+"/"+max+".\n";
     }
 }

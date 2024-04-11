@@ -1,7 +1,6 @@
 package irrgarten;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 
 /**
  * Clase que almacena información de cada jugador
@@ -40,23 +39,24 @@ public class Player {
     /**
      * Nombre del jugador.
      */
-    private String name;
+    private final String name;
     /**
      * Número identificador del jugador.
      */
-    private char number;
+    private final char number;
     /**
      * Inteligencia del jugador.
      */
-    private float intelligence;
+    private final float intelligence;
     /**
      * Fuerza del jugador.
      */
-    private float strength;
+    private final float strength;
     /**
      * Salud del jugador.
      */
     private float health;
+    // TODO: ¿Por qué health es float?
     /**
      * Fila en la que se encuentra el jugador.
      */
@@ -160,7 +160,7 @@ public class Player {
      * 
      * @param direction  Dirección en la que se quiere mover el jugador
      * @param validMoves  Lista de movimientos válidos
-     * @return  Devuelve la dirección en la que se mueve el jugador
+     * @return  Devuelve la dirección en la que se moverá el jugador (si es válida)
      */
     public Directions move(Directions direction, ArrayList<Directions> validMoves){
         int size = validMoves.size();
@@ -206,12 +206,12 @@ public class Player {
         // Weapons rewards
         int wRepard = Dice.weaponsReward();
         for (int i=0; i<wRepard; i++)
-            this.weapons.add(this.newWeapon());
+            this.receiveWeapon(this.newWeapon());
         
         // Shields rewards
         int sReward = Dice.shieldsReward();
         for (int i=0; i<sReward; i++)
-            this.shields.add(this.newShield());
+            this.receiveShield(this.newShield());
 
         // Health reward
         this.health+=Dice.healthReward();
@@ -224,8 +224,9 @@ public class Player {
      */
     @Override
     public String toString(){
-        String toReturn= this.name+"[i:"+this.intelligence+", s:"+this.strength;
-        toReturn+=", h:"+this.health+", ";
+        final String FORMAT = "%.6f";
+        String toReturn= this.name+"[i:"+String.format(FORMAT, intelligence)+", s:"+String.format(FORMAT, strength);
+        toReturn+=", h:"+String.format(FORMAT, health)+", ch:"+this.consecutiveHits +", p:("+this.row+", "+this.col+"), ";
         
         // Bucles para mostrar con un formato determinado el array de
         // armas y escudos del jugador
@@ -234,18 +235,21 @@ public class Player {
         for(int i=0; i<tamWeapons-1; i++){
             toWeapons+=this.weapons.get(i).toString()+", ";
         }
-        toWeapons+=this.weapons.get(tamWeapons-1)+"]";
+        if (tamWeapons>0)
+            toWeapons+=this.weapons.get(tamWeapons-1);
+        toWeapons+="]";
         
         String toShields="[";
         int tamShields=this.shields.size();
         for(int i=0; i<tamShields-1; i++){
-            toWeapons+=this.shields.get(i).toString()+", ";
+            toShields+=this.shields.get(i).toString()+", ";
         }
-        toWeapons+=this.shields.get(tamShields-1)+"]";
+        if (tamShields>0)
+            toShields+=this.shields.get(tamShields-1);
+        toShields+="]";
         
         // Definimos el formato final para el toString
-        toReturn+="w: " + toWeapons+", sh:"+toShields+", p:("+this.row+", "+this.col+")";
-        toReturn+=", ch:"+this.consecutiveHits+"]";
+        toReturn+="w:" + toWeapons+", sh:"+toShields+" ]";
         
         return toReturn;
     }

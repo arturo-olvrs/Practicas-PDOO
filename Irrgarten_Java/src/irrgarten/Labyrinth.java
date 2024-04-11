@@ -1,4 +1,3 @@
-
 package irrgarten;
 
 import java.util.ArrayList;
@@ -152,10 +151,31 @@ public class Labyrinth {
       */
     @Override
     public String toString(){
+
+        // Cálculo del número de caracteres que debe ocupar cada parte
+        int filSize = Integer.toString(this.nRows-1).length();
+        int colSize = Integer.toString(this.nCols-1).length();
+        int nPlayersSize = Integer.toString(this.players.length-1).length();
+        
+        // Cálculo del tamaño máximo
+        int maxSize = Math.max(Math.max(filSize, colSize), nPlayersSize);
+        final String FORMAT = "%"+maxSize+"s";
+
+        // Cadena a devolver
         String toReturn="";
+
+        // Índices en cada columna
+        toReturn+=" " + String.format(FORMAT, " ");
+        for (int i=0; i<this.nCols; i++){
+            toReturn+=String.format(FORMAT, i)+" ";
+        }
+        toReturn+="\n";
+
+
         for(int r=0; r<this.nRows; r++){
+            toReturn+=String.format(FORMAT, r)+" "; // Índices en cada fila
             for(int c=0; c<this.nCols; c++){
-                toReturn+=this.labyrinth[r][c]+" ";
+                toReturn+=String.format(FORMAT, this.labyrinth[r][c])+" ";
             }
             toReturn+="\n";
         }
@@ -182,7 +202,7 @@ public class Labyrinth {
      * Método que mueve un jugador en el laberinto en una dirección.
      * Informa sobre si se encuentra con un monstruo.
      * 
-     * @param direction Dirección en la que ha de moverse el jugador
+     * @param direction Dirección en la que ha de moverse el jugador. Si no es válida, no se mueve.
      * @param player Jugador a desplazar
      * @return El monstruo con el que se ha encontrado. Devuelve *null* si no hay monstro
      */

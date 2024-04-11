@@ -35,6 +35,7 @@ public class Monster {
      * Salud del monstruo
      */
     private float health;
+    // TODO: ¿Por qué health es float?
     /**
      * Fila en la que se encuentra el monstruo
      */
@@ -112,8 +113,9 @@ public class Monster {
      */
     @Override
     public String toString(){
-        return "M["+this.name+", i:"+this.intelligence+ ", s:"+this.strength+", h:"
-                +this.health+", p:("+this.row+", "+this.col+")]";
+        final String FORMAT = "%.6f";
+        return "M["+this.name+", i:"+ String.format(FORMAT, intelligence) + ", s:"+String.format(FORMAT, strength)+", h:"
+                +String.format(FORMAT, health)+", p:("+this.row+", "+this.col+")]";
     }
     
     /**
