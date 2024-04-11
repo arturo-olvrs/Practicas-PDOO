@@ -66,7 +66,6 @@ require_relative 'orientation'
             @labyrinth = Labyrinth.new(@@ROWS, @@COLS, Dice.random_pos(@@ROWS), Dice.random_pos(@@COLS))
             @labyrinth.configure_labyrinth()
             @labyrinth.spread_players(@players)
-            # // TODO: Revisar orden de llamada
 
             @log = "Game just started.\n"
 
@@ -132,9 +131,19 @@ require_relative 'orientation'
             @current_player = @players[@current_player_index]
         end
 
-        #def actual_direction(preferred_direction)
-            # Sig. Práctica
-        #end
+        # Comprueba si la dirección preferred_direction es válida para el actual jugador, 
+        # delegando para ello en el método move
+        # @see Player#move
+        # @param preferred_direction [Directions] HoLA
+        #
+        # @return [Directions] ADIOS
+        def actual_direction(preferred_direction)
+            current_row=@current_player.row
+            currect_col=@current_player.col
+            valid_moves=@labyrinth.valid_moves(current_row, currect_col)
+
+            output=@current_player.move(preferred_direction, valid_moves)
+        end
 
         #def combat(monster)
             # Sig. Práctica

@@ -482,6 +482,30 @@
 </li>
 
       
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#move-instance_method" title="#move (instance method)">#<strong>move</strong>(direction, valid_moves)  &#x21d2; Directions </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Comprueba si la dirección pasada hacia la que se pretende desplazar el personaje es válida, devolviendola en caso de que lo sea o no se pueda mover hacia ninguna posición, es decir, valid_moves esté vacío.</p>
+</div></span>
+  
+</li>
+
+      
         <li class="private ">
   <span class="summary_signature">
     
@@ -1034,12 +1058,12 @@
       <pre class="lines">
 
 
-88
-89
-90</pre>
+106
+107
+108</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'player.rb', line 88</span>
+      <pre class="code"><span class="info file"># File 'player.rb', line 106</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_attack'>attack</span>
     <span class='kw'>return</span> <span class='ivar'>@strength</span> <span class='op'>+</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_sum_weapons'>sum_weapons</span> <span class='comment'># Self no es necesario
@@ -1152,12 +1176,12 @@
       <pre class="lines">
 
 
-159
-160
-161</pre>
+177
+178
+179</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'player.rb', line 159</span>
+      <pre class="code"><span class="info file"># File 'player.rb', line 177</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_defensive_energy'>defensive_energy</span>
     <span class='kw'>return</span> <span class='ivar'>@intelligence</span> <span class='op'>+</span> <span class='id identifier rubyid_sum_shields'>sum_shields</span>
@@ -1193,12 +1217,12 @@
       <pre class="lines">
 
 
-173
-174
-175</pre>
+191
+192
+193</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'player.rb', line 173</span>
+      <pre class="code"><span class="info file"># File 'player.rb', line 191</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_got_wounded'>got_wounded</span>
     <span class='ivar'>@health</span> <span class='op'>-=</span> <span class='int'>1</span>
@@ -1234,15 +1258,123 @@
       <pre class="lines">
 
 
-178
-179
-180</pre>
+196
+197
+198</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'player.rb', line 178</span>
+      <pre class="code"><span class="info file"># File 'player.rb', line 196</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_inc_consecutive_hits'>inc_consecutive_hits</span>
     <span class='ivar'>@consecutive_hits</span> <span class='op'>+=</span> <span class='int'>1</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="move-instance_method">
+  
+    #<strong>move</strong>(direction, valid_moves)  &#x21d2; <tt><span class='object_link'><a href="Directions.html" title="Irrgarten::Directions (module)">Directions</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Comprueba si la dirección pasada hacia la que se pretende desplazar el personaje es válida, devolviendola en caso de que lo sea o no se pueda mover hacia ninguna posición, es decir, valid_moves esté vacío. Si no está en valid_moves y dicho array no está vacío, se devuelve la primera dirección  guardada en el array</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>direction</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Directions.html" title="Irrgarten::Directions (module)">Directions</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>dirección a la que se pretende desplazar el personaje</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>valid_moves</span>
+      
+      
+        <span class='type'>(<tt>Array::Directions</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Directions.html" title="Irrgarten::Directions (module)">Directions</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>dirección a la que se quiere desplazar (tendremos que ver si es válida)</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'player.rb', line 90</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_move'>move</span><span class='lparen'>(</span><span class='id identifier rubyid_direction'>direction</span><span class='comma'>,</span> <span class='id identifier rubyid_valid_moves'>valid_moves</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_size'>size</span><span class='op'>=</span><span class='id identifier rubyid_valid_moves'>valid_moves</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span>
+    
+    <span class='comment'># El método del array es include?(&lt;element&gt;)
+</span>    <span class='id identifier rubyid_contained'>contained</span><span class='op'>=</span><span class='id identifier rubyid_valid_moves'>valid_moves</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='id identifier rubyid_direction'>direction</span><span class='rparen'>)</span>
+
+    <span class='kw'>if</span> <span class='lparen'>(</span> <span class='lparen'>(</span><span class='id identifier rubyid_size'>size</span><span class='op'>&gt;</span><span class='int'>0</span><span class='rparen'>)</span> <span class='op'>&amp;&amp;</span> <span class='lparen'>(</span><span class='op'>!</span><span class='id identifier rubyid_contained'>contained</span><span class='rparen'>)</span> <span class='rparen'>)</span>
+        <span class='id identifier rubyid_firs_element'>firs_element</span><span class='op'>=</span><span class='id identifier rubyid_valid_moves'>valid_moves</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span> <span class='comment'># Se puede también array.at(pos)
+</span>    <span class='kw'>else</span>
+        <span class='id identifier rubyid_direction'>direction</span>
+    <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1293,12 +1425,12 @@
       <pre class="lines">
 
 
-130
-131
-132</pre>
+148
+149
+150</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'player.rb', line 130</span>
+      <pre class="code"><span class="info file"># File 'player.rb', line 148</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_new_shield'>new_shield</span>
     <span class='kw'>return</span> <span class='const'><span class='object_link'><a href="Shield.html" title="Irrgarten::Shield (class)">Shield</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Shield.html#initialize-instance_method" title="Irrgarten::Shield#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="Dice.html" title="Irrgarten::Dice (class)">Dice</a></span></span><span class='period'>.</span><span class='id identifier rubyid_shield_power'><span class='object_link'><a href="Dice.html#shield_power-class_method" title="Irrgarten::Dice.shield_power (method)">shield_power</a></span></span><span class='comma'>,</span> <span class='const'><span class='object_link'><a href="Dice.html" title="Irrgarten::Dice (class)">Dice</a></span></span><span class='period'>.</span><span class='id identifier rubyid_uses_left'><span class='object_link'><a href="Dice.html#uses_left-class_method" title="Irrgarten::Dice.uses_left (method)">uses_left</a></span></span><span class='rparen'>)</span>
@@ -1352,12 +1484,12 @@
       <pre class="lines">
 
 
-123
-124
-125</pre>
+141
+142
+143</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'player.rb', line 123</span>
+      <pre class="code"><span class="info file"># File 'player.rb', line 141</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_new_weapon'>new_weapon</span>
     <span class='kw'>return</span> <span class='const'><span class='object_link'><a href="Weapon.html" title="Irrgarten::Weapon (class)">Weapon</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Weapon.html#initialize-instance_method" title="Irrgarten::Weapon#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="Dice.html" title="Irrgarten::Dice (class)">Dice</a></span></span><span class='period'>.</span><span class='id identifier rubyid_weapon_power'><span class='object_link'><a href="Dice.html#weapon_power-class_method" title="Irrgarten::Dice.weapon_power (method)">weapon_power</a></span></span><span class='comma'>,</span> <span class='const'><span class='object_link'><a href="Dice.html" title="Irrgarten::Dice (class)">Dice</a></span></span><span class='period'>.</span><span class='id identifier rubyid_uses_left'><span class='object_link'><a href="Dice.html#uses_left-class_method" title="Irrgarten::Dice.uses_left (method)">uses_left</a></span></span><span class='rparen'>)</span>
@@ -1472,12 +1604,12 @@
       <pre class="lines">
 
 
-168
-169
-170</pre>
+186
+187
+188</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'player.rb', line 168</span>
+      <pre class="code"><span class="info file"># File 'player.rb', line 186</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_reset_hits'>reset_hits</span>
     <span class='ivar'>@consecutive_hits</span> <span class='op'>=</span> <span class='int'>0</span>
@@ -1578,16 +1710,16 @@
       <pre class="lines">
 
 
-148
-149
-150
-151
-152
-153
-154</pre>
+166
+167
+168
+169
+170
+171
+172</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'player.rb', line 148</span>
+      <pre class="code"><span class="info file"># File 'player.rb', line 166</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_sum_shields'>sum_shields</span>
     <span class='id identifier rubyid_sum'>sum</span> <span class='op'>=</span> <span class='int'>0</span>
@@ -1645,16 +1777,16 @@
       <pre class="lines">
 
 
-137
-138
-139
-140
-141
-142
-143</pre>
+155
+156
+157
+158
+159
+160
+161</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'player.rb', line 137</span>
+      <pre class="code"><span class="info file"># File 'player.rb', line 155</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_sum_weapons'>sum_weapons</span>
     <span class='id identifier rubyid_sum'>sum</span> <span class='op'>=</span> <span class='int'>0</span>
@@ -1712,15 +1844,15 @@
       <pre class="lines">
 
 
-103
-104
-105
-106
-107
-108</pre>
+121
+122
+123
+124
+125
+126</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'player.rb', line 103</span>
+      <pre class="code"><span class="info file"># File 'player.rb', line 121</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_to_s'>to_s</span>
     <span class='kw'>return</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='ivar'>@name</span><span class='embexpr_end'>}</span><span class='tstring_content'>[i:</span><span class='embexpr_beg'>#{</span><span class='ivar'>@intelligence</span><span class='embexpr_end'>}</span><span class='tstring_content'>, s:</span><span class='embexpr_beg'>#{</span><span class='ivar'>@strength</span><span class='embexpr_end'>}</span><span class='tstring_content'>, h:</span><span class='embexpr_beg'>#{</span><span class='ivar'>@health</span><span class='embexpr_end'>}</span><span class='tstring_content'>, w:</span><span class='embexpr_beg'>#{</span><span class='ivar'>@weapons</span><span class='embexpr_end'>}</span><span class='tstring_content'>, sh:</span><span class='embexpr_beg'>#{</span><span class='ivar'>@shields</span><span class='embexpr_end'>}</span><span class='tstring_content'>, </span><span class='tstring_end'>&quot;</span></span> <span class='op'>+</span>
@@ -1738,9 +1870,9 @@
 </div>
 
       <div id="footer">
-  Generated on Thu Apr  4 11:27:07 2024 by
+  Generated on Thu Apr 11 10:24:51 2024 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.36 (ruby-3.0.2).
+  0.9.36 (ruby-3.1.2).
 </div>
 
     </div>

@@ -78,9 +78,27 @@ require_relative 'directions'
             return @health <= 0
         end
 
-        # def move(direction, valid_moves)
-            # Sig. Práctica
-        #end
+        # Comprueba si la dirección pasada hacia la que se pretende desplazar el personaje
+        # es válida, devolviendola en caso de que lo sea o no se pueda mover hacia ninguna posición, es decir,
+        # valid_moves esté vacío. Si no está en valid_moves y dicho array no está vacío, se devuelve la primera dirección 
+        # guardada en el array
+        #
+        # @param direction [Directions] dirección a la que se pretende desplazar el personaje
+        # @param valid_moves [Array::Directions] 
+        #
+        # @return [Directions] dirección a la que se quiere desplazar (tendremos que ver si es válida)
+        def move(direction, valid_moves)
+            size=valid_moves.length
+            
+            # El método del array es include?(<element>)
+            contained=valid_moves.include?(direction)
+
+            if ( (size>0) && (!contained) )
+                firs_element=valid_moves[0] # Se puede también array.at(pos)
+            else
+                direction
+            end
+        end
 
         # Calcula la suma de la fuerza del jugador y la suma de lo aportado por sus armas (sum_weapons).
         #

@@ -66,7 +66,7 @@ require_relative 'orientation' # // TODO: Hace falta orientation.rb?
                 end
                 str += "\n"
             end
-
+            # Arturo dice quitar
             # // TODO: Imprimir también la posición de los jugadores? Esperar a ver qué se tiene en @players
         end
 
@@ -97,9 +97,9 @@ require_relative 'orientation' # // TODO: Hace falta orientation.rb?
             # Sig. Práctica
         #end
 
-        #def valid_moves(row, col)
-            # Sig. Práctica
-        #end
+        def valid_moves(row, col)
+            # Sig. Práctica // TODO: Implementar
+        end
 
         private
         # Método que indica si la posición suministrada está dentro del tablero
