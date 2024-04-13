@@ -9,7 +9,7 @@ require_relative 'player'
 require_relative 'monster'
 require_relative 'labyrinth'
 require_relative 'game_state'
-require_relative 'game_character'   # // TODO: Hace falta game_character.rb?
+require_relative 'game_character'   
 require_relative 'orientation'
 
     # Clase que representa el juego Irrgarten. Esta clase se encarga de gestionar el estado del juego,
@@ -78,21 +78,56 @@ require_relative 'orientation'
             return @labyrinth.have_a_winner
         end
 
+        # Método que hace una ronda de un jugador, en la que el jugador avanza una
+        # casilla (si está vivo, sino se intenta resucitar) y se combate si está en
+        # la misma casilla que un monstruo. Finalmente se comprueba si ha finalizado el 
+        # juego.
+        # 
+        # @param preferred_direction [Directions] dirección hacia la que se
+        # quiere desplazar el jugador
+        # 
+        # @return [boolean] devuelve true si finalizo el juego, false en caso contrario
+        def next_step(preferred_direction)
+            @log="" # //TODO: no se si es @log o solo log
+            dead=@currect_player.dead
 
-        #def next_step(preferred_direction)
-            # Sig. Práctica
-        #end
+            if(!dead)
+                direction=self.actual_direction(preferred_direction)
+
+                # Se comprueba si la dirección a moverse ha sido la querida
+                if(direction!=preferred_direction)
+                    self.log_player_no_orders
+                end
+
+                monster=@labyrinth.put_player(direction, @currect_player)
+                if(monster==nil)
+                    self.log_monster_won
+                else
+                    winner=self.combat(monster)
+                    self.manage_reward(winner)
+                end
+            else
+                self.manage_resurrection
+            end
+
+            # Se comprueba si ha ganado ya alguien
+            end_game=self.finished()
+            if(!end_game)
+                self.next_player
+            end
+            return end_game
+        end
 
         # Genera una instancia de GameState integrando toda la información del estado del juego.
         #
         # @return [GameState] Objeto GameState con la información del estado del juego
         def game_state
-        info_players = ""
+            info_players = ""
             @players.each do |player|
                 info_players += player.to_s + ",\t"
             end
 
-        info_monsters = ""
+            info_monsters = ""
             @monsters.each do |monster|
                 info_monsters += monster.to_s + ",\t"
             end
@@ -132,30 +167,96 @@ require_relative 'orientation'
         end
 
         # Comprueba si la dirección preferred_direction es válida para el actual jugador, 
-        # delegando para ello en el método move
+        # delegando para ello en el método move de Player. Devuelve la dirección hacia la que se
+        # desplazará el jugador actual (puede que no sea la preferida)
         # @see Player#move
-        # @param preferred_direction [Directions] HoLA
+        # @param preferred_direction [Directions] dirección hacia la que se pretende desplazar el
+        # jugador actual
         #
-        # @return [Directions] ADIOS
+        # @return [Directions] dirección a la que se desplazará el jugador actual 
+        # (puede que no sea la preferida)
         def actual_direction(preferred_direction)
             current_row=@current_player.row
             currect_col=@current_player.col
             valid_moves=@labyrinth.valid_moves(current_row, currect_col)
 
             output=@current_player.move(preferred_direction, valid_moves)
+
+            return output
         end
 
-        #def combat(monster)
-            # Sig. Práctica
-        #end
+        # Método que desarrolla un combate entre el jugador actual y un monstruo, donde es el 
+        # jugador el primero que empieza atacando. Además, delega en el método defend y attack
+        # tanto de monster como de player. Finalmente escribe un mensaje con el número de rondas
+        # que se han dado y devuelve el ganador.
+        # @see Player#defend 
+        # @see Player#attack 
+        # @see Monster#defend 
+        # @see Monster#attack
+        #
+        # @param monster [Monster] monstruo con el que combate el jugador actual
+        #
+        # @return [GameCharacter] devuelve el ganador (PLAYER o MONSTER)
+        def combat(monster) 
+            # Inicializamos los valores
+            rounds=0
+            winner=GameCharacter::Player
 
-        #def manage_reward(winner)
-            # Sig. Práctica
-        #end
+            # Comienza el jugador atacando
+            playerAttack=@currect_player.attack
+            lose=monster.defend(playerAttack)
+            
+            # Bucle hasta que finalice el número de rondas posible o haya perdido
+            # el monstruo
+            while ( (!lose) && (rouns<self.MAX_ROUNDS) ) do
+                winner=GameCharacter::Monster
+                rounds++
 
-        #def manage_resurrection()
-            # Sig. Práctica
-        #end
+                # Turno del monstruo de atacar al jugador
+                monsterAttack=monster.attack
+                lose=player.defend(playerAttack)
+
+                if(!lose)
+                    playerAttack=@currect_player.attack
+                    winner=GameCharacter::Player
+                    lose=monster.defend(playerAttack)
+                end
+            end
+
+            log_rounds(rounds, @@MAX_ROUNDS)
+            # Devolvemos el ganador
+            return winner
+        end
+
+        # Comprueba quien fue el ganador del combate. Si fue el jugador se le otorga
+        # una recompensa con el metodo receive_reward de Player, y en función de quien gane
+        # se muestra un mensaje u otro.
+        # @see Player#receive_reward
+        #
+        # @param winner [GameCharacter] ganador del combate
+        def manage_reward(winner)
+            if (winner==GameCharacter::PLAYER)
+                @currect_player.receive_reward
+                log_player_won
+            else
+                log_monster_won
+            end
+        end
+
+        # Comprueba mediante el medoto resurrect_player de Dice si el jugador actual revivirá.
+        # En caso de que lo haga, se muestra un mensaje, sino se pasa su turno y se muestra el mensaje 
+        # correspondiente
+        def manage_resurrection()
+            resurrect=Dice.resurrect_player
+
+            if(resurrect)
+                @currect_player.resurrect
+                log_resurrected
+            else    
+                log_player_skip_turn
+
+            end
+        end
 
         # Añade al final del atributo log el mensaje indicando que el jugador ha ganado el combate.
         def log_player_won

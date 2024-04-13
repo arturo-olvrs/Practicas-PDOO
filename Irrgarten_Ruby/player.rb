@@ -107,13 +107,41 @@ require_relative 'directions'
             return @strength + self.sum_weapons # Self no es necesario
         end
 
-        # def defend(received_attack)
-            # Este método delega su funcionalidad en el método manageHit. Sig. Práctica
-        #end
+        # Este método delega su funcionalidad en el método manage_hit de Player
+        # @see Player#manage_hit
+        #
+        # @param received_attack [float] ataque recibido
+        #
+        # @return [boolean] devuelve true si ha perdido, y false si ha ganado
+        def defend(received_attack)
+            return manage_hit(received_attack) 
+        end
 
-        #def receive_reward
-            # Sig. Práctica
-        #end
+        # Método que recompensa al jugador con armas, escudos y vida extra delegando
+        # para ello en métodos de Dice, como weapons_reward, shields_reward y health_reward
+        # @see Dice#weapons_reward
+        # @see Dice#shields_reward
+        # @see Dice#health_reward
+        def receive_reward
+            wReward=Dice.weapons_reward
+            sReward=Dice.shields_reward
+
+            # Rewward de armas
+            wReward.times do |i|               
+                wnew=new_weapon
+                receive_weapon(wnew)
+            end
+
+            # Rewward de escudos
+            sReward.times do |i|               
+                snew=new_shield
+                receive_shield(snew)
+            end
+
+            # Rewward de vida
+            extra_health=Dice.health_reward
+            @health+=extra_health
+        end
 
         # Método que genera una cadena de caracteres con la información del jugador
         #
@@ -127,13 +155,48 @@ require_relative 'directions'
 
 
         private
-        # def receive_weapon(w)
-            # Sig. Práctica
-        # end
 
-        # def receive_shield(s)
-            # Sig. Práctica
-        # end
+        # Método que añade un nuevo arma (si es posible) al array de armas del jugador. Primero
+        # intenta eliminar algún arma usando el método discard de Weapon y luego si el numero
+        # de armas del jugador es menor estricto al numero de armas máximas a llevar, se añade
+        # el nuevo arma.
+        # @see Weapon#discard
+        # 
+        # @param w [Weapon] arma a intentar añadir al jugador  
+        def receive_weapon(w)
+            @weapons.each do |wi|
+                discard=wi.discard
+                if(discard)
+                    @weapons.delete(wi) # elimina el elemento wi del array
+                end
+            end
+
+            size=@weapons.length
+            if(size<@@MAX_WEAPONS)
+                @weapons.push(w) # funciona también @weapons<<(wi)
+            end
+        end
+
+        # Método que añade un nuevo escudo (si es posible) al array de escudos del jugador. Primero
+        # intenta eliminar algún escudo usando el método discard de Shield y luego si el número
+        # de escudos del jugador es menor estricto al numero de escudos máximos a llevar, se añade
+        # el nuevo escudo.
+        # @see Shield#discard
+        # 
+        # @param s [Shield] escudo a intentar añadir al jugador  
+        def receive_shield(s)
+            @shields.each do |si|
+                discard=si.discard
+                if(discard)
+                    @shields.delete(si) # elimina el elemento si del array
+                end
+            end
+
+            size=@shields.length
+            if(size<@@MAX_SHIELDS)
+                @shields.push(s) 
+            end
+        end
 
         # Método que genera una nueva arma
         #
@@ -178,9 +241,31 @@ require_relative 'directions'
             return @intelligence + sum_shields
         end
 
-        # def manage_hit(received_attack)
-            # Sig. Práctica
-        # end
+        # Método que gestiona la defensa de un ataque. En el caso de que el jugador
+        # haya recibido un número máximo de golpes consecutivos, determinado por
+        # @@HITS2LOSE, se considerará que ha perdido, al igual que si muere
+        # 
+        # @param received_attack [float] ataque a defender
+        #
+        # @return [boolean] devuelve true si ha perdido, y false si ha ganado
+        def manage_hit(received_attack)
+            defense=self.defensive_energy
+
+            if(defense<received_attack)
+                self.got_wounded # recibe daño
+                self.inc_consecutive_hits 
+            else
+                self.reset_hits
+            end
+
+            if [ (consecutive_hits==@@HITS2LOSE) || self.dead]
+                self.reset_hits
+                lose=true
+            else
+                lose=false
+            end
+            return lose
+        end
 
         # Fija el valor del contador de impactos consecutivos a cero.
         def reset_hits

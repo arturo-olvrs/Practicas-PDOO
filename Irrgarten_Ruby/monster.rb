@@ -45,9 +45,27 @@ require_relative 'dice'
             return Dice.intensity(@strength)
         end
 
-        # def defend(recieved_attack)
-            # Sig. Práctica
-        # end
+        # Método que comprueba si el monstruo sobrevive después del ataque recibido
+        # basándonos en su inteligencia. Antes de todo se comprueba si el monstruo está muerto
+        #
+        # @param recieved_attack [float] ataque recibido por un jugador
+        #
+        # @return [boolean] booleano que indica si el monstruo está muerto, después de recibir 
+        # el ataque
+        def defend(recieved_attack)
+            is_dead=dead # también se puede self.dead
+
+            # Comprobamos si ya está muerto y sino le atacamos
+            if (!is_dead)
+                defensive_energy=Dice.intensity(@intelligence)
+                if(defensive_energy<recieved_attack)
+                    # Se reduce la vida del monstruo
+                    got_wounded
+                    is_dead=dead
+                end
+            end
+            is_dead
+        end
 
         # Modificador de la posición del monstruo
         #

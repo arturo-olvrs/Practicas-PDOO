@@ -384,6 +384,30 @@
 </li>
 
       
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#defend-instance_method" title="#defend (instance method)">#<strong>defend</strong>(received_attack)  &#x21d2; boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Este método delega su funcionalidad en el método manage_hit de Player.</p>
+</div></span>
+  
+</li>
+
+      
         <li class="private ">
   <span class="summary_signature">
     
@@ -482,6 +506,30 @@
 </li>
 
       
+        <li class="private ">
+  <span class="summary_signature">
+    
+      <a href="#manage_hit-instance_method" title="#manage_hit (instance method)">#<strong>manage_hit</strong>(received_attack)  &#x21d2; boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  <span class="note title private">private</span>
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Método que gestiona la defensa de un ataque.</p>
+</div></span>
+  
+</li>
+
+      
         <li class="public ">
   <span class="summary_signature">
     
@@ -573,6 +621,78 @@
   
     <span class="summary_desc"><div class='inline'>
 <p>Modificador de la posición del jugador.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#receive_reward-instance_method" title="#receive_reward (instance method)">#<strong>receive_reward</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Método que recompensa al jugador con armas, escudos y vida extra delegando para ello en métodos de Dice, como weapons_reward, shields_reward y health_reward.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="private ">
+  <span class="summary_signature">
+    
+      <a href="#receive_shield-instance_method" title="#receive_shield (instance method)">#<strong>receive_shield</strong>(s)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  <span class="note title private">private</span>
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Método que añade un nuevo escudo (si es posible) al array de escudos del jugador.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="private ">
+  <span class="summary_signature">
+    
+      <a href="#receive_weapon-instance_method" title="#receive_weapon (instance method)">#<strong>receive_weapon</strong>(w)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  <span class="note title private">private</span>
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Método que añade un nuevo arma (si es posible) al array de armas del jugador.</p>
 </div></span>
   
 </li>
@@ -1133,6 +1253,92 @@
 </div>
     
       <div class="method_details ">
+  <h3 class="signature " id="defend-instance_method">
+  
+    #<strong>defend</strong>(received_attack)  &#x21d2; <tt>boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Este método delega su funcionalidad en el método manage_hit de Player</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>received_attack</span>
+      
+      
+        <span class='type'>(<tt>float</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>ataque recibido</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>boolean</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>devuelve true si ha perdido, y false si ha ganado</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><span class='object_link'><a href="#manage_hit-instance_method" title="Irrgarten::Player#manage_hit (method)">#manage_hit</a></span></li>
+    
+  </ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+116
+117
+118</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'player.rb', line 116</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_defend'>defend</span><span class='lparen'>(</span><span class='id identifier rubyid_received_attack'>received_attack</span><span class='rparen'>)</span>
+    <span class='kw'>return</span> <span class='id identifier rubyid_manage_hit'>manage_hit</span><span class='lparen'>(</span><span class='id identifier rubyid_received_attack'>received_attack</span><span class='rparen'>)</span> 
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
   <h3 class="signature " id="defensive_energy-instance_method">
   
     #<strong>defensive_energy</strong>  &#x21d2; <tt>float</tt>  <span class="extras">(private)</span>
@@ -1176,12 +1382,12 @@
       <pre class="lines">
 
 
-177
-178
-179</pre>
+240
+241
+242</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'player.rb', line 177</span>
+      <pre class="code"><span class="info file"># File 'player.rb', line 240</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_defensive_energy'>defensive_energy</span>
     <span class='kw'>return</span> <span class='ivar'>@intelligence</span> <span class='op'>+</span> <span class='id identifier rubyid_sum_shields'>sum_shields</span>
@@ -1217,12 +1423,12 @@
       <pre class="lines">
 
 
-191
-192
-193</pre>
+276
+277
+278</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'player.rb', line 191</span>
+      <pre class="code"><span class="info file"># File 'player.rb', line 276</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_got_wounded'>got_wounded</span>
     <span class='ivar'>@health</span> <span class='op'>-=</span> <span class='int'>1</span>
@@ -1258,15 +1464,124 @@
       <pre class="lines">
 
 
-196
-197
-198</pre>
+281
+282
+283</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'player.rb', line 196</span>
+      <pre class="code"><span class="info file"># File 'player.rb', line 281</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_inc_consecutive_hits'>inc_consecutive_hits</span>
     <span class='ivar'>@consecutive_hits</span> <span class='op'>+=</span> <span class='int'>1</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="manage_hit-instance_method">
+  
+    #<strong>manage_hit</strong>(received_attack)  &#x21d2; <tt>boolean</tt>  <span class="extras">(private)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Método que gestiona la defensa de un ataque. En el caso de que el jugador haya recibido un número máximo de golpes consecutivos, determinado por @@HITS2LOSE, se considerará que ha perdido, al igual que si muere</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>received_attack</span>
+      
+      
+        <span class='type'>(<tt>float</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>ataque a defender</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>boolean</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>devuelve true si ha perdido, y false si ha ganado</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'player.rb', line 251</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_manage_hit'>manage_hit</span><span class='lparen'>(</span><span class='id identifier rubyid_received_attack'>received_attack</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_defense'>defense</span><span class='op'>=</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_defensive_energy'>defensive_energy</span>
+
+    <span class='kw'>if</span><span class='lparen'>(</span><span class='id identifier rubyid_defense'>defense</span><span class='op'>&lt;</span><span class='id identifier rubyid_received_attack'>received_attack</span><span class='rparen'>)</span>
+        <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_got_wounded'>got_wounded</span> <span class='comment'># recibe daño
+</span>        <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_inc_consecutive_hits'>inc_consecutive_hits</span> 
+    <span class='kw'>else</span>
+        <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_reset_hits'>reset_hits</span>
+    <span class='kw'>end</span>
+
+    <span class='kw'>if</span> <span class='lbracket'>[</span> <span class='lparen'>(</span><span class='id identifier rubyid_consecutive_hits'>consecutive_hits</span><span class='op'>==</span><span class='cvar'>@@HITS2LOSE</span><span class='rparen'>)</span> <span class='op'>||</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_dead'>dead</span><span class='rbracket'>]</span>
+        <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_reset_hits'>reset_hits</span>
+        <span class='id identifier rubyid_lose'>lose</span><span class='op'>=</span><span class='kw'>true</span>
+    <span class='kw'>else</span>
+        <span class='id identifier rubyid_lose'>lose</span><span class='op'>=</span><span class='kw'>false</span>
+    <span class='kw'>end</span>
+    <span class='kw'>return</span> <span class='id identifier rubyid_lose'>lose</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1425,12 +1740,12 @@
       <pre class="lines">
 
 
-148
-149
-150</pre>
+211
+212
+213</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'player.rb', line 148</span>
+      <pre class="code"><span class="info file"># File 'player.rb', line 211</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_new_shield'>new_shield</span>
     <span class='kw'>return</span> <span class='const'><span class='object_link'><a href="Shield.html" title="Irrgarten::Shield (class)">Shield</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Shield.html#initialize-instance_method" title="Irrgarten::Shield#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="Dice.html" title="Irrgarten::Dice (class)">Dice</a></span></span><span class='period'>.</span><span class='id identifier rubyid_shield_power'><span class='object_link'><a href="Dice.html#shield_power-class_method" title="Irrgarten::Dice.shield_power (method)">shield_power</a></span></span><span class='comma'>,</span> <span class='const'><span class='object_link'><a href="Dice.html" title="Irrgarten::Dice (class)">Dice</a></span></span><span class='period'>.</span><span class='id identifier rubyid_uses_left'><span class='object_link'><a href="Dice.html#uses_left-class_method" title="Irrgarten::Dice.uses_left (method)">uses_left</a></span></span><span class='rparen'>)</span>
@@ -1484,12 +1799,12 @@
       <pre class="lines">
 
 
-141
-142
-143</pre>
+204
+205
+206</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'player.rb', line 141</span>
+      <pre class="code"><span class="info file"># File 'player.rb', line 204</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_new_weapon'>new_weapon</span>
     <span class='kw'>return</span> <span class='const'><span class='object_link'><a href="Weapon.html" title="Irrgarten::Weapon (class)">Weapon</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Weapon.html#initialize-instance_method" title="Irrgarten::Weapon#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="Dice.html" title="Irrgarten::Dice (class)">Dice</a></span></span><span class='period'>.</span><span class='id identifier rubyid_weapon_power'><span class='object_link'><a href="Dice.html#weapon_power-class_method" title="Irrgarten::Dice.weapon_power (method)">weapon_power</a></span></span><span class='comma'>,</span> <span class='const'><span class='object_link'><a href="Dice.html" title="Irrgarten::Dice (class)">Dice</a></span></span><span class='period'>.</span><span class='id identifier rubyid_uses_left'><span class='object_link'><a href="Dice.html#uses_left-class_method" title="Irrgarten::Dice.uses_left (method)">uses_left</a></span></span><span class='rparen'>)</span>
@@ -1579,6 +1894,268 @@
 </div>
     
       <div class="method_details ">
+  <h3 class="signature " id="receive_reward-instance_method">
+  
+    #<strong>receive_reward</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Método que recompensa al jugador con armas, escudos y vida extra delegando para ello en métodos de Dice, como weapons_reward, shields_reward y health_reward</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><span class='object_link'><a href="Dice.html#weapons_reward-class_method" title="Irrgarten::Dice.weapons_reward (method)">Dice.weapons_reward</a></span></li>
+    
+      <li><span class='object_link'><a href="Dice.html#shields_reward-class_method" title="Irrgarten::Dice.shields_reward (method)">Dice.shields_reward</a></span></li>
+    
+      <li><span class='object_link'><a href="Dice.html#health_reward-class_method" title="Irrgarten::Dice.health_reward (method)">Dice.health_reward</a></span></li>
+    
+  </ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'player.rb', line 125</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_receive_reward'>receive_reward</span>
+    <span class='id identifier rubyid_wReward'>wReward</span><span class='op'>=</span><span class='const'>Dice</span><span class='period'>.</span><span class='id identifier rubyid_weapons_reward'>weapons_reward</span>
+    <span class='id identifier rubyid_sReward'>sReward</span><span class='op'>=</span><span class='const'>Dice</span><span class='period'>.</span><span class='id identifier rubyid_shields_reward'>shields_reward</span>
+
+    <span class='comment'># Rewward de armas
+</span>    <span class='id identifier rubyid_wReward'>wReward</span><span class='period'>.</span><span class='id identifier rubyid_times'>times</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_i'>i</span><span class='op'>|</span>               
+        <span class='id identifier rubyid_wnew'>wnew</span><span class='op'>=</span><span class='id identifier rubyid_new_weapon'>new_weapon</span>
+        <span class='id identifier rubyid_receive_weapon'>receive_weapon</span><span class='lparen'>(</span><span class='id identifier rubyid_wnew'>wnew</span><span class='rparen'>)</span>
+    <span class='kw'>end</span>
+
+    <span class='comment'># Rewward de escudos
+</span>    <span class='id identifier rubyid_sReward'>sReward</span><span class='period'>.</span><span class='id identifier rubyid_times'>times</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_i'>i</span><span class='op'>|</span>               
+        <span class='id identifier rubyid_snew'>snew</span><span class='op'>=</span><span class='id identifier rubyid_new_shield'>new_shield</span>
+        <span class='id identifier rubyid_receive_shield'>receive_shield</span><span class='lparen'>(</span><span class='id identifier rubyid_snew'>snew</span><span class='rparen'>)</span>
+    <span class='kw'>end</span>
+
+    <span class='comment'># Rewward de vida
+</span>    <span class='id identifier rubyid_extra_health'>extra_health</span><span class='op'>=</span><span class='const'>Dice</span><span class='period'>.</span><span class='id identifier rubyid_health_reward'>health_reward</span>
+    <span class='ivar'>@health</span><span class='op'>+=</span><span class='id identifier rubyid_extra_health'>extra_health</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="receive_shield-instance_method">
+  
+    #<strong>receive_shield</strong>(s)  &#x21d2; <tt>Object</tt>  <span class="extras">(private)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Método que añade un nuevo escudo (si es posible) al array de escudos del jugador. Primero intenta eliminar algún escudo usando el método discard de Shield y luego si el número de escudos del jugador es menor estricto al numero de escudos máximos a llevar, se añade el nuevo escudo.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>s</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Shield.html" title="Irrgarten::Shield (class)">Shield</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>escudo a intentar añadir al jugador</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><span class='object_link'><a href="Shield.html#discard-instance_method" title="Irrgarten::Shield#discard (method)">Shield#discard</a></span></li>
+    
+  </ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'player.rb', line 187</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_receive_shield'>receive_shield</span><span class='lparen'>(</span><span class='id identifier rubyid_s'>s</span><span class='rparen'>)</span>
+    <span class='ivar'>@shields</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_si'>si</span><span class='op'>|</span>
+        <span class='id identifier rubyid_discard'>discard</span><span class='op'>=</span><span class='id identifier rubyid_si'>si</span><span class='period'>.</span><span class='id identifier rubyid_discard'>discard</span>
+        <span class='kw'>if</span><span class='lparen'>(</span><span class='id identifier rubyid_discard'>discard</span><span class='rparen'>)</span>
+            <span class='ivar'>@shields</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_si'>si</span><span class='rparen'>)</span> <span class='comment'># elimina el elemento si del array
+</span>        <span class='kw'>end</span>
+    <span class='kw'>end</span>
+
+    <span class='id identifier rubyid_size'>size</span><span class='op'>=</span><span class='ivar'>@shields</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span>
+    <span class='kw'>if</span><span class='lparen'>(</span><span class='id identifier rubyid_size'>size</span><span class='op'>&lt;</span><span class='cvar'>@@MAX_SHIELDS</span><span class='rparen'>)</span>
+        <span class='ivar'>@shields</span><span class='period'>.</span><span class='id identifier rubyid_push'>push</span><span class='lparen'>(</span><span class='id identifier rubyid_s'>s</span><span class='rparen'>)</span> 
+    <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="receive_weapon-instance_method">
+  
+    #<strong>receive_weapon</strong>(w)  &#x21d2; <tt>Object</tt>  <span class="extras">(private)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Método que añade un nuevo arma (si es posible) al array de armas del jugador. Primero intenta eliminar algún arma usando el método discard de Weapon y luego si el numero de armas del jugador es menor estricto al numero de armas máximas a llevar, se añade el nuevo arma.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>w</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Weapon.html" title="Irrgarten::Weapon (class)">Weapon</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>arma a intentar añadir al jugador</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><span class='object_link'><a href="Weapon.html#discard-instance_method" title="Irrgarten::Weapon#discard (method)">Weapon#discard</a></span></li>
+    
+  </ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'player.rb', line 166</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_receive_weapon'>receive_weapon</span><span class='lparen'>(</span><span class='id identifier rubyid_w'>w</span><span class='rparen'>)</span>
+    <span class='ivar'>@weapons</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_wi'>wi</span><span class='op'>|</span>
+        <span class='id identifier rubyid_discard'>discard</span><span class='op'>=</span><span class='id identifier rubyid_wi'>wi</span><span class='period'>.</span><span class='id identifier rubyid_discard'>discard</span>
+        <span class='kw'>if</span><span class='lparen'>(</span><span class='id identifier rubyid_discard'>discard</span><span class='rparen'>)</span>
+            <span class='ivar'>@weapons</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_wi'>wi</span><span class='rparen'>)</span> <span class='comment'># elimina el elemento wi del array
+</span>        <span class='kw'>end</span>
+    <span class='kw'>end</span>
+
+    <span class='id identifier rubyid_size'>size</span><span class='op'>=</span><span class='ivar'>@weapons</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span>
+    <span class='kw'>if</span><span class='lparen'>(</span><span class='id identifier rubyid_size'>size</span><span class='op'>&lt;</span><span class='cvar'>@@MAX_WEAPONS</span><span class='rparen'>)</span>
+        <span class='ivar'>@weapons</span><span class='period'>.</span><span class='id identifier rubyid_push'>push</span><span class='lparen'>(</span><span class='id identifier rubyid_w'>w</span><span class='rparen'>)</span> <span class='comment'># funciona también @weapons&lt;&lt;(wi)
+</span>    <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
   <h3 class="signature " id="reset_hits-instance_method">
   
     #<strong>reset_hits</strong>  &#x21d2; <tt>Object</tt>  <span class="extras">(private)</span>
@@ -1604,12 +2181,12 @@
       <pre class="lines">
 
 
-186
-187
-188</pre>
+271
+272
+273</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'player.rb', line 186</span>
+      <pre class="code"><span class="info file"># File 'player.rb', line 271</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_reset_hits'>reset_hits</span>
     <span class='ivar'>@consecutive_hits</span> <span class='op'>=</span> <span class='int'>0</span>
@@ -1710,16 +2287,16 @@
       <pre class="lines">
 
 
-166
-167
-168
-169
-170
-171
-172</pre>
+229
+230
+231
+232
+233
+234
+235</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'player.rb', line 166</span>
+      <pre class="code"><span class="info file"># File 'player.rb', line 229</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_sum_shields'>sum_shields</span>
     <span class='id identifier rubyid_sum'>sum</span> <span class='op'>=</span> <span class='int'>0</span>
@@ -1777,16 +2354,16 @@
       <pre class="lines">
 
 
-155
-156
-157
-158
-159
-160
-161</pre>
+218
+219
+220
+221
+222
+223
+224</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'player.rb', line 155</span>
+      <pre class="code"><span class="info file"># File 'player.rb', line 218</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_sum_weapons'>sum_weapons</span>
     <span class='id identifier rubyid_sum'>sum</span> <span class='op'>=</span> <span class='int'>0</span>
@@ -1844,15 +2421,15 @@
       <pre class="lines">
 
 
-121
-122
-123
-124
-125
-126</pre>
+149
+150
+151
+152
+153
+154</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'player.rb', line 121</span>
+      <pre class="code"><span class="info file"># File 'player.rb', line 149</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_to_s'>to_s</span>
     <span class='kw'>return</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='ivar'>@name</span><span class='embexpr_end'>}</span><span class='tstring_content'>[i:</span><span class='embexpr_beg'>#{</span><span class='ivar'>@intelligence</span><span class='embexpr_end'>}</span><span class='tstring_content'>, s:</span><span class='embexpr_beg'>#{</span><span class='ivar'>@strength</span><span class='embexpr_end'>}</span><span class='tstring_content'>, h:</span><span class='embexpr_beg'>#{</span><span class='ivar'>@health</span><span class='embexpr_end'>}</span><span class='tstring_content'>, w:</span><span class='embexpr_beg'>#{</span><span class='ivar'>@weapons</span><span class='embexpr_end'>}</span><span class='tstring_content'>, sh:</span><span class='embexpr_beg'>#{</span><span class='ivar'>@shields</span><span class='embexpr_end'>}</span><span class='tstring_content'>, </span><span class='tstring_end'>&quot;</span></span> <span class='op'>+</span>
@@ -1870,7 +2447,7 @@
 </div>
 
       <div id="footer">
-  Generated on Thu Apr 11 10:24:51 2024 by
+  Generated on Sat Apr 13 11:32:20 2024 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.36 (ruby-3.1.2).
 </div>
