@@ -56,7 +56,6 @@ public class Player {
      * Salud del jugador.
      */
     private float health;
-    // TODO: ¿Por qué health es float?
     /**
      * Fila en la que se encuentra el jugador.
      */
