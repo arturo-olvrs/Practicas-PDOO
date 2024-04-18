@@ -35,7 +35,6 @@ public class Monster {
      * Salud del monstruo
      */
     private float health;
-    // TODO: ¿Por qué health es float?
     /**
      * Fila en la que se encuentra el monstruo
      */
