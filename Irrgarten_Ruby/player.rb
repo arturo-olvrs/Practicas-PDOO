@@ -112,7 +112,7 @@ require_relative 'directions'
         #
         # @param received_attack [float] ataque recibido
         #
-        # @return [boolean] devuelve true si ha perdido, y false si ha ganado
+        # @return [boolean] devuelve true si ha muerto, y false en caso contraio
         def defend(received_attack)
             return manage_hit(received_attack) 
         end
@@ -147,12 +147,33 @@ require_relative 'directions'
         #
         # @return [String] cadena de caracteres con la información del jugador
         def to_s
-            return "#{@name}[i:#{@intelligence}, s:#{@strength}, h:#{@health}, w:#{@weapons}, sh:#{@shields}, " +
-            "p:(#{@row}, #{@col}), ch:#{@consecutive_hits}]"
+            # Guardamos la info de todas las armas en un string
+            to_weapons="["
+            tam_weapons=@weapons.size
+            for i in 0..(tam_weapons-1) do
+                to_weapons+=@weapons[i].to_s
+
+                # NO hace la parte de delante si i == (tam_weapons-1)
+                to_weapons += ", " unless i == (tam_weapons - 1)  
+            end
+            to_weapons+="]"
+
+            # Guardamos la info de todas las armas en un string
+            to_shields="["
+            tam_shields=@shields.size
+            for i in 0..(tam_shields-1) do
+                to_shields+=@shields[i].to_s
+
+                # NO hace la parte de delante si i == (tam_weapons-1)
+                to_shields += ", " unless i == (tam_shields - 1)  
+            end
+            to_shields+="]"
+
+            return "#{@name}[i:#{@intelligence}, s:#{@strength}, h:#{@health}, w: "+to_weapons+
+            ", sh: "+to_shields+", "+"p:(#{@row}, #{@col}), ch:#{@consecutive_hits}]"
             # // TODO: Comprobar que funciona igual que en Java
 
         end
-
 
         private
 
@@ -247,10 +268,11 @@ require_relative 'directions'
         # 
         # @param received_attack [float] ataque a defender
         #
-        # @return [boolean] devuelve true si ha perdido, y false si ha ganado
+        # @return [boolean] devuelve true si ha muerto o ha alcanzado el máximo número 
+        # de ataques, y false en caso contrario 
         def manage_hit(received_attack)
             defense=self.defensive_energy
-
+            puts "d: "+defense.to_s+ " a: "+received_attack.to_s
             if(defense<received_attack)
                 self.got_wounded # recibe daño
                 self.inc_consecutive_hits 
@@ -258,7 +280,7 @@ require_relative 'directions'
                 self.reset_hits
             end
 
-            if [ (consecutive_hits==@@HITS2LOSE) || self.dead]
+            if ( (@consecutive_hits==@@HITS2LOSE) || self.dead )
                 self.reset_hits
                 lose=true
             else

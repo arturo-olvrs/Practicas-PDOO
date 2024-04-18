@@ -1,6 +1,5 @@
-
 require 'io/console'
-require_relative 'directions'
+require_relative '../directions'
 
 module UI
 
@@ -70,11 +69,29 @@ module UI
       output
     end
 
-    # def show_game(game_state)
-      # //TODO: preguntar si sirve para algo (está vacío el método)
-    # end
+    # Método que muestra el estado completo del juego, mostrándo el laberinto,
+    # los monstruos, los jugadores, mensaje con eventos importantes y si ha habido
+    # un ganador.
+    # 
+    # @param game_state [GameState] estado actual del juego 
+    def show_game(game_state)
+      puts game_state.labyrinth
+      puts "\n"
+      puts game_state.players
+      puts "\n"
+      puts game_state.monsters
+      puts "\n"
+      
+      puts game_state.log + "\n"
+
+      if (game_state.winner)
+        puts "We have a winner! Player " + game_state.current_player.to_s + "\n"
+      else
+        puts "Current player: " + game_state.current_player.to_s + "\n"
+      end
+    end
 
   end # class   
 
-end # module   
+end # module 
 

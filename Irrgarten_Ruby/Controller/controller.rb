@@ -1,3 +1,7 @@
+require_relative '../game'
+require_relative '../UI/textUI'
+require_relative '../directions'
+
 module Control
 
     # Esta clase se encarga mantener el control general del juego, es decir, su visualización

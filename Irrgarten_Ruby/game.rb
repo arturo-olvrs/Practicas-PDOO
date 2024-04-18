@@ -24,25 +24,25 @@ require_relative 'orientation'
         ####---------------------- PERSONALIZACIÓN LABERINTO ----------------
 
         # Número de filas del laberinto
-        @@ROWS = 10
+        @@ROWS = 4
 
         # Número de columnas del laberinto
-        @@COLS = 10
+        @@COLS = 4
 
         # Información de los monstruos a añadir al laberinto
         @@MONSTER_INIT = [
             ["Monster 0", 0, 0],
             ["Monster 1", 1, 1],
             ["Monster 2", 2, 2],
-            ["Monster 3", 3, 3]
+            ["Monster 3", 6, 7]
         ]
 
         # Información de los bloques de obstáculos a añadir al laberinto
         @@BLOCKS = [
-            [Orientation::HORIZONTAL,   0, 0,   3],
-            [Orientation::VERTICAL,     0, 1,   4],
-            [Orientation::HORIZONTAL,   3, 0,   8],
-            [Orientation::VERTICAL,     2, 2,   5]
+            [Orientation::HORIZONTAL,   7, 7,   3],
+            [Orientation::VERTICAL,     5, 5,   4],
+            [Orientation::HORIZONTAL,   3, 5,   8],
+            [Orientation::VERTICAL,     6, 5,   3]
         ]
         #### ---------------------- PERSONALIZACIÓN LABERINTO ----------------
 
@@ -64,7 +64,7 @@ require_relative 'orientation'
 
             # Inicializa el laberinto
             @labyrinth = Labyrinth.new(@@ROWS, @@COLS, Dice.random_pos(@@ROWS), Dice.random_pos(@@COLS))
-            @labyrinth.configure_labyrinth()
+            configure_labyrinth()
             @labyrinth.spread_players(@players)
 
             @log = "Game just started.\n"
@@ -89,7 +89,7 @@ require_relative 'orientation'
         # @return [boolean] devuelve true si finalizo el juego, false en caso contrario
         def next_step(preferred_direction)
             @log="" # //TODO: no se si es @log o solo log
-            dead=@currect_player.dead
+            dead=@current_player.dead
 
             if(!dead)
                 direction=self.actual_direction(preferred_direction)
@@ -99,9 +99,9 @@ require_relative 'orientation'
                     self.log_player_no_orders
                 end
 
-                monster=@labyrinth.put_player(direction, @currect_player)
+                monster=@labyrinth.put_player(direction, @current_player)
                 if(monster==nil)
-                    self.log_monster_won
+                    self.log_no_monster
                 else
                     winner=self.combat(monster)
                     self.manage_reward(winner)
@@ -124,15 +124,15 @@ require_relative 'orientation'
         def game_state
             info_players = ""
             @players.each do |player|
-                info_players += player.to_s + ",\t"
+                info_players += player.to_s + ",\n"
             end
 
             info_monsters = ""
             @monsters.each do |monster|
-                info_monsters += monster.to_s + ",\t"
+                info_monsters += monster.to_s + ",\n"
             end
 
-            return GameState.new(@labyrinth.to_s, info_players, info_monsters, current_player_index, self.finished, @log)
+            return GameState.new(@labyrinth.to_s, info_players, info_monsters, @current_player_index, self.finished, @log)
         end
 
         private
@@ -200,30 +200,31 @@ require_relative 'orientation'
         def combat(monster) 
             # Inicializamos los valores
             rounds=0
-            winner=GameCharacter::Player
+            winner=GameCharacter::PLAYER
 
             # Comienza el jugador atacando
-            playerAttack=@currect_player.attack
+            playerAttack=@current_player.attack
+            puts "Monstruo defiende "            
             lose=monster.defend(playerAttack)
-            
             # Bucle hasta que finalice el número de rondas posible o haya perdido
             # el monstruo
-            while ( (!lose) && (rouns<self.MAX_ROUNDS) ) do
-                winner=GameCharacter::Monster
-                rounds++
+            while ( (!lose) && (rounds<@@MAX_ROUNDS) ) do
+                winner=GameCharacter::MONSTER
+                rounds+=1
 
                 # Turno del monstruo de atacar al jugador
                 monsterAttack=monster.attack
-                lose=player.defend(playerAttack)
-
+                puts "Jugador defiende "
+                lose=@current_player.defend(monsterAttack)
                 if(!lose)
-                    playerAttack=@currect_player.attack
-                    winner=GameCharacter::Player
+                    playerAttack=@current_player.attack
+                    winner=GameCharacter::PLAYER
+                    puts "Monstruo defiende "
                     lose=monster.defend(playerAttack)
                 end
             end
 
-            log_rounds(rounds, @@MAX_ROUNDS)
+            self.log_rounds(rounds, @@MAX_ROUNDS)
             # Devolvemos el ganador
             return winner
         end
@@ -236,7 +237,7 @@ require_relative 'orientation'
         # @param winner [GameCharacter] ganador del combate
         def manage_reward(winner)
             if (winner==GameCharacter::PLAYER)
-                @currect_player.receive_reward
+                @current_player.receive_reward
                 log_player_won
             else
                 log_monster_won
@@ -250,7 +251,7 @@ require_relative 'orientation'
             resurrect=Dice.resurrect_player
 
             if(resurrect)
-                @currect_player.resurrect
+                @current_player.resurrect
                 log_resurrected
             else    
                 log_player_skip_turn
@@ -260,33 +261,33 @@ require_relative 'orientation'
 
         # Añade al final del atributo log el mensaje indicando que el jugador ha ganado el combate.
         def log_player_won
-            @log += "Player #{@current_player_index} won the fight.\n"
+            @log += "- Player #{@current_player_index} won the fight.\n"
         end
 
         # Añade al final del atributo log el mensaje indicando que el monstruo ha ganado el combate.
         def log_monster_won
-            @log += "Monster won the fight.\n"
+            @log += "- Monster won the fight.\n"
         end
 
         # Añade al final del atributo log el mensaje indicando que el jugador ha resucitado.
         def log_resurrected
-            @log += "Player #{@current_player_index} resurrected.\n"
+            @log += "- Player #{@current_player_index} resurrected.\n"
         end
 
         # Añade al final del atributo log el mensaje indicando que el jugador ha perdido el turno por estar muerto.
         def log_player_skip_turn
-            @log += "Player #{@current_player_index} skipped turn (is dead).\n"
+            @log += "- Player #{@current_player_index} skipped turn (is dead).\n"
         end
 
         # Añade al final del atributo log el mensaje indicando que el jugador no ha
         # seguido las instrucciones del jugador humano (no fue posible).
         def log_player_no_orders
-            @log += "Player #{@current_player_index} didn't follow orders, it was not possible.\n"
+            @log += "- Player #{@current_player_index} didn't follow orders, it was not possible.\n"
         end
 
         # Añade al final del atributo log el mensaje indicando que el jugador se ha movido a una casilla vacía o no le ha sido posible moverse.
         def log_no_monster
-            @log += "Player #{@current_player_index} moved to an empty cell or it was not possible to move.\n"
+            @log += "- Player #{@current_player_index} moved to an empty cell or it was not possible to move.\n"
         end
 
         # Añade al final del atributo log el mensaje indicando que se han producido rounds de max rondas de combate.
@@ -294,7 +295,7 @@ require_relative 'orientation'
         # @param rounds [int] número de rondas de combate que ya se han producido
         # @param max [int] número máximo de rondas de combate
         def log_rounds(rounds, max)
-            @log += "Rounds: #{rounds}/#{max}.\n"
+            @log += "- Rounds: #{rounds}/#{max}.\n"
         end
 
     end

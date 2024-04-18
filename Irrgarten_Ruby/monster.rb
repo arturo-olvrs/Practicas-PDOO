@@ -52,19 +52,20 @@ require_relative 'dice'
         #
         # @return [boolean] booleano que indica si el monstruo está muerto, después de recibir 
         # el ataque
-        def defend(recieved_attack)
+        def defend(received_attack)
             is_dead=dead # también se puede self.dead
 
             # Comprobamos si ya está muerto y sino le atacamos
             if (!is_dead)
                 defensive_energy=Dice.intensity(@intelligence)
-                if(defensive_energy<recieved_attack)
+                puts "d: "+defensive_energy.to_s+ " a: "+received_attack.to_s
+                if(defensive_energy<received_attack)
                     # Se reduce la vida del monstruo
                     got_wounded
                     is_dead=dead
                 end
             end
-            is_dead
+            return is_dead
         end
 
         # Modificador de la posición del monstruo

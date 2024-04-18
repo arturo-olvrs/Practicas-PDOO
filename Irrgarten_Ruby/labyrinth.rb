@@ -51,7 +51,7 @@ require_relative 'orientation'
         def spread_players(players)
             players.each do |p|
                 pos=self.random_empty_pos # int []
-                self.put_player2D(-1,-1, pos[@@ROW], pos[@@COl], p)
+                self.put_player2D(-1,-1, pos[@@ROW], pos[@@COL], p)
                 # //TODO: poner atributo de clase @@INVALID_POS=-1??? como en Player
             end
         end
@@ -60,7 +60,7 @@ require_relative 'orientation'
         #
         # @return [boolean] **true** si hay un ganador y **false** si no lo hay
         def have_a_winner
-            return @players[exit_row][exit_col] != nil
+            return @players[@exit_row][@exit_col] != nil
         end
 
         # Método que genera una cadena de caracteres con la información del laberinto
@@ -74,6 +74,7 @@ require_relative 'orientation'
                 end
                 str += "\n"
             end
+            return str
         end
 
         # Si la posición suministrada está dentro del tablero y está vacía,
@@ -110,10 +111,10 @@ require_relative 'orientation'
             old_row=player.row
             old_col=player.col
 
-            new_pos=self.dir_2_pos(row,col,direction)
+            new_pos=self.dir_2_pos(old_row,old_col,direction)
 
             # Devolvemos el monstruo
-            monster=self.put_player2D(row, col, new_pos[@ROW], new_pos[@COL], player)
+            monster=self.put_player2D(old_row, old_col, new_pos[@@ROW], new_pos[@@COL], player)
 
             return monster
         end
