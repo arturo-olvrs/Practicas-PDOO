@@ -150,6 +150,7 @@ require_relative 'directions'
             # Guardamos la info de todas las armas en un string
             to_weapons="["
             tam_weapons=@weapons.size
+            # Se incluye 0 y tam_weapons-1
             for i in 0..(tam_weapons-1) do
                 to_weapons+=@weapons[i].to_s
 
@@ -161,6 +162,7 @@ require_relative 'directions'
             # Guardamos la info de todas las armas en un string
             to_shields="["
             tam_shields=@shields.size
+            # Se incluye 0 y tam_shields-1
             for i in 0..(tam_shields-1) do
                 to_shields+=@shields[i].to_s
 
