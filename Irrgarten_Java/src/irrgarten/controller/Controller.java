@@ -4,17 +4,29 @@ import irrgarten.Directions;
 import irrgarten.Game;
 import irrgarten.UI.TextUI;
 
-
+/**
+ * Esta clase se encarga mantener el control general del juego, es decir, su visualización
+ * el estado del juego, su finalización, etc.
+ */
 public class Controller {
     
     private Game game;
     private TextUI view;
     
+    /**
+     * Constructor del controlador
+     * 
+     * @param game juego
+     * @param view visualización
+     */
     public Controller(Game game, TextUI view) {
         this.game = game;
         this.view = view;
     }
     
+    /**
+     * Juego
+     */
     public void play() {
         boolean endOfGame = false;
         while (!endOfGame) {

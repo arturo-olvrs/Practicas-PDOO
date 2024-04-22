@@ -21,7 +21,7 @@ module UI
     # 
     # @return [String] El carácter o secuencia de caracteres leídos desde la entrada estándar. 
     #   Si se presiona la tecla de escape, intenta leer secuencias adicionales para identificar
-    #   teclas especiales. //TODO: sacado de ChatGPT para que no me diga que no está documentado
+    #   teclas especiales. 
     def read_char
       STDIN.echo = false
       STDIN.raw!

@@ -10,6 +10,11 @@ import irrgarten.UI.TextUI;
  * @author Joaquín Avilés de la Fuente
  */
 public class TestP3 {
+    
+    /**
+     * Método que realiza las pruebas unitarias de la práctica 3
+     * @param args Argumentos recibidos al ejecutar
+     */
     public static void main ( String [ ] args ) {
         
         final int N_PLAYERS = 4;

@@ -21,7 +21,7 @@ module Irrgarten
     # @author Arturo Olivares Martos
     class TestP1
 
-        # Método que realiza las pruebas unitarias de la práctica 1
+        # Método que realiza las pruebas unitarias de la práctica 3
         def self.main
             vista=UI::TextUI.new  # Los dos puntos porque están en otro módulo
             juego=Game.new(4)

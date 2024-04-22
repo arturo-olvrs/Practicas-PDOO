@@ -50,6 +50,10 @@ public class Weapon {
         return "W[" + power + ", " + uses + "]";
     }
     
+    /**
+     * Método que indica si se descartará el arma en función de sus usos
+     * @return devuelve true o false si se descarta o no
+     */
     public boolean discard(){
         
         return Dice.discardElement(uses);

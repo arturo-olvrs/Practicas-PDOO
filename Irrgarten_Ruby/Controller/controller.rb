@@ -4,16 +4,10 @@ require_relative '../directions'
 
 # Este módulo contiene el controlador del juego que irá mostrando
 # la información del juego, así como actualizándolo
-#
-# @author Joaquin Avilés de la Fuente
-# @author Arturo Olivares Martos
 module Control
 
-    # Esta clase se encarga mantener el control general del juego, es decir, su visualización
+    # Esta clase se encarga mantener el control general del juego, es decir, su visualización,
     # el estado del juego, su finalización, etc.
-    #
-    # @author Joaquin Avilés de la Fuente
-    # @author Arturo Olivares Martos
     class Controller
 
       # Constructor del controlador
