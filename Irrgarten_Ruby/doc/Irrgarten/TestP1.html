@@ -147,7 +147,7 @@
 
   
     <h2>
-      Instance Method Summary
+      Class Method Summary
       <small><a href="#" class="summary_toggle">collapse</a></small>
     </h2>
 
@@ -156,7 +156,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#main-instance_method" title="#main (instance method)">#<strong>main</strong>  &#x21d2; Object </a>
+      <a href="#main-class_method" title="main (class method)">.<strong>main</strong>  &#x21d2; Object </a>
     
 
     
@@ -182,14 +182,14 @@
 
 
 
-  <div id="instance_method_details" class="method_details_list">
-    <h2>Instance Method Details</h2>
+  <div id="class_method_details" class="method_details_list">
+    <h2>Class Method Details</h2>
 
     
       <div class="method_details first">
-  <h3 class="signature first" id="main-instance_method">
+  <h3 class="signature first" id="main-class_method">
   
-    #<strong>main</strong>  &#x21d2; <tt>Object</tt> 
+    .<strong>main</strong>  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -212,16 +212,24 @@
       <pre class="lines">
 
 
-11
-12
-13</pre>
+25
+26
+27
+28
+29
+30
+31</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'test_p1.rb', line 11</span>
+      <pre class="code"><span class="info file"># File 'test_p1.rb', line 25</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_main'>main</span>
-    <span class='comment'># ...
-</span><span class='kw'>end</span></pre>
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_main'>main</span>
+    <span class='id identifier rubyid_vista'>vista</span><span class='op'>=</span><span class='const'>UI</span><span class='op'>::</span><span class='const'>TextUI</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>  <span class='comment'># Los dos puntos porque están en otro módulo
+</span>    <span class='id identifier rubyid_juego'>juego</span><span class='op'>=</span><span class='const'>Game</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='int'>4</span><span class='rparen'>)</span>
+
+    <span class='id identifier rubyid_controller'>controller</span><span class='op'>=</span><span class='const'>Control</span><span class='op'>::</span><span class='const'>Controller</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_juego'>juego</span><span class='comma'>,</span><span class='id identifier rubyid_vista'>vista</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_controller'>controller</span><span class='period'>.</span><span class='id identifier rubyid_play'>play</span>
+<span class='kw'>end</span></pre>
     </td>
   </tr>
 </table>
@@ -232,7 +240,7 @@
 </div>
 
       <div id="footer">
-  Generated on Sat Apr 13 11:32:20 2024 by
+  Generated on Mon Apr 22 12:20:37 2024 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.36 (ruby-3.1.2).
 </div>

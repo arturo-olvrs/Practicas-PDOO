@@ -13,6 +13,9 @@ require_relative 'dice'
         # Posición inválida
         @@INVALID_POS = -1
 
+        # Formato para mostrar los datos flotantes del monstruo
+        @@FORMATO='%.10f'
+
         # Constructor de la clase Monster. Inicializa los atributos de la clase.
         # La posición inicial del monstruo es inválida
         #
@@ -48,7 +51,7 @@ require_relative 'dice'
         # Método que comprueba si el monstruo sobrevive después del ataque recibido
         # basándonos en su inteligencia. Antes de todo se comprueba si el monstruo está muerto
         #
-        # @param recieved_attack [float] ataque recibido por un jugador
+        # @param received_attack [float] ataque recibido por un jugador
         #
         # @return [boolean] booleano que indica si el monstruo está muerto, después de recibir 
         # el ataque
@@ -81,7 +84,9 @@ require_relative 'dice'
         #
         # @return [String] cadena de caracteres con la información del monstruo
         def to_s
-            return "M[n:#{@name}, i:#{@intelligence}, s:#{@strength}, h:#{@health}, p:(#{@row}, #{@col})]"
+            return "M[n:#{@name}, i:#{format(@@FORMATO,@intelligence)}, "+
+                    "s:#{format(@@FORMATO,@strength)}, h:#{format(@@FORMATO,@health)}, "+
+                    "p:(#{@row}, #{@col})]"
         end
 
         private

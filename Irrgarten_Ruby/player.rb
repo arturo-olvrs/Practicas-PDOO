@@ -19,6 +19,9 @@ require_relative 'directions'
         # Posición inválida
         @@INVALID_POS = -1
 
+        # Formato para mostrar los datos flotantes del jugador
+        @@FORMATO='%.10f'
+
         # Constructor de la clase Player. Inicializa los atributos de la clase.
         # La posición inicial del jugador es inválida
         #
@@ -171,8 +174,9 @@ require_relative 'directions'
             end
             to_shields+="]"
 
-            return "#{@name}[i:#{@intelligence}, s:#{@strength}, h:#{@health}, w: "+to_weapons+
-            ", sh: "+to_shields+", "+"p:(#{@row}, #{@col}), ch:#{@consecutive_hits}]"
+            return "#{@name}[i:#{format(@@FORMATO,@intelligence)}, s:#{format(@@FORMATO,@strength)}, "+
+            "h:#{format(@@FORMATO,@health)}, w: "+to_weapons+", sh: "+to_shields+", "+
+            "p:(#{@row}, #{@col}), ch:#{@consecutive_hits}]"
             # // TODO: Comprobar que funciona igual que en Java
 
         end

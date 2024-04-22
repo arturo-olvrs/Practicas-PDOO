@@ -2,6 +2,11 @@ require_relative '../game'
 require_relative '../UI/textUI'
 require_relative '../directions'
 
+# Este módulo contiene el controlador del juego que irá mostrando
+# la información del juego, así como actualizándolo
+#
+# @author Joaquin Avilés de la Fuente
+# @author Arturo Olivares Martos
 module Control
 
     # Esta clase se encarga mantener el control general del juego, es decir, su visualización

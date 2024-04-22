@@ -99,7 +99,46 @@
   
 </div>
 
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>Esta clae se encarga de recibir las ordenes de los jugadores y transimitirlas al juego para que haga las gestiones necesarias. También muestra en consola el estado del juego, es decir, el laberinto y los jugadores, monstruos, etc.</p>
 
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Author:</p>
+<ul class="author">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'>
+<p>Joaquin Avilés de la Fuente</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'>
+<p>Arturo Olivares Martos</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div>
 
 
 
@@ -162,6 +201,30 @@
 </li>
 
       
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#show_game-instance_method" title="#show_game (instance method)">#<strong>show_game</strong>(game_state)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Método que muestra el estado completo del juego, mostrándo el laberinto, los monstruos, los jugadores, mensaje con eventos importantes y si ha habido un ganador.</p>
+</div></span>
+  
+</li>
+
+      
     </ul>
   
 
@@ -215,10 +278,6 @@
       <pre class="lines">
 
 
-40
-41
-42
-43
 44
 45
 46
@@ -246,10 +305,14 @@
 68
 69
 70
-71</pre>
+71
+72
+73
+74
+75</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'UI/textUI.rb', line 40</span>
+      <pre class="code"><span class="info file"># File 'UI/textUI.rb', line 44</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_next_move'>next_move</span>
   <span class='id identifier rubyid_print'>print</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Where? </span><span class='tstring_end'>&quot;</span></span>
@@ -332,10 +395,6 @@
       <pre class="lines">
 
 
-21
-22
-23
-24
 25
 26
 27
@@ -346,10 +405,14 @@
 32
 33
 34
-35</pre>
+35
+36
+37
+38
+39</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'UI/textUI.rb', line 21</span>
+      <pre class="code"><span class="info file"># File 'UI/textUI.rb', line 25</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_read_char'>read_char</span>
   <span class='const'>STDIN</span><span class='period'>.</span><span class='id identifier rubyid_echo'>echo</span> <span class='op'>=</span> <span class='kw'>false</span>
@@ -371,12 +434,99 @@
 </table>
 </div>
     
+      <div class="method_details ">
+  <h3 class="signature " id="show_game-instance_method">
+  
+    #<strong>show_game</strong>(game_state)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Método que muestra el estado completo del juego, mostrándo el laberinto, los monstruos, los jugadores, mensaje con eventos importantes y si ha habido un ganador.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>game_state</span>
+      
+      
+        <span class='type'>(<tt>GameState</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>estado actual del juego</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'UI/textUI.rb', line 82</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_show_game'>show_game</span><span class='lparen'>(</span><span class='id identifier rubyid_game_state'>game_state</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_puts'>puts</span> <span class='id identifier rubyid_game_state'>game_state</span><span class='period'>.</span><span class='id identifier rubyid_labyrinth'>labyrinth</span>
+  <span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id identifier rubyid_puts'>puts</span> <span class='id identifier rubyid_game_state'>game_state</span><span class='period'>.</span><span class='id identifier rubyid_players'>players</span>
+  <span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id identifier rubyid_puts'>puts</span> <span class='id identifier rubyid_game_state'>game_state</span><span class='period'>.</span><span class='id identifier rubyid_monsters'>monsters</span>
+  <span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span>
+  
+  <span class='id identifier rubyid_puts'>puts</span> <span class='id identifier rubyid_game_state'>game_state</span><span class='period'>.</span><span class='id identifier rubyid_log'>log</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span>
+
+  <span class='kw'>if</span> <span class='lparen'>(</span><span class='id identifier rubyid_game_state'>game_state</span><span class='period'>.</span><span class='id identifier rubyid_winner'>winner</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>We have a winner! Player </span><span class='tstring_end'>&quot;</span></span> <span class='op'>+</span> <span class='id identifier rubyid_game_state'>game_state</span><span class='period'>.</span><span class='id identifier rubyid_current_player'>current_player</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>else</span>
+    <span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Current player: </span><span class='tstring_end'>&quot;</span></span> <span class='op'>+</span> <span class='id identifier rubyid_game_state'>game_state</span><span class='period'>.</span><span class='id identifier rubyid_current_player'>current_player</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
   </div>
 
 </div>
 
       <div id="footer">
-  Generated on Sat Apr 13 11:32:20 2024 by
+  Generated on Mon Apr 22 12:20:37 2024 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.36 (ruby-3.1.2).
 </div>

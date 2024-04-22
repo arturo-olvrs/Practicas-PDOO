@@ -67,10 +67,21 @@ require_relative 'orientation'
         #
         # @return [string] cadena de caracteres con la información del laberinto
         def to_s
-            str = ""
+            # .flatten convierte la matriz dimension 2, en un array de dimensión 1
+            # .max busca el máximo, .to_s lo pasa a string y .size devuelve el tamaño
+            ancho_maximo=@labyrinth.flatten.max.to_s.size
+            str = "".rjust(ancho_maximo+2)
+            @n_rows.times do |i|
+                str+=i.to_s.rjust(ancho_maximo+2)
+            end
+            str+="\n"
+            num_row=0
+            
             @labyrinth.each do |row|
+                str+=num_row.to_s.rjust(ancho_maximo+2)
+                num_row+=1
                 row.each do |cell|
-                    str += cell + " "
+                    str += cell.to_s.rjust(ancho_maximo+2)
                 end
                 str += "\n"
             end
