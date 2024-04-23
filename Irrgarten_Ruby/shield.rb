@@ -21,7 +21,7 @@ module Irrgarten
         # Método que devuelve la protección del escudo y decrementa el número de usos en uno.
         #
         # @return [float] Si tiene algún uso disponible devuelve la protección del escudo. En caso contrario (uses=0) devuelve 0
-        def attack
+        def protect
             if @uses > 0
                 @uses -= 1
                 return @protection
