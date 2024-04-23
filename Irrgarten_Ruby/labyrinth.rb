@@ -27,6 +27,9 @@ module Irrgarten
         # Variable que representa el orden de la columna en un array con dos componentes
         @@COL = 1
 
+        # Posición inválida
+        @@INVALID_POS = -1
+
         # Constructor de la clase Labyrinth. Inicializa los atributos de la clase.
         #
         # @param n_rows [int] número de filas del laberinto
@@ -43,19 +46,18 @@ module Irrgarten
             @players   = Array.new(@n_rows) {Array.new(@n_cols)} # Matriz de jugadores
             @labyrinth = Array.new(@n_rows) {Array.new(@n_cols, @@EMPTY_CHAR)} # Matriz del laberinto. Valor por defecto: @@EMPTY_CHAR
 
-            @labyrinth[exit_row][exit_col] = @@EXIT_CHAR # Pone la salida en el laberinto
+            @labyrinth[@exit_row][@exit_col] = @@EXIT_CHAR # Pone la salida en el laberinto
         end
 
         # Método que posiciona los jugadores en el tablero, creando para ellos una posición
         # random y vacía en él. Delega su funcionamienot en el método put_player2D
-        # @see Labyrinth#put_player2D
+        # @see Labyrinth#put_player2Dn
         #
         # @param players [Player []] vector de jugadores a introducir en el tablero
         def spread_players(players)
             players.each do |p|
-                pos=self.random_empty_pos # int []
-                self.put_player2D(-1,-1, pos[@@ROW], pos[@@COL], p)
-                # //TODO: poner atributo de clase @@INVALID_POS=-1??? como en Player
+                pos = self.random_empty_pos # int []
+                self.put_player2D(@@INVALID_POS, @@INVALID_POS, pos[@@ROW], pos[@@COL], p)
             end
         end
 
@@ -72,7 +74,7 @@ module Irrgarten
         def to_s
             # .flatten convierte la matriz dimension 2, en un array de dimensión 1
             # .max busca el máximo, .to_s lo pasa a string y .size devuelve el tamaño
-            ancho_maximo=@labyrinth.flatten.max.to_s.size
+            ancho_maximo = @labyrinth.flatten.max.to_s.size
             str = "".rjust(ancho_maximo+2)
             @n_rows.times do |i|
                 str+=i.to_s.rjust(ancho_maximo+2)
@@ -122,13 +124,13 @@ module Irrgarten
         # @return [Monster] posible monstruo con el que se enfrentará el jugador, si en la
         # nueva casilla hay un monstruo
         def put_player(direction, player)
-            old_row=player.row
-            old_col=player.col
+            old_row = player.row
+            old_col = player.col
 
-            new_pos=self.dir_2_pos(old_row,old_col,direction)
+            new_pos = self.dir_2_pos(old_row,old_col,direction)
 
             # Devolvemos el monstruo
-            monster=self.put_player2D(old_row, old_col, new_pos[@@ROW], new_pos[@@COL], player)
+            monster = self.put_player2D(old_row, old_col, new_pos[@@ROW], new_pos[@@COL], player)
 
             return monster
         end
@@ -143,19 +145,18 @@ module Irrgarten
         # @param length [int] longitud de los bloques que se pondrán
         def add_block(orientation, start_row, start_col, length)
             if(orientation==Orientation::VERTICAL)
-                inc_row=1
-                inc_col=0
+                inc_row = 1
+                inc_col = 0
             else
-                inc_row=0
-                inc_col=1
+                inc_row = 0
+                inc_col = 1
             end
 
-            row=start_row
-            col=start_col
+            row = start_row
+            col = start_col
 
-            while ( (self.pos_ok(row,col)) && (self.empty_pos(row,col)) &&  # si pongo && abajo no funciona
-                                                                (length>0) ) do
-                @labyrinth[row][col]=@@BLOCK_CHAR
+            while ( pos_ok(row,col) && empty_pos(row,col) && (length>0) )
+                @labyrinth[row][col] = @@BLOCK_CHAR
                 length-=1
                 row+=inc_row
                 col+=inc_col
@@ -207,7 +208,7 @@ module Irrgarten
         # @param col [int] columna de la posición
         # @return [boolean] **true** si la posición suministrada está vacía y **false** si no lo está.
         def empty_pos(row, col)
-            return (@labyrinth[row][col] == @@EMPTY_CHAR) && (@players[row][col] == nil)
+            return (@labyrinth[row][col] == @@EMPTY_CHAR) # && (@players[row][col] == nil). No es necesario
         end
 
         # Método que indica si la posición suministrada alberga exclusivamente un monstruo
@@ -279,18 +280,23 @@ module Irrgarten
         #
         # @return [int []] posición a la que se llegaría si se avanza en la dirección pasada como parámetro
         def dir_2_pos(row, col, direction)
+            pos = Array.new
+            pos[@@ROW] = row
+            pos[@@COL] = col
             case direction  # switch en Ruby
                 when Directions::LEFT
-                    return row, col-1
+                    pos[@@COL] -= 1
                 when Directions::RIGHT
-                    return row, col+1
+                    pos[@@COL] += 1
                 when Directions::UP
-                    return row-1, col
+                    pos[@@ROW] -= 1
                 when Directions::DOWN
-                    return row+1, col
+                    pos[@@ROW] += 1
                 # else para caso por defecto
                 # Importante que no hace falta break
             end
+
+            return pos
         end
 
         # Utilizando el dado, genera una posición aleatoria en el laberinto (fila y columna) asegurando que esta esté vacía.
@@ -304,20 +310,19 @@ module Irrgarten
                 col = Dice.random_pos(@n_cols)
             end while !empty_pos(row, col)
 
-            return row, col
+            pos = Array.new
+            pos[@@ROW] = row
+            pos[@@COL] = col
+
+            return pos
         end
 
         # Método que actualiza la posición del jugador pasado, a la posición dada, actualizando
         # el estado de la casilla antigua y nueva.
         #
-        # Destacar que se comprueba si la posición nueva
-        # es válida y si el numero del jugador pasado no coincide con el que hay en @players
-        # no se cambia el estado de la casilla antigua del jugador, es decir, puede ser que no se
-        # cambia la casilla antigua y si lo haga la nueva, lo que puede provocar que el numero del
-        # jugador aparezca en dos posiciones, más adelante veremos como se gestiona esto
-        # //TODO: ver si la explicación es correcta y explicar como se soluciona el problema
-        # DESTACAR que aunque la old_pos sea errónea se sigue hacienod el proceso con la nueva posición
-        # ya que es el caso de inicializar los jugadores a posiciones
+        # Destacar que se comprueba si la posición nueva es válida y, además,
+        # si el numero del jugador pasado no coincide con el que hay en @players
+        # no se cambia el estado de la casilla antigua del jugador.
         #
         # Devuelve el monstruo de la nueva casilla si hay un combate en la posición actualizada.
         #
@@ -330,37 +335,36 @@ module Irrgarten
         # @return [Monster] monstruo que se encuentra en la nueva posición (si hay combate) a la que
         # se ha movido el jugador. Si no hay ningún monstruo en la nueva casilla se pasará nil.
         def put_player2D(old_row, old_col, row, col, player)
-            output=nil
+            output = nil
 
             if(self.can_step_on(row, col))
                 if(self.pos_ok(old_row, old_col))
-                    p=@players[old_row][old_col]
+                    p = @players[old_row][old_col]
 
                     # Comprobamos que el jugador pasado coincide con la casilla de
                     # players, sino es así no se cambia el estado de la casilla antigua
                     # del jugador
                     if(p==player)
                         self.update_old_pos(old_row, old_col)
-                        @players[old_row][old_col]=nil
+                        @players[old_row][old_col] = nil
                     end
                 end
 
                 # No da problema aunque la variable usada y el método se llamen igual
-                monster_pos=self.monster_pos(row,col)
+                monster_pos = self.monster_pos(row,col)
 
                 if(monster_pos)
                     # Hay monstruo y cambiamos estado de casilla
-                    @labyrinth[row][col]=@@COMBAT_CHAR
-                    output=@monsters[row][col]
+                    @labyrinth[row][col] = @@COMBAT_CHAR
+                    output = @monsters[row][col]
                 else
-                    number=player.number
                     # Ponemos en la casilla el número del jugador
-                    @labyrinth[row][col]=number
+                    @labyrinth[row][col] = player.number
                 end
 
                 # Actualizamos el array y el jugador con la nueva posición
-                @players[row][col]=player
-                player.pos(row,col)
+                @players[row][col] = player
+                player.pos(row,col)     # Funciona porque son todo referencias
             end
 
             return output
