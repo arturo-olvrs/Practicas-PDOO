@@ -1,3 +1,4 @@
+# encoding: UTF-8
 module Irrgarten
 
     # Este módulo define las orientaciones posibles de un objeto en el tablero.

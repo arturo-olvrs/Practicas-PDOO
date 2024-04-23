@@ -1,6 +1,9 @@
-module Irrgarten
+# encoding: UTF-8
 
-    require_relative 'dice'
+require_relative 'dice'
+
+
+module Irrgarten
 
     # Esta clase representa los escudos que utiliza el jugador en las defensas
     # durante los combates.

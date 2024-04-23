@@ -1,9 +1,12 @@
-module Irrgarten
+# encoding: UTF-8
 
 require_relative 'dice'
 require_relative 'weapon'
 require_relative 'shield'
 require_relative 'directions'
+
+
+module Irrgarten
 
     # Clase que representa al jugador del juego.
     #
@@ -83,16 +86,16 @@ require_relative 'directions'
 
         # Comprueba si la dirección pasada hacia la que se pretende desplazar el personaje
         # es válida, devolviendola en caso de que lo sea o no se pueda mover hacia ninguna posición, es decir,
-        # valid_moves esté vacío. Si no está en valid_moves y dicho array no está vacío, se devuelve la primera dirección 
+        # valid_moves esté vacío. Si no está en valid_moves y dicho array no está vacío, se devuelve la primera dirección
         # guardada en el array
         #
         # @param direction [Directions] dirección a la que se pretende desplazar el personaje
-        # @param valid_moves [Array::Directions] 
+        # @param valid_moves [Array::Directions]
         #
         # @return [Directions] dirección a la que se quiere desplazar (tendremos que ver si es válida)
         def move(direction, valid_moves)
             size=valid_moves.length
-            
+
             # El método del array es include?(<element>)
             contained=valid_moves.include?(direction)
 
@@ -117,7 +120,7 @@ require_relative 'directions'
         #
         # @return [boolean] devuelve true si ha muerto, y false en caso contraio
         def defend(received_attack)
-            return manage_hit(received_attack) 
+            return manage_hit(received_attack)
         end
 
         # Método que recompensa al jugador con armas, escudos y vida extra delegando
@@ -130,13 +133,13 @@ require_relative 'directions'
             sReward=Dice.shields_reward
 
             # Rewward de armas
-            wReward.times do |i|               
+            wReward.times do |i|
                 wnew=new_weapon
                 receive_weapon(wnew)
             end
 
             # Rewward de escudos
-            sReward.times do |i|               
+            sReward.times do |i|
                 snew=new_shield
                 receive_shield(snew)
             end
@@ -158,7 +161,7 @@ require_relative 'directions'
                 to_weapons+=@weapons[i].to_s
 
                 # NO hace la parte de delante si i == (tam_weapons-1)
-                to_weapons += ", " unless i == (tam_weapons - 1)  
+                to_weapons += ", " unless i == (tam_weapons - 1)
             end
             to_weapons+="]"
 
@@ -170,7 +173,7 @@ require_relative 'directions'
                 to_shields+=@shields[i].to_s
 
                 # NO hace la parte de delante si i == (tam_weapons-1)
-                to_shields += ", " unless i == (tam_shields - 1)  
+                to_shields += ", " unless i == (tam_shields - 1)
             end
             to_shields+="]"
 
@@ -188,8 +191,8 @@ require_relative 'directions'
         # de armas del jugador es menor estricto al numero de armas máximas a llevar, se añade
         # el nuevo arma.
         # @see Weapon#discard
-        # 
-        # @param w [Weapon] arma a intentar añadir al jugador  
+        #
+        # @param w [Weapon] arma a intentar añadir al jugador
         def receive_weapon(w)
             @weapons.each do |wi|
                 discard=wi.discard
@@ -209,8 +212,8 @@ require_relative 'directions'
         # de escudos del jugador es menor estricto al numero de escudos máximos a llevar, se añade
         # el nuevo escudo.
         # @see Shield#discard
-        # 
-        # @param s [Shield] escudo a intentar añadir al jugador  
+        #
+        # @param s [Shield] escudo a intentar añadir al jugador
         def receive_shield(s)
             @shields.each do |si|
                 discard=si.discard
@@ -221,7 +224,7 @@ require_relative 'directions'
 
             size=@shields.length
             if(size<@@MAX_SHIELDS)
-                @shields.push(s) 
+                @shields.push(s)
             end
         end
 
@@ -271,17 +274,17 @@ require_relative 'directions'
         # Método que gestiona la defensa de un ataque. En el caso de que el jugador
         # haya recibido un número máximo de golpes consecutivos, determinado por
         # @@HITS2LOSE, se considerará que ha perdido, al igual que si muere
-        # 
+        #
         # @param received_attack [float] ataque a defender
         #
-        # @return [boolean] devuelve true si ha muerto o ha alcanzado el máximo número 
-        # de ataques, y false en caso contrario 
+        # @return [boolean] devuelve true si ha muerto o ha alcanzado el máximo número
+        # de ataques, y false en caso contrario
         def manage_hit(received_attack)
             defense=self.defensive_energy
             puts "d: "+defense.to_s+ " a: "+received_attack.to_s
             if(defense<received_attack)
                 self.got_wounded # recibe daño
-                self.inc_consecutive_hits 
+                self.inc_consecutive_hits
             else
                 self.reset_hits
             end

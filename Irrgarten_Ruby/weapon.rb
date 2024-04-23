@@ -1,6 +1,8 @@
-module Irrgarten
+# encoding: UTF-8
 
 require_relative 'dice'
+
+module Irrgarten
 
     # Esta clase representa las armas que utiliza el jugador en los ataques
     # durante los combates.

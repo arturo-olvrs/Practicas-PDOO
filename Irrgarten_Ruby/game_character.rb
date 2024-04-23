@@ -1,3 +1,4 @@
+# encoding: UTF-8
 module Irrgarten
 
     # Este módulo contiene los distintos tipos de personajes que pueden existir en el juego.

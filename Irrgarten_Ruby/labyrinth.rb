@@ -1,10 +1,13 @@
-module Irrgarten
+# encoding: UTF-8
 
 require_relative 'dice'
-require_relative 'player' 
-require_relative 'monster' 
+require_relative 'player'
+require_relative 'monster'
 require_relative 'directions'
-require_relative 'orientation' 
+require_relative 'orientation'
+
+
+module Irrgarten
 
     # Clase que representa el tablero en sí, el laberinto del juego.
     #
@@ -76,7 +79,7 @@ require_relative 'orientation'
             end
             str+="\n"
             num_row=0
-            
+
             @labyrinth.each do |row|
                 str+=num_row.to_s.rjust(ancho_maximo+2)
                 num_row+=1
@@ -108,15 +111,15 @@ require_relative 'orientation'
         end
 
         # Método que calcula la nueva posición a la que se desplazará el jugador, y después delega
-        # su ejecución en el método put_player2D para actualizar la posición del jugador y devolver 
+        # su ejecución en el método put_player2D para actualizar la posición del jugador y devolver
         # el posible monstruo al que se enfrentará el jugador (puede ser que no haya combate y por tanto
         # no hay monstruo)
         # @see Labyrinth#put_player_2D
-        # 
+        #
         # @param direction [Directions] dirección a la que se quiere desplazar el jugador
         # @param player [Player] jugador que se moverá
         #
-        # @return [Monster] posible monstruo con el que se enfrentará el jugador, si en la 
+        # @return [Monster] posible monstruo con el que se enfrentará el jugador, si en la
         # nueva casilla hay un monstruo
         def put_player(direction, player)
             old_row=player.row
@@ -133,7 +136,7 @@ require_relative 'orientation'
         # Método que coloca en el laberinto una serie de bloques. Destacar que en el caso
         # de que se encuentre una casilla que no este vacía (mirar método empty_pos) se dejará
         # de colocar bloques, aunque la siguiente casilla si este vacía
-        # 
+        #
         # @param orientation [Orientation] orientación hacia la que se colocan los  bloques
         # @param start_row [int] fila de la casilla inicial
         # @param start_col [int] columna de la casilla inicial
@@ -160,13 +163,13 @@ require_relative 'orientation'
         end
 
         # Método que obtiene una array de las direcciones válidas a partir
-        # de una posición, es decir, comprueba si nos podemos desplazar hacia las 
+        # de una posición, es decir, comprueba si nos podemos desplazar hacia las
         # direcciones posibles, y en caso afirmativo las añade al array.
         #
         # @param row [int] fila de la casilla
         # @param col [int] columna de la casilla
         #
-        # @return [Directions []] array de las direcciones posibles hacia las que 
+        # @return [Directions []] array de las direcciones posibles hacia las que
         # nos podemos desplazar desde la casilla dada
         def valid_moves(row, col)
             # Array de direcciones
@@ -305,13 +308,13 @@ require_relative 'orientation'
         end
 
         # Método que actualiza la posición del jugador pasado, a la posición dada, actualizando
-        # el estado de la casilla antigua y nueva. 
+        # el estado de la casilla antigua y nueva.
         #
         # Destacar que se comprueba si la posición nueva
         # es válida y si el numero del jugador pasado no coincide con el que hay en @players
         # no se cambia el estado de la casilla antigua del jugador, es decir, puede ser que no se
         # cambia la casilla antigua y si lo haga la nueva, lo que puede provocar que el numero del
-        # jugador aparezca en dos posiciones, más adelante veremos como se gestiona esto 
+        # jugador aparezca en dos posiciones, más adelante veremos como se gestiona esto
         # //TODO: ver si la explicación es correcta y explicar como se soluciona el problema
         # DESTACAR que aunque la old_pos sea errónea se sigue hacienod el proceso con la nueva posición
         # ya que es el caso de inicializar los jugadores a posiciones
@@ -333,7 +336,7 @@ require_relative 'orientation'
                 if(self.pos_ok(old_row, old_col))
                     p=@players[old_row][old_col]
 
-                    # Comprobamos que el jugador pasado coincide con la casilla de 
+                    # Comprobamos que el jugador pasado coincide con la casilla de
                     # players, sino es así no se cambia el estado de la casilla antigua
                     # del jugador
                     if(p==player)

@@ -1,3 +1,4 @@
+# encoding: UTF-8
 module Irrgarten
 
     # Esta clase se encargará de tomar las decisiones relazionadas con el azar del juego.
@@ -17,7 +18,7 @@ module Irrgarten
 
         @@generator=Random.new # Generador de números aleatorios.
 
-        # Método que devuelve de forma aleatoria una fila o columna aleatorio entre 0 y max-1, pues 
+        # Método que devuelve de forma aleatoria una fila o columna aleatorio entre 0 y max-1, pues
         # max indica el número de filas o columnas que hay en el tablero
         #
         # @param max [int] max número de filas o columnas
@@ -35,15 +36,15 @@ module Irrgarten
         end
 
         # Método que devuelve de forma aleatoria un valor de inteligencia [0, {@@MAX_INTELLIGENCE}[
-        # 
+        #
         # @return [float] devuelve un valor de inteligencia
         def self.random_intelligence
-            # Los tres puntos indican que excluye @@MAX_INTELLIGENCE 
+            # Los tres puntos indican que excluye @@MAX_INTELLIGENCE
             @@generator.rand(0.0...@@MAX_INTELLIGENCE)
         end
 
         # Método que devuelve de forma aleatoria un valor de fuerza [0, {@@MAX_STRENGTH}[
-        # 
+        #
         # @return [float] devuelve un valor de fuerza
         def self.random_strength
             @@generator.rand(0.0...@@MAX_STRENGTH)
@@ -54,7 +55,7 @@ module Irrgarten
         # @return [boolean] devuelve **true** o **false** si resucita o no
         def self.resurrect_player
             # Por defecto .rand saca valor entre 0 y 1 con decimales
-            return (@@generator.rand <= @@RESURRECT_PROB) 
+            return (@@generator.rand <= @@RESURRECT_PROB)
         end
 
         # Método que indica la cantidad de armas, de forma aleatoria, que recibirá el jugador al ganar un combate
@@ -75,7 +76,7 @@ module Irrgarten
         # Método que indica los puntos de salud, de forma aleatoria, que recibirá el jugador al ganar un combate
         #
         # @return [int] devuelve el número de puntos de salud que recibirá el jugador
-        def self.health_reward 
+        def self.health_reward
             @@generator.rand(0..@@HEALTH_REWARD)
         end
 
@@ -94,16 +95,16 @@ module Irrgarten
         end
 
         # Método que indica el número de usos de un escudo o arma, de forma aleatoria
-        # 
+        #
         # @return [int] Devuelve en número de usos de un escudo o arma.
         def self.uses_left
             @@generator.rand(0..@@MAX_USES)
         end
 
         # Método que indica la cantidad de competencia aplicada, de forma aleatoria en [0,competence[
-        # 
+        #
         # @param competence [float] competence cantidad de competencia
-        # @return [float] Devuelve en la cantidad de competencia    
+        # @return [float] Devuelve en la cantidad de competencia
         def self.intensity (competence)
             @@generator.rand(0.0...competence)
         end
@@ -111,13 +112,12 @@ module Irrgarten
         # Método que indica si se descarta un arma/escudo en función de sus usos disponibles
         #
         # @param uses_left [int] número de usos que le quedan al arma/escudo
-        # @return [boolean] **true** o **false** si se descarta o no 
+        # @return [boolean] **true** o **false** si se descarta o no
         def self.dicard_element(uses_left)
             probabilidad=uses_left.to_f/@@MAX_USES.to_f
             return (@@generator.rand >= probabilidad)
         end
-        
+
     end
 
 end
-

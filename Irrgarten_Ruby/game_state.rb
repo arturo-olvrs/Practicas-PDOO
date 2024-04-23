@@ -1,3 +1,4 @@
+# encoding: UTF-8
 module Irrgarten
 
     # Esta clase permitirá, de forma muy sencilla, almacenar una representación del estado completo del

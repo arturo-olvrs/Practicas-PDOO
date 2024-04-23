@@ -1,16 +1,18 @@
-# Este módulo principal contiene las clases y módulos que representan el juego **Irrgarten**.
-#
-# @author Joaquin Avilés de la Fuente
-# @author Arturo Olivares Martos
-module Irrgarten
+# encoding: UTF-8
 
 require_relative 'dice'
 require_relative 'player'
 require_relative 'monster'
 require_relative 'labyrinth'
 require_relative 'game_state'
-require_relative 'game_character'   
+require_relative 'game_character'
 require_relative 'orientation'
+
+# Este módulo principal contiene las clases y módulos que representan el juego **Irrgarten**.
+#
+# @author Joaquin Avilés de la Fuente
+# @author Arturo Olivares Martos
+module Irrgarten
 
     # Clase que representa el juego Irrgarten. Esta clase se encarga de gestionar el estado del juego,
     # las acciones de los jugadores y los monstruos, y de generar un estado del juego que pueda ser
@@ -80,12 +82,12 @@ require_relative 'orientation'
 
         # Método que hace una ronda de un jugador, en la que el jugador avanza una
         # casilla (si está vivo, sino se intenta resucitar) y se combate si está en
-        # la misma casilla que un monstruo. Finalmente se comprueba si ha finalizado el 
+        # la misma casilla que un monstruo. Finalmente se comprueba si ha finalizado el
         # juego.
-        # 
+        #
         # @param preferred_direction [Directions] dirección hacia la que se
         # quiere desplazar el jugador
-        # 
+        #
         # @return [boolean] devuelve true si finalizo el juego, false en caso contrario
         def next_step(preferred_direction)
             @log="" # //TODO: no se si es @log o solo log
@@ -166,14 +168,14 @@ require_relative 'orientation'
             @current_player = @players[@current_player_index]
         end
 
-        # Comprueba si la dirección preferred_direction es válida para el actual jugador, 
+        # Comprueba si la dirección preferred_direction es válida para el actual jugador,
         # delegando para ello en el método move de Player. Devuelve la dirección hacia la que se
         # desplazará el jugador actual (puede que no sea la preferida)
         # @see Player#move
         # @param preferred_direction [Directions] dirección hacia la que se pretende desplazar el
         # jugador actual
         #
-        # @return [Directions] dirección a la que se desplazará el jugador actual 
+        # @return [Directions] dirección a la que se desplazará el jugador actual
         # (puede que no sea la preferida)
         def actual_direction(preferred_direction)
             current_row=@current_player.row
@@ -185,26 +187,26 @@ require_relative 'orientation'
             return output
         end
 
-        # Método que desarrolla un combate entre el jugador actual y un monstruo, donde es el 
+        # Método que desarrolla un combate entre el jugador actual y un monstruo, donde es el
         # jugador el primero que empieza atacando. Además, delega en el método defend y attack
         # tanto de monster como de player. Finalmente escribe un mensaje con el número de rondas
         # que se han dado y devuelve el ganador.
-        # @see Player#defend 
-        # @see Player#attack 
-        # @see Monster#defend 
+        # @see Player#defend
+        # @see Player#attack
+        # @see Monster#defend
         # @see Monster#attack
         #
         # @param monster [Monster] monstruo con el que combate el jugador actual
         #
         # @return [GameCharacter] devuelve el ganador (PLAYER o MONSTER)
-        def combat(monster) 
+        def combat(monster)
             # Inicializamos los valores
             rounds=0
             winner=GameCharacter::PLAYER
 
             # Comienza el jugador atacando
             playerAttack=@current_player.attack
-            puts "Monstruo defiende "            
+            puts "Monstruo defiende "
             lose=monster.defend(playerAttack)
             # Bucle hasta que finalice el número de rondas posible o haya perdido
             # el monstruo
@@ -245,7 +247,7 @@ require_relative 'orientation'
         end
 
         # Comprueba mediante el medoto resurrect_player de Dice si el jugador actual revivirá.
-        # En caso de que lo haga, se muestra un mensaje, sino se pasa su turno y se muestra el mensaje 
+        # En caso de que lo haga, se muestra un mensaje, sino se pasa su turno y se muestra el mensaje
         # correspondiente
         def manage_resurrection()
             resurrect=Dice.resurrect_player
@@ -253,7 +255,7 @@ require_relative 'orientation'
             if(resurrect)
                 @current_player.resurrect
                 log_resurrected
-            else    
+            else
                 log_player_skip_turn
 
             end

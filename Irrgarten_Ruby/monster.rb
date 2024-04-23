@@ -1,6 +1,9 @@
-module Irrgarten
+# encoding: UTF-8
 
 require_relative 'dice'
+
+
+module Irrgarten
 
     # Clase que representa a los monstruos del juego.
     #
@@ -53,7 +56,7 @@ require_relative 'dice'
         #
         # @param received_attack [float] ataque recibido por un jugador
         #
-        # @return [boolean] booleano que indica si el monstruo está muerto, después de recibir 
+        # @return [boolean] booleano que indica si el monstruo está muerto, después de recibir
         # el ataque
         def defend(received_attack)
             is_dead=dead # también se puede self.dead
