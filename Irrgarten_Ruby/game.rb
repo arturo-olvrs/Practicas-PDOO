@@ -90,22 +90,21 @@ module Irrgarten
         #
         # @return [boolean] devuelve true si finalizo el juego, false en caso contrario
         def next_step(preferred_direction)
-            @log="" # //TODO: no se si es @log o solo log
-            dead=@current_player.dead
+            @log = ""
 
-            if(!dead)
-                direction=self.actual_direction(preferred_direction)
+            if(!@current_player.dead)
+                direction = self.actual_direction(preferred_direction)
 
                 # Se comprueba si la dirección a moverse ha sido la querida
-                if(direction!=preferred_direction)
+                if(direction != preferred_direction)
                     self.log_player_no_orders
                 end
 
-                monster=@labyrinth.put_player(direction, @current_player)
-                if(monster==nil)
+                monster = @labyrinth.put_player(direction, @current_player)
+                if(monster == nil)
                     self.log_no_monster
                 else
-                    winner=self.combat(monster)
+                    winner = self.combat(monster)
                     self.manage_reward(winner)
                 end
             else
@@ -113,10 +112,11 @@ module Irrgarten
             end
 
             # Se comprueba si ha ganado ya alguien
-            end_game=self.finished()
+            end_game = self.finished()
             if(!end_game)
                 self.next_player
             end
+
             return end_game
         end
 
@@ -178,11 +178,11 @@ module Irrgarten
         # @return [Directions] dirección a la que se desplazará el jugador actual
         # (puede que no sea la preferida)
         def actual_direction(preferred_direction)
-            current_row=@current_player.row
-            currect_col=@current_player.col
-            valid_moves=@labyrinth.valid_moves(current_row, currect_col)
+            current_row = @current_player.row
+            currect_col = @current_player.col
+            valid_moves = @labyrinth.valid_moves(current_row, currect_col)
 
-            output=@current_player.move(preferred_direction, valid_moves)
+            output = @current_player.move(preferred_direction, valid_moves)
 
             return output
         end
@@ -201,28 +201,22 @@ module Irrgarten
         # @return [GameCharacter] devuelve el ganador (PLAYER o MONSTER)
         def combat(monster)
             # Inicializamos los valores
-            rounds=0
-            winner=GameCharacter::PLAYER
+            rounds = 0
+            winner = GameCharacter::PLAYER
 
             # Comienza el jugador atacando
-            playerAttack=@current_player.attack
-            puts "Monstruo defiende "
-            lose=monster.defend(playerAttack)
+            lose = monster.defend(@current_player.attack)
             # Bucle hasta que finalice el número de rondas posible o haya perdido
             # el monstruo
-            while ( (!lose) && (rounds<@@MAX_ROUNDS) ) do
-                winner=GameCharacter::MONSTER
-                rounds+=1
+            while ( (!lose) && (rounds<@@MAX_ROUNDS) )
+                winner = GameCharacter::MONSTER
+                rounds += 1
 
                 # Turno del monstruo de atacar al jugador
-                monsterAttack=monster.attack
-                puts "Jugador defiende "
-                lose=@current_player.defend(monsterAttack)
+                lose = @current_player.defend(monster.attack())
                 if(!lose)
-                    playerAttack=@current_player.attack
-                    winner=GameCharacter::PLAYER
-                    puts "Monstruo defiende "
-                    lose=monster.defend(playerAttack)
+                    winner = GameCharacter::PLAYER
+                    lose = monster.defend(@current_player.attack())
                 end
             end
 
@@ -238,7 +232,7 @@ module Irrgarten
         #
         # @param winner [GameCharacter] ganador del combate
         def manage_reward(winner)
-            if (winner==GameCharacter::PLAYER)
+            if (winner == GameCharacter::PLAYER)
                 @current_player.receive_reward
                 log_player_won
             else
@@ -250,9 +244,8 @@ module Irrgarten
         # En caso de que lo haga, se muestra un mensaje, sino se pasa su turno y se muestra el mensaje
         # correspondiente
         def manage_resurrection()
-            resurrect=Dice.resurrect_player
 
-            if(resurrect)
+            if(Dice.resurrect_player())
                 @current_player.resurrect
                 log_resurrected
             else
