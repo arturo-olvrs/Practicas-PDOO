@@ -293,7 +293,7 @@ public class Labyrinth {
      * @return True si está vacía la casilla, false en caso contrario
      */
     private boolean emptyPos(int row, int col){
-        return (this.labyrinth[row][col]==EMPTY_CHAR) && (this.players[row][col]==null);
+        return (this.labyrinth[row][col]==EMPTY_CHAR);
     }
     
     /**
