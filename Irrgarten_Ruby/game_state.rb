@@ -20,7 +20,7 @@ module Irrgarten
         # @param log [String] cadena de caracteres con eventos interesantes
         #
         # @return devuelve el estado del juego
-        def initialize (labyrinth, players, monsters, current_player, winner, log)
+        def initialize(labyrinth, players, monsters, current_player, winner, log)
             @labyrinth=labyrinth
             @players=players
             @monsters=monsters
