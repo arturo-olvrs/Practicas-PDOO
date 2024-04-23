@@ -382,7 +382,7 @@
       
         &mdash;
         <div class='inline'>
-<p>El carácter o secuencia de caracteres leídos desde la entrada estándar.  Si se presiona la tecla de escape, intenta leer secuencias adicionales para identificar teclas especiales. //TODO: sacado de ChatGPT para que no me diga que no está documentado</p>
+<p>El carácter o secuencia de caracteres leídos desde la entrada estándar. Si se presiona la tecla de escape, intenta leer secuencias adicionales para identificar teclas especiales.</p>
 </div>
       
     </li>
@@ -419,7 +419,7 @@
   <span class='const'>STDIN</span><span class='period'>.</span><span class='id identifier rubyid_raw!'>raw!</span>
 
   <span class='id identifier rubyid_input'>input</span> <span class='op'>=</span> <span class='const'>STDIN</span><span class='period'>.</span><span class='id identifier rubyid_getc'>getc</span><span class='period'>.</span><span class='id identifier rubyid_chr'>chr</span>
-  <span class='kw'>if</span> <span class='id identifier rubyid_input'>input</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\e</span><span class='tstring_end'>&quot;</span></span> 
+  <span class='kw'>if</span> <span class='id identifier rubyid_input'>input</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\e</span><span class='tstring_end'>&quot;</span></span>
     <span class='id identifier rubyid_input'>input</span> <span class='op'>&lt;&lt;</span> <span class='const'>STDIN</span><span class='period'>.</span><span class='id identifier rubyid_read_nonblock'>read_nonblock</span><span class='lparen'>(</span><span class='int'>3</span><span class='rparen'>)</span> <span class='kw'>rescue</span> <span class='kw'>nil</span>
     <span class='id identifier rubyid_input'>input</span> <span class='op'>&lt;&lt;</span> <span class='const'>STDIN</span><span class='period'>.</span><span class='id identifier rubyid_read_nonblock'>read_nonblock</span><span class='lparen'>(</span><span class='int'>2</span><span class='rparen'>)</span> <span class='kw'>rescue</span> <span class='kw'>nil</span>
   <span class='kw'>end</span>
@@ -507,8 +507,8 @@
   <span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span>
   <span class='id identifier rubyid_puts'>puts</span> <span class='id identifier rubyid_game_state'>game_state</span><span class='period'>.</span><span class='id identifier rubyid_monsters'>monsters</span>
   <span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span>
-  
-  <span class='id identifier rubyid_puts'>puts</span> <span class='id identifier rubyid_game_state'>game_state</span><span class='period'>.</span><span class='id identifier rubyid_log'>log</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span>
+
+  <span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Log:\n</span><span class='tstring_end'>&quot;</span></span> <span class='op'>+</span> <span class='id identifier rubyid_game_state'>game_state</span><span class='period'>.</span><span class='id identifier rubyid_log'>log</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span>
 
   <span class='kw'>if</span> <span class='lparen'>(</span><span class='id identifier rubyid_game_state'>game_state</span><span class='period'>.</span><span class='id identifier rubyid_winner'>winner</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>We have a winner! Player </span><span class='tstring_end'>&quot;</span></span> <span class='op'>+</span> <span class='id identifier rubyid_game_state'>game_state</span><span class='period'>.</span><span class='id identifier rubyid_current_player'>current_player</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span>
@@ -526,9 +526,9 @@
 </div>
 
       <div id="footer">
-  Generated on Mon Apr 22 12:20:37 2024 by
+  Generated on Wed Apr 24 01:27:19 2024 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.36 (ruby-3.1.2).
+  0.9.36 (ruby-3.0.2).
 </div>
 
     </div>

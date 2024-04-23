@@ -10,14 +10,12 @@ module Irrgarten
     # @author Joaquin Avilés de la Fuente
     # @author Arturo Olivares Martos
     class Monster
-        @@INITIAL_HEALTH = 5    # Salud inicial de los monstruos
 
+        # Salud inicial de los monstruos
+        @@INITIAL_HEALTH = 5
 
         # Posición inválida
         @@INVALID_POS = -1
-
-        # Formato para mostrar los datos flotantes del monstruo
-        @@FORMATO='%.10f'
 
         # Constructor de la clase Monster. Inicializa los atributos de la clase.
         # La posición inicial del monstruo es inválida
@@ -29,7 +27,7 @@ module Irrgarten
             @name = name
             @intelligence = intelligence.to_f
             @strength = strength.to_f
-            @health = @@INITIAL_HEALTH
+            @health = @@INITIAL_HEALTH.to_f
 
             @row = @@INVALID_POS
             @col = @@INVALID_POS
@@ -64,7 +62,6 @@ module Irrgarten
             # Comprobamos si ya está muerto y sino le atacamos
             if (!is_dead)
                 defensive_energy=Dice.intensity(@intelligence)
-                puts "d: "+defensive_energy.to_s+ " a: "+received_attack.to_s
                 if(defensive_energy<received_attack)
                     # Se reduce la vida del monstruo
                     got_wounded
@@ -87,14 +84,18 @@ module Irrgarten
         #
         # @return [String] cadena de caracteres con la información del monstruo
         def to_s
-            return "M[n:#{@name}, i:#{format(@@FORMATO,@intelligence)}, "+
-                    "s:#{format(@@FORMATO,@strength)}, h:#{format(@@FORMATO,@health)}, "+
+
+            # Formato para mostrar los datos flotantes del monstruo
+            formato='%.10f'
+
+            return "M[#{@name}, i:#{format(formato,@intelligence)}, "+
+                    "s:#{format(formato,@strength)}, h:#{format(formato,@health)}, "+
                     "p:(#{@row}, #{@col})]"
         end
 
         private
 
-        # Método que reduce la salud del monstruo en 1
+        # Método que reduce la salud del monstruo en una unidad
         def got_wounded
             @health -= 1
         end

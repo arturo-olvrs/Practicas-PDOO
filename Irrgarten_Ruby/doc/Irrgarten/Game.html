@@ -177,7 +177,7 @@
 
 </div>
         </dt>
-        <dd><pre class="code"><span class='int'>15</span></pre></dd>
+        <dd><pre class="code"><span class='int'>4</span></pre></dd>
       
         <dt id="COLS-classvariable" class="">@@COLS =
           <div class="docstring">
@@ -193,7 +193,7 @@
 
 </div>
         </dt>
-        <dd><pre class="code"><span class='int'>15</span></pre></dd>
+        <dd><pre class="code"><span class='int'>4</span></pre></dd>
       
         <dt id="MONSTER_INIT-classvariable" class="">@@MONSTER_INIT =
           <div class="docstring">
@@ -272,7 +272,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Comprueba si la dirección preferred_direction es válida para el actual jugador,  delegando para ello en el método move de Player.</p>
+<p>Comprueba si la dirección preferred_direction es válida para el actual jugador, delegando para ello en el método move de Player.</p>
 </div></span>
   
 </li>
@@ -296,7 +296,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Método que desarrolla un combate entre el jugador actual y un monstruo, donde es el  jugador el primero que empieza atacando.</p>
+<p>Método que desarrolla un combate entre el jugador actual y un monstruo, donde es el jugador el primero que empieza atacando.</p>
 </div></span>
   
 </li>
@@ -716,8 +716,6 @@
       <pre class="lines">
 
 
-52
-53
 54
 55
 56
@@ -736,10 +734,12 @@
 69
 70
 71
-72</pre>
+72
+73
+74</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'game.rb', line 52</span>
+      <pre class="code"><span class="info file"># File 'game.rb', line 54</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_n_players'>n_players</span><span class='rparen'>)</span>
 
@@ -759,7 +759,7 @@
     <span class='id identifier rubyid_configure_labyrinth'>configure_labyrinth</span><span class='lparen'>(</span><span class='rparen'>)</span>
     <span class='ivar'>@labyrinth</span><span class='period'>.</span><span class='id identifier rubyid_spread_players'>spread_players</span><span class='lparen'>(</span><span class='ivar'>@players</span><span class='rparen'>)</span>
 
-    <span class='ivar'>@log</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Game just started.\n</span><span class='tstring_end'>&quot;</span></span>
+    <span class='ivar'>@log</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>- Game just started.\n</span><span class='tstring_end'>&quot;</span></span>
 
 <span class='kw'>end</span></pre>
     </td>
@@ -786,7 +786,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Comprueba si la dirección preferred_direction es válida para el actual jugador,  delegando para ello en el método move de Player. Devuelve la dirección hacia la que se desplazará el jugador actual (puede que no sea la preferida) jugador actual</p>
+<p>Comprueba si la dirección preferred_direction es válida para el actual jugador, delegando para ello en el método move de Player. Devuelve la dirección hacia la que se desplazará el jugador actual (puede que no sea la preferida) jugador actual</p>
 
 <p>(puede que no sea la preferida)</p>
 
@@ -847,25 +847,25 @@
       <pre class="lines">
 
 
-178
-179
 180
 181
 182
 183
 184
 185
-186</pre>
+186
+187
+188</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'game.rb', line 178</span>
+      <pre class="code"><span class="info file"># File 'game.rb', line 180</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_actual_direction'>actual_direction</span><span class='lparen'>(</span><span class='id identifier rubyid_preferred_direction'>preferred_direction</span><span class='rparen'>)</span>
-    <span class='id identifier rubyid_current_row'>current_row</span><span class='op'>=</span><span class='ivar'>@current_player</span><span class='period'>.</span><span class='id identifier rubyid_row'>row</span>
-    <span class='id identifier rubyid_currect_col'>currect_col</span><span class='op'>=</span><span class='ivar'>@current_player</span><span class='period'>.</span><span class='id identifier rubyid_col'>col</span>
-    <span class='id identifier rubyid_valid_moves'>valid_moves</span><span class='op'>=</span><span class='ivar'>@labyrinth</span><span class='period'>.</span><span class='id identifier rubyid_valid_moves'>valid_moves</span><span class='lparen'>(</span><span class='id identifier rubyid_current_row'>current_row</span><span class='comma'>,</span> <span class='id identifier rubyid_currect_col'>currect_col</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_current_row'>current_row</span> <span class='op'>=</span> <span class='ivar'>@current_player</span><span class='period'>.</span><span class='id identifier rubyid_row'>row</span>
+    <span class='id identifier rubyid_currect_col'>currect_col</span> <span class='op'>=</span> <span class='ivar'>@current_player</span><span class='period'>.</span><span class='id identifier rubyid_col'>col</span>
+    <span class='id identifier rubyid_valid_moves'>valid_moves</span> <span class='op'>=</span> <span class='ivar'>@labyrinth</span><span class='period'>.</span><span class='id identifier rubyid_valid_moves'>valid_moves</span><span class='lparen'>(</span><span class='id identifier rubyid_current_row'>current_row</span><span class='comma'>,</span> <span class='id identifier rubyid_currect_col'>currect_col</span><span class='rparen'>)</span>
 
-    <span class='id identifier rubyid_output'>output</span><span class='op'>=</span><span class='ivar'>@current_player</span><span class='period'>.</span><span class='id identifier rubyid_move'>move</span><span class='lparen'>(</span><span class='id identifier rubyid_preferred_direction'>preferred_direction</span><span class='comma'>,</span> <span class='id identifier rubyid_valid_moves'>valid_moves</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_output'>output</span> <span class='op'>=</span> <span class='ivar'>@current_player</span><span class='period'>.</span><span class='id identifier rubyid_move'>move</span><span class='lparen'>(</span><span class='id identifier rubyid_preferred_direction'>preferred_direction</span><span class='comma'>,</span> <span class='id identifier rubyid_valid_moves'>valid_moves</span><span class='rparen'>)</span>
 
     <span class='kw'>return</span> <span class='id identifier rubyid_output'>output</span>
 <span class='kw'>end</span></pre>
@@ -886,7 +886,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Método que desarrolla un combate entre el jugador actual y un monstruo, donde es el  jugador el primero que empieza atacando. Además, delega en el método defend y attack tanto de monster como de player. Finalmente escribe un mensaje con el número de rondas que se han dado y devuelve el ganador.</p>
+<p>Método que desarrolla un combate entre el jugador actual y un monstruo, donde es el jugador el primero que empieza atacando. Además, delega en el método defend y attack tanto de monster como de player. Finalmente escribe un mensaje con el número de rondas que se han dado y devuelve el ganador.</p>
 
 
   </div>
@@ -951,8 +951,6 @@
       <pre class="lines">
 
 
-200
-201
 202
 203
 204
@@ -977,39 +975,29 @@
 223
 224
 225
-226
-227
-228
-229
-230</pre>
+226</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'game.rb', line 200</span>
+      <pre class="code"><span class="info file"># File 'game.rb', line 202</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_combat'>combat</span><span class='lparen'>(</span><span class='id identifier rubyid_monster'>monster</span><span class='rparen'>)</span> 
+<span class='kw'>def</span> <span class='id identifier rubyid_combat'>combat</span><span class='lparen'>(</span><span class='id identifier rubyid_monster'>monster</span><span class='rparen'>)</span>
     <span class='comment'># Inicializamos los valores
-</span>    <span class='id identifier rubyid_rounds'>rounds</span><span class='op'>=</span><span class='int'>0</span>
-    <span class='id identifier rubyid_winner'>winner</span><span class='op'>=</span><span class='const'>GameCharacter</span><span class='op'>::</span><span class='const'>PLAYER</span>
+</span>    <span class='id identifier rubyid_rounds'>rounds</span> <span class='op'>=</span> <span class='int'>0</span>
+    <span class='id identifier rubyid_winner'>winner</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="GameCharacter.html" title="Irrgarten::GameCharacter (module)">GameCharacter</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="GameCharacter.html#PLAYER-constant" title="Irrgarten::GameCharacter::PLAYER (constant)">PLAYER</a></span></span>
 
     <span class='comment'># Comienza el jugador atacando
-</span>    <span class='id identifier rubyid_playerAttack'>playerAttack</span><span class='op'>=</span><span class='ivar'>@current_player</span><span class='period'>.</span><span class='id identifier rubyid_attack'>attack</span>
-    <span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Monstruo defiende </span><span class='tstring_end'>&quot;</span></span>            
-    <span class='id identifier rubyid_lose'>lose</span><span class='op'>=</span><span class='id identifier rubyid_monster'>monster</span><span class='period'>.</span><span class='id identifier rubyid_defend'>defend</span><span class='lparen'>(</span><span class='id identifier rubyid_playerAttack'>playerAttack</span><span class='rparen'>)</span>
+</span>    <span class='id identifier rubyid_lose'>lose</span> <span class='op'>=</span> <span class='id identifier rubyid_monster'>monster</span><span class='period'>.</span><span class='id identifier rubyid_defend'>defend</span><span class='lparen'>(</span><span class='ivar'>@current_player</span><span class='period'>.</span><span class='id identifier rubyid_attack'>attack</span><span class='rparen'>)</span>
     <span class='comment'># Bucle hasta que finalice el número de rondas posible o haya perdido
 </span>    <span class='comment'># el monstruo
-</span>    <span class='kw'>while</span> <span class='lparen'>(</span> <span class='lparen'>(</span><span class='op'>!</span><span class='id identifier rubyid_lose'>lose</span><span class='rparen'>)</span> <span class='op'>&amp;&amp;</span> <span class='lparen'>(</span><span class='id identifier rubyid_rounds'>rounds</span><span class='op'>&lt;</span><span class='cvar'>@@MAX_ROUNDS</span><span class='rparen'>)</span> <span class='rparen'>)</span> <span class='kw'>do</span>
-        <span class='id identifier rubyid_winner'>winner</span><span class='op'>=</span><span class='const'>GameCharacter</span><span class='op'>::</span><span class='const'>MONSTER</span>
-        <span class='id identifier rubyid_rounds'>rounds</span><span class='op'>+=</span><span class='int'>1</span>
+</span>    <span class='kw'>while</span> <span class='lparen'>(</span> <span class='lparen'>(</span><span class='op'>!</span><span class='id identifier rubyid_lose'>lose</span><span class='rparen'>)</span> <span class='op'>&amp;&amp;</span> <span class='lparen'>(</span><span class='id identifier rubyid_rounds'>rounds</span><span class='op'>&lt;</span><span class='cvar'>@@MAX_ROUNDS</span><span class='rparen'>)</span> <span class='rparen'>)</span>
+        <span class='id identifier rubyid_winner'>winner</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="GameCharacter.html" title="Irrgarten::GameCharacter (module)">GameCharacter</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="GameCharacter.html#MONSTER-constant" title="Irrgarten::GameCharacter::MONSTER (constant)">MONSTER</a></span></span>
+        <span class='id identifier rubyid_rounds'>rounds</span> <span class='op'>+=</span> <span class='int'>1</span>
 
         <span class='comment'># Turno del monstruo de atacar al jugador
-</span>        <span class='id identifier rubyid_monsterAttack'>monsterAttack</span><span class='op'>=</span><span class='id identifier rubyid_monster'>monster</span><span class='period'>.</span><span class='id identifier rubyid_attack'>attack</span>
-        <span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Jugador defiende </span><span class='tstring_end'>&quot;</span></span>
-        <span class='id identifier rubyid_lose'>lose</span><span class='op'>=</span><span class='ivar'>@current_player</span><span class='period'>.</span><span class='id identifier rubyid_defend'>defend</span><span class='lparen'>(</span><span class='id identifier rubyid_monsterAttack'>monsterAttack</span><span class='rparen'>)</span>
+</span>        <span class='id identifier rubyid_lose'>lose</span> <span class='op'>=</span> <span class='ivar'>@current_player</span><span class='period'>.</span><span class='id identifier rubyid_defend'>defend</span><span class='lparen'>(</span><span class='id identifier rubyid_monster'>monster</span><span class='period'>.</span><span class='id identifier rubyid_attack'>attack</span><span class='lparen'>(</span><span class='rparen'>)</span><span class='rparen'>)</span>
         <span class='kw'>if</span><span class='lparen'>(</span><span class='op'>!</span><span class='id identifier rubyid_lose'>lose</span><span class='rparen'>)</span>
-            <span class='id identifier rubyid_playerAttack'>playerAttack</span><span class='op'>=</span><span class='ivar'>@current_player</span><span class='period'>.</span><span class='id identifier rubyid_attack'>attack</span>
-            <span class='id identifier rubyid_winner'>winner</span><span class='op'>=</span><span class='const'>GameCharacter</span><span class='op'>::</span><span class='const'>PLAYER</span>
-            <span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Monstruo defiende </span><span class='tstring_end'>&quot;</span></span>
-            <span class='id identifier rubyid_lose'>lose</span><span class='op'>=</span><span class='id identifier rubyid_monster'>monster</span><span class='period'>.</span><span class='id identifier rubyid_defend'>defend</span><span class='lparen'>(</span><span class='id identifier rubyid_playerAttack'>playerAttack</span><span class='rparen'>)</span>
+            <span class='id identifier rubyid_winner'>winner</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="GameCharacter.html" title="Irrgarten::GameCharacter (module)">GameCharacter</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="GameCharacter.html#PLAYER-constant" title="Irrgarten::GameCharacter::PLAYER (constant)">PLAYER</a></span></span>
+            <span class='id identifier rubyid_lose'>lose</span> <span class='op'>=</span> <span class='id identifier rubyid_monster'>monster</span><span class='period'>.</span><span class='id identifier rubyid_defend'>defend</span><span class='lparen'>(</span><span class='ivar'>@current_player</span><span class='period'>.</span><span class='id identifier rubyid_attack'>attack</span><span class='lparen'>(</span><span class='rparen'>)</span><span class='rparen'>)</span>
         <span class='kw'>end</span>
     <span class='kw'>end</span>
 
@@ -1048,8 +1036,6 @@
       <pre class="lines">
 
 
-143
-144
 145
 146
 147
@@ -1066,10 +1052,12 @@
 158
 159
 160
-161</pre>
+161
+162
+163</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'game.rb', line 143</span>
+      <pre class="code"><span class="info file"># File 'game.rb', line 145</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_configure_labyrinth'>configure_labyrinth</span>
 
@@ -1139,12 +1127,12 @@
       <pre class="lines">
 
 
-77
-78
-79</pre>
+79
+80
+81</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'game.rb', line 77</span>
+      <pre class="code"><span class="info file"># File 'game.rb', line 79</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_finished'>finished</span>
     <span class='kw'>return</span> <span class='ivar'>@labyrinth</span><span class='period'>.</span><span class='id identifier rubyid_have_a_winner'>have_a_winner</span>
@@ -1198,8 +1186,6 @@
       <pre class="lines">
 
 
-124
-125
 126
 127
 128
@@ -1210,20 +1196,22 @@
 133
 134
 135
-136</pre>
+136
+137
+138</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'game.rb', line 124</span>
+      <pre class="code"><span class="info file"># File 'game.rb', line 126</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_game_state'>game_state</span>
     <span class='id identifier rubyid_info_players'>info_players</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span>
     <span class='ivar'>@players</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_player'>player</span><span class='op'>|</span>
-        <span class='id identifier rubyid_info_players'>info_players</span> <span class='op'>+=</span> <span class='id identifier rubyid_player'>player</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>,\n</span><span class='tstring_end'>&quot;</span></span>
+        <span class='id identifier rubyid_info_players'>info_players</span> <span class='op'>+=</span> <span class='id identifier rubyid_player'>player</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span>
     <span class='kw'>end</span>
 
     <span class='id identifier rubyid_info_monsters'>info_monsters</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span>
     <span class='ivar'>@monsters</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_monster'>monster</span><span class='op'>|</span>
-        <span class='id identifier rubyid_info_monsters'>info_monsters</span> <span class='op'>+=</span> <span class='id identifier rubyid_monster'>monster</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>,\n</span><span class='tstring_end'>&quot;</span></span>
+        <span class='id identifier rubyid_info_monsters'>info_monsters</span> <span class='op'>+=</span> <span class='id identifier rubyid_monster'>monster</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span>
     <span class='kw'>end</span>
 
     <span class='kw'>return</span> <span class='const'><span class='object_link'><a href="GameState.html" title="Irrgarten::GameState (class)">GameState</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="GameState.html#initialize-instance_method" title="Irrgarten::GameState#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='ivar'>@labyrinth</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='comma'>,</span> <span class='id identifier rubyid_info_players'>info_players</span><span class='comma'>,</span> <span class='id identifier rubyid_info_monsters'>info_monsters</span><span class='comma'>,</span> <span class='ivar'>@current_player_index</span><span class='comma'>,</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_finished'>finished</span><span class='comma'>,</span> <span class='ivar'>@log</span><span class='rparen'>)</span>
@@ -1259,12 +1247,12 @@
       <pre class="lines">
 
 
-268
-269
-270</pre>
+263
+264
+265</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'game.rb', line 268</span>
+      <pre class="code"><span class="info file"># File 'game.rb', line 263</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_log_monster_won'>log_monster_won</span>
     <span class='ivar'>@log</span> <span class='op'>+=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>- Monster won the fight.\n</span><span class='tstring_end'>&quot;</span></span>
@@ -1300,12 +1288,12 @@
       <pre class="lines">
 
 
-289
-290
-291</pre>
+284
+285
+286</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'game.rb', line 289</span>
+      <pre class="code"><span class="info file"># File 'game.rb', line 284</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_log_no_monster'>log_no_monster</span>
     <span class='ivar'>@log</span> <span class='op'>+=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>- Player </span><span class='embexpr_beg'>#{</span><span class='ivar'>@current_player_index</span><span class='embexpr_end'>}</span><span class='tstring_content'> moved to an empty cell or it was not possible to move.\n</span><span class='tstring_end'>&quot;</span></span>
@@ -1341,12 +1329,12 @@
       <pre class="lines">
 
 
-284
-285
-286</pre>
+279
+280
+281</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'game.rb', line 284</span>
+      <pre class="code"><span class="info file"># File 'game.rb', line 279</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_log_player_no_orders'>log_player_no_orders</span>
     <span class='ivar'>@log</span> <span class='op'>+=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>- Player </span><span class='embexpr_beg'>#{</span><span class='ivar'>@current_player_index</span><span class='embexpr_end'>}</span><span class='tstring_content'> didn&#39;t follow orders, it was not possible.\n</span><span class='tstring_end'>&quot;</span></span>
@@ -1382,12 +1370,12 @@
       <pre class="lines">
 
 
-278
-279
-280</pre>
+273
+274
+275</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'game.rb', line 278</span>
+      <pre class="code"><span class="info file"># File 'game.rb', line 273</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_log_player_skip_turn'>log_player_skip_turn</span>
     <span class='ivar'>@log</span> <span class='op'>+=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>- Player </span><span class='embexpr_beg'>#{</span><span class='ivar'>@current_player_index</span><span class='embexpr_end'>}</span><span class='tstring_content'> skipped turn (is dead).\n</span><span class='tstring_end'>&quot;</span></span>
@@ -1423,12 +1411,12 @@
       <pre class="lines">
 
 
-263
-264
-265</pre>
+258
+259
+260</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'game.rb', line 263</span>
+      <pre class="code"><span class="info file"># File 'game.rb', line 258</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_log_player_won'>log_player_won</span>
     <span class='ivar'>@log</span> <span class='op'>+=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>- Player </span><span class='embexpr_beg'>#{</span><span class='ivar'>@current_player_index</span><span class='embexpr_end'>}</span><span class='tstring_content'> won the fight.\n</span><span class='tstring_end'>&quot;</span></span>
@@ -1464,12 +1452,12 @@
       <pre class="lines">
 
 
-273
-274
-275</pre>
+268
+269
+270</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'game.rb', line 273</span>
+      <pre class="code"><span class="info file"># File 'game.rb', line 268</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_log_resurrected'>log_resurrected</span>
     <span class='ivar'>@log</span> <span class='op'>+=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>- Player </span><span class='embexpr_beg'>#{</span><span class='ivar'>@current_player_index</span><span class='embexpr_end'>}</span><span class='tstring_content'> resurrected.\n</span><span class='tstring_end'>&quot;</span></span>
@@ -1541,12 +1529,12 @@
       <pre class="lines">
 
 
-297
-298
-299</pre>
+292
+293
+294</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'game.rb', line 297</span>
+      <pre class="code"><span class="info file"># File 'game.rb', line 292</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_log_rounds'>log_rounds</span><span class='lparen'>(</span><span class='id identifier rubyid_rounds'>rounds</span><span class='comma'>,</span> <span class='id identifier rubyid_max'>max</span><span class='rparen'>)</span>
     <span class='ivar'>@log</span> <span class='op'>+=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>- Rounds: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_rounds'>rounds</span><span class='embexpr_end'>}</span><span class='tstring_content'>/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_max'>max</span><span class='embexpr_end'>}</span><span class='tstring_content'>.\n</span><span class='tstring_end'>&quot;</span></span>
@@ -1568,7 +1556,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Comprueba mediante el medoto resurrect_player de Dice si el jugador actual revivirá. En caso de que lo haga, se muestra un mensaje, sino se pasa su turno y se muestra el mensaje  correspondiente</p>
+<p>Comprueba mediante el medoto resurrect_player de Dice si el jugador actual revivirá. En caso de que lo haga, se muestra un mensaje, sino se pasa su turno y se muestra el mensaje correspondiente</p>
 
 
   </div>
@@ -1582,28 +1570,26 @@
       <pre class="lines">
 
 
+246
+247
+248
+249
 250
 251
 252
 253
 254
-255
-256
-257
-258
-259
-260</pre>
+255</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'game.rb', line 250</span>
+      <pre class="code"><span class="info file"># File 'game.rb', line 246</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_manage_resurrection'>manage_resurrection</span><span class='lparen'>(</span><span class='rparen'>)</span>
-    <span class='id identifier rubyid_resurrect'>resurrect</span><span class='op'>=</span><span class='const'>Dice</span><span class='period'>.</span><span class='id identifier rubyid_resurrect_player'>resurrect_player</span>
 
-    <span class='kw'>if</span><span class='lparen'>(</span><span class='id identifier rubyid_resurrect'>resurrect</span><span class='rparen'>)</span>
+    <span class='kw'>if</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="Dice.html" title="Irrgarten::Dice (class)">Dice</a></span></span><span class='period'>.</span><span class='id identifier rubyid_resurrect_player'><span class='object_link'><a href="Dice.html#resurrect_player-class_method" title="Irrgarten::Dice.resurrect_player (method)">resurrect_player</a></span></span><span class='lparen'>(</span><span class='rparen'>)</span><span class='rparen'>)</span>
         <span class='ivar'>@current_player</span><span class='period'>.</span><span class='id identifier rubyid_resurrect'>resurrect</span>
         <span class='id identifier rubyid_log_resurrected'>log_resurrected</span>
-    <span class='kw'>else</span>    
+    <span class='kw'>else</span>
         <span class='id identifier rubyid_log_player_skip_turn'>log_player_skip_turn</span>
 
     <span class='kw'>end</span>
@@ -1666,20 +1652,20 @@
       <pre class="lines">
 
 
+234
+235
+236
+237
 238
 239
 240
-241
-242
-243
-244
-245</pre>
+241</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'game.rb', line 238</span>
+      <pre class="code"><span class="info file"># File 'game.rb', line 234</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_manage_reward'>manage_reward</span><span class='lparen'>(</span><span class='id identifier rubyid_winner'>winner</span><span class='rparen'>)</span>
-    <span class='kw'>if</span> <span class='lparen'>(</span><span class='id identifier rubyid_winner'>winner</span><span class='op'>==</span><span class='const'>GameCharacter</span><span class='op'>::</span><span class='const'>PLAYER</span><span class='rparen'>)</span>
+    <span class='kw'>if</span> <span class='lparen'>(</span><span class='id identifier rubyid_winner'>winner</span> <span class='op'>==</span> <span class='const'><span class='object_link'><a href="GameCharacter.html" title="Irrgarten::GameCharacter (module)">GameCharacter</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="GameCharacter.html#PLAYER-constant" title="Irrgarten::GameCharacter::PLAYER (constant)">PLAYER</a></span></span><span class='rparen'>)</span>
         <span class='ivar'>@current_player</span><span class='period'>.</span><span class='id identifier rubyid_receive_reward'>receive_reward</span>
         <span class='id identifier rubyid_log_player_won'>log_player_won</span>
     <span class='kw'>else</span>
@@ -1717,13 +1703,13 @@
       <pre class="lines">
 
 
-164
-165
 166
-167</pre>
+167
+168
+169</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'game.rb', line 164</span>
+      <pre class="code"><span class="info file"># File 'game.rb', line 166</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_next_player'>next_player</span>
     <span class='ivar'>@current_player_index</span> <span class='op'>=</span> <span class='lparen'>(</span><span class='ivar'>@current_player_index</span> <span class='op'>+</span> <span class='int'>1</span><span class='rparen'>)</span> <span class='op'>%</span> <span class='ivar'>@players</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span>
@@ -1746,7 +1732,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Método que hace una ronda de un jugador, en la que el jugador avanza una casilla (si está vivo, sino se intenta resucitar) y se combate si está en la misma casilla que un monstruo. Finalmente se comprueba si ha finalizado el  juego.</p>
+<p>Método que hace una ronda de un jugador, en la que el jugador avanza una casilla (si está vivo, sino se intenta resucitar) y se combate si está en la misma casilla que un monstruo. Finalmente se comprueba si ha finalizado el juego.</p>
 
 <p>quiere desplazar el jugador</p>
 
@@ -1800,8 +1786,6 @@
       <pre class="lines">
 
 
-90
-91
 92
 93
 94
@@ -1829,28 +1813,29 @@
 116
 117
 118
-119</pre>
+119
+120
+121</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'game.rb', line 90</span>
+      <pre class="code"><span class="info file"># File 'game.rb', line 92</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_next_step'>next_step</span><span class='lparen'>(</span><span class='id identifier rubyid_preferred_direction'>preferred_direction</span><span class='rparen'>)</span>
-    <span class='ivar'>@log</span><span class='op'>=</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span> <span class='comment'># //TODO: no se si es @log o solo log
-</span>    <span class='id identifier rubyid_dead'>dead</span><span class='op'>=</span><span class='ivar'>@current_player</span><span class='period'>.</span><span class='id identifier rubyid_dead'>dead</span>
+    <span class='ivar'>@log</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span>
 
-    <span class='kw'>if</span><span class='lparen'>(</span><span class='op'>!</span><span class='id identifier rubyid_dead'>dead</span><span class='rparen'>)</span>
-        <span class='id identifier rubyid_direction'>direction</span><span class='op'>=</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_actual_direction'>actual_direction</span><span class='lparen'>(</span><span class='id identifier rubyid_preferred_direction'>preferred_direction</span><span class='rparen'>)</span>
+    <span class='kw'>if</span><span class='lparen'>(</span><span class='op'>!</span><span class='ivar'>@current_player</span><span class='period'>.</span><span class='id identifier rubyid_dead'>dead</span><span class='rparen'>)</span>
+        <span class='id identifier rubyid_direction'>direction</span> <span class='op'>=</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_actual_direction'>actual_direction</span><span class='lparen'>(</span><span class='id identifier rubyid_preferred_direction'>preferred_direction</span><span class='rparen'>)</span>
 
         <span class='comment'># Se comprueba si la dirección a moverse ha sido la querida
-</span>        <span class='kw'>if</span><span class='lparen'>(</span><span class='id identifier rubyid_direction'>direction</span><span class='op'>!=</span><span class='id identifier rubyid_preferred_direction'>preferred_direction</span><span class='rparen'>)</span>
+</span>        <span class='kw'>if</span><span class='lparen'>(</span><span class='id identifier rubyid_direction'>direction</span> <span class='op'>!=</span> <span class='id identifier rubyid_preferred_direction'>preferred_direction</span><span class='rparen'>)</span>
             <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_log_player_no_orders'>log_player_no_orders</span>
         <span class='kw'>end</span>
 
-        <span class='id identifier rubyid_monster'>monster</span><span class='op'>=</span><span class='ivar'>@labyrinth</span><span class='period'>.</span><span class='id identifier rubyid_put_player'>put_player</span><span class='lparen'>(</span><span class='id identifier rubyid_direction'>direction</span><span class='comma'>,</span> <span class='ivar'>@current_player</span><span class='rparen'>)</span>
-        <span class='kw'>if</span><span class='lparen'>(</span><span class='id identifier rubyid_monster'>monster</span><span class='op'>==</span><span class='kw'>nil</span><span class='rparen'>)</span>
+        <span class='id identifier rubyid_monster'>monster</span> <span class='op'>=</span> <span class='ivar'>@labyrinth</span><span class='period'>.</span><span class='id identifier rubyid_put_player'>put_player</span><span class='lparen'>(</span><span class='id identifier rubyid_direction'>direction</span><span class='comma'>,</span> <span class='ivar'>@current_player</span><span class='rparen'>)</span>
+        <span class='kw'>if</span><span class='lparen'>(</span><span class='id identifier rubyid_monster'>monster</span> <span class='op'>==</span> <span class='kw'>nil</span><span class='rparen'>)</span>
             <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_log_no_monster'>log_no_monster</span>
         <span class='kw'>else</span>
-            <span class='id identifier rubyid_winner'>winner</span><span class='op'>=</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_combat'>combat</span><span class='lparen'>(</span><span class='id identifier rubyid_monster'>monster</span><span class='rparen'>)</span>
+            <span class='id identifier rubyid_winner'>winner</span> <span class='op'>=</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_combat'>combat</span><span class='lparen'>(</span><span class='id identifier rubyid_monster'>monster</span><span class='rparen'>)</span>
             <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_manage_reward'>manage_reward</span><span class='lparen'>(</span><span class='id identifier rubyid_winner'>winner</span><span class='rparen'>)</span>
         <span class='kw'>end</span>
     <span class='kw'>else</span>
@@ -1858,10 +1843,11 @@
     <span class='kw'>end</span>
 
     <span class='comment'># Se comprueba si ha ganado ya alguien
-</span>    <span class='id identifier rubyid_end_game'>end_game</span><span class='op'>=</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_finished'>finished</span><span class='lparen'>(</span><span class='rparen'>)</span>
+</span>    <span class='id identifier rubyid_end_game'>end_game</span> <span class='op'>=</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_finished'>finished</span><span class='lparen'>(</span><span class='rparen'>)</span>
     <span class='kw'>if</span><span class='lparen'>(</span><span class='op'>!</span><span class='id identifier rubyid_end_game'>end_game</span><span class='rparen'>)</span>
         <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_next_player'>next_player</span>
     <span class='kw'>end</span>
+
     <span class='kw'>return</span> <span class='id identifier rubyid_end_game'>end_game</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -1874,9 +1860,9 @@
 </div>
 
       <div id="footer">
-  Generated on Mon Apr 22 12:20:37 2024 by
+  Generated on Wed Apr 24 01:27:18 2024 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.36 (ruby-3.1.2).
+  0.9.36 (ruby-3.0.2).
 </div>
 
     </div>

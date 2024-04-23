@@ -22,9 +22,6 @@ module Irrgarten
         # Posición inválida
         @@INVALID_POS = -1
 
-        # Formato para mostrar los datos flotantes del jugador
-        @@FORMATO='%.10f'
-
         # Constructor de la clase Player. Inicializa los atributos de la clase.
         # La posición inicial del jugador es inválida
         #
@@ -32,7 +29,7 @@ module Irrgarten
         # @param intelligence [float] Inteligencia del jugador
         # @param strength [float] Fuerza del jugador
         def initialize(number, intelligence, strength)
-            @number = number
+            @number = number.to_s
             @name = "Player #{@number}"
             @intelligence = intelligence.to_f
             @strength = strength.to_f
@@ -94,16 +91,19 @@ module Irrgarten
         #
         # @return [Directions] dirección a la que se quiere desplazar (tendremos que ver si es válida)
         def move(direction, valid_moves)
-            size=valid_moves.length
+            size = valid_moves.length
 
             # El método del array es include?(<element>)
-            contained=valid_moves.include?(direction)
+            contained = valid_moves.include?(direction)
+
 
             if ( (size>0) && (!contained) )
-                firs_element=valid_moves[0] # Se puede también array.at(pos)
+                return valid_moves[0] # Se puede también array.at(pos)
             else
-                direction
+                return direction
             end
+
+            return to_return
         end
 
         # Calcula la suma de la fuerza del jugador y la suma de lo aportado por sus armas (sum_weapons).
@@ -132,21 +132,18 @@ module Irrgarten
             wReward=Dice.weapons_reward
             sReward=Dice.shields_reward
 
-            # Rewward de armas
+            # Reward de armas
             wReward.times do |i|
-                wnew=new_weapon
-                receive_weapon(wnew)
+                receive_weapon(self.new_weapon)
             end
 
-            # Rewward de escudos
+            # Reward de escudos
             sReward.times do |i|
-                snew=new_shield
-                receive_shield(snew)
+                receive_shield(self.new_shield)
             end
 
-            # Rewward de vida
-            extra_health=Dice.health_reward
-            @health+=extra_health
+            # Reward de vida
+            @health += Dice.health_reward
         end
 
         # Método que genera una cadena de caracteres con la información del jugador
@@ -177,11 +174,13 @@ module Irrgarten
             end
             to_shields+="]"
 
-            return "#{@name}[i:#{format(@@FORMATO,@intelligence)}, s:#{format(@@FORMATO,@strength)}, "+
-            "h:#{format(@@FORMATO,@health)}, w: "+to_weapons+", sh: "+to_shields+", "+
-            "p:(#{@row}, #{@col}), ch:#{@consecutive_hits}]"
-            # // TODO: Comprobar que funciona igual que en Java
 
+            # Formato para mostrar los datos flotantes del jugador
+            formato='%.10f'
+
+            return "#{@name}[i:#{format(formato,@intelligence)}, s:#{format(formato,@strength)}, "+
+            "h:#{format(formato,@health)}, ch:#{@consecutive_hits}, p:(#{@row}, #{@col}), "+
+            "w: "+to_weapons+", sh: "+to_shields+" ]"
         end
 
         private
@@ -194,15 +193,16 @@ module Irrgarten
         #
         # @param w [Weapon] arma a intentar añadir al jugador
         def receive_weapon(w)
+
+            # En primer lugar, eliminamos las armas debidas
             @weapons.each do |wi|
-                discard=wi.discard
-                if(discard)
+                if(wi.discard)
                     @weapons.delete(wi) # elimina el elemento wi del array
                 end
             end
 
-            size=@weapons.length
-            if(size<@@MAX_WEAPONS)
+            # Si caben, se añade el arma
+            if(@weapons.length < @@MAX_WEAPONS)
                 @weapons.push(w) # funciona también @weapons<<(wi)
             end
         end
@@ -216,14 +216,12 @@ module Irrgarten
         # @param s [Shield] escudo a intentar añadir al jugador
         def receive_shield(s)
             @shields.each do |si|
-                discard=si.discard
-                if(discard)
+                if(si.discard)
                     @shields.delete(si) # elimina el elemento si del array
                 end
             end
 
-            size=@shields.length
-            if(size<@@MAX_SHIELDS)
+            if(@shields.length < @@MAX_SHIELDS)
                 @shields.push(s)
             end
         end
@@ -281,7 +279,6 @@ module Irrgarten
         # de ataques, y false en caso contrario
         def manage_hit(received_attack)
             defense=self.defensive_energy
-            puts "d: "+defense.to_s+ " a: "+received_attack.to_s
             if(defense<received_attack)
                 self.got_wounded # recibe daño
                 self.inc_consecutive_hits

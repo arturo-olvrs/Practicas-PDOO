@@ -14,27 +14,27 @@ module UI
   #
   # @author Joaquin Avilés de la Fuente
   # @author Arturo Olivares Martos
-  
+
   class TextUI
 
     # https://gist.github.com/acook/4190379
-    # 
-    # @return [String] El carácter o secuencia de caracteres leídos desde la entrada estándar. 
+    #
+    # @return [String] El carácter o secuencia de caracteres leídos desde la entrada estándar.
     #   Si se presiona la tecla de escape, intenta leer secuencias adicionales para identificar
-    #   teclas especiales. 
+    #   teclas especiales.
     def read_char
       STDIN.echo = false
       STDIN.raw!
-    
+
       input = STDIN.getc.chr
-      if input == "\e" 
+      if input == "\e"
         input << STDIN.read_nonblock(3) rescue nil
         input << STDIN.read_nonblock(2) rescue nil
       end
     ensure
       STDIN.echo = true
       STDIN.cooked!
-    
+
       return input
     end
 
@@ -77,8 +77,8 @@ module UI
     # Método que muestra el estado completo del juego, mostrándo el laberinto,
     # los monstruos, los jugadores, mensaje con eventos importantes y si ha habido
     # un ganador.
-    # 
-    # @param game_state [GameState] estado actual del juego 
+    #
+    # @param game_state [GameState] estado actual del juego
     def show_game(game_state)
       puts game_state.labyrinth
       puts "\n"
@@ -86,8 +86,8 @@ module UI
       puts "\n"
       puts game_state.monsters
       puts "\n"
-      
-      puts game_state.log + "\n"
+
+      puts "Log:\n" + game_state.log + "\n"
 
       if (game_state.winner)
         puts "We have a winner! Player " + game_state.current_player.to_s + "\n"
@@ -96,7 +96,6 @@ module UI
       end
     end
 
-  end # class   
+  end # class
 
-end # module 
-
+end # module

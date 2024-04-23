@@ -69,7 +69,7 @@ module Irrgarten
             configure_labyrinth()
             @labyrinth.spread_players(@players)
 
-            @log = "Game just started.\n"
+            @log = "- Game just started.\n"
 
         end
 
@@ -126,12 +126,12 @@ module Irrgarten
         def game_state
             info_players = ""
             @players.each do |player|
-                info_players += player.to_s + ",\n"
+                info_players += player.to_s + "\n"
             end
 
             info_monsters = ""
             @monsters.each do |monster|
-                info_monsters += monster.to_s + ",\n"
+                info_monsters += monster.to_s + "\n"
             end
 
             return GameState.new(@labyrinth.to_s, info_players, info_monsters, @current_player_index, self.finished, @log)
