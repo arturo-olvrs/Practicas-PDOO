@@ -194,10 +194,8 @@ module Irrgarten
         def receive_weapon(w)
 
             # En primer lugar, eliminamos las armas debidas
-            @weapons.each do |wi|
-                if(wi.discard)
-                    @weapons.delete(wi) # elimina el elemento wi del array
-                end
+            @weapons.delete_if do |wi|
+                wi.discard
             end
 
             # Si caben, se añade el arma
@@ -214,10 +212,8 @@ module Irrgarten
         #
         # @param s [Shield] escudo a intentar añadir al jugador
         def receive_shield(s)
-            @shields.each do |si|
-                if(si.discard)
-                    @shields.delete(si) # elimina el elemento si del array
-                end
+            @shields.delete_if do |si|
+                si.discard
             end
 
             if(@shields.length < @@MAX_SHIELDS)
