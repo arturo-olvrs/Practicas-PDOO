@@ -39,19 +39,19 @@ public class Player {
     /**
      * Nombre del jugador.
      */
-    private final String name;
+    private String name;
     /**
      * Número identificador del jugador.
      */
-    private final char number;
+    private char number;
     /**
      * Inteligencia del jugador.
      */
-    private final float intelligence;
+    private float intelligence;
     /**
      * Fuerza del jugador.
      */
-    private final float strength;
+    private float strength;
     /**
      * Salud del jugador.
      */
@@ -72,11 +72,11 @@ public class Player {
     /**
      * ArrayList de armas que lleva el jugador.
      */
-    private final ArrayList<Weapon> weapons;        // Se pone final porque no se asigna a otra cosa.
+    private ArrayList<Weapon> weapons;        // Se pone final porque no se asigna a otra cosa.
     /**
      * ArrayList de escudos que lleva el jugador.
      */
-    private final ArrayList<Shield> shields;        // Se pone final porque no se asigna a otra cosa.
+    private ArrayList<Shield> shields;        // Se pone final porque no se asigna a otra cosa.
     
     /**
      * Constructor de la clase Player

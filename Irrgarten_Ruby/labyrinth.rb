@@ -74,7 +74,7 @@ module Irrgarten
             # .max busca el máximo, .to_s lo pasa a string y .size devuelve el tamaño
             ancho_maximo = @labyrinth.flatten.max.to_s.size
             str = "".rjust(ancho_maximo+2)
-            @n_rows.times do |i|
+            @n_cols.times do |i|
                 str+=i.to_s.rjust(ancho_maximo+2)
             end
             str+="\n"
