@@ -4,17 +4,11 @@ require_relative '../directions'
 # Este módulo se encarga de recibir las indicaciones de los jugadores sobre las
 # direcciones a la que se quieren mover y muestra la información que produce
 #
-# @author Joaquin Avilés de la Fuente
-# @author Arturo Olivares Martos
 module UI
 
   # Esta clae se encarga de recibir las ordenes de los jugadores y transimitirlas
   # al juego para que haga las gestiones necesarias. También muestra en consola
   # el estado del juego, es decir, el laberinto y los jugadores, monstruos, etc.
-  #
-  # @author Joaquin Avilés de la Fuente
-  # @author Arturo Olivares Martos
-
   class TextUI
 
     # https://gist.github.com/acook/4190379
