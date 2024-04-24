@@ -826,6 +826,8 @@
       <pre class="lines">
 
 
+37
+38
 39
 40
 41
@@ -835,12 +837,10 @@
 45
 46
 47
-48
-49
-50</pre>
+48</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'labyrinth.rb', line 39</span>
+      <pre class="code"><span class="info file"># File 'labyrinth.rb', line 37</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_n_rows'>n_rows</span><span class='comma'>,</span> <span class='id identifier rubyid_n_cols'>n_cols</span><span class='comma'>,</span> <span class='id identifier rubyid_exit_row'>exit_row</span><span class='comma'>,</span> <span class='id identifier rubyid_exit_col'>exit_col</span><span class='rparen'>)</span>
     <span class='ivar'>@n_rows</span> <span class='op'>=</span> <span class='id identifier rubyid_n_rows'>n_rows</span><span class='period'>.</span><span class='id identifier rubyid_to_i'>to_i</span>
@@ -960,6 +960,8 @@
       <pre class="lines">
 
 
+144
+145
 146
 147
 148
@@ -976,12 +978,10 @@
 159
 160
 161
-162
-163
-164</pre>
+162</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'labyrinth.rb', line 146</span>
+      <pre class="code"><span class="info file"># File 'labyrinth.rb', line 144</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_add_block'>add_block</span><span class='lparen'>(</span><span class='id identifier rubyid_orientation'>orientation</span><span class='comma'>,</span> <span class='id identifier rubyid_start_row'>start_row</span><span class='comma'>,</span> <span class='id identifier rubyid_start_col'>start_col</span><span class='comma'>,</span> <span class='id identifier rubyid_length'>length</span><span class='rparen'>)</span>
     <span class='kw'>if</span><span class='lparen'>(</span><span class='id identifier rubyid_orientation'>orientation</span><span class='op'>==</span><span class='const'>Orientation</span><span class='op'>::</span><span class='const'>VERTICAL</span><span class='rparen'>)</span>
@@ -1089,16 +1089,16 @@
       <pre class="lines">
 
 
+105
+106
 107
 108
 109
 110
-111
-112
-113</pre>
+111</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'labyrinth.rb', line 107</span>
+      <pre class="code"><span class="info file"># File 'labyrinth.rb', line 105</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_add_monster'>add_monster</span><span class='lparen'>(</span><span class='id identifier rubyid_row'>row</span><span class='comma'>,</span> <span class='id identifier rubyid_col'>col</span><span class='comma'>,</span> <span class='id identifier rubyid_monster'>monster</span><span class='rparen'>)</span>
     <span class='kw'>if</span> <span class='lparen'>(</span><span class='id identifier rubyid_pos_ok'>pos_ok</span><span class='lparen'>(</span><span class='id identifier rubyid_row'>row</span><span class='comma'>,</span> <span class='id identifier rubyid_col'>col</span><span class='rparen'>)</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_empty_pos'>empty_pos</span><span class='lparen'>(</span><span class='id identifier rubyid_row'>row</span><span class='comma'>,</span> <span class='id identifier rubyid_col'>col</span><span class='rparen'>)</span><span class='rparen'>)</span>
@@ -1192,12 +1192,12 @@
       <pre class="lines">
 
 
-247
-248
-249</pre>
+245
+246
+247</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'labyrinth.rb', line 247</span>
+      <pre class="code"><span class="info file"># File 'labyrinth.rb', line 245</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_can_step_on'>can_step_on</span><span class='lparen'>(</span><span class='id identifier rubyid_row'>row</span><span class='comma'>,</span> <span class='id identifier rubyid_col'>col</span><span class='rparen'>)</span>
     <span class='kw'>return</span> <span class='id identifier rubyid_pos_ok'>pos_ok</span><span class='lparen'>(</span><span class='id identifier rubyid_row'>row</span><span class='comma'>,</span> <span class='id identifier rubyid_col'>col</span><span class='rparen'>)</span> <span class='op'>&amp;&amp;</span> <span class='lparen'>(</span><span class='id identifier rubyid_empty_pos'>empty_pos</span><span class='lparen'>(</span><span class='id identifier rubyid_row'>row</span><span class='comma'>,</span> <span class='id identifier rubyid_col'>col</span><span class='rparen'>)</span> <span class='op'>||</span> <span class='id identifier rubyid_monster_pos'>monster_pos</span><span class='lparen'>(</span><span class='id identifier rubyid_row'>row</span><span class='comma'>,</span> <span class='id identifier rubyid_col'>col</span><span class='rparen'>)</span> <span class='op'>||</span> <span class='id identifier rubyid_exit_pos'>exit_pos</span><span class='lparen'>(</span><span class='id identifier rubyid_row'>row</span><span class='comma'>,</span> <span class='id identifier rubyid_col'>col</span><span class='rparen'>)</span><span class='rparen'>)</span>
@@ -1287,12 +1287,12 @@
       <pre class="lines">
 
 
-237
-238
-239</pre>
+235
+236
+237</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'labyrinth.rb', line 237</span>
+      <pre class="code"><span class="info file"># File 'labyrinth.rb', line 235</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_combat_pos'>combat_pos</span><span class='lparen'>(</span><span class='id identifier rubyid_row'>row</span><span class='comma'>,</span> <span class='id identifier rubyid_col'>col</span><span class='rparen'>)</span>
     <span class='kw'>return</span> <span class='lparen'>(</span><span class='ivar'>@labyrinth</span><span class='lbracket'>[</span><span class='id identifier rubyid_row'>row</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='id identifier rubyid_col'>col</span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='cvar'>@@COMBAT_CHAR</span><span class='rparen'>)</span>
@@ -1398,6 +1398,8 @@
       <pre class="lines">
 
 
+280
+281
 282
 283
 284
@@ -1414,12 +1416,10 @@
 295
 296
 297
-298
-299
-300</pre>
+298</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'labyrinth.rb', line 282</span>
+      <pre class="code"><span class="info file"># File 'labyrinth.rb', line 280</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_dir_2_pos'>dir_2_pos</span><span class='lparen'>(</span><span class='id identifier rubyid_row'>row</span><span class='comma'>,</span> <span class='id identifier rubyid_col'>col</span><span class='comma'>,</span> <span class='id identifier rubyid_direction'>direction</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_pos'>pos</span> <span class='op'>=</span> <span class='const'>Array</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
@@ -1525,12 +1525,12 @@
       <pre class="lines">
 
 
-210
-211
-212</pre>
+208
+209
+210</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'labyrinth.rb', line 210</span>
+      <pre class="code"><span class="info file"># File 'labyrinth.rb', line 208</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_empty_pos'>empty_pos</span><span class='lparen'>(</span><span class='id identifier rubyid_row'>row</span><span class='comma'>,</span> <span class='id identifier rubyid_col'>col</span><span class='rparen'>)</span>
     <span class='kw'>return</span> <span class='lparen'>(</span><span class='ivar'>@labyrinth</span><span class='lbracket'>[</span><span class='id identifier rubyid_row'>row</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='id identifier rubyid_col'>col</span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='cvar'>@@EMPTY_CHAR</span><span class='rparen'>)</span> <span class='comment'># &amp;&amp; (@players[row][col] == nil). No es necesario
@@ -1620,12 +1620,12 @@
       <pre class="lines">
 
 
-228
-229
-230</pre>
+226
+227
+228</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'labyrinth.rb', line 228</span>
+      <pre class="code"><span class="info file"># File 'labyrinth.rb', line 226</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_exit_pos'>exit_pos</span><span class='lparen'>(</span><span class='id identifier rubyid_row'>row</span><span class='comma'>,</span> <span class='id identifier rubyid_col'>col</span><span class='rparen'>)</span>
     <span class='kw'>return</span> <span class='lparen'>(</span><span class='ivar'>@labyrinth</span><span class='lbracket'>[</span><span class='id identifier rubyid_row'>row</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='id identifier rubyid_col'>col</span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='cvar'>@@EXIT_CHAR</span><span class='rparen'>)</span>
@@ -1679,12 +1679,12 @@
       <pre class="lines">
 
 
-67
-68
-69</pre>
+65
+66
+67</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'labyrinth.rb', line 67</span>
+      <pre class="code"><span class="info file"># File 'labyrinth.rb', line 65</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_have_a_winner'>have_a_winner</span>
     <span class='kw'>return</span> <span class='ivar'>@players</span><span class='lbracket'>[</span><span class='ivar'>@exit_row</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='ivar'>@exit_col</span><span class='rbracket'>]</span> <span class='op'>!=</span> <span class='kw'>nil</span>
@@ -1774,12 +1774,12 @@
       <pre class="lines">
 
 
-219
-220
-221</pre>
+217
+218
+219</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'labyrinth.rb', line 219</span>
+      <pre class="code"><span class="info file"># File 'labyrinth.rb', line 217</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_monster_pos'>monster_pos</span><span class='lparen'>(</span><span class='id identifier rubyid_row'>row</span><span class='comma'>,</span> <span class='id identifier rubyid_col'>col</span><span class='rparen'>)</span>
     <span class='kw'>return</span> <span class='lparen'>(</span><span class='ivar'>@labyrinth</span><span class='lbracket'>[</span><span class='id identifier rubyid_row'>row</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='id identifier rubyid_col'>col</span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='cvar'>@@MONSTER_CHAR</span><span class='rparen'>)</span> <span class='comment'># &amp;&amp; (@players[row][col] == nil). No es necesario pq si está habrá un combate
@@ -1869,12 +1869,12 @@
       <pre class="lines">
 
 
-201
-202
-203</pre>
+199
+200
+201</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'labyrinth.rb', line 201</span>
+      <pre class="code"><span class="info file"># File 'labyrinth.rb', line 199</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_pos_ok'>pos_ok</span><span class='lparen'>(</span><span class='id identifier rubyid_row'>row</span><span class='comma'>,</span> <span class='id identifier rubyid_col'>col</span><span class='rparen'>)</span>
     <span class='kw'>return</span> <span class='lparen'>(</span><span class='int'>0</span><span class='op'>&lt;=</span><span class='id identifier rubyid_row'>row</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_row'>row</span><span class='op'>&lt;</span><span class='ivar'>@n_rows</span><span class='rparen'>)</span> <span class='op'>&amp;&amp;</span> <span class='lparen'>(</span><span class='int'>0</span><span class='op'>&lt;=</span><span class='id identifier rubyid_col'>col</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_col'>col</span><span class='op'>&lt;</span><span class='ivar'>@n_cols</span><span class='rparen'>)</span>
@@ -1971,6 +1971,8 @@
       <pre class="lines">
 
 
+124
+125
 126
 127
 128
@@ -1979,12 +1981,10 @@
 131
 132
 133
-134
-135
-136</pre>
+134</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'labyrinth.rb', line 126</span>
+      <pre class="code"><span class="info file"># File 'labyrinth.rb', line 124</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_put_player'>put_player</span><span class='lparen'>(</span><span class='id identifier rubyid_direction'>direction</span><span class='comma'>,</span> <span class='id identifier rubyid_player'>player</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_old_row'>old_row</span> <span class='op'>=</span> <span class='id identifier rubyid_player'>player</span><span class='period'>.</span><span class='id identifier rubyid_row'>row</span>
@@ -2136,6 +2136,8 @@
       <pre class="lines">
 
 
+335
+336
 337
 338
 339
@@ -2168,12 +2170,10 @@
 366
 367
 368
-369
-370
-371</pre>
+369</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'labyrinth.rb', line 337</span>
+      <pre class="code"><span class="info file"># File 'labyrinth.rb', line 335</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_put_player2D'>put_player2D</span><span class='lparen'>(</span><span class='id identifier rubyid_old_row'>old_row</span><span class='comma'>,</span> <span class='id identifier rubyid_old_col'>old_col</span><span class='comma'>,</span> <span class='id identifier rubyid_row'>row</span><span class='comma'>,</span> <span class='id identifier rubyid_col'>col</span><span class='comma'>,</span> <span class='id identifier rubyid_player'>player</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_output'>output</span> <span class='op'>=</span> <span class='kw'>nil</span>
@@ -2259,6 +2259,8 @@
       <pre class="lines">
 
 
+305
+306
 307
 308
 309
@@ -2268,12 +2270,10 @@
 313
 314
 315
-316
-317
-318</pre>
+316</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'labyrinth.rb', line 307</span>
+      <pre class="code"><span class="info file"># File 'labyrinth.rb', line 305</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_random_empty_pos'>random_empty_pos</span>
     <span class='kw'>begin</span>
@@ -2345,15 +2345,15 @@
       <pre class="lines">
 
 
+55
+56
 57
 58
 59
-60
-61
-62</pre>
+60</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'labyrinth.rb', line 57</span>
+      <pre class="code"><span class="info file"># File 'labyrinth.rb', line 55</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_spread_players'>spread_players</span><span class='lparen'>(</span><span class='id identifier rubyid_players'>players</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_players'>players</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_p'>p</span><span class='op'>|</span>
@@ -2410,6 +2410,8 @@
       <pre class="lines">
 
 
+72
+73
 74
 75
 76
@@ -2428,19 +2430,17 @@
 89
 90
 91
-92
-93
-94</pre>
+92</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'labyrinth.rb', line 74</span>
+      <pre class="code"><span class="info file"># File 'labyrinth.rb', line 72</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_to_s'>to_s</span>
     <span class='comment'># .flatten convierte la matriz dimension 2, en un array de dimensión 1
 </span>    <span class='comment'># .max busca el máximo, .to_s lo pasa a string y .size devuelve el tamaño
 </span>    <span class='id identifier rubyid_ancho_maximo'>ancho_maximo</span> <span class='op'>=</span> <span class='ivar'>@labyrinth</span><span class='period'>.</span><span class='id identifier rubyid_flatten'>flatten</span><span class='period'>.</span><span class='id identifier rubyid_max'>max</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span>
     <span class='id identifier rubyid_str'>str</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='period'>.</span><span class='id identifier rubyid_rjust'>rjust</span><span class='lparen'>(</span><span class='id identifier rubyid_ancho_maximo'>ancho_maximo</span><span class='op'>+</span><span class='int'>2</span><span class='rparen'>)</span>
-    <span class='ivar'>@n_rows</span><span class='period'>.</span><span class='id identifier rubyid_times'>times</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_i'>i</span><span class='op'>|</span>
+    <span class='ivar'>@n_cols</span><span class='period'>.</span><span class='id identifier rubyid_times'>times</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_i'>i</span><span class='op'>|</span>
         <span class='id identifier rubyid_str'>str</span><span class='op'>+=</span><span class='id identifier rubyid_i'>i</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='period'>.</span><span class='id identifier rubyid_rjust'>rjust</span><span class='lparen'>(</span><span class='id identifier rubyid_ancho_maximo'>ancho_maximo</span><span class='op'>+</span><span class='int'>2</span><span class='rparen'>)</span>
     <span class='kw'>end</span>
     <span class='id identifier rubyid_str'>str</span><span class='op'>+=</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span>
@@ -2525,6 +2525,8 @@
       <pre class="lines">
 
 
+259
+260
 261
 262
 263
@@ -2532,12 +2534,10 @@
 265
 266
 267
-268
-269
-270</pre>
+268</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'labyrinth.rb', line 261</span>
+      <pre class="code"><span class="info file"># File 'labyrinth.rb', line 259</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update_old_pos'>update_old_pos</span><span class='lparen'>(</span><span class='id identifier rubyid_row'>row</span><span class='comma'>,</span> <span class='id identifier rubyid_col'>col</span><span class='rparen'>)</span>
     <span class='kw'>if</span> <span class='lparen'>(</span><span class='id identifier rubyid_pos_ok'>pos_ok</span><span class='lparen'>(</span><span class='id identifier rubyid_row'>row</span><span class='comma'>,</span> <span class='id identifier rubyid_col'>col</span><span class='rparen'>)</span><span class='rparen'>)</span>
@@ -2636,6 +2636,8 @@
       <pre class="lines">
 
 
+173
+174
 175
 176
 177
@@ -2652,12 +2654,10 @@
 188
 189
 190
-191
-192
-193</pre>
+191</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'labyrinth.rb', line 175</span>
+      <pre class="code"><span class="info file"># File 'labyrinth.rb', line 173</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_valid_moves'>valid_moves</span><span class='lparen'>(</span><span class='id identifier rubyid_row'>row</span><span class='comma'>,</span> <span class='id identifier rubyid_col'>col</span><span class='rparen'>)</span>
     <span class='comment'># Array de direcciones
@@ -2688,9 +2688,9 @@
 </div>
 
       <div id="footer">
-  Generated on Wed Apr 24 01:27:18 2024 by
+  Generated on Thu Apr 25 00:31:16 2024 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.36 (ruby-3.0.2).
+  0.9.36 (ruby-3.1.2).
 </div>
 
     </div>
