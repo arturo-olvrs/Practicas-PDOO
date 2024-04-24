@@ -116,6 +116,6 @@ module Irrgarten
             return (@@generator.rand >= probabilidad)
         end
 
-    end
 
-end
+    end # class
+end # module

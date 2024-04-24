@@ -293,5 +293,6 @@ module Irrgarten
             @log += "- Rounds: #{rounds}/#{max}.\n"
         end
 
-    end
-end
+
+    end # class
+end # module

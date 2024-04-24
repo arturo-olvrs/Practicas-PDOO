@@ -3,7 +3,6 @@
 require_relative 'dice'
 require_relative 'weapon'
 require_relative 'shield'
-require_relative 'directions'
 
 
 module Irrgarten
@@ -310,5 +309,5 @@ module Irrgarten
             @consecutive_hits += 1
         end
 
-    end
-end
+    end # class
+end # module

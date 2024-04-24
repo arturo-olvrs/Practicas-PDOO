@@ -52,6 +52,6 @@ module Irrgarten
         # Método que devuelve la cadena de caracteres con eventos interesantes
         # @return [String] Devuelve la cadena de caracteres con eventos interesantes
         attr_reader :log
-    end
 
-end
+    end # class
+end # module

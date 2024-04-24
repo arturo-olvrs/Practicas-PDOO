@@ -99,6 +99,6 @@ module Irrgarten
         def got_wounded
             @health -= 1
         end
-    end
 
-end
+    end # class
+end # module

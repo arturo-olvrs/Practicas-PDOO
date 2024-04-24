@@ -1,8 +1,6 @@
 # encoding: UTF-8
 
 require_relative 'dice'
-require_relative 'player'
-require_relative 'monster'
 require_relative 'directions'
 require_relative 'orientation'
 
@@ -370,5 +368,6 @@ module Irrgarten
             return output
         end
 
-    end
-end
+
+    end # class
+end # module

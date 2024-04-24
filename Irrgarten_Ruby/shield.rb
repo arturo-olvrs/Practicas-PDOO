@@ -49,7 +49,5 @@ module Irrgarten
             return "S[#{@protection}, #{@uses}]"
         end
 
-    end
-
-
-end
+    end # class
+end # module
