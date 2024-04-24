@@ -203,8 +203,8 @@ public class Player {
      */
     public void receiveReward(){
         // Weapons rewards
-        int wRepard = Dice.weaponsReward();
-        for (int i=0; i<wRepard; i++)
+        int wReward = Dice.weaponsReward();
+        for (int i=0; i<wReward; i++)
             this.receiveWeapon(this.newWeapon());
         
         // Shields rewards

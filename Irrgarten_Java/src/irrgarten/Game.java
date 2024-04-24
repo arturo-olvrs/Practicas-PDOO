@@ -156,7 +156,7 @@ public class Game {
                 logPlayerNoOrders();
             }
 
-            // Se mueve al jugador
+            // Se mueve al jugador y se obtiene el monstruo que haya en la casilla
             Monster monster = this.labyrinth.putPlayer(direction, currentPlayer);
 
 

@@ -12,7 +12,7 @@ public class Shield {
     /**
      * Protección que proporciona el escudo.
      */
-    private final float protection;
+    private float protection;
     /**
      * Número de usos disponibles del escudo.
      */

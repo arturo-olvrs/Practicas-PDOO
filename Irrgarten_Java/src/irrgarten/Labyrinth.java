@@ -53,32 +53,32 @@ public class Labyrinth {
     /**
      * Número de filas del laberinto.
      */
-    private final int nRows;
+    private int nRows;
     /**
      * Número de columnas del laberinto.
      */
-    private final int nCols;
+    private int nCols;
     
     // Variables que indican la casilla de salida
     /**
      * Fila de la casilla de salida.
      */
-    private final int exitRow;
+    private int exitRow;
     /**
      * Columna de la casilla de salida.
      */
-    private final int exitCol;
+    private int exitCol;
     
     // Matrices que almacenan información de los monstruos, jugadores
     // e información general del laberinto
     /**
      * Matriz que almacena los monstruos en el laberinto.
      */
-    private final Monster [][] monsters;
+    private Monster [][] monsters;
     /**
      * Matriz que almacena los jugadores en el laberinto.
      */
-    private final Player [][] players;
+    private Player [][] players;
     /**
      * Matriz que almacena el estado de cada casilla del laberinto.
      * @see EMPTY_CHAR
@@ -87,7 +87,7 @@ public class Labyrinth {
      * @see COMBAT_CHAR
      * @see EXIT_CHAR
      */
-    private final char [][] labyrinth;
+    private char [][] labyrinth;
     
     /**
      * Constructor de la clase
@@ -227,16 +227,14 @@ public class Labyrinth {
      */
     public void addBlock (Orientation orientation, int startRow, int startCol, int length){
         
-        int incRow, incCol; // Incremento de la fila y columna
+        int incRow=0, incCol=0; // Incremento de la fila y columna
         if (orientation == Orientation.VERTICAL){
             // Si la orientación es vertical, incrementamos la fila
-            incRow = 1;
-            incCol = 0;
+            incRow++;
         }
         else{
             // Si la orientación es horizontal, incrementamos la columna
-            incRow = 0;
-            incCol = 1;            
+            incCol++;
         }
 
         // (row, col) posición actual

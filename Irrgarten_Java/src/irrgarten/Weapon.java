@@ -11,7 +11,7 @@ public class Weapon {
     /**
      * Potencia del arma.
      */
-    private final float power;
+    private float power;
     /**
      * Número de usos disponibles del arma.
      */
