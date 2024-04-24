@@ -22,15 +22,15 @@ public class Monster {
     /**
      * Nombre del monstruo
      */
-    private final String name;
+    private String name;
     /**
      * Inteligencia del monstruo
      */
-    private final float intelligence;
+    private float intelligence;
     /**
      * Fuerza del monstruo
      */
-    private final float strength;
+    private float strength;
     /**
      * Salud del monstruo
      */

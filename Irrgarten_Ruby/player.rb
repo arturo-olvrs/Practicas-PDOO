@@ -101,8 +101,6 @@ module Irrgarten
             else
                 return direction
             end
-
-            return to_return
         end
 
         # Calcula la suma de la fuerza del jugador y la suma de lo aportado por sus armas (sum_weapons).

@@ -11,27 +11,27 @@ public class GameState {
     /**
      * Estado del laberinto
      */
-    private final String labyrinth;
+    private String labyrinth;
     /**
      * Estado de los jugadores
      */
-    private final String players;
+    private String players;
     /**
      * Estado de los monstruos
      */
-    private final String monsters;
+    private String monsters;
     /**
      * Identificador del jugador actual
      */
-    private final int currentPlayer;
+    private int currentPlayer;
     /**
      * Indicador de si hay un ganador
      */
-    private final boolean winner;
+    private boolean winner;
     /**
      * Eventos interesantes a lo largo de la partida
      */
-    private final String log;
+    private String log;
 
     /**
      * Constructor de la clase GameState

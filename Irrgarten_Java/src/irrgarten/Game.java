@@ -73,17 +73,17 @@ public class Game {
     /**
      * Vector de jugadores que participan en el juego.
      */
-    private final ArrayList<Player> players;
+    private ArrayList<Player> players;
 
     /**
      * Vector de monstruos presentes en el juego.
      */
-    private final ArrayList<Monster> monsters;
+    private ArrayList<Monster> monsters;
 
     /**
      * Laberinto en el que se desarrolla el juego.
      */
-    private final Labyrinth labyrinth;
+    private Labyrinth labyrinth;
     
     /**
      * Constructor de la clase Game, que inicializará los jugadores a jugar 

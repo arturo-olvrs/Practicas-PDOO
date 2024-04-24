@@ -366,7 +366,6 @@ public class Player {
             this.resetHits();
         }
 
-
         // Se comprueba si el jugador ha perdido
         boolean lose = (this.consecutiveHits==Player.HITS2LOSE) || this.dead();
 
