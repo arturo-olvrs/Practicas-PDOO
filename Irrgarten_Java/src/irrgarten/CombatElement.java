@@ -7,6 +7,8 @@ package irrgarten;
  * @author Arturo Olivares Martos
  * @author Joaquín Avilés de la Fuente
  */
+
+// TODO: poner visibilidad delante?
 abstract class CombatElement {
     /**
      * Efecto del elemento de combate.

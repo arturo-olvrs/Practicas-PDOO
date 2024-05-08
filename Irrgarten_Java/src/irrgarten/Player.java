@@ -51,6 +51,16 @@ public class Player extends LabyrinthCharacter {
     private ArrayList<Shield> shields;        // Se pone final porque no se asigna a otra cosa.
     
     /**
+     * Baraja de cartas de tipo Arma
+     */
+    private WeaponCardDeck weaponCardDeck;
+    
+    /**
+     * Baraja de cartas de tipo Escudo
+     */
+    private ShieldCardDeck shieldCardDeck;
+    
+    /**
      * Constructor de la clase Player
      * @param number número identificador del jugador
      * @param intelligence inteligencia del jugador
@@ -62,8 +72,12 @@ public class Player extends LabyrinthCharacter {
         this.consecutiveHits=0;
 
         // Hay que inicializar los ArrayList
-        weapons= new ArrayList<>();
-        shields= new ArrayList<>();
+        this.weapons= new ArrayList<>();
+        this.shields= new ArrayList<>();
+        
+        // Hay que inicializar las barajas
+        this.weaponCardDeck= new WeaponCardDeck();
+        this.shieldCardDeck= new ShieldCardDeck();
     }
     
     /**
@@ -242,13 +256,14 @@ public class Player extends LabyrinthCharacter {
             shields.add(s);
     }
     
+    // TODO: mirar si lo que quiere son estos cambios en newWeapon y newShield
     /**
      * Genera una nueva instancia de la clase Weapon, con los parámetros
      * que indica el dado
      * @return Devuelve el arma creada de forma aleatoria con el dado
      */
     private Weapon newWeapon(){
-        return new Weapon(Dice.weaponPower(), Dice.usesLeft());
+        return this.weaponCardDeck.nextCard();
     }
     
     /**
@@ -257,7 +272,7 @@ public class Player extends LabyrinthCharacter {
      * @return Devuelve el escudo creado de forma aleatoria con el dado
      */
     private Shield newShield(){
-        return new Shield(Dice.shieldPower(), Dice.usesLeft());
+        return this.shieldCardDeck.nextCard();
     }
     
     /**

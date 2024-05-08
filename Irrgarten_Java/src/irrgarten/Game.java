@@ -217,7 +217,7 @@ public class Game {
     private void configureLabyrinth(){
         // Inicializamos el vector de monstruos y los añadimos al laberinto
         for (int i=0; i<NUM_MONSTERS; i++){
-            Monster monstruo=new Monster ("Monster "+i, 100, 100);
+            Monster monstruo=new Monster ("Monster "+i, Dice.randomIntelligence(), Dice.randomStrength());
             this.monsters.add(monstruo);
             // Destacar que la primera variable indica fila y la segunda columna
             this.labyrinth.addMonster(INIT_MONSTERS[i][0], INIT_MONSTERS[i][1], monstruo);

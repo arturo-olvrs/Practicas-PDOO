@@ -65,7 +65,7 @@ public class FuzzyPlayer extends Player{
      */
     @Override // TODO: comprobar que está igual en ruby
     public String toString(){
-        String toReturn="(Fuzzy)";
+        String toReturn="(Fuzzy) ";
         toReturn+=super.toString();
         
         return toReturn;
