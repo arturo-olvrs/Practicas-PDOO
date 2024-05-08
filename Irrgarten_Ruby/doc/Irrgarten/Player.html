@@ -226,6 +226,35 @@
   <h2>Instance Attribute Summary <small><a href="#" class="summary_toggle">collapse</a></small></h2>
   <ul class="summary">
     
+      <li class="protected ">
+  <span class="summary_signature">
+    
+      <a href="#consecutive_hits-instance_method" title="#consecutive_hits (instance method)">#<strong>consecutive_hits</strong>  &#x21d2; int </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  <span class="note title protected">protected</span>
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Consultor de @consecutive_hits.</p>
+</div></span>
+  
+</li>
+
+    
       <li class="public ">
   <span class="summary_signature">
     
@@ -255,6 +284,64 @@
 </li>
 
     
+      <li class="protected ">
+  <span class="summary_signature">
+    
+      <a href="#shields-instance_method" title="#shields (instance method)">#<strong>shields</strong>  &#x21d2; Array&lt;Shield&gt; </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  <span class="note title protected">protected</span>
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Consultor de @shields.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="protected ">
+  <span class="summary_signature">
+    
+      <a href="#weapons-instance_method" title="#weapons (instance method)">#<strong>weapons</strong>  &#x21d2; Array&lt;Weapon&gt; </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  <span class="note title protected">protected</span>
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Consultor de @weapons.</p>
+</div></span>
+  
+</li>
+
+    
   </ul>
 
 
@@ -262,7 +349,7 @@
   
   
   <h3 class="inherited">Attributes inherited from <span class='object_link'><a href="LabyrinthCharacter.html" title="Irrgarten::LabyrinthCharacter (class)">LabyrinthCharacter</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="LabyrinthCharacter.html#col-instance_method" title="Irrgarten::LabyrinthCharacter#col (method)">#col</a></span>, <span class='object_link'><a href="LabyrinthCharacter.html#row-instance_method" title="Irrgarten::LabyrinthCharacter#row (method)">#row</a></span></p>
+  <p class="inherited"><span class='object_link'><a href="LabyrinthCharacter.html#col-instance_method" title="Irrgarten::LabyrinthCharacter#col (method)">#col</a></span>, <span class='object_link'><a href="LabyrinthCharacter.html#health-instance_method" title="Irrgarten::LabyrinthCharacter#health (method)">#health</a></span>, <span class='object_link'><a href="LabyrinthCharacter.html#intelligence-instance_method" title="Irrgarten::LabyrinthCharacter#intelligence (method)">#intelligence</a></span>, <span class='object_link'><a href="LabyrinthCharacter.html#name-instance_method" title="Irrgarten::LabyrinthCharacter#name (method)">#name</a></span>, <span class='object_link'><a href="LabyrinthCharacter.html#row-instance_method" title="Irrgarten::LabyrinthCharacter#row (method)">#row</a></span>, <span class='object_link'><a href="LabyrinthCharacter.html#strength-instance_method" title="Irrgarten::LabyrinthCharacter#strength (method)">#strength</a></span></p>
 
 
   
@@ -291,7 +378,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Calcula la suma de la fuerza del jugador y la suma de lo aportado por sus armas (sum_weapons).</p>
+<p>Calcula la suma de la fuerza del jugador y la suma de lo aportado por sus armas (<span class='object_link'><a href="#sum_weapons-instance_method" title="Irrgarten::Player#sum_weapons (method)">#sum_weapons</a></span>).</p>
 </div></span>
   
 </li>
@@ -339,7 +426,31 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Este método delega su funcionalidad en el método manage_hit de Player.</p>
+<p>Este método delega su funcionalidad en el método <span class='object_link'><a href="#manage_hit-instance_method" title="Irrgarten::Player#manage_hit (method)">#manage_hit</a></span>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="protected ">
+  <span class="summary_signature">
+    
+      <a href="#defensive_energy-instance_method" title="#defensive_energy (instance method)">#<strong>defensive_energy</strong>  &#x21d2; float </a>
+    
+
+    
+  </span>
+  
+  
+  
+  <span class="note title protected">protected</span>
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Calcula la suma de la inteligencia con el aporte de los escudos (<span class='object_link'><a href="#sum_shields-instance_method" title="Irrgarten::Player#sum_shields (method)">#sum_shields</a></span>).</p>
 </div></span>
   
 </li>
@@ -389,7 +500,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Constructor de la clase Player.</p>
+<p>Constructor de la clase <span class='object_link'><a href="" title="Irrgarten::Player (class)">Player</a></span>.</p>
 </div></span>
   
 </li>
@@ -437,7 +548,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Comprueba si la dirección pasada hacia la que se pretende desplazar el personaje es válida, devolviendola en caso de que lo sea o no se pueda mover hacia ninguna posición, es decir, valid_moves esté vacío.</p>
+<p>Comprueba si la dirección pasada hacia la que se pretende desplazar el personaje es válida, devolviendola en caso de que lo sea o no se pueda mover hacia ninguna posición, es decir, <strong>valid_moves</strong> esté vacío.</p>
 </div></span>
   
 </li>
@@ -470,7 +581,7 @@
         <li class="private ">
   <span class="summary_signature">
     
-      <a href="#new_weapon-instance_method" title="#new_weapon (instance method)">#<strong>new_weapon</strong>  &#x21d2; Weapom </a>
+      <a href="#new_weapon-instance_method" title="#new_weapon (instance method)">#<strong>new_weapon</strong>  &#x21d2; Weapon </a>
     
 
     
@@ -509,7 +620,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Método que recompensa al jugador con armas, escudos y vida extra delegando para ello en métodos de Dice, como weapons_reward, shields_reward y health_reward.</p>
+<p>Método que recompensa al jugador con armas, escudos y vida extra delegando para ello en métodos de <span class='object_link'><a href="Dice.html" title="Irrgarten::Dice (class)">Dice</a></span> que devuelven valores aleatorios.</p>
 </div></span>
   
 </li>
@@ -611,6 +722,54 @@
 </li>
 
       
+        <li class="protected ">
+  <span class="summary_signature">
+    
+      <a href="#sum_shields-instance_method" title="#sum_shields (instance method)">#<strong>sum_shields</strong>  &#x21d2; float </a>
+    
+
+    
+  </span>
+  
+  
+  
+  <span class="note title protected">protected</span>
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Devuelve la suma del resultado de llamar al método protect de todos sus escudos.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="protected ">
+  <span class="summary_signature">
+    
+      <a href="#sum_weapons-instance_method" title="#sum_weapons (instance method)">#<strong>sum_weapons</strong>  &#x21d2; float </a>
+    
+
+    
+  </span>
+  
+  
+  
+  <span class="note title protected">protected</span>
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Devuelve la suma del resultado de llamar al método <span class='object_link'><a href="Weapon.html#attack-instance_method" title="Irrgarten::Weapon#attack (method)">Weapon#attack</a></span> de todas sus armas.</p>
+</div></span>
+  
+</li>
+
+      
         <li class="public ">
   <span class="summary_signature">
     
@@ -648,7 +807,7 @@
   
   
   <h3 class="inherited">Methods inherited from <span class='object_link'><a href="LabyrinthCharacter.html" title="Irrgarten::LabyrinthCharacter (class)">LabyrinthCharacter</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="LabyrinthCharacter.html#dead-instance_method" title="Irrgarten::LabyrinthCharacter#dead (method)">#dead</a></span>, <span class='object_link'><a href="LabyrinthCharacter.html#pos-instance_method" title="Irrgarten::LabyrinthCharacter#pos (method)">#pos</a></span></p>
+  <p class="inherited"><span class='object_link'><a href="LabyrinthCharacter.html#dead-instance_method" title="Irrgarten::LabyrinthCharacter#dead (method)">#dead</a></span>, <span class='object_link'><a href="LabyrinthCharacter.html#got_wounded-instance_method" title="Irrgarten::LabyrinthCharacter#got_wounded (method)">#got_wounded</a></span>, <span class='object_link'><a href="LabyrinthCharacter.html#pos-instance_method" title="Irrgarten::LabyrinthCharacter#pos (method)">#pos</a></span></p>
 <div id="constructor_details" class="method_details_list">
   <h2>Constructor Details</h2>
   
@@ -664,7 +823,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Constructor de la clase Player. Inicializa los atributos de la clase. La posición inicial del jugador es inválida</p>
+<p>Constructor de la clase <span class='object_link'><a href="" title="Irrgarten::Player (class)">Irrgarten::Player</a></span>. Inicializa los atributos de la clase. La posición inicial del jugador es inválida</p>
 
 
   </div>
@@ -767,7 +926,68 @@
       
       <span id=""></span>
       <div class="method_details first">
-  <h3 class="signature first" id="number-instance_method">
+  <h3 class="signature first" id="consecutive_hits-instance_method">
+  
+    #<strong>consecutive_hits</strong>  &#x21d2; <tt>int</tt>  <span class="extras">(readonly, protected)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Consultor de @consecutive_hits</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>int</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>número de golpes consecutivos recibidos</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+57
+58
+59</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'player.rb', line 57</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_consecutive_hits'>consecutive_hits</span>
+  <span class='ivar'>@consecutive_hits</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <div class="method_details ">
+  <h3 class="signature " id="number-instance_method">
   
     #<strong>number</strong>  &#x21d2; <tt>char</tt>  <span class="extras">(readonly)</span>
   
@@ -825,6 +1045,128 @@
 </table>
 </div>
     
+      
+      <span id=""></span>
+      <div class="method_details ">
+  <h3 class="signature " id="shields-instance_method">
+  
+    #<strong>shields</strong>  &#x21d2; <tt>Array&lt;<span class='object_link'><a href="Shield.html" title="Irrgarten::Shield (class)">Shield</a></span>&gt;</tt>  <span class="extras">(readonly, protected)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Consultor de @shields</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Array&lt;<span class='object_link'><a href="Shield.html" title="Irrgarten::Shield (class)">Shield</a></span>&gt;</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>array de escudos del jugador</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+53
+54
+55</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'player.rb', line 53</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_shields'>shields</span>
+  <span class='ivar'>@shields</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <div class="method_details ">
+  <h3 class="signature " id="weapons-instance_method">
+  
+    #<strong>weapons</strong>  &#x21d2; <tt>Array&lt;<span class='object_link'><a href="Weapon.html" title="Irrgarten::Weapon (class)">Weapon</a></span>&gt;</tt>  <span class="extras">(readonly, protected)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Consultor de @weapons</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Array&lt;<span class='object_link'><a href="Weapon.html" title="Irrgarten::Weapon (class)">Weapon</a></span>&gt;</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>array de armas del jugador</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+49
+50
+51</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'player.rb', line 49</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_weapons'>weapons</span>
+  <span class='ivar'>@weapons</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
   </div>
 
 
@@ -844,7 +1186,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Calcula la suma de la fuerza del jugador y la suma de lo aportado por sus armas (sum_weapons).</p>
+<p>Calcula la suma de la fuerza del jugador y la suma de lo aportado por sus armas (<span class='object_link'><a href="#sum_weapons-instance_method" title="Irrgarten::Player#sum_weapons (method)">#sum_weapons</a></span>).</p>
 
 
   </div>
@@ -980,7 +1322,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Este método delega su funcionalidad en el método manage_hit de Player</p>
+<p>Este método delega su funcionalidad en el método <span class='object_link'><a href="#manage_hit-instance_method" title="Irrgarten::Player#manage_hit (method)">#manage_hit</a></span></p>
 
 
   </div>
@@ -1000,7 +1342,7 @@
       
         &mdash;
         <div class='inline'>
-<p>ataque recibido</p>
+<p>Ataque recibido</p>
 </div>
       
     </li>
@@ -1019,7 +1361,7 @@
       
         &mdash;
         <div class='inline'>
-<p>devuelve true si ha muerto, y false en caso contraio</p>
+<p>devuelve <strong>true</strong> si ha muerto, y <strong>false</strong> en caso contraio</p>
 </div>
       
     </li>
@@ -1048,6 +1390,65 @@
 
 <span class='kw'>def</span> <span class='id identifier rubyid_defend'>defend</span><span class='lparen'>(</span><span class='id identifier rubyid_received_attack'>received_attack</span><span class='rparen'>)</span>
     <span class='kw'>return</span> <span class='id identifier rubyid_manage_hit'>manage_hit</span><span class='lparen'>(</span><span class='id identifier rubyid_received_attack'>received_attack</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="defensive_energy-instance_method">
+  
+    #<strong>defensive_energy</strong>  &#x21d2; <tt>float</tt>  <span class="extras">(protected)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Calcula la suma de la inteligencia con el aporte de los escudos (<span class='object_link'><a href="#sum_shields-instance_method" title="Irrgarten::Player#sum_shields (method)">#sum_shields</a></span>).</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>float</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>la energía defensiva</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+259
+260
+261</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'player.rb', line 259</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_defensive_energy'>defensive_energy</span>
+    <span class='kw'>return</span> <span class='ivar'>@intelligence</span> <span class='op'>+</span> <span class='id identifier rubyid_sum_shields'>sum_shields</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1107,9 +1508,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Método que gestiona la defensa de un ataque. En el caso de que el jugador haya recibido un número máximo de golpes consecutivos, determinado por @@HITS2LOSE, se considerará que ha perdido, al igual que si muere</p>
-
-<p>de ataques, y false en caso contrario</p>
+<p>Método que gestiona la defensa de un ataque. En el caso de que el jugador haya recibido un número máximo de golpes consecutivos, determinado por <span class='object_link'><a href="#HITS2LOSE-classvariable" title="Irrgarten::Player::@@HITS2LOSE (classvariable)">@@HITS2LOSE</a></span>, se considerará que ha perdido, al igual que si muere</p>
 
 
   </div>
@@ -1148,7 +1547,7 @@
       
         &mdash;
         <div class='inline'>
-<p>devuelve true si ha muerto o ha alcanzado el máximo número</p>
+<p>devuelve <strong>true</strong> si ha muerto o ha alcanzado el máximo número de ataques, y <strong>false</strong> en caso contrario</p>
 </div>
       
     </li>
@@ -1216,7 +1615,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Comprueba si la dirección pasada hacia la que se pretende desplazar el personaje es válida, devolviendola en caso de que lo sea o no se pueda mover hacia ninguna posición, es decir, valid_moves esté vacío. Si no está en valid_moves y dicho array no está vacío, se devuelve la primera dirección guardada en el array</p>
+<p>Comprueba si la dirección pasada hacia la que se pretende desplazar el personaje es válida, devolviendola en caso de que lo sea o no se pueda mover hacia ninguna posición, es decir, <strong>valid_moves</strong> esté vacío. Si no está en <strong>valid_moves</strong> y dicho array no está vacío, se devuelve la primera dirección guardada en el array</p>
 
 
   </div>
@@ -1236,7 +1635,7 @@
       
         &mdash;
         <div class='inline'>
-<p>dirección a la que se pretende desplazar el personaje</p>
+<p>Dirección a la que se pretende desplazar el jugador</p>
 </div>
       
     </li>
@@ -1246,13 +1645,13 @@
         <span class='name'>valid_moves</span>
       
       
-        <span class='type'>(<tt>Array::Directions</tt>)</span>
+        <span class='type'>(<tt>Array&lt;<span class='object_link'><a href="Directions.html" title="Irrgarten::Directions (module)">Directions</a></span>&gt;</tt>)</span>
       
       
       
         &mdash;
         <div class='inline'>
-<p>lista de direcciones válidas a las que se puede mover el jugador</p>
+<p>Lista de direcciones válidas a las que se puede mover el jugador</p>
 </div>
       
     </li>
@@ -1271,7 +1670,7 @@
       
         &mdash;
         <div class='inline'>
-<p>dirección a la que se quiere desplazar (tendremos que ver si es válida)</p>
+<p>Dirección a la que se quiere desplazar (tendremos que ver si es válida).</p>
 </div>
       
     </li>
@@ -1331,7 +1730,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Método que genera un nuevo escudo</p>
+<p>Método que genera un nuevo escudo.</p>
 
 
   </div>
@@ -1350,7 +1749,7 @@
       
         &mdash;
         <div class='inline'>
-<p>devuelve un nuevo objeto de tipo Shield. NO lo añade a la lista de escudos</p>
+<p>devuelve un nuevo objeto de tipo <span class='object_link'><a href="Shield.html" title="Irrgarten::Shield (class)">Shield</a></span>. NO lo añade a la lista de escudos</p>
 </div>
       
     </li>
@@ -1381,7 +1780,7 @@
       <div class="method_details ">
   <h3 class="signature " id="new_weapon-instance_method">
   
-    #<strong>new_weapon</strong>  &#x21d2; <tt>Weapom</tt>  <span class="extras">(private)</span>
+    #<strong>new_weapon</strong>  &#x21d2; <tt><span class='object_link'><a href="Weapon.html" title="Irrgarten::Weapon (class)">Weapon</a></span></tt>  <span class="extras">(private)</span>
   
 
   
@@ -1390,7 +1789,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Método que genera una nueva arma</p>
+<p>Método que genera una nueva arma.</p>
 
 
   </div>
@@ -1403,13 +1802,13 @@
     <li>
       
       
-        <span class='type'>(<tt>Weapom</tt>)</span>
+        <span class='type'>(<tt><span class='object_link'><a href="Weapon.html" title="Irrgarten::Weapon (class)">Weapon</a></span></tt>)</span>
       
       
       
         &mdash;
         <div class='inline'>
-<p>devuelve un nuevo objeto de tipo Weapon. NO lo añade a la lista de armas</p>
+<p>devuelve un nuevo objeto de tipo <span class='object_link'><a href="Weapon.html" title="Irrgarten::Weapon (class)">Weapon</a></span>. NO lo añade a la lista de armas</p>
 </div>
       
     </li>
@@ -1449,7 +1848,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Método que recompensa al jugador con armas, escudos y vida extra delegando para ello en métodos de Dice, como weapons_reward, shields_reward y health_reward</p>
+<p>Método que recompensa al jugador con armas, escudos y vida extra delegando para ello en métodos de <span class='object_link'><a href="Dice.html" title="Irrgarten::Dice (class)">Dice</a></span> que devuelven valores aleatorios.</p>
 
 
   </div>
@@ -1529,7 +1928,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Método que añade un nuevo escudo (si es posible) al array de escudos del jugador. Primero intenta eliminar algún escudo usando el método discard de Shield y luego si el número de escudos del jugador es menor estricto al numero de escudos máximos a llevar, se añade el nuevo escudo.</p>
+<p>Método que añade un nuevo escudo (si es posible) al array de escudos del jugador. Primero intenta eliminar algún escudo usando el método <span class='object_link'><a href="CombatElement.html#discard-instance_method" title="Irrgarten::CombatElement#discard (method)">CombatElement#discard</a></span> de <span class='object_link'><a href="Shield.html" title="Irrgarten::Shield (class)">Shield</a></span> y luego si el número de escudos del jugador es menor estricto al numero de escudos máximos a llevar, se añade el nuevo escudo.</p>
 
 
   </div>
@@ -1609,7 +2008,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Método que añade un nuevo arma (si es posible) al array de armas del jugador. Primero intenta eliminar algún arma usando el método discard de Weapon y luego si el numero de armas del jugador es menor estricto al numero de armas máximas a llevar, se añade el nuevo arma.</p>
+<p>Método que añade un nuevo arma (si es posible) al array de armas del jugador. Primero intenta eliminar algún arma usando el método <span class='object_link'><a href="CombatElement.html#discard-instance_method" title="Irrgarten::CombatElement#discard (method)">CombatElement#discard</a></span> de <span class='object_link'><a href="Weapon.html" title="Irrgarten::Weapon (class)">Weapon</a></span> y luego si el numero de armas del jugador es menor estricto al numero de armas máximas a llevar, se añade el nuevo arma.</p>
 
 
   </div>
@@ -1772,6 +2171,140 @@
 </div>
     
       <div class="method_details ">
+  <h3 class="signature " id="sum_shields-instance_method">
+  
+    #<strong>sum_shields</strong>  &#x21d2; <tt>float</tt>  <span class="extras">(protected)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Devuelve la suma del resultado de llamar al método protect de todos sus escudos.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>float</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>la apotación de los escudos a la defensa</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+248
+249
+250
+251
+252
+253
+254</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'player.rb', line 248</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_sum_shields'>sum_shields</span>
+    <span class='id identifier rubyid_sum'>sum</span> <span class='op'>=</span> <span class='int'>0</span>
+    <span class='ivar'>@shields</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_s'>s</span><span class='op'>|</span>
+        <span class='id identifier rubyid_sum'>sum</span> <span class='op'>+=</span> <span class='id identifier rubyid_s'>s</span><span class='period'>.</span><span class='id identifier rubyid_protect'>protect</span>
+    <span class='kw'>end</span>
+    <span class='kw'>return</span> <span class='id identifier rubyid_sum'>sum</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="sum_weapons-instance_method">
+  
+    #<strong>sum_weapons</strong>  &#x21d2; <tt>float</tt>  <span class="extras">(protected)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Devuelve la suma del resultado de llamar al método <span class='object_link'><a href="Weapon.html#attack-instance_method" title="Irrgarten::Weapon#attack (method)">Weapon#attack</a></span> de todas sus armas.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>float</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>la apotación de las armas al ataque</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+237
+238
+239
+240
+241
+242
+243</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'player.rb', line 237</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_sum_weapons'>sum_weapons</span>
+    <span class='id identifier rubyid_sum'>sum</span> <span class='op'>=</span> <span class='int'>0</span>
+    <span class='ivar'>@weapons</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_w'>w</span><span class='op'>|</span>
+        <span class='id identifier rubyid_sum'>sum</span> <span class='op'>+=</span> <span class='id identifier rubyid_w'>w</span><span class='period'>.</span><span class='id identifier rubyid_attack'>attack</span>
+    <span class='kw'>end</span>
+    <span class='kw'>return</span> <span class='id identifier rubyid_sum'>sum</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
   <h3 class="signature " id="to_s-instance_method">
   
     #<strong>to_s</strong>  &#x21d2; <tt>String</tt> 
@@ -1883,7 +2416,7 @@
 </div>
 
       <div id="footer">
-  Generated on Wed May  8 14:37:38 2024 by
+  Generated on Wed May  8 18:10:16 2024 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.36 (ruby-3.0.2).
 </div>

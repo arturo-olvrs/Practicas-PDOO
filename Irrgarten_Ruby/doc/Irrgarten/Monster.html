@@ -176,7 +176,7 @@
   <h2>Instance Attribute Summary</h2>
   
   <h3 class="inherited">Attributes inherited from <span class='object_link'><a href="LabyrinthCharacter.html" title="Irrgarten::LabyrinthCharacter (class)">LabyrinthCharacter</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="LabyrinthCharacter.html#col-instance_method" title="Irrgarten::LabyrinthCharacter#col (method)">#col</a></span>, <span class='object_link'><a href="LabyrinthCharacter.html#row-instance_method" title="Irrgarten::LabyrinthCharacter#row (method)">#row</a></span></p>
+  <p class="inherited"><span class='object_link'><a href="LabyrinthCharacter.html#col-instance_method" title="Irrgarten::LabyrinthCharacter#col (method)">#col</a></span>, <span class='object_link'><a href="LabyrinthCharacter.html#health-instance_method" title="Irrgarten::LabyrinthCharacter#health (method)">#health</a></span>, <span class='object_link'><a href="LabyrinthCharacter.html#intelligence-instance_method" title="Irrgarten::LabyrinthCharacter#intelligence (method)">#intelligence</a></span>, <span class='object_link'><a href="LabyrinthCharacter.html#name-instance_method" title="Irrgarten::LabyrinthCharacter#name (method)">#name</a></span>, <span class='object_link'><a href="LabyrinthCharacter.html#row-instance_method" title="Irrgarten::LabyrinthCharacter#row (method)">#row</a></span>, <span class='object_link'><a href="LabyrinthCharacter.html#strength-instance_method" title="Irrgarten::LabyrinthCharacter#strength (method)">#strength</a></span></p>
 
 
   
@@ -298,7 +298,7 @@
   
   
   <h3 class="inherited">Methods inherited from <span class='object_link'><a href="LabyrinthCharacter.html" title="Irrgarten::LabyrinthCharacter (class)">LabyrinthCharacter</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="LabyrinthCharacter.html#copy-instance_method" title="Irrgarten::LabyrinthCharacter#copy (method)">#copy</a></span>, <span class='object_link'><a href="LabyrinthCharacter.html#dead-instance_method" title="Irrgarten::LabyrinthCharacter#dead (method)">#dead</a></span>, <span class='object_link'><a href="LabyrinthCharacter.html#pos-instance_method" title="Irrgarten::LabyrinthCharacter#pos (method)">#pos</a></span></p>
+  <p class="inherited"><span class='object_link'><a href="LabyrinthCharacter.html#copy-instance_method" title="Irrgarten::LabyrinthCharacter#copy (method)">#copy</a></span>, <span class='object_link'><a href="LabyrinthCharacter.html#dead-instance_method" title="Irrgarten::LabyrinthCharacter#dead (method)">#dead</a></span>, <span class='object_link'><a href="LabyrinthCharacter.html#got_wounded-instance_method" title="Irrgarten::LabyrinthCharacter#got_wounded (method)">#got_wounded</a></span>, <span class='object_link'><a href="LabyrinthCharacter.html#pos-instance_method" title="Irrgarten::LabyrinthCharacter#pos (method)">#pos</a></span></p>
 <div id="constructor_details" class="method_details_list">
   <h2>Constructor Details</h2>
   
@@ -585,8 +585,6 @@
     
 <p>Método que genera una cadena de caracteres con la información del monstruo</p>
 
-<p>// TODO: Revisar los to_s</p>
-
 
   </div>
 </div>
@@ -617,13 +615,13 @@
       <pre class="lines">
 
 
+61
 62
 63
-64
-65</pre>
+64</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'monster.rb', line 62</span>
+      <pre class="code"><span class="info file"># File 'monster.rb', line 61</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_to_s'>to_s</span>
 
@@ -639,7 +637,7 @@
 </div>
 
       <div id="footer">
-  Generated on Wed May  8 14:37:38 2024 by
+  Generated on Wed May  8 18:10:16 2024 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.36 (ruby-3.0.2).
 </div>

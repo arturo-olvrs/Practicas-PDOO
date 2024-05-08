@@ -20,7 +20,7 @@ module Irrgarten
         @@INITIAL_HEALTH = 10   # Salud inicial de los jugadores
         @@HITS2LOSE = 3         # Número de golpes que puede recibir un jugador antes de morir
 
-        # Constructor de la clase Player. Inicializa los atributos de la clase.
+        # Constructor de la clase {Player}. Inicializa los atributos de la clase.
         # La posición inicial del jugador es inválida
         #
         # @param number [char] Número del jugador
@@ -45,11 +45,11 @@ module Irrgarten
 
         protected   # // TODO: Qué visibilidad tienen en Ruby??
         # Consultor de @weapons
-        # @return [Array::Weapon] array de armas del jugador
+        # @return [Array<Weapon>] array de armas del jugador
         attr_reader :weapons
 
         # Consultor de @shields
-        # @return [Array::Shield] array de escudos del jugador
+        # @return [Array<Shield>] array de escudos del jugador
         attr_reader :shields
 
         # Consultor de @consecutive_hits
@@ -83,13 +83,13 @@ module Irrgarten
 
         # Comprueba si la dirección pasada hacia la que se pretende desplazar el personaje
         # es válida, devolviendola en caso de que lo sea o no se pueda mover hacia ninguna posición, es decir,
-        # valid_moves esté vacío. Si no está en valid_moves y dicho array no está vacío, se devuelve la primera dirección
+        # **valid_moves** esté vacío. Si no está en **valid_moves** y dicho array no está vacío, se devuelve la primera dirección
         # guardada en el array
         #
-        # @param direction [Directions] dirección a la que se pretende desplazar el personaje
-        # @param valid_moves [Array::Directions] lista de direcciones válidas a las que se puede mover el jugador
+        # @param direction [Directions] Dirección a la que se pretende desplazar el jugador
+        # @param valid_moves [Array<Directions>] Lista de direcciones válidas a las que se puede mover el jugador
         #
-        # @return [Directions] dirección a la que se quiere desplazar (tendremos que ver si es válida)
+        # @return [Directions] Dirección a la que se quiere desplazar (tendremos que ver si es válida).
         def move(direction, valid_moves)
             size = valid_moves.length
 
@@ -104,25 +104,25 @@ module Irrgarten
             end
         end
 
-        # Calcula la suma de la fuerza del jugador y la suma de lo aportado por sus armas (sum_weapons).
+        # Calcula la suma de la fuerza del jugador y la suma de lo aportado por sus armas ({#sum_weapons}).
         #
         # @return [float] la intensidad del ataque
         def attack
             return @strength + self.sum_weapons # Self no es necesario
         end
 
-        # Este método delega su funcionalidad en el método manage_hit de Player
+        # Este método delega su funcionalidad en el método {#manage_hit}
         # @see Player#manage_hit
         #
-        # @param received_attack [float] ataque recibido
+        # @param received_attack [float] Ataque recibido
         #
-        # @return [boolean] devuelve true si ha muerto, y false en caso contraio
+        # @return [boolean] devuelve **true** si ha muerto, y **false** en caso contraio
         def defend(received_attack)
             return manage_hit(received_attack)
         end
 
         # Método que recompensa al jugador con armas, escudos y vida extra delegando
-        # para ello en métodos de Dice, como weapons_reward, shields_reward y health_reward
+        # para ello en métodos de {Dice} que devuelven valores aleatorios.
         # @see Dice#weapons_reward
         # @see Dice#shields_reward
         # @see Dice#health_reward
@@ -178,7 +178,7 @@ module Irrgarten
         private
 
         # Método que añade un nuevo arma (si es posible) al array de armas del jugador. Primero
-        # intenta eliminar algún arma usando el método discard de Weapon y luego si el numero
+        # intenta eliminar algún arma usando el método {Weapon#discard} de {Weapon} y luego si el numero
         # de armas del jugador es menor estricto al numero de armas máximas a llevar, se añade
         # el nuevo arma.
         # @see Weapon#discard
@@ -198,7 +198,7 @@ module Irrgarten
         end
 
         # Método que añade un nuevo escudo (si es posible) al array de escudos del jugador. Primero
-        # intenta eliminar algún escudo usando el método discard de Shield y luego si el número
+        # intenta eliminar algún escudo usando el método {Shield#discard} de {Shield} y luego si el número
         # de escudos del jugador es menor estricto al numero de escudos máximos a llevar, se añade
         # el nuevo escudo.
         # @see Shield#discard
@@ -214,16 +214,16 @@ module Irrgarten
             end
         end
 
-        # Método que genera una nueva arma
+        # Método que genera una nueva arma.
         #
-        # @return [Weapom] devuelve un nuevo objeto de tipo Weapon. NO lo añade a la lista de armas
+        # @return [Weapon] devuelve un nuevo objeto de tipo {Weapon}. NO lo añade a la lista de armas
         def new_weapon
             return Weapon.new(Dice.weapon_power, Dice.uses_left)
         end
 
-        # Método que genera un nuevo escudo
+        # Método que genera un nuevo escudo.
         #
-        # @return [Shield] devuelve un nuevo objeto de tipo Shield. NO lo añade a la lista de escudos
+        # @return [Shield] devuelve un nuevo objeto de tipo {Shield}. NO lo añade a la lista de escudos
         def new_shield
             return Shield.new(Dice.shield_power, Dice.uses_left)
         end
@@ -231,7 +231,7 @@ module Irrgarten
         # // TODO: Protected en ruby es igual que en Java??
 
         protected
-        # Devuelve la suma del resultado de llamar al método attack de todas sus armas.
+        # Devuelve la suma del resultado de llamar al método {Weapon#attack} de todas sus armas.
         #
         # @return [float] la apotación de las armas al ataque
         def sum_weapons
@@ -253,7 +253,7 @@ module Irrgarten
             return sum
         end
 
-        # Calcula la suma de la inteligencia con el aporte de los escudos (sum_shields).
+        # Calcula la suma de la inteligencia con el aporte de los escudos ({#sum_shields}).
         #
         # @return [float] la energía defensiva
         def defensive_energy
@@ -263,12 +263,12 @@ module Irrgarten
 
         # Método que gestiona la defensa de un ataque. En el caso de que el jugador
         # haya recibido un número máximo de golpes consecutivos, determinado por
-        # @@HITS2LOSE, se considerará que ha perdido, al igual que si muere
+        # {@@HITS2LOSE}, se considerará que ha perdido, al igual que si muere
         #
         # @param received_attack [float] ataque a defender
         #
-        # @return [boolean] devuelve true si ha muerto o ha alcanzado el máximo número
-        # de ataques, y false en caso contrario
+        # @return [boolean] devuelve **true** si ha muerto o ha alcanzado el máximo número
+        #   de ataques, y **false** en caso contrario
         def manage_hit(received_attack)
             defense=self.defensive_energy
             if(defense<received_attack)

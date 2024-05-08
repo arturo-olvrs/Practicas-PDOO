@@ -213,6 +213,30 @@
 </li>
 
       
+        <li class="protected ">
+  <span class="summary_signature">
+    
+      <a href="#produce_effect-instance_method" title="#produce_effect (instance method)">#<strong>produce_effect</strong>  &#x21d2; float </a>
+    
+
+    
+  </span>
+  
+  
+  
+  <span class="note title protected">protected</span>
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Método que produce el efecto del elemento de combate y decrementa el número de usos en uno.</p>
+</div></span>
+  
+</li>
+
+      
         <li class="public ">
   <span class="summary_signature">
     
@@ -396,6 +420,75 @@
 </div>
     
       <div class="method_details ">
+  <h3 class="signature " id="produce_effect-instance_method">
+  
+    #<strong>produce_effect</strong>  &#x21d2; <tt>float</tt>  <span class="extras">(protected)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Método que produce el efecto del elemento de combate y decrementa el número de usos en uno.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>float</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Si tiene algún uso disponible devuelve el uso del elemento. En caso contrario (<strong>uses</strong>==<strong>0</strong>) devuelve 0.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+29
+30
+31
+32
+33
+34
+35
+36</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'combat_element.rb', line 29</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_produce_effect'>produce_effect</span>
+    <span class='kw'>if</span> <span class='ivar'>@uses</span> <span class='op'>&gt;</span> <span class='int'>0</span>
+        <span class='ivar'>@uses</span> <span class='op'>-=</span> <span class='int'>1</span>
+        <span class='kw'>return</span> <span class='ivar'>@effect</span>
+    <span class='kw'>else</span>
+        <span class='kw'>return</span> <span class='float'>0.0</span>
+    <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
   <h3 class="signature " id="to_s-instance_method">
   
     #<strong>to_s</strong>  &#x21d2; <tt>String</tt> 
@@ -459,7 +552,7 @@
 </div>
 
       <div id="footer">
-  Generated on Wed May  8 14:37:37 2024 by
+  Generated on Wed May  8 18:10:14 2024 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.36 (ruby-3.0.2).
 </div>

@@ -25,7 +25,7 @@ module Irrgarten
         protected
         # Método que produce el efecto del elemento de combate y decrementa el número de usos en uno.
         #
-        # @return [float] Si tiene algún uso disponible devuelve el uso del elemento. En caso contrario (uses=0) devuelve 0
+        # @return [float] Si tiene algún uso disponible devuelve el uso del elemento. En caso contrario (**uses**==**0**) devuelve 0.
         def produce_effect
             if @uses > 0
                 @uses -= 1

@@ -12,7 +12,7 @@ module Irrgarten
     # @author Arturo Olivares Martos
     class FuzzyPlayer < Player
 
-        # Constructor de la clase FuzzyPlayer.
+        # Constructor de la clase {FuzzyPlayer}.
         def initialize(other_player)
             copy(other_player)
         end
@@ -24,16 +24,16 @@ module Irrgarten
         # @see Dice#nextStep
         # @see Player#move
         #
-        # @param direction [Directions] dirección a la que se pretende desplazar el personaje
-        # @param valid_moves [Array::Directions] lista de direcciones válidas a las que se puede mover el jugador
+        # @param direction [Directions] Dirección a la que se pretende desplazar el personaje
+        # @param valid_moves [Array<Directions>] Lista de direcciones válidas a las que se puede mover el jugador
         #
-        # @return [Directions] dirección a la que se quiere desplazar el FuzzyPlayer (tendremos que ver si es válida)
+        # @return [Directions] Dirección a la que se quiere desplazar el {FuzzyPlayer} (tendremos que ver si es válida)
         def move(direction, valid_moves)
 
             Dice.nextStep(super, valid_moves, intelligence)
         end
 
-        # Calcula la la suma de lo aportado por sus armas (sum_weapons) y
+        # Calcula la la suma de lo aportado por sus armas ({#sum_weapons}) y
         # de un valor aleatorio menor que su fuerza (por ser Fuzzy)
         #
         # @return [float] la intensidad del ataque
@@ -50,10 +50,10 @@ module Irrgarten
         end
 
         protected
-        # Calcula la suma del aporte de los escudos (sum_shields) y
+        # Calcula la suma del aporte de los escudos ({#sum_shields}) y
         # de un valor aleatorio menor que su inteligencia (por ser Fuzzy)
         #
-        # @return [float] la energía defensiva
+        # @return [float] La energía defensiva
         def defensive_energy
             return self.sum_shields + Dice.intensity(@intelligence)
         end

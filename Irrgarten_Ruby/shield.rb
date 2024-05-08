@@ -16,7 +16,7 @@ module Irrgarten
         #
         # @see CombatElement#produce_effect
         #
-        # @return [float] Si tiene algún uso disponible devuelve la protección del escudo. En caso contrario (uses=0) devuelve 0
+        # @return [float] Si tiene algún uso disponible devuelve la protección del escudo. En caso contrario (**uses**==**0**) devuelve 0
         def protect
             produce_effect
         end

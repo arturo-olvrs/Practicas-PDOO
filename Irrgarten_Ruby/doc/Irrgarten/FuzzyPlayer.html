@@ -151,12 +151,12 @@
   <h2>Instance Attribute Summary</h2>
   
   <h3 class="inherited">Attributes inherited from <span class='object_link'><a href="Player.html" title="Irrgarten::Player (class)">Player</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="Player.html#number-instance_method" title="Irrgarten::Player#number (method)">#number</a></span></p>
+  <p class="inherited"><span class='object_link'><a href="Player.html#consecutive_hits-instance_method" title="Irrgarten::Player#consecutive_hits (method)">#consecutive_hits</a></span>, <span class='object_link'><a href="Player.html#number-instance_method" title="Irrgarten::Player#number (method)">#number</a></span>, <span class='object_link'><a href="Player.html#shields-instance_method" title="Irrgarten::Player#shields (method)">#shields</a></span>, <span class='object_link'><a href="Player.html#weapons-instance_method" title="Irrgarten::Player#weapons (method)">#weapons</a></span></p>
 
   
   
   <h3 class="inherited">Attributes inherited from <span class='object_link'><a href="LabyrinthCharacter.html" title="Irrgarten::LabyrinthCharacter (class)">LabyrinthCharacter</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="LabyrinthCharacter.html#col-instance_method" title="Irrgarten::LabyrinthCharacter#col (method)">#col</a></span>, <span class='object_link'><a href="LabyrinthCharacter.html#row-instance_method" title="Irrgarten::LabyrinthCharacter#row (method)">#row</a></span></p>
+  <p class="inherited"><span class='object_link'><a href="LabyrinthCharacter.html#col-instance_method" title="Irrgarten::LabyrinthCharacter#col (method)">#col</a></span>, <span class='object_link'><a href="LabyrinthCharacter.html#health-instance_method" title="Irrgarten::LabyrinthCharacter#health (method)">#health</a></span>, <span class='object_link'><a href="LabyrinthCharacter.html#intelligence-instance_method" title="Irrgarten::LabyrinthCharacter#intelligence (method)">#intelligence</a></span>, <span class='object_link'><a href="LabyrinthCharacter.html#name-instance_method" title="Irrgarten::LabyrinthCharacter#name (method)">#name</a></span>, <span class='object_link'><a href="LabyrinthCharacter.html#row-instance_method" title="Irrgarten::LabyrinthCharacter#row (method)">#row</a></span>, <span class='object_link'><a href="LabyrinthCharacter.html#strength-instance_method" title="Irrgarten::LabyrinthCharacter#strength (method)">#strength</a></span></p>
 
 
   
@@ -185,7 +185,31 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Calcula la la suma de lo aportado por sus armas (sum_weapons) y de un valor aleatorio menor que su fuerza (por ser Fuzzy).</p>
+<p>Calcula la la suma de lo aportado por sus armas (<span class='object_link'><a href="Player.html#sum_weapons-instance_method" title="Irrgarten::Player#sum_weapons (method)">Player#sum_weapons</a></span>) y de un valor aleatorio menor que su fuerza (por ser Fuzzy).</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="protected ">
+  <span class="summary_signature">
+    
+      <a href="#defensive_energy-instance_method" title="#defensive_energy (instance method)">#<strong>defensive_energy</strong>  &#x21d2; float </a>
+    
+
+    
+  </span>
+  
+  
+  
+  <span class="note title protected">protected</span>
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Calcula la suma del aporte de los escudos (<span class='object_link'><a href="Player.html#sum_shields-instance_method" title="Irrgarten::Player#sum_shields (method)">Player#sum_shields</a></span>) y de un valor aleatorio menor que su inteligencia (por ser Fuzzy).</p>
 </div></span>
   
 </li>
@@ -211,7 +235,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Constructor de la clase FuzzyPlayer.</p>
+<p>Constructor de la clase <span class='object_link'><a href="" title="Irrgarten::FuzzyPlayer (class)">FuzzyPlayer</a></span>.</p>
 </div></span>
   
 </li>
@@ -278,7 +302,7 @@
   
   
   <h3 class="inherited">Methods inherited from <span class='object_link'><a href="Player.html" title="Irrgarten::Player (class)">Player</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="Player.html#copy-instance_method" title="Irrgarten::Player#copy (method)">#copy</a></span>, <span class='object_link'><a href="Player.html#defend-instance_method" title="Irrgarten::Player#defend (method)">#defend</a></span>, <span class='object_link'><a href="Player.html#inc_consecutive_hits-instance_method" title="Irrgarten::Player#inc_consecutive_hits (method)">#inc_consecutive_hits</a></span>, <span class='object_link'><a href="Player.html#manage_hit-instance_method" title="Irrgarten::Player#manage_hit (method)">#manage_hit</a></span>, <span class='object_link'><a href="Player.html#new_shield-instance_method" title="Irrgarten::Player#new_shield (method)">#new_shield</a></span>, <span class='object_link'><a href="Player.html#new_weapon-instance_method" title="Irrgarten::Player#new_weapon (method)">#new_weapon</a></span>, <span class='object_link'><a href="Player.html#receive_reward-instance_method" title="Irrgarten::Player#receive_reward (method)">#receive_reward</a></span>, <span class='object_link'><a href="Player.html#receive_shield-instance_method" title="Irrgarten::Player#receive_shield (method)">#receive_shield</a></span>, <span class='object_link'><a href="Player.html#receive_weapon-instance_method" title="Irrgarten::Player#receive_weapon (method)">#receive_weapon</a></span>, <span class='object_link'><a href="Player.html#reset_hits-instance_method" title="Irrgarten::Player#reset_hits (method)">#reset_hits</a></span>, <span class='object_link'><a href="Player.html#resurrect-instance_method" title="Irrgarten::Player#resurrect (method)">#resurrect</a></span></p>
+  <p class="inherited"><span class='object_link'><a href="Player.html#copy-instance_method" title="Irrgarten::Player#copy (method)">#copy</a></span>, <span class='object_link'><a href="Player.html#defend-instance_method" title="Irrgarten::Player#defend (method)">#defend</a></span>, <span class='object_link'><a href="Player.html#inc_consecutive_hits-instance_method" title="Irrgarten::Player#inc_consecutive_hits (method)">#inc_consecutive_hits</a></span>, <span class='object_link'><a href="Player.html#manage_hit-instance_method" title="Irrgarten::Player#manage_hit (method)">#manage_hit</a></span>, <span class='object_link'><a href="Player.html#new_shield-instance_method" title="Irrgarten::Player#new_shield (method)">#new_shield</a></span>, <span class='object_link'><a href="Player.html#new_weapon-instance_method" title="Irrgarten::Player#new_weapon (method)">#new_weapon</a></span>, <span class='object_link'><a href="Player.html#receive_reward-instance_method" title="Irrgarten::Player#receive_reward (method)">#receive_reward</a></span>, <span class='object_link'><a href="Player.html#receive_shield-instance_method" title="Irrgarten::Player#receive_shield (method)">#receive_shield</a></span>, <span class='object_link'><a href="Player.html#receive_weapon-instance_method" title="Irrgarten::Player#receive_weapon (method)">#receive_weapon</a></span>, <span class='object_link'><a href="Player.html#reset_hits-instance_method" title="Irrgarten::Player#reset_hits (method)">#reset_hits</a></span>, <span class='object_link'><a href="Player.html#resurrect-instance_method" title="Irrgarten::Player#resurrect (method)">#resurrect</a></span>, <span class='object_link'><a href="Player.html#sum_shields-instance_method" title="Irrgarten::Player#sum_shields (method)">#sum_shields</a></span>, <span class='object_link'><a href="Player.html#sum_weapons-instance_method" title="Irrgarten::Player#sum_weapons (method)">#sum_weapons</a></span></p>
 
   
   
@@ -289,7 +313,7 @@
   
   
   <h3 class="inherited">Methods inherited from <span class='object_link'><a href="LabyrinthCharacter.html" title="Irrgarten::LabyrinthCharacter (class)">LabyrinthCharacter</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="LabyrinthCharacter.html#copy-instance_method" title="Irrgarten::LabyrinthCharacter#copy (method)">#copy</a></span>, <span class='object_link'><a href="LabyrinthCharacter.html#dead-instance_method" title="Irrgarten::LabyrinthCharacter#dead (method)">#dead</a></span>, <span class='object_link'><a href="LabyrinthCharacter.html#defend-instance_method" title="Irrgarten::LabyrinthCharacter#defend (method)">#defend</a></span>, <span class='object_link'><a href="LabyrinthCharacter.html#pos-instance_method" title="Irrgarten::LabyrinthCharacter#pos (method)">#pos</a></span></p>
+  <p class="inherited"><span class='object_link'><a href="LabyrinthCharacter.html#copy-instance_method" title="Irrgarten::LabyrinthCharacter#copy (method)">#copy</a></span>, <span class='object_link'><a href="LabyrinthCharacter.html#dead-instance_method" title="Irrgarten::LabyrinthCharacter#dead (method)">#dead</a></span>, <span class='object_link'><a href="LabyrinthCharacter.html#defend-instance_method" title="Irrgarten::LabyrinthCharacter#defend (method)">#defend</a></span>, <span class='object_link'><a href="LabyrinthCharacter.html#got_wounded-instance_method" title="Irrgarten::LabyrinthCharacter#got_wounded (method)">#got_wounded</a></span>, <span class='object_link'><a href="LabyrinthCharacter.html#pos-instance_method" title="Irrgarten::LabyrinthCharacter#pos (method)">#pos</a></span></p>
 <div id="constructor_details" class="method_details_list">
   <h2>Constructor Details</h2>
   
@@ -305,7 +329,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Constructor de la clase FuzzyPlayer.</p>
+<p>Constructor de la clase <span class='object_link'><a href="" title="Irrgarten::FuzzyPlayer (class)">Irrgarten::FuzzyPlayer</a></span>.</p>
 
 
   </div>
@@ -353,7 +377,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Calcula la la suma de lo aportado por sus armas (sum_weapons) y de un valor aleatorio menor que su fuerza (por ser Fuzzy)</p>
+<p>Calcula la la suma de lo aportado por sus armas (<span class='object_link'><a href="Player.html#sum_weapons-instance_method" title="Irrgarten::Player#sum_weapons (method)">Player#sum_weapons</a></span>) y de un valor aleatorio menor que su fuerza (por ser Fuzzy)</p>
 
 
   </div>
@@ -401,6 +425,65 @@
 </div>
     
       <div class="method_details ">
+  <h3 class="signature " id="defensive_energy-instance_method">
+  
+    #<strong>defensive_energy</strong>  &#x21d2; <tt>float</tt>  <span class="extras">(protected)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Calcula la suma del aporte de los escudos (<span class='object_link'><a href="Player.html#sum_shields-instance_method" title="Irrgarten::Player#sum_shields (method)">Player#sum_shields</a></span>) y de un valor aleatorio menor que su inteligencia (por ser Fuzzy)</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>float</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>La energía defensiva</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+57
+58
+59</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'fuzzy_player.rb', line 57</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_defensive_energy'>defensive_energy</span>
+    <span class='kw'>return</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_sum_shields'>sum_shields</span> <span class='op'>+</span> <span class='const'><span class='object_link'><a href="Dice.html" title="Irrgarten::Dice (class)">Dice</a></span></span><span class='period'>.</span><span class='id identifier rubyid_intensity'><span class='object_link'><a href="Dice.html#intensity-class_method" title="Irrgarten::Dice.intensity (method)">intensity</a></span></span><span class='lparen'>(</span><span class='ivar'>@intelligence</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
   <h3 class="signature " id="move-instance_method">
   
     #<strong>move</strong>(direction, valid_moves)  &#x21d2; <tt><span class='object_link'><a href="Directions.html" title="Irrgarten::Directions (module)">Directions</a></span></tt> 
@@ -432,7 +515,7 @@
       
         &mdash;
         <div class='inline'>
-<p>dirección a la que se pretende desplazar el personaje</p>
+<p>Dirección a la que se pretende desplazar el personaje</p>
 </div>
       
     </li>
@@ -442,13 +525,13 @@
         <span class='name'>valid_moves</span>
       
       
-        <span class='type'>(<tt>Array::Directions</tt>)</span>
+        <span class='type'>(<tt>Array&lt;<span class='object_link'><a href="Directions.html" title="Irrgarten::Directions (module)">Directions</a></span>&gt;</tt>)</span>
       
       
       
         &mdash;
         <div class='inline'>
-<p>lista de direcciones válidas a las que se puede mover el jugador</p>
+<p>Lista de direcciones válidas a las que se puede mover el jugador</p>
 </div>
       
     </li>
@@ -467,7 +550,7 @@
       
         &mdash;
         <div class='inline'>
-<p>dirección a la que se quiere desplazar el FuzzyPlayer (tendremos que ver si es válida)</p>
+<p>Dirección a la que se quiere desplazar el <span class='object_link'><a href="" title="Irrgarten::FuzzyPlayer (class)">Irrgarten::FuzzyPlayer</a></span> (tendremos que ver si es válida)</p>
 </div>
       
     </li>
@@ -570,7 +653,7 @@
 </div>
 
       <div id="footer">
-  Generated on Wed May  8 14:37:37 2024 by
+  Generated on Wed May  8 18:10:15 2024 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.36 (ruby-3.0.2).
 </div>

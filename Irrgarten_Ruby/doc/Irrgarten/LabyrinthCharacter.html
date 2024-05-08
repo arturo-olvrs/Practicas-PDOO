@@ -211,6 +211,91 @@
 </li>
 
     
+      <li class="protected ">
+  <span class="summary_signature">
+    
+      <a href="#health-instance_method" title="#health (instance method)">#<strong>health</strong>  &#x21d2; float </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  <span class="note title protected">protected</span>
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Consultor y modificador de @health.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="protected ">
+  <span class="summary_signature">
+    
+      <a href="#intelligence-instance_method" title="#intelligence (instance method)">#<strong>intelligence</strong>  &#x21d2; float </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  <span class="note title protected">protected</span>
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Consultor de @intelligence.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="protected ">
+  <span class="summary_signature">
+    
+      <a href="#name-instance_method" title="#name (instance method)">#<strong>name</strong>  &#x21d2; String </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  <span class="note title protected">protected</span>
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Consultor de @name.</p>
+</div></span>
+  
+</li>
+
+    
       <li class="public ">
   <span class="summary_signature">
     
@@ -235,6 +320,35 @@
   
     <span class="summary_desc"><div class='inline'>
 <p>Consultor de @row.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="protected ">
+  <span class="summary_signature">
+    
+      <a href="#strength-instance_method" title="#strength (instance method)">#<strong>strength</strong>  &#x21d2; float </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  <span class="note title protected">protected</span>
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Consultor de @strength.</p>
 </div></span>
   
 </li>
@@ -344,6 +458,30 @@
   
     <span class="summary_desc"><div class='inline'>
 <p>Método que defiende al personaje.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="protected ">
+  <span class="summary_signature">
+    
+      <a href="#got_wounded-instance_method" title="#got_wounded (instance method)">#<strong>got_wounded</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  <span class="note title protected">protected</span>
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Este método decrementa en una unidad el atributo que representa la salud del personaje.</p>
 </div></span>
   
 </li>
@@ -617,6 +755,189 @@
 </div>
     
       
+      <span id="health=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="health-instance_method">
+  
+    #<strong>health</strong>  &#x21d2; <tt>float</tt>  <span class="extras">(protected)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Consultor y modificador de @health</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>float</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>salud del personaje</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+50
+51
+52</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'labyrinth_character.rb', line 50</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_health'>health</span>
+  <span class='ivar'>@health</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <div class="method_details ">
+  <h3 class="signature " id="intelligence-instance_method">
+  
+    #<strong>intelligence</strong>  &#x21d2; <tt>float</tt>  <span class="extras">(readonly, protected)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Consultor de @intelligence</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>float</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>inteligencia del personaje</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+42
+43
+44</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'labyrinth_character.rb', line 42</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_intelligence'>intelligence</span>
+  <span class='ivar'>@intelligence</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <div class="method_details ">
+  <h3 class="signature " id="name-instance_method">
+  
+    #<strong>name</strong>  &#x21d2; <tt>String</tt>  <span class="extras">(readonly, protected)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Consultor de @name</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>nombre del personaje</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+38
+39
+40</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'labyrinth_character.rb', line 38</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_name'>name</span>
+  <span class='ivar'>@name</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
       <span id=""></span>
       <div class="method_details ">
   <h3 class="signature " id="row-instance_method">
@@ -671,6 +992,67 @@
 
 <span class='kw'>def</span> <span class='id identifier rubyid_row'>row</span>
   <span class='ivar'>@row</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <div class="method_details ">
+  <h3 class="signature " id="strength-instance_method">
+  
+    #<strong>strength</strong>  &#x21d2; <tt>float</tt>  <span class="extras">(readonly, protected)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Consultor de @strength</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>float</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>fuerza del personaje</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+46
+47
+48</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'labyrinth_character.rb', line 46</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_strength'>strength</span>
+  <span class='ivar'>@strength</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -953,6 +1335,47 @@
 </div>
     
       <div class="method_details ">
+  <h3 class="signature " id="got_wounded-instance_method">
+  
+    #<strong>got_wounded</strong>  &#x21d2; <tt>Object</tt>  <span class="extras">(protected)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Este método decrementa en una unidad el atributo que representa la salud del personaje.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+94
+95
+96</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'labyrinth_character.rb', line 94</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_got_wounded'>got_wounded</span>
+    <span class='ivar'>@health</span> <span class='op'>-=</span> <span class='int'>1</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
   <h3 class="signature " id="pos-instance_method">
   
     #<strong>pos</strong>(row, col)  &#x21d2; <tt>Object</tt> 
@@ -1107,7 +1530,7 @@
 </div>
 
       <div id="footer">
-  Generated on Wed May  8 14:37:37 2024 by
+  Generated on Wed May  8 18:10:15 2024 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.36 (ruby-3.0.2).
 </div>

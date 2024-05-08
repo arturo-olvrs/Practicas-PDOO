@@ -334,7 +334,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Si la posición suministrada está dentro del tablero y está vacía, anota en el laberinto la presencia de un monstruo, guarda la referencia del monstruo en el atributo contenedor adecuado e indica al monstruo cual es su posición actual (Monster#pos).</p>
+<p>Si la posición suministrada está dentro del tablero y está vacía, anota en el laberinto la presencia de un monstruo, guarda la referencia del monstruo en el atributo contenedor adecuado e indica al monstruo cual es su posición actual (<span class='object_link'><a href="LabyrinthCharacter.html#pos-instance_method" title="Irrgarten::LabyrinthCharacter#pos (method)">Irrgarten::LabyrinthCharacter#pos</a></span>).</p>
 </div></span>
   
 </li>
@@ -528,7 +528,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Constructor de la clase Labyrinth.</p>
+<p>Constructor de la clase <span class='object_link'><a href="" title="Irrgarten::Labyrinth (class)">Labyrinth</a></span>.</p>
 </div></span>
   
 </li>
@@ -585,7 +585,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#put_player-instance_method" title="#put_player (instance method)">#<strong>put_player</strong>(direction, player)  &#x21d2; Monster </a>
+      <a href="#put_player-instance_method" title="#put_player (instance method)">#<strong>put_player</strong>(direction, player)  &#x21d2; Monster<sup>?</sup> </a>
     
 
     
@@ -600,7 +600,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Método que calcula la nueva posición a la que se desplazará el jugador, y después delega su ejecución en el método put_player2D para actualizar la posición del jugador y devolver el posible monstruo al que se enfrentará el jugador (puede ser que no haya combate y por tanto no hay monstruo) nueva casilla hay un monstruo.</p>
+<p>Método que calcula la nueva posición a la que se desplazará el jugador, y después delega su ejecución en el método <span class='object_link'><a href="#put_player2D-instance_method" title="Irrgarten::Labyrinth#put_player2D (method)">#put_player2D</a></span> para actualizar la posición del jugador y devolver el posible monstruo al que se enfrentará el jugador (puede ser que no haya combate y por tanto no hay monstruo).</p>
 </div></span>
   
 </li>
@@ -609,7 +609,7 @@
         <li class="private ">
   <span class="summary_signature">
     
-      <a href="#put_player2D-instance_method" title="#put_player2D (instance method)">#<strong>put_player2D</strong>(old_row, old_col, row, col, player)  &#x21d2; Monster </a>
+      <a href="#put_player2D-instance_method" title="#put_player2D (instance method)">#<strong>put_player2D</strong>(old_row, old_col, row, col, player)  &#x21d2; Monster<sup>?</sup> </a>
     
 
     
@@ -681,7 +681,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#to_s-instance_method" title="#to_s (instance method)">#<strong>to_s</strong>  &#x21d2; string </a>
+      <a href="#to_s-instance_method" title="#to_s (instance method)">#<strong>to_s</strong>  &#x21d2; String </a>
     
 
     
@@ -768,7 +768,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Constructor de la clase Labyrinth. Inicializa los atributos de la clase.</p>
+<p>Constructor de la clase <span class='object_link'><a href="" title="Irrgarten::Labyrinth (class)">Irrgarten::Labyrinth</a></span>. Inicializa los atributos de la clase.</p>
 
 
   </div>
@@ -902,7 +902,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Método que coloca en el laberinto una serie de bloques. Destacar que en el caso de que se encuentre una casilla que no este vacía (mirar método empty_pos) se dejará de colocar bloques, aunque la siguiente casilla si este vacía</p>
+<p>Método que coloca en el laberinto una serie de bloques. Destacar que en el caso de que se encuentre una casilla que no este vacía (<span class='object_link'><a href="#empty_pos-instance_method" title="Irrgarten::Labyrinth#empty_pos (method)">#empty_pos</a></span>) se dejará de colocar bloques, aunque la siguiente casilla si este vacía.</p>
 
 
   </div>
@@ -978,15 +978,19 @@
 </ul>
 
 
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><span class='object_link'><a href="#empty_pos-instance_method" title="Irrgarten::Labyrinth#empty_pos (method)">#empty_pos</a></span></li>
+    
+  </ul>
+
 </div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-144
-145
-146
 147
 148
 149
@@ -1002,10 +1006,13 @@
 159
 160
 161
-162</pre>
+162
+163
+164
+165</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'labyrinth.rb', line 144</span>
+      <pre class="code"><span class="info file"># File 'labyrinth.rb', line 147</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_add_block'>add_block</span><span class='lparen'>(</span><span class='id identifier rubyid_orientation'>orientation</span><span class='comma'>,</span> <span class='id identifier rubyid_start_row'>start_row</span><span class='comma'>,</span> <span class='id identifier rubyid_start_col'>start_col</span><span class='comma'>,</span> <span class='id identifier rubyid_length'>length</span><span class='rparen'>)</span>
     <span class='kw'>if</span><span class='lparen'>(</span><span class='id identifier rubyid_orientation'>orientation</span><span class='op'>==</span><span class='const'>Orientation</span><span class='op'>::</span><span class='const'>VERTICAL</span><span class='rparen'>)</span>
@@ -1043,7 +1050,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Si la posición suministrada está dentro del tablero y está vacía, anota en el laberinto la presencia de un monstruo, guarda la referencia del monstruo en el atributo contenedor adecuado e indica al monstruo cual es su posición actual (Monster#pos).</p>
+<p>Si la posición suministrada está dentro del tablero y está vacía, anota en el laberinto la presencia de un monstruo, guarda la referencia del monstruo en el atributo contenedor adecuado e indica al monstruo cual es su posición actual (<span class='object_link'><a href="LabyrinthCharacter.html#pos-instance_method" title="Irrgarten::LabyrinthCharacter#pos (method)">Irrgarten::LabyrinthCharacter#pos</a></span>).</p>
 
 <p>Si la posición no está vacía, no hace nada.</p>
 
@@ -1067,7 +1074,7 @@
       
         &mdash;
         <div class='inline'>
-<p>fila de la posición</p>
+<p>Fila de la posición</p>
 </div>
       
     </li>
@@ -1083,7 +1090,7 @@
       
         &mdash;
         <div class='inline'>
-<p>columna de la posición</p>
+<p>Columna de la posición</p>
 </div>
       
     </li>
@@ -1099,7 +1106,7 @@
       
         &mdash;
         <div class='inline'>
-<p>monstruo que se añade al laberinto</p>
+<p>Monstruo que se añade al laberinto</p>
 </div>
       
     </li>
@@ -1216,12 +1223,12 @@
       <pre class="lines">
 
 
-259
-260
-261</pre>
+263
+264
+265</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'labyrinth.rb', line 259</span>
+      <pre class="code"><span class="info file"># File 'labyrinth.rb', line 263</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_can_step_on'>can_step_on</span><span class='lparen'>(</span><span class='id identifier rubyid_row'>row</span><span class='comma'>,</span> <span class='id identifier rubyid_col'>col</span><span class='rparen'>)</span>
     <span class='kw'>return</span> <span class='id identifier rubyid_pos_ok'>pos_ok</span><span class='lparen'>(</span><span class='id identifier rubyid_row'>row</span><span class='comma'>,</span> <span class='id identifier rubyid_col'>col</span><span class='rparen'>)</span> <span class='op'>&amp;&amp;</span> <span class='lparen'>(</span><span class='id identifier rubyid_empty_pos'>empty_pos</span><span class='lparen'>(</span><span class='id identifier rubyid_row'>row</span><span class='comma'>,</span> <span class='id identifier rubyid_col'>col</span><span class='rparen'>)</span> <span class='op'>||</span> <span class='id identifier rubyid_monster_pos'>monster_pos</span><span class='lparen'>(</span><span class='id identifier rubyid_row'>row</span><span class='comma'>,</span> <span class='id identifier rubyid_col'>col</span><span class='rparen'>)</span> <span class='op'>||</span> <span class='id identifier rubyid_exit_pos'>exit_pos</span><span class='lparen'>(</span><span class='id identifier rubyid_row'>row</span><span class='comma'>,</span> <span class='id identifier rubyid_col'>col</span><span class='rparen'>)</span><span class='rparen'>)</span>
@@ -1311,12 +1318,12 @@
       <pre class="lines">
 
 
-249
-250
-251</pre>
+252
+253
+254</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'labyrinth.rb', line 249</span>
+      <pre class="code"><span class="info file"># File 'labyrinth.rb', line 252</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_combat_pos'>combat_pos</span><span class='lparen'>(</span><span class='id identifier rubyid_row'>row</span><span class='comma'>,</span> <span class='id identifier rubyid_col'>col</span><span class='rparen'>)</span>
     <span class='kw'>return</span> <span class='lparen'>(</span><span class='ivar'>@labyrinth</span><span class='lbracket'>[</span><span class='id identifier rubyid_row'>row</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='id identifier rubyid_col'>col</span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='cvar'>@@COMBAT_CHAR</span><span class='rparen'>)</span>
@@ -1338,9 +1345,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Dado un jugador lo añade a la tabla de jugadores</p>
-
-<p>// TODO: Pasar a fuzzy así</p>
+<p>Dado un jugador lo añade a la tabla de jugadores.</p>
 
 
   </div>
@@ -1360,7 +1365,7 @@
       
         &mdash;
         <div class='inline'>
-<p>jugador fuzzy a añadir</p>
+<p>Jugador fuzzy a añadir</p>
 </div>
       
     </li>
@@ -1374,17 +1379,17 @@
       <pre class="lines">
 
 
-198
-199
 200
 201
 202
 203
 204
-205</pre>
+205
+206
+207</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'labyrinth.rb', line 198</span>
+      <pre class="code"><span class="info file"># File 'labyrinth.rb', line 200</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_convert_to_fuzyy'>convert_to_fuzyy</span><span class='lparen'>(</span><span class='id identifier rubyid_fuzzy_player'>fuzzy_player</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_row'>row</span> <span class='op'>=</span> <span class='id identifier rubyid_fuzzy_player'>fuzzy_player</span><span class='period'>.</span><span class='id identifier rubyid_row'>row</span>
@@ -1495,10 +1500,6 @@
       <pre class="lines">
 
 
-294
-295
-296
-297
 298
 299
 300
@@ -1513,10 +1514,14 @@
 309
 310
 311
-312</pre>
+312
+313
+314
+315
+316</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'labyrinth.rb', line 294</span>
+      <pre class="code"><span class="info file"># File 'labyrinth.rb', line 298</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_dir_2_pos'>dir_2_pos</span><span class='lparen'>(</span><span class='id identifier rubyid_row'>row</span><span class='comma'>,</span> <span class='id identifier rubyid_col'>col</span><span class='comma'>,</span> <span class='id identifier rubyid_direction'>direction</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_pos'>pos</span> <span class='op'>=</span> <span class='const'>Array</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
@@ -1622,12 +1627,12 @@
       <pre class="lines">
 
 
-222
-223
-224</pre>
+225
+226
+227</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'labyrinth.rb', line 222</span>
+      <pre class="code"><span class="info file"># File 'labyrinth.rb', line 225</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_empty_pos'>empty_pos</span><span class='lparen'>(</span><span class='id identifier rubyid_row'>row</span><span class='comma'>,</span> <span class='id identifier rubyid_col'>col</span><span class='rparen'>)</span>
     <span class='kw'>return</span> <span class='lparen'>(</span><span class='ivar'>@labyrinth</span><span class='lbracket'>[</span><span class='id identifier rubyid_row'>row</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='id identifier rubyid_col'>col</span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='cvar'>@@EMPTY_CHAR</span><span class='rparen'>)</span> <span class='comment'># &amp;&amp; (@players[row][col] == nil). No es necesario
@@ -1717,12 +1722,12 @@
       <pre class="lines">
 
 
-240
-241
-242</pre>
+243
+244
+245</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'labyrinth.rb', line 240</span>
+      <pre class="code"><span class="info file"># File 'labyrinth.rb', line 243</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_exit_pos'>exit_pos</span><span class='lparen'>(</span><span class='id identifier rubyid_row'>row</span><span class='comma'>,</span> <span class='id identifier rubyid_col'>col</span><span class='rparen'>)</span>
     <span class='kw'>return</span> <span class='lparen'>(</span><span class='ivar'>@labyrinth</span><span class='lbracket'>[</span><span class='id identifier rubyid_row'>row</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='id identifier rubyid_col'>col</span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='cvar'>@@EXIT_CHAR</span><span class='rparen'>)</span>
@@ -1871,12 +1876,12 @@
       <pre class="lines">
 
 
-231
-232
-233</pre>
+234
+235
+236</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'labyrinth.rb', line 231</span>
+      <pre class="code"><span class="info file"># File 'labyrinth.rb', line 234</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_monster_pos'>monster_pos</span><span class='lparen'>(</span><span class='id identifier rubyid_row'>row</span><span class='comma'>,</span> <span class='id identifier rubyid_col'>col</span><span class='rparen'>)</span>
     <span class='kw'>return</span> <span class='lparen'>(</span><span class='ivar'>@labyrinth</span><span class='lbracket'>[</span><span class='id identifier rubyid_row'>row</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='id identifier rubyid_col'>col</span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='cvar'>@@MONSTER_CHAR</span><span class='rparen'>)</span> <span class='comment'># &amp;&amp; (@players[row][col] == nil). No es necesario pq si está habrá un combate
@@ -1966,12 +1971,12 @@
       <pre class="lines">
 
 
-213
-214
-215</pre>
+216
+217
+218</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'labyrinth.rb', line 213</span>
+      <pre class="code"><span class="info file"># File 'labyrinth.rb', line 216</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_pos_ok'>pos_ok</span><span class='lparen'>(</span><span class='id identifier rubyid_row'>row</span><span class='comma'>,</span> <span class='id identifier rubyid_col'>col</span><span class='rparen'>)</span>
     <span class='kw'>return</span> <span class='lparen'>(</span><span class='int'>0</span><span class='op'>&lt;=</span><span class='id identifier rubyid_row'>row</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_row'>row</span><span class='op'>&lt;</span><span class='ivar'>@n_rows</span><span class='rparen'>)</span> <span class='op'>&amp;&amp;</span> <span class='lparen'>(</span><span class='int'>0</span><span class='op'>&lt;=</span><span class='id identifier rubyid_col'>col</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_col'>col</span><span class='op'>&lt;</span><span class='ivar'>@n_cols</span><span class='rparen'>)</span>
@@ -1984,7 +1989,7 @@
       <div class="method_details ">
   <h3 class="signature " id="put_player-instance_method">
   
-    #<strong>put_player</strong>(direction, player)  &#x21d2; <tt><span class='object_link'><a href="Monster.html" title="Irrgarten::Monster (class)">Monster</a></span></tt> 
+    #<strong>put_player</strong>(direction, player)  &#x21d2; <tt><span class='object_link'><a href="Monster.html" title="Irrgarten::Monster (class)">Monster</a></span></tt><sup>?</sup> 
   
 
   
@@ -1993,7 +1998,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Método que calcula la nueva posición a la que se desplazará el jugador, y después delega su ejecución en el método put_player2D para actualizar la posición del jugador y devolver el posible monstruo al que se enfrentará el jugador (puede ser que no haya combate y por tanto no hay monstruo) nueva casilla hay un monstruo</p>
+<p>Método que calcula la nueva posición a la que se desplazará el jugador, y después delega su ejecución en el método <span class='object_link'><a href="#put_player2D-instance_method" title="Irrgarten::Labyrinth#put_player2D (method)">#put_player2D</a></span> para actualizar la posición del jugador y devolver el posible monstruo al que se enfrentará el jugador (puede ser que no haya combate y por tanto no hay monstruo)</p>
 
 
   </div>
@@ -2042,13 +2047,13 @@
     <li>
       
       
-        <span class='type'>(<tt><span class='object_link'><a href="Monster.html" title="Irrgarten::Monster (class)">Monster</a></span></tt>)</span>
+        <span class='type'>(<tt><span class='object_link'><a href="Monster.html" title="Irrgarten::Monster (class)">Monster</a></span></tt>, <tt>nil</tt>)</span>
       
       
       
         &mdash;
         <div class='inline'>
-<p>posible monstruo con el que se enfrentará el jugador, si en la</p>
+<p>posible monstruo con el que se enfrentará el jugador, si en la nueva casilla hay un monstruo. <strong>Nil</strong> en caso contrario.</p>
 </div>
       
     </li>
@@ -2058,7 +2063,7 @@
   <p class="tag_title">See Also:</p>
   <ul class="see">
     
-      <li>Labyrinth#put_player_2D</li>
+      <li><span class='object_link'><a href="#put_player2D-instance_method" title="Irrgarten::Labyrinth#put_player2D (method)">#put_player2D</a></span></li>
     
   </ul>
 
@@ -2068,7 +2073,6 @@
       <pre class="lines">
 
 
-124
 125
 126
 127
@@ -2078,10 +2082,11 @@
 131
 132
 133
-134</pre>
+134
+135</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'labyrinth.rb', line 124</span>
+      <pre class="code"><span class="info file"># File 'labyrinth.rb', line 125</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_put_player'>put_player</span><span class='lparen'>(</span><span class='id identifier rubyid_direction'>direction</span><span class='comma'>,</span> <span class='id identifier rubyid_player'>player</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_old_row'>old_row</span> <span class='op'>=</span> <span class='id identifier rubyid_player'>player</span><span class='period'>.</span><span class='id identifier rubyid_row'>row</span>
@@ -2102,7 +2107,7 @@
       <div class="method_details ">
   <h3 class="signature " id="put_player2D-instance_method">
   
-    #<strong>put_player2D</strong>(old_row, old_col, row, col, player)  &#x21d2; <tt><span class='object_link'><a href="Monster.html" title="Irrgarten::Monster (class)">Monster</a></span></tt>  <span class="extras">(private)</span>
+    #<strong>put_player2D</strong>(old_row, old_col, row, col, player)  &#x21d2; <tt><span class='object_link'><a href="Monster.html" title="Irrgarten::Monster (class)">Monster</a></span></tt><sup>?</sup>  <span class="extras">(private)</span>
   
 
   
@@ -2116,8 +2121,6 @@
 <p>Destacar que se comprueba si la posición nueva es válida y, además, si el numero del jugador pasado no coincide con el que hay en @players no se cambia el estado de la casilla antigua del jugador.</p>
 
 <p>Devuelve el monstruo de la nueva casilla si hay un combate en la posición actualizada.</p>
-
-<p>se ha movido el jugador. Si no hay ningún monstruo en la nueva casilla se pasará nil.</p>
 
 
   </div>
@@ -2214,13 +2217,13 @@
     <li>
       
       
-        <span class='type'>(<tt><span class='object_link'><a href="Monster.html" title="Irrgarten::Monster (class)">Monster</a></span></tt>)</span>
+        <span class='type'>(<tt><span class='object_link'><a href="Monster.html" title="Irrgarten::Monster (class)">Monster</a></span></tt>, <tt>nil</tt>)</span>
       
       
       
         &mdash;
         <div class='inline'>
-<p>monstruo que se encuentra en la nueva posición (si hay combate) a la que</p>
+<p>monstruo que se encuentra en la nueva posición (si hay combate) a la que se ha movido el jugador. Si no hay ningún monstruo en la nueva casilla se devolverá <strong>nil</strong>.</p>
 </div>
       
     </li>
@@ -2233,10 +2236,6 @@
       <pre class="lines">
 
 
-349
-350
-351
-352
 353
 354
 355
@@ -2267,10 +2266,14 @@
 380
 381
 382
-383</pre>
+383
+384
+385
+386
+387</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'labyrinth.rb', line 349</span>
+      <pre class="code"><span class="info file"># File 'labyrinth.rb', line 353</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_put_player2D'>put_player2D</span><span class='lparen'>(</span><span class='id identifier rubyid_old_row'>old_row</span><span class='comma'>,</span> <span class='id identifier rubyid_old_col'>old_col</span><span class='comma'>,</span> <span class='id identifier rubyid_row'>row</span><span class='comma'>,</span> <span class='id identifier rubyid_col'>col</span><span class='comma'>,</span> <span class='id identifier rubyid_player'>player</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_output'>output</span> <span class='op'>=</span> <span class='kw'>nil</span>
@@ -2356,10 +2359,6 @@
       <pre class="lines">
 
 
-319
-320
-321
-322
 323
 324
 325
@@ -2367,10 +2366,14 @@
 327
 328
 329
-330</pre>
+330
+331
+332
+333
+334</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'labyrinth.rb', line 319</span>
+      <pre class="code"><span class="info file"># File 'labyrinth.rb', line 323</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_random_empty_pos'>random_empty_pos</span>
     <span class='kw'>begin</span>
@@ -2432,7 +2435,7 @@
   <p class="tag_title">See Also:</p>
   <ul class="see">
     
-      <li>Labyrinth#put_player2Dn</li>
+      <li><span class='object_link'><a href="#put_player2D-instance_method" title="Irrgarten::Labyrinth#put_player2D (method)">#put_player2D</a></span></li>
     
   </ul>
 
@@ -2466,7 +2469,7 @@
       <div class="method_details ">
   <h3 class="signature " id="to_s-instance_method">
   
-    #<strong>to_s</strong>  &#x21d2; <tt>string</tt> 
+    #<strong>to_s</strong>  &#x21d2; <tt>String</tt> 
   
 
   
@@ -2488,7 +2491,7 @@
     <li>
       
       
-        <span class='type'>(<tt>string</tt>)</span>
+        <span class='type'>(<tt>String</tt>)</span>
       
       
       
@@ -2622,19 +2625,19 @@
       <pre class="lines">
 
 
-273
-274
-275
-276
 277
 278
 279
 280
 281
-282</pre>
+282
+283
+284
+285
+286</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'labyrinth.rb', line 273</span>
+      <pre class="code"><span class="info file"># File 'labyrinth.rb', line 277</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update_old_pos'>update_old_pos</span><span class='lparen'>(</span><span class='id identifier rubyid_row'>row</span><span class='comma'>,</span> <span class='id identifier rubyid_col'>col</span><span class='rparen'>)</span>
     <span class='kw'>if</span> <span class='lparen'>(</span><span class='id identifier rubyid_pos_ok'>pos_ok</span><span class='lparen'>(</span><span class='id identifier rubyid_row'>row</span><span class='comma'>,</span> <span class='id identifier rubyid_col'>col</span><span class='rparen'>)</span><span class='rparen'>)</span>
@@ -2733,9 +2736,6 @@
       <pre class="lines">
 
 
-173
-174
-175
 176
 177
 178
@@ -2751,10 +2751,13 @@
 188
 189
 190
-191</pre>
+191
+192
+193
+194</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'labyrinth.rb', line 173</span>
+      <pre class="code"><span class="info file"># File 'labyrinth.rb', line 176</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_valid_moves'>valid_moves</span><span class='lparen'>(</span><span class='id identifier rubyid_row'>row</span><span class='comma'>,</span> <span class='id identifier rubyid_col'>col</span><span class='rparen'>)</span>
     <span class='comment'># Array de direcciones
@@ -2785,7 +2788,7 @@
 </div>
 
       <div id="footer">
-  Generated on Wed May  8 14:37:38 2024 by
+  Generated on Wed May  8 18:10:16 2024 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.36 (ruby-3.0.2).
 </div>

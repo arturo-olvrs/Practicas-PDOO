@@ -15,7 +15,7 @@ module Irrgarten
         #
         # @see CombatElement#produce_effect
         #
-        # @return [float] Si tiene algún uso disponible devuelve el poder del arma. En caso contrario (uses=0) devuelve 0
+        # @return [float] Si tiene algún uso disponible devuelve el poder del arma. En caso contrario (**uses**==**0**) devuelve 0
         def attack
             produce_effect
         end

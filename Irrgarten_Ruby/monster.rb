@@ -58,11 +58,12 @@ module Irrgarten
         # Método que genera una cadena de caracteres con la información del monstruo
         #
         # @return [String] cadena de caracteres con la información del monstruo
-        # // TODO: Revisar los to_s
         def to_s
 
             return super + "]"
         end
+        # // TODO: Revisar los to_s
+
 
     end # class
 end # module

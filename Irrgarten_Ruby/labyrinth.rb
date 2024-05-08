@@ -28,7 +28,7 @@ module Irrgarten
         # Posición inválida
         @@INVALID_POS = -1
 
-        # Constructor de la clase Labyrinth. Inicializa los atributos de la clase.
+        # Constructor de la clase {Labyrinth}. Inicializa los atributos de la clase.
         #
         # @param n_rows [int] número de filas del laberinto
         # @param n_cols [int] número de columnas del laberinto
@@ -49,7 +49,7 @@ module Irrgarten
 
         # Método que posiciona los jugadores en el tablero, creando para ellos una posición
         # random y vacía en él. Delega su funcionamienot en el método put_player2D
-        # @see Labyrinth#put_player2Dn
+        # @see Labyrinth#put_player2D
         #
         # @param players [Player []] vector de jugadores a introducir en el tablero
         def spread_players(players)
@@ -68,7 +68,7 @@ module Irrgarten
 
         # Método que genera una cadena de caracteres con la información del laberinto
         #
-        # @return [string] cadena de caracteres con la información del laberinto
+        # @return [String] cadena de caracteres con la información del laberinto
         def to_s
             # .flatten convierte la matriz dimension 2, en un array de dimensión 1
             # .max busca el máximo, .to_s lo pasa a string y .size devuelve el tamaño
@@ -93,15 +93,15 @@ module Irrgarten
 
         # Si la posición suministrada está dentro del tablero y está vacía,
         # anota en el laberinto la presencia de un monstruo, guarda la referencia del monstruo en el
-        # atributo contenedor adecuado e indica al monstruo cual es su posición actual (Monster#pos).
+        # atributo contenedor adecuado e indica al monstruo cual es su posición actual ({Monster#pos}).
         #
         # Si la posición no está vacía, no hace nada.
         #
         # Si la posición no está dentro del tablero, no hace nada.
         #
-        # @param row[int] fila de la posición
-        # @param col [int] columna de la posición
-        # @param monster [Monster] monstruo que se añade al laberinto
+        # @param row[int] Fila de la posición
+        # @param col [int] Columna de la posición
+        # @param monster [Monster] Monstruo que se añade al laberinto
         def add_monster(row, col, monster)
             if (pos_ok(row, col) && empty_pos(row, col))
                 @labyrinth[row][col] = @@MONSTER_CHAR
@@ -111,16 +111,17 @@ module Irrgarten
         end
 
         # Método que calcula la nueva posición a la que se desplazará el jugador, y después delega
-        # su ejecución en el método put_player2D para actualizar la posición del jugador y devolver
+        # su ejecución en el método {#put_player2D} para actualizar la posición del jugador y devolver
         # el posible monstruo al que se enfrentará el jugador (puede ser que no haya combate y por tanto
         # no hay monstruo)
-        # @see Labyrinth#put_player_2D
+        #
+        # @see Labyrinth#put_player2D
         #
         # @param direction [Directions] dirección a la que se quiere desplazar el jugador
         # @param player [Player] jugador que se moverá
         #
-        # @return [Monster] posible monstruo con el que se enfrentará el jugador, si en la
-        # nueva casilla hay un monstruo
+        # @return [Monster, nil] posible monstruo con el que se enfrentará el jugador, si en la
+        #  nueva casilla hay un monstruo. **Nil** en caso contrario.
         def put_player(direction, player)
             old_row = player.row
             old_col = player.col
@@ -134,8 +135,10 @@ module Irrgarten
         end
 
         # Método que coloca en el laberinto una serie de bloques. Destacar que en el caso
-        # de que se encuentre una casilla que no este vacía (mirar método empty_pos) se dejará
-        # de colocar bloques, aunque la siguiente casilla si este vacía
+        # de que se encuentre una casilla que no este vacía ({#empty_pos}) se dejará
+        # de colocar bloques, aunque la siguiente casilla si este vacía.
+        #
+        # @see Labyrinth#empty_pos
         #
         # @param orientation [Orientation] orientación hacia la que se colocan los  bloques
         # @param start_row [int] fila de la casilla inicial
@@ -191,10 +194,9 @@ module Irrgarten
         end
 
 
-        # Dado un jugador lo añade a la tabla de jugadores
+        # Dado un jugador lo añade a la tabla de jugadores.
         #
-        # @param fuzzy_player [FuzzyPlayer] jugador fuzzy a añadir
-        # // TODO: Pasar a fuzzy así
+        # @param fuzzy_player [FuzzyPlayer] Jugador fuzzy a añadir
         def convert_to_fuzyy(fuzzy_player)
             row = fuzzy_player.row
             col = fuzzy_player.col
@@ -203,6 +205,7 @@ module Irrgarten
                 @players[row][col] = fuzzy_player
             end
         end
+        # // TODO: Pasar a fuzzy así ??
 
         private
         # Método que indica si la posición suministrada está dentro del tablero
@@ -255,7 +258,8 @@ module Irrgarten
         #
         # @param row [int] fila de la posición
         # @param col [int] columna de la posición
-        # @return [boolean] **true** si la posición suministrada está dentro del laberinto y se puede acceder y **false** si no es así.
+        # @return [boolean] **true** si la posición suministrada está dentro del laberinto y se puede acceder y
+        #    **false** si no es así.
         def can_step_on(row, col)
             return pos_ok(row, col) && (empty_pos(row, col) || monster_pos(row, col) || exit_pos(row, col))
         end
@@ -344,8 +348,8 @@ module Irrgarten
         # @param col [int] col de la nueva posición
         # @param player [Player] jugador cuya posición se quiere actualizar
         #
-        # @return [Monster] monstruo que se encuentra en la nueva posición (si hay combate) a la que
-        # se ha movido el jugador. Si no hay ningún monstruo en la nueva casilla se pasará nil.
+        # @return [Monster, nil] monstruo que se encuentra en la nueva posición (si hay combate) a la que
+        #   se ha movido el jugador. Si no hay ningún monstruo en la nueva casilla se devolverá **nil**.
         def put_player2D(old_row, old_col, row, col, player)
             output = nil
 

@@ -49,9 +49,9 @@ module Irrgarten
         ]
         #### ---------------------- PERSONALIZACIÓN LABERINTO ----------------
 
-        # Constructor de la clase Game. Inicializa los atributos de la clase.
+        # Constructor de la clase {Game}. Inicializa los atributos de la clase.
         #
-        # @param n_players [int] número de jugadores
+        # @param n_players [int] Número de jugadores
         def initialize(n_players)
 
             @players = Array.new
@@ -76,6 +76,8 @@ module Irrgarten
 
         # Delega en el método del laberinto que indica si hay un ganador.
         #
+        # @see Labyrinth#have_a_winner
+        #
         # @return [boolean] **true** si hay un ganador, **false** en caso contrario
         def finished
             return @labyrinth.have_a_winner
@@ -86,8 +88,7 @@ module Irrgarten
         # la misma casilla que un monstruo. Finalmente se comprueba si ha finalizado el
         # juego.
         #
-        # @param preferred_direction [Directions] dirección hacia la que se
-        # quiere desplazar el jugador
+        # @param preferred_direction [Directions] dirección hacia la que se quiere desplazar el jugador
         #
         # @return [boolean] devuelve true si finalizo el juego, false en caso contrario
         def next_step(preferred_direction)
@@ -121,9 +122,9 @@ module Irrgarten
             return end_game
         end
 
-        # Genera una instancia de GameState integrando toda la información del estado del juego.
+        # Genera una instancia de {GameState} integrando toda la información del estado del juego.
         #
-        # @return [GameState] Objeto GameState con la información del estado del juego
+        # @return [GameState] Objeto {GameState} con la información del estado del juego
         def game_state
             info_players = ""
             @players.each do |player|
@@ -156,7 +157,7 @@ module Irrgarten
             @@MONSTER_INIT.each do |monster_info|
                 name, row, col = monster_info
 
-                monster = Monster.new(name, 100, 100)
+                monster = Monster.new(name, Dice.random_intelligence, Dice.random_strength)
 
                 @monsters.push(monster)
                 @labyrinth.add_monster(row, col, monster)
@@ -170,14 +171,14 @@ module Irrgarten
         end
 
         # Comprueba si la dirección preferred_direction es válida para el actual jugador,
-        # delegando para ello en el método move de Player. Devuelve la dirección hacia la que se
+        # delegando para ello en el método {Player#move} de {Player}. Devuelve la dirección hacia la que se
         # desplazará el jugador actual (puede que no sea la preferida)
-        # @see Player#move
-        # @param preferred_direction [Directions] dirección hacia la que se pretende desplazar el
-        # jugador actual
         #
-        # @return [Directions] dirección a la que se desplazará el jugador actual
-        # (puede que no sea la preferida)
+        # @see Player#move
+        #
+        # @param preferred_direction [Directions] dirección hacia la que se pretende desplazar el jugador actual.
+        #
+        # @return [Directions] Dirección a la que se desplazará el jugador actual. (Puede que no sea la preferida)
         def actual_direction(preferred_direction)
             current_row = @current_player.row
             currect_col = @current_player.col
@@ -189,17 +190,18 @@ module Irrgarten
         end
 
         # Método que desarrolla un combate entre el jugador actual y un monstruo, donde es el
-        # jugador el primero que empieza atacando. Además, delega en el método defend y attack
-        # tanto de monster como de player. Finalmente escribe un mensaje con el número de rondas
+        # jugador el primero que empieza atacando. Además, delega en el método {LabyrinthCharacter#defend} y {LabyrinthCharacter#attack}
+        # tanto de los objetos de la clase {LabyrinthCharacter}. Finalmente escribe un mensaje con el número de rondas
         # que se han dado y devuelve el ganador.
+        #
         # @see Player#defend
-        # @see Player#attack
         # @see Monster#defend
+        # @see Player#attack
         # @see Monster#attack
         #
         # @param monster [Monster] monstruo con el que combate el jugador actual
         #
-        # @return [GameCharacter] devuelve el ganador (PLAYER o MONSTER)
+        # @return [GameCharacter] devuelve el tipo del ganador ({GameCharacter::PLAYER} o {GameCharacter::MONSTER})
         def combat(monster)
             # Inicializamos los valores
             rounds = 0
@@ -227,8 +229,9 @@ module Irrgarten
         end
 
         # Comprueba quien fue el ganador del combate. Si fue el jugador se le otorga
-        # una recompensa con el metodo receive_reward de Player, y en función de quien gane
+        # una recompensa con el método {Pleyer#receive_reward}, y en función de quién gane
         # se muestra un mensaje u otro.
+
         # @see Player#receive_reward
         #
         # @param winner [GameCharacter] ganador del combate
@@ -241,7 +244,7 @@ module Irrgarten
             end
         end
 
-        # Comprueba mediante el medoto resurrect_player de Dice si el jugador actual revivirá.
+        # Comprueba mediante el medoto {Dice#resurrect_player} si el jugador actual revivirá.
         # En caso de que lo haga, lo hará como fuzzy y se muestra un mensaje, sino se pasa su turno y se muestra el mensaje
         # correspondiente
         def manage_resurrection()
@@ -265,41 +268,41 @@ module Irrgarten
             end
         end
 
-        # Añade al final del atributo log el mensaje indicando que el jugador ha ganado el combate.
+        # Añade al final del atributo **log** el mensaje indicando que el jugador ha ganado el combate.
         def log_player_won
             @log += "- Player #{@current_player_index} won the fight.\n"
         end
 
-        # Añade al final del atributo log el mensaje indicando que el monstruo ha ganado el combate.
+        # Añade al final del atributo **log** el mensaje indicando que el monstruo ha ganado el combate.
         def log_monster_won
             @log += "- Monster won the fight.\n"
         end
 
-        # Añade al final del atributo log el mensaje indicando que el jugador ha resucitado.
+        # Añade al final del atributo **log** el mensaje indicando que el jugador ha resucitado.
         def log_resurrected
             @log += "- Player #{@current_player_index} resurrected as fuzzy.\n"
         end
 
-        # Añade al final del atributo log el mensaje indicando que el jugador ha perdido el turno por estar muerto.
+        # Añade al final del atributo **log** el mensaje indicando que el jugador ha perdido el turno por estar muerto.
         def log_player_skip_turn
             @log += "- Player #{@current_player_index} skipped turn (is dead).\n"
         end
 
-        # Añade al final del atributo log el mensaje indicando que el jugador no ha
+        # Añade al final del atributo **log** el mensaje indicando que el jugador no ha
         # seguido las instrucciones del jugador humano (no fue posible).
         def log_player_no_orders
             @log += "- Player #{@current_player_index} didn't follow orders, it was not possible.\n"
         end
 
-        # Añade al final del atributo log el mensaje indicando que el jugador se ha movido a una casilla vacía o no le ha sido posible moverse.
+        # Añade al final del atributo **log** el mensaje indicando que el jugador se ha movido a una casilla vacía o no le ha sido posible moverse.
         def log_no_monster
             @log += "- Player #{@current_player_index} moved to an empty cell or it was not possible to move.\n"
         end
 
-        # Añade al final del atributo log el mensaje indicando que se han producido rounds de max rondas de combate.
+        # Añade al final del atributo **log** el mensaje indicando que se han producido rounds de max rondas de combate.
         #
-        # @param rounds [int] número de rondas de combate que ya se han producido
-        # @param max [int] número máximo de rondas de combate
+        # @param rounds [int] Número de rondas de combate que ya se han producido
+        # @param max [int] Número máximo de rondas de combate
         def log_rounds(rounds, max)
             @log += "- Rounds: #{rounds}/#{max}.\n"
         end
