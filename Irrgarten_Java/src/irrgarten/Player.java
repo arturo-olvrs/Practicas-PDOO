@@ -29,9 +29,7 @@ public class Player extends LabyrinthCharacter {
      */
     private static final int HITS2LOSE=3;
 
-    
-    
-    
+       
     /**
      * Número identificador del jugador.
      */
