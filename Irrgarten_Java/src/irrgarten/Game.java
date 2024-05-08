@@ -21,11 +21,11 @@ public class Game {
     /**
      * Número de filas del laberinto.
      */
-    private static final int ROWS=15;
+    private static final int ROWS=4;
     /**
      * Número de columnas del laberinto.
      */
-    private static final int COLS=15;
+    private static final int COLS=4;
     
 
     // Monstruos a incluir
@@ -217,7 +217,7 @@ public class Game {
     private void configureLabyrinth(){
         // Inicializamos el vector de monstruos y los añadimos al laberinto
         for (int i=0; i<NUM_MONSTERS; i++){
-            Monster monstruo=new Monster ("Monster "+i, Dice.randomIntelligence(), Dice.randomStrength());
+            Monster monstruo=new Monster ("Monster "+i, 100, 100);
             this.monsters.add(monstruo);
             // Destacar que la primera variable indica fila y la segunda columna
             this.labyrinth.addMonster(INIT_MONSTERS[i][0], INIT_MONSTERS[i][1], monstruo);
@@ -315,11 +315,22 @@ public class Game {
     
     /**
      * Método que gestiona la resurrección de un jugador al finalizar un combate.
+     * Destacar que en el caso de resucitar se deberá actualizar dicho jugador
+     * por un fuzzyplayer, haciendo uso del método actualizarPos de la clase 
+     * Labyrinth
+     * 
+     * @see Labyrinth#updatePos(fuzzy) 
      */
     private void manageResurrection (){
         if (Dice.resurrectPlayer()){
+            // Se resucita al jugador 
             this.currentPlayer.resurrect();
             this.logResurrected();
+            
+            // Se cambia la posición por el fuzzyplayer
+            FuzzyPlayer fuzzy= new FuzzyPlayer(this.currentPlayer);
+            this.players.set(this.currentPlayerIndex, fuzzy);
+            this.labyrinth.updatePos(fuzzy);
         }            
         else
             this.logPlayerSkipTurn();
@@ -346,7 +357,7 @@ public class Game {
      * ha ganado resucitado
      */
     private void logResurrected(){
-        this.log+= "- Player "+this.currentPlayerIndex+" resurrected.\n";
+        this.log+= "- Player "+this.currentPlayerIndex+" resurrected as fuzzy.\n";
     }
     
     /**

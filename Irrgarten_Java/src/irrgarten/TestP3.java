@@ -12,12 +12,13 @@ import irrgarten.UI.TextUI;
 public class TestP3 {
     
     /**
-     * Método que realiza las pruebas unitarias de la práctica 3
+     * Método que realiza las pruebas unia
+     * tarias de la práctica 3
      * @param args Argumentos recibidos al ejecutar
      */
     public static void main ( String [ ] args ) {
         
-        final int N_PLAYERS = 4;
+        final int N_PLAYERS = 1;
 
         TextUI vista = new TextUI();
         Game juego = new Game(N_PLAYERS);

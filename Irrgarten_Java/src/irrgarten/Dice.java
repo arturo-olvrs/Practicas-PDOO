@@ -1,6 +1,8 @@
 package irrgarten;
 
 import java.util.Random;
+import java.util.ArrayList;
+
 
 /**
  * Clase que tiene la responsabilidad de tomar todas las decisiones
@@ -180,6 +182,29 @@ public class Dice {
         
         // En el caso de usesLeft=0, siempre devolverá true;
         // En el caso de usesLeft=MAX_USES, siempre devolverá false;
+    }
+    
+    /**
+     * En función de la inteligencia dada, devolverá ,con más probabilidad si <b>intelligence</b> es mayor,
+     * <b>preference</b> y ,con menos, una dirección aleatoria de <b>validMoves</b> // TODO: ver si le gusta a Arturo
+     * @param preference Dirección preferida hacia la que moverse
+     * @param validMoves Direcciones posibles para moverse
+     * @param intelligence Inteligencia del jugador
+     * @return Dirección elegida hacia la que moverse
+     */
+    public static Directions nextStep(Directions preference, ArrayList<Directions> validMoves, float intelligence){
+        float probabilidad=intelligence/Dice.MAX_INTELLIGENCE;
+        Directions toReturn;
+        
+        if(generator.nextFloat()<=probabilidad)
+            toReturn=preference;
+        else {
+            int indice=generator.nextInt()%validMoves.size();
+            toReturn=validMoves.get(indice);
+        }
+        
+        return toReturn;
+             
     }
     
     

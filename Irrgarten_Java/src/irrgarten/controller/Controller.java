@@ -10,7 +10,14 @@ import irrgarten.UI.TextUI;
  */
 public class Controller {
     
+    /**
+     * Juego a jugar
+     */
     private Game game;
+    
+    /**
+     * Vista del juego
+     */
     private TextUI view;
     
     /**

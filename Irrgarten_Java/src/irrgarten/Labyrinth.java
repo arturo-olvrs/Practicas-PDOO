@@ -340,6 +340,18 @@ public class Labyrinth {
     }
     
     /**
+     * Método para actualizar un jugador del laberinto por un fuzzyplayer en su 
+     * posición.
+     * @param este Objeto de FuzzyPlayer que sustituirá al objeto Player que haya
+     * en su posición
+     */
+    public void updatePos(FuzzyPlayer este){
+        int row=este.getRow();
+        int col=este.getCol();
+        this.players[row][col]=este;
+    }
+    
+    /**
      * Comprueba si una posición es válida, en caso afirmativo se establece la casilla
      * con un monstruo si estaba en estado de combate o en caso contrario se define
      * la casilla como vacía

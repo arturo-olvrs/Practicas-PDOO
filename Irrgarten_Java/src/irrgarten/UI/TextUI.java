@@ -12,6 +12,9 @@ import java.util.Scanner;
  */
 public class TextUI {
     
+    /**
+     * Escáner para leer
+     */
     private static Scanner in = new Scanner(System.in);
     
     /**

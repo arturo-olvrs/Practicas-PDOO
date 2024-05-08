@@ -7,52 +7,25 @@ package irrgarten;
  * @author Arturo Olivares Martos
  * @author Joaquín Avilés de la Fuente
  */
-public class Shield {
-    
-    /**
-     * Protección que proporciona el escudo.
-     */
-    private float protection;
-    /**
-     * Número de usos disponibles del escudo.
-     */
-    private int uses;
+public class Shield extends CombatElement{
     
     /**
      * Constructor de la clase Shield.
-     * @param protection La proteccion que proporciona el escudo.
+     * @param protection La protección del escudo.
      * @param uses El número de usos disponibles del escudo.
      */
-    public Shield(float protection, int uses) {
-        this.protection = protection;
-        this.uses = uses;
+    public Shield(float protection, int uses){
+        super(protection, uses);
     }
-
-
+      
     /**
-     * Método que determina si se descarta el escudo.
-     * @return true si se descarta el escudo, false en caso contrario.
-     * @see Dice#discardElement(int)
+     * Método para realizar una protección con el escudo.
+     * @return La intensidad de la protección del escudo.
      */
-    public boolean discard() {
-        return Dice.discardElement(this.uses);
+    public float protect(){
+        return this.produceEffect();
     }
     
-    
-
-    /**
-     * Método para protegerse con el escudo.
-     * @return La intensidad de la defensa del escudo
-     */
-    public float protect() {
-        if (uses > 0) {
-            uses--;
-            return protection;
-        } else {
-            return 0;
-        }
-    }
-
     /**
      * Método que devuelve una representación en forma de cadena de caracteres
      * del estado interno del objeto.
@@ -60,7 +33,9 @@ public class Shield {
      */
     @Override
     public String toString() {
-        return "S[" + protection + ", " + uses + "]";
+        String toReturn="S";
+        toReturn+=super.toString();
+        return toReturn;
     }
     
 }
