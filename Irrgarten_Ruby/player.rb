@@ -3,23 +3,22 @@
 require_relative 'dice'
 require_relative 'weapon'
 require_relative 'shield'
+require_relative 'labyrinth_character'
 
 
 module Irrgarten
 
     # Clase que representa al jugador del juego.
     #
+    #
     # @author Joaquin Avilés de la Fuente
     # @author Arturo Olivares Martos
-    class Player
+    class Player < LabyrinthCharacter
 
         @@MAX_WEAPONS = 2       # Número máximo de armas que puede tener un jugador
         @@MAX_SHIELDS = 3       # Número máximo de escudos que puede tener un jugador
         @@INITIAL_HEALTH = 10   # Salud inicial de los jugadores
         @@HITS2LOSE = 3         # Número de golpes que puede recibir un jugador antes de morir
-
-        # Posición inválida
-        @@INVALID_POS = -1
 
         # Constructor de la clase Player. Inicializa los atributos de la clase.
         # La posición inicial del jugador es inválida
@@ -29,17 +28,47 @@ module Irrgarten
         # @param strength [float] Fuerza del jugador
         def initialize(number, intelligence, strength)
             @number = number.to_s
-            @name = "Player #{@number}"
-            @intelligence = intelligence.to_f
-            @strength = strength.to_f
-            @health = @@INITIAL_HEALTH
+            name = "Player #{@number}"
+            super(name, intelligence, strength, @@INITIAL_HEALTH)
+
             @weapons = Array.new           # Array de armas
             @shields = Array.new           # Array de escudos
 
-            @row = @@INVALID_POS
-            @col = @@INVALID_POS
-
             @consecutive_hits = 0   # Número de golpes consecutivos recibidos. Al crearse está en 0
+        end
+
+
+
+        # Consultor de @number
+        # @return [char] número del jugador
+        attr_reader :number
+
+        protected   # // TODO: Qué visibilidad tienen en Ruby??
+        # Consultor de @weapons
+        # @return [Array::Weapon] array de armas del jugador
+        attr_reader :weapons
+
+        # Consultor de @shields
+        # @return [Array::Shield] array de escudos del jugador
+        attr_reader :shields
+
+        # Consultor de @consecutive_hits
+        # @return [int] número de golpes consecutivos recibidos
+        attr_reader :consecutive_hits
+        public
+
+
+        # Método que busca asemejarse a un constructor de copia.
+        # Copia los atributos de un jugador a otro.
+        #
+        # @param other [Player] jugador al que se quiere copiar
+        # @note Al terminar se copian los atributos del jugador **other** al jugador que llama al método
+        def copy(other)
+            super(other)
+            @number = other.number
+            @weapons = other.weapons
+            @shields = other.shields
+            @consecutive_hits = other.consecutive_hits
         end
 
         # Método que resucita al jugador, poniendo su salud a su valor inicial,
@@ -51,34 +80,6 @@ module Irrgarten
             reset_hits()
         end
 
-        # Consultor de @row
-        # @return [int] fila de la posición del jugador
-        attr_reader :row
-
-        # Consultor de @col
-        # @return [int] columna de la posición del jugador
-        attr_reader :col
-
-        # Consultor de @number
-        # @return [char] número del jugador
-        attr_reader :number
-
-        # Modificador de la posición del jugador
-        #
-        # @param row [int] fila de la posición del jugador
-        # @param col [int] columna de la posición del jugador
-        def pos(row, col)
-            @row = row
-            @col = col
-        end
-
-        # Método que informa sobre si un jugador ha muerto o no.
-        # Un jugador ha muerto si su salud es menor o igual que 0
-        #
-        # @return [boolean] **true** si el jugador ha muerto, **false** en caso contrario
-        def dead
-            return @health <= 0
-        end
 
         # Comprueba si la dirección pasada hacia la que se pretende desplazar el personaje
         # es válida, devolviendola en caso de que lo sea o no se pueda mover hacia ninguna posición, es decir,
@@ -86,7 +87,7 @@ module Irrgarten
         # guardada en el array
         #
         # @param direction [Directions] dirección a la que se pretende desplazar el personaje
-        # @param valid_moves [Array::Directions]
+        # @param valid_moves [Array::Directions] lista de direcciones válidas a las que se puede mover el jugador
         #
         # @return [Directions] dirección a la que se quiere desplazar (tendremos que ver si es válida)
         def move(direction, valid_moves)
@@ -171,13 +172,7 @@ module Irrgarten
             end
             to_shields+="]"
 
-
-            # Formato para mostrar los datos flotantes del jugador
-            formato='%.10f'
-
-            return "#{@name}[i:#{format(formato,@intelligence)}, s:#{format(formato,@strength)}, "+
-            "h:#{format(formato,@health)}, ch:#{@consecutive_hits}, p:(#{@row}, #{@col}), "+
-            "w: "+to_weapons+", sh: "+to_shields+" ]"
+            return super + ", ch:#{@consecutive_hits}, w:"+to_weapons+", sh:"+to_shields + " ]"
         end
 
         private
@@ -233,6 +228,9 @@ module Irrgarten
             return Shield.new(Dice.shield_power, Dice.uses_left)
         end
 
+        # // TODO: Protected en ruby es igual que en Java??
+
+        protected
         # Devuelve la suma del resultado de llamar al método attack de todas sus armas.
         #
         # @return [float] la apotación de las armas al ataque
@@ -261,6 +259,7 @@ module Irrgarten
         def defensive_energy
             return @intelligence + sum_shields
         end
+        public
 
         # Método que gestiona la defensa de un ataque. En el caso de que el jugador
         # haya recibido un número máximo de golpes consecutivos, determinado por
@@ -291,11 +290,6 @@ module Irrgarten
         # Fija el valor del contador de impactos consecutivos a cero.
         def reset_hits
             @consecutive_hits = 0
-        end
-
-        # Este método decrementa en una unidad el atributo que representa la salud del jugador.
-        def got_wounded
-            @health -= 1
         end
 
         # Incrementa en una unidad el contador de impactos consecutivos.

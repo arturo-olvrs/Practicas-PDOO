@@ -7,6 +7,7 @@ require_relative 'labyrinth'
 require_relative 'game_state'
 require_relative 'game_character'
 require_relative 'orientation'
+require_relative 'fuzzy_player'
 
 # Este módulo principal contiene las clases y módulos que representan el juego **Irrgarten**.
 #
@@ -155,7 +156,7 @@ module Irrgarten
             @@MONSTER_INIT.each do |monster_info|
                 name, row, col = monster_info
 
-                monster = Monster.new(name, Dice.random_intelligence, Dice.random_strength)
+                monster = Monster.new(name, 100, 100)
 
                 @monsters.push(monster)
                 @labyrinth.add_monster(row, col, monster)
@@ -241,13 +242,23 @@ module Irrgarten
         end
 
         # Comprueba mediante el medoto resurrect_player de Dice si el jugador actual revivirá.
-        # En caso de que lo haga, se muestra un mensaje, sino se pasa su turno y se muestra el mensaje
+        # En caso de que lo haga, lo hará como fuzzy y se muestra un mensaje, sino se pasa su turno y se muestra el mensaje
         # correspondiente
         def manage_resurrection()
 
             if(Dice.resurrect_player())
                 @current_player.resurrect
                 log_resurrected
+
+                # Lo convertimos en Fuzzy
+                fuzzy = FuzzyPlayer.new(@current_player)
+
+                # Modificamos el array de jugadores
+                @players[@current_player_index] = fuzzy
+
+                # Modificamos la tabla de jugadores en el laberinto
+                @labyrinth.convert_to_fuzyy(fuzzy)
+
             else
                 log_player_skip_turn
 
@@ -266,7 +277,7 @@ module Irrgarten
 
         # Añade al final del atributo log el mensaje indicando que el jugador ha resucitado.
         def log_resurrected
-            @log += "- Player #{@current_player_index} resurrected.\n"
+            @log += "- Player #{@current_player_index} resurrected as fuzzy.\n"
         end
 
         # Añade al final del atributo log el mensaje indicando que el jugador ha perdido el turno por estar muerto.

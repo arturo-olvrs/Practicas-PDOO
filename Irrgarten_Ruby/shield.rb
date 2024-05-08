@@ -1,6 +1,6 @@
 # encoding: UTF-8
 
-require_relative 'dice'
+require_relative 'combat_element'
 
 
 module Irrgarten
@@ -10,35 +10,15 @@ module Irrgarten
     #
     # @author Joaquin Avilés de la Fuente
     # @author Arturo Olivares Martos
-    class Shield
-
-        # Constructor de la clase
-        #
-        # @param protection [float] protección del escudo
-        # @param uses [int] usos que tiene el escudo
-        def initialize(protection, uses)
-            @protection = protection.to_f
-            @uses = uses.to_i
-        end
+    class Shield < CombatElement
 
         # Método que devuelve la protección del escudo y decrementa el número de usos en uno.
         #
+        # @see CombatElement#produce_effect
+        #
         # @return [float] Si tiene algún uso disponible devuelve la protección del escudo. En caso contrario (uses=0) devuelve 0
         def protect
-            if @uses > 0
-                @uses -= 1
-                return @protection
-            else
-                return 0.0
-            end
-        end
-
-        # Método que indica si se descartará el escudo.
-        #
-        # @see Dice#dicard_element
-        # @return [boolean] devuelve **true** o **false** si se descarta o no
-        def discard
-            return Dice.dicard_element(@uses)
+            produce_effect
         end
 
         # Método que muestra en una cadena el estado del escudo, en cuanto a
@@ -46,7 +26,7 @@ module Irrgarten
         #
         # @return [String] devuelve una cadena que muestra usos y protección del escudo
         def to_s
-            return "S[#{@protection}, #{@uses}]"
+            return "S" + super
         end
 
     end # class

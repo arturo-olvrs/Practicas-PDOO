@@ -388,6 +388,30 @@
 </li>
 
       
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#convert_to_fuzyy-instance_method" title="#convert_to_fuzyy (instance method)">#<strong>convert_to_fuzyy</strong>(fuzzy_player)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Dado un jugador lo añade a la tabla de jugadores.</p>
+</div></span>
+  
+</li>
+
+      
         <li class="private ">
   <span class="summary_signature">
     
@@ -1192,12 +1216,12 @@
       <pre class="lines">
 
 
-245
-246
-247</pre>
+259
+260
+261</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'labyrinth.rb', line 245</span>
+      <pre class="code"><span class="info file"># File 'labyrinth.rb', line 259</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_can_step_on'>can_step_on</span><span class='lparen'>(</span><span class='id identifier rubyid_row'>row</span><span class='comma'>,</span> <span class='id identifier rubyid_col'>col</span><span class='rparen'>)</span>
     <span class='kw'>return</span> <span class='id identifier rubyid_pos_ok'>pos_ok</span><span class='lparen'>(</span><span class='id identifier rubyid_row'>row</span><span class='comma'>,</span> <span class='id identifier rubyid_col'>col</span><span class='rparen'>)</span> <span class='op'>&amp;&amp;</span> <span class='lparen'>(</span><span class='id identifier rubyid_empty_pos'>empty_pos</span><span class='lparen'>(</span><span class='id identifier rubyid_row'>row</span><span class='comma'>,</span> <span class='id identifier rubyid_col'>col</span><span class='rparen'>)</span> <span class='op'>||</span> <span class='id identifier rubyid_monster_pos'>monster_pos</span><span class='lparen'>(</span><span class='id identifier rubyid_row'>row</span><span class='comma'>,</span> <span class='id identifier rubyid_col'>col</span><span class='rparen'>)</span> <span class='op'>||</span> <span class='id identifier rubyid_exit_pos'>exit_pos</span><span class='lparen'>(</span><span class='id identifier rubyid_row'>row</span><span class='comma'>,</span> <span class='id identifier rubyid_col'>col</span><span class='rparen'>)</span><span class='rparen'>)</span>
@@ -1287,15 +1311,88 @@
       <pre class="lines">
 
 
-235
-236
-237</pre>
+249
+250
+251</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'labyrinth.rb', line 235</span>
+      <pre class="code"><span class="info file"># File 'labyrinth.rb', line 249</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_combat_pos'>combat_pos</span><span class='lparen'>(</span><span class='id identifier rubyid_row'>row</span><span class='comma'>,</span> <span class='id identifier rubyid_col'>col</span><span class='rparen'>)</span>
     <span class='kw'>return</span> <span class='lparen'>(</span><span class='ivar'>@labyrinth</span><span class='lbracket'>[</span><span class='id identifier rubyid_row'>row</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='id identifier rubyid_col'>col</span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='cvar'>@@COMBAT_CHAR</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="convert_to_fuzyy-instance_method">
+  
+    #<strong>convert_to_fuzyy</strong>(fuzzy_player)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Dado un jugador lo añade a la tabla de jugadores</p>
+
+<p>// TODO: Pasar a fuzzy así</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>fuzzy_player</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="FuzzyPlayer.html" title="Irrgarten::FuzzyPlayer (class)">FuzzyPlayer</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>jugador fuzzy a añadir</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+198
+199
+200
+201
+202
+203
+204
+205</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'labyrinth.rb', line 198</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_convert_to_fuzyy'>convert_to_fuzyy</span><span class='lparen'>(</span><span class='id identifier rubyid_fuzzy_player'>fuzzy_player</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_row'>row</span> <span class='op'>=</span> <span class='id identifier rubyid_fuzzy_player'>fuzzy_player</span><span class='period'>.</span><span class='id identifier rubyid_row'>row</span>
+    <span class='id identifier rubyid_col'>col</span> <span class='op'>=</span> <span class='id identifier rubyid_fuzzy_player'>fuzzy_player</span><span class='period'>.</span><span class='id identifier rubyid_col'>col</span>
+
+    <span class='kw'>if</span> <span class='lparen'>(</span><span class='ivar'>@players</span><span class='lbracket'>[</span><span class='id identifier rubyid_row'>row</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='id identifier rubyid_col'>col</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_number'>number</span> <span class='op'>==</span> <span class='id identifier rubyid_fuzzy_player'>fuzzy_player</span><span class='period'>.</span><span class='id identifier rubyid_number'>number</span><span class='rparen'>)</span>
+        <span class='ivar'>@players</span><span class='lbracket'>[</span><span class='id identifier rubyid_row'>row</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='id identifier rubyid_col'>col</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_fuzzy_player'>fuzzy_player</span>
+    <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1398,28 +1495,28 @@
       <pre class="lines">
 
 
-280
-281
-282
-283
-284
-285
-286
-287
-288
-289
-290
-291
-292
-293
 294
 295
 296
 297
-298</pre>
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'labyrinth.rb', line 280</span>
+      <pre class="code"><span class="info file"># File 'labyrinth.rb', line 294</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_dir_2_pos'>dir_2_pos</span><span class='lparen'>(</span><span class='id identifier rubyid_row'>row</span><span class='comma'>,</span> <span class='id identifier rubyid_col'>col</span><span class='comma'>,</span> <span class='id identifier rubyid_direction'>direction</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_pos'>pos</span> <span class='op'>=</span> <span class='const'>Array</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
@@ -1525,12 +1622,12 @@
       <pre class="lines">
 
 
-208
-209
-210</pre>
+222
+223
+224</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'labyrinth.rb', line 208</span>
+      <pre class="code"><span class="info file"># File 'labyrinth.rb', line 222</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_empty_pos'>empty_pos</span><span class='lparen'>(</span><span class='id identifier rubyid_row'>row</span><span class='comma'>,</span> <span class='id identifier rubyid_col'>col</span><span class='rparen'>)</span>
     <span class='kw'>return</span> <span class='lparen'>(</span><span class='ivar'>@labyrinth</span><span class='lbracket'>[</span><span class='id identifier rubyid_row'>row</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='id identifier rubyid_col'>col</span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='cvar'>@@EMPTY_CHAR</span><span class='rparen'>)</span> <span class='comment'># &amp;&amp; (@players[row][col] == nil). No es necesario
@@ -1620,12 +1717,12 @@
       <pre class="lines">
 
 
-226
-227
-228</pre>
+240
+241
+242</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'labyrinth.rb', line 226</span>
+      <pre class="code"><span class="info file"># File 'labyrinth.rb', line 240</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_exit_pos'>exit_pos</span><span class='lparen'>(</span><span class='id identifier rubyid_row'>row</span><span class='comma'>,</span> <span class='id identifier rubyid_col'>col</span><span class='rparen'>)</span>
     <span class='kw'>return</span> <span class='lparen'>(</span><span class='ivar'>@labyrinth</span><span class='lbracket'>[</span><span class='id identifier rubyid_row'>row</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='id identifier rubyid_col'>col</span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='cvar'>@@EXIT_CHAR</span><span class='rparen'>)</span>
@@ -1774,12 +1871,12 @@
       <pre class="lines">
 
 
-217
-218
-219</pre>
+231
+232
+233</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'labyrinth.rb', line 217</span>
+      <pre class="code"><span class="info file"># File 'labyrinth.rb', line 231</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_monster_pos'>monster_pos</span><span class='lparen'>(</span><span class='id identifier rubyid_row'>row</span><span class='comma'>,</span> <span class='id identifier rubyid_col'>col</span><span class='rparen'>)</span>
     <span class='kw'>return</span> <span class='lparen'>(</span><span class='ivar'>@labyrinth</span><span class='lbracket'>[</span><span class='id identifier rubyid_row'>row</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='id identifier rubyid_col'>col</span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='cvar'>@@MONSTER_CHAR</span><span class='rparen'>)</span> <span class='comment'># &amp;&amp; (@players[row][col] == nil). No es necesario pq si está habrá un combate
@@ -1869,12 +1966,12 @@
       <pre class="lines">
 
 
-199
-200
-201</pre>
+213
+214
+215</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'labyrinth.rb', line 199</span>
+      <pre class="code"><span class="info file"># File 'labyrinth.rb', line 213</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_pos_ok'>pos_ok</span><span class='lparen'>(</span><span class='id identifier rubyid_row'>row</span><span class='comma'>,</span> <span class='id identifier rubyid_col'>col</span><span class='rparen'>)</span>
     <span class='kw'>return</span> <span class='lparen'>(</span><span class='int'>0</span><span class='op'>&lt;=</span><span class='id identifier rubyid_row'>row</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_row'>row</span><span class='op'>&lt;</span><span class='ivar'>@n_rows</span><span class='rparen'>)</span> <span class='op'>&amp;&amp;</span> <span class='lparen'>(</span><span class='int'>0</span><span class='op'>&lt;=</span><span class='id identifier rubyid_col'>col</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_col'>col</span><span class='op'>&lt;</span><span class='ivar'>@n_cols</span><span class='rparen'>)</span>
@@ -2136,20 +2233,6 @@
       <pre class="lines">
 
 
-335
-336
-337
-338
-339
-340
-341
-342
-343
-344
-345
-346
-347
-348
 349
 350
 351
@@ -2170,10 +2253,24 @@
 366
 367
 368
-369</pre>
+369
+370
+371
+372
+373
+374
+375
+376
+377
+378
+379
+380
+381
+382
+383</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'labyrinth.rb', line 335</span>
+      <pre class="code"><span class="info file"># File 'labyrinth.rb', line 349</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_put_player2D'>put_player2D</span><span class='lparen'>(</span><span class='id identifier rubyid_old_row'>old_row</span><span class='comma'>,</span> <span class='id identifier rubyid_old_col'>old_col</span><span class='comma'>,</span> <span class='id identifier rubyid_row'>row</span><span class='comma'>,</span> <span class='id identifier rubyid_col'>col</span><span class='comma'>,</span> <span class='id identifier rubyid_player'>player</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_output'>output</span> <span class='op'>=</span> <span class='kw'>nil</span>
@@ -2259,21 +2356,21 @@
       <pre class="lines">
 
 
-305
-306
-307
-308
-309
-310
-311
-312
-313
-314
-315
-316</pre>
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'labyrinth.rb', line 305</span>
+      <pre class="code"><span class="info file"># File 'labyrinth.rb', line 319</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_random_empty_pos'>random_empty_pos</span>
     <span class='kw'>begin</span>
@@ -2525,19 +2622,19 @@
       <pre class="lines">
 
 
-259
-260
-261
-262
-263
-264
-265
-266
-267
-268</pre>
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'labyrinth.rb', line 259</span>
+      <pre class="code"><span class="info file"># File 'labyrinth.rb', line 273</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update_old_pos'>update_old_pos</span><span class='lparen'>(</span><span class='id identifier rubyid_row'>row</span><span class='comma'>,</span> <span class='id identifier rubyid_col'>col</span><span class='rparen'>)</span>
     <span class='kw'>if</span> <span class='lparen'>(</span><span class='id identifier rubyid_pos_ok'>pos_ok</span><span class='lparen'>(</span><span class='id identifier rubyid_row'>row</span><span class='comma'>,</span> <span class='id identifier rubyid_col'>col</span><span class='rparen'>)</span><span class='rparen'>)</span>
@@ -2688,9 +2785,9 @@
 </div>
 
       <div id="footer">
-  Generated on Thu Apr 25 00:31:16 2024 by
+  Generated on Wed May  8 14:37:38 2024 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.36 (ruby-3.1.2).
+  0.9.36 (ruby-3.0.2).
 </div>
 
     </div>

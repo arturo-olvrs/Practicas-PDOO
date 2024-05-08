@@ -12,7 +12,7 @@ module Irrgarten
     # @author Arturo Olivares Martos
 
     # Número de jugadores
-    NUM_JUGADORES = 4
+    NUM_JUGADORES = 1
 
     vista=UI::TextUI.new  # Los dos puntos porque están en otro módulo
     juego=Game.new(NUM_JUGADORES)

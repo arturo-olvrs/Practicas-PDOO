@@ -69,10 +69,12 @@
   <dl>
     <dt>Inherits:</dt>
     <dd>
-      <span class="inheritName">Object</span>
+      <span class="inheritName"><span class='object_link'><a href="CombatElement.html" title="Irrgarten::CombatElement (class)">CombatElement</a></span></span>
       
         <ul class="fullTree">
           <li>Object</li>
+          
+            <li class="next"><span class='object_link'><a href="CombatElement.html" title="Irrgarten::CombatElement (class)">CombatElement</a></span></li>
           
             <li class="next">Irrgarten::Weapon</li>
           
@@ -180,56 +182,6 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#discard-instance_method" title="#discard (instance method)">#<strong>discard</strong>  &#x21d2; boolean </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>Método que indica si se descartará el arma en función de sus usos.</p>
-</div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>(power, uses)  &#x21d2; Weapon </a>
-    
-
-    
-  </span>
-  
-  
-    <span class="note title constructor">constructor</span>
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>Constructor de la clase.</p>
-</div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
       <a href="#to_s-instance_method" title="#to_s (instance method)">#<strong>to_s</strong>  &#x21d2; String </a>
     
 
@@ -254,87 +206,21 @@
     </ul>
   
 
+
+  
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods inherited from <span class='object_link'><a href="CombatElement.html" title="Irrgarten::CombatElement (class)">CombatElement</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="CombatElement.html#discard-instance_method" title="Irrgarten::CombatElement#discard (method)">#discard</a></span>, <span class='object_link'><a href="CombatElement.html#initialize-instance_method" title="Irrgarten::CombatElement#initialize (method)">#initialize</a></span></p>
 <div id="constructor_details" class="method_details_list">
   <h2>Constructor Details</h2>
   
-    <div class="method_details first">
-  <h3 class="signature first" id="initialize-instance_method">
-  
-    #<strong>initialize</strong>(power, uses)  &#x21d2; <tt><span class='object_link'><a href="" title="Irrgarten::Weapon (class)">Weapon</a></span></tt> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>Constructor de la clase</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  <p class="tag_title">Parameters:</p>
-<ul class="param">
-  
-    <li>
-      
-        <span class='name'>power</span>
-      
-      
-        <span class='type'>(<tt>float</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>poder del arma</p>
-</div>
-      
-    </li>
-  
-    <li>
-      
-        <span class='name'>uses</span>
-      
-      
-        <span class='type'>(<tt>int</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>usos que tiene el arma</p>
-</div>
-      
-    </li>
-  
-</ul>
-
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-18
-19
-20
-21</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'weapon.rb', line 18</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_power'>power</span><span class='comma'>,</span> <span class='id identifier rubyid_uses'>uses</span><span class='rparen'>)</span>
-    <span class='ivar'>@power</span> <span class='op'>=</span> <span class='id identifier rubyid_power'>power</span><span class='period'>.</span><span class='id identifier rubyid_to_f'>to_f</span>
-    <span class='ivar'>@uses</span> <span class='op'>=</span> <span class='id identifier rubyid_uses'>uses</span><span class='period'>.</span><span class='id identifier rubyid_to_i'>to_i</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
+    <p class="notice">This class inherits a constructor from <span class='object_link'><a href="CombatElement.html#initialize-instance_method" title="Irrgarten::CombatElement#initialize (method)">Irrgarten::CombatElement</a></span></p>
   
 </div>
 
@@ -381,79 +267,10 @@
   
 </ul>
 
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-26
-27
-28
-29
-30
-31
-32
-33</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'weapon.rb', line 26</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_attack'>attack</span>
-    <span class='kw'>if</span> <span class='ivar'>@uses</span> <span class='op'>&gt;</span> <span class='int'>0</span>
-        <span class='ivar'>@uses</span> <span class='op'>-=</span> <span class='int'>1</span>
-        <span class='kw'>return</span> <span class='ivar'>@power</span>
-    <span class='kw'>else</span>
-        <span class='kw'>return</span> <span class='float'>0.0</span>
-    <span class='kw'>end</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="discard-instance_method">
-  
-    #<strong>discard</strong>  &#x21d2; <tt>boolean</tt> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>Método que indica si se descartará el arma en función de sus usos</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-<p class="tag_title">Returns:</p>
-<ul class="return">
-  
-    <li>
-      
-      
-        <span class='type'>(<tt>boolean</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>devuelve <strong>true</strong> o <strong>false</strong> si se descarta o no</p>
-</div>
-      
-    </li>
-  
-</ul>
-
   <p class="tag_title">See Also:</p>
   <ul class="see">
     
-      <li><span class='object_link'><a href="Dice.html#dicard_element-class_method" title="Irrgarten::Dice.dicard_element (method)">Dice.dicard_element</a></span></li>
+      <li><span class='object_link'>CombatElement#produce_effect</span></li>
     
   </ul>
 
@@ -463,15 +280,15 @@
       <pre class="lines">
 
 
-39
-40
-41</pre>
+19
+20
+21</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'weapon.rb', line 39</span>
+      <pre class="code"><span class="info file"># File 'weapon.rb', line 19</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_discard'>discard</span>
-    <span class='kw'>return</span> <span class='const'><span class='object_link'><a href="Dice.html" title="Irrgarten::Dice (class)">Dice</a></span></span><span class='period'>.</span><span class='id identifier rubyid_dicard_element'><span class='object_link'><a href="Dice.html#dicard_element-class_method" title="Irrgarten::Dice.dicard_element (method)">dicard_element</a></span></span><span class='lparen'>(</span><span class='ivar'>@uses</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_attack'>attack</span>
+    <span class='id identifier rubyid_produce_effect'>produce_effect</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -522,15 +339,15 @@
       <pre class="lines">
 
 
-46
-47
-48</pre>
+26
+27
+28</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'weapon.rb', line 46</span>
+      <pre class="code"><span class="info file"># File 'weapon.rb', line 26</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_to_s'>to_s</span>
-    <span class='kw'>return</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>W[</span><span class='embexpr_beg'>#{</span><span class='ivar'>@power</span><span class='embexpr_end'>}</span><span class='tstring_content'>, </span><span class='embexpr_beg'>#{</span><span class='ivar'>@uses</span><span class='embexpr_end'>}</span><span class='tstring_content'>]</span><span class='tstring_end'>&quot;</span></span>
+    <span class='kw'>return</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>W</span><span class='tstring_end'>&quot;</span></span> <span class='op'>+</span> <span class='kw'>super</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -542,9 +359,9 @@
 </div>
 
       <div id="footer">
-  Generated on Thu Apr 25 00:31:16 2024 by
+  Generated on Wed May  8 14:37:38 2024 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.36 (ruby-3.1.2).
+  0.9.36 (ruby-3.0.2).
 </div>
 
     </div>

@@ -117,5 +117,27 @@ module Irrgarten
         end
 
 
+
+        # Este método devolverá la dirección de movimiento preferente con una probabilidad proporcional
+        # al valor de inteligencia suministrado. En el caso de no generar como resultado la dirección
+        # indicada por el primer parámetro, se elegirá una al azar de las válidas.
+        #
+        # @param preference [Directions] dirección preferente
+        # @param valid_moves [Array<Directions>] lista de direcciones válidas
+        # @param intelligence [float] valor de inteligencia
+        # @return [Directions] dirección de movimiento
+        def self.nextStep(preference, valid_moves, intelligence)
+            to_return = preference
+
+            # En el caso de que la inteligencia generada sea mayor que la proporcionada, se devuelve uno aleatorio
+            if ( self.random_intelligence > intelligence )
+                random_index = @@generator.rand(valid_moves.size)
+                to_return = valid_moves[random_index]
+            end
+
+            return to_return
+        end
+
+
     end # class
 end # module

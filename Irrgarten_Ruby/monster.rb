@@ -1,6 +1,7 @@
 # encoding: UTF-8
 
 require_relative 'dice'
+require_relative 'labyrinth_character'
 
 
 module Irrgarten
@@ -9,13 +10,10 @@ module Irrgarten
     #
     # @author Joaquin Avilés de la Fuente
     # @author Arturo Olivares Martos
-    class Monster
+    class Monster < LabyrinthCharacter
 
         # Salud inicial de los monstruos
         @@INITIAL_HEALTH = 5
-
-        # Posición inválida
-        @@INVALID_POS = -1
 
         # Constructor de la clase Monster. Inicializa los atributos de la clase.
         # La posición inicial del monstruo es inválida
@@ -24,21 +22,7 @@ module Irrgarten
         # @param intelligence [float] Inteligencia del monstruo
         # @param strength [float] Fuerza del monstruo
         def initialize(name, intelligence, strength)
-            @name = name
-            @intelligence = intelligence.to_f
-            @strength = strength.to_f
-            @health = @@INITIAL_HEALTH.to_f
-
-            @row = @@INVALID_POS
-            @col = @@INVALID_POS
-        end
-
-        # Método que informa si el monstruo ha muerto o no.
-        # Un monstruo ha muerto si su salud es menor o igual que 0
-        #
-        # @return [boolean] **true** si el monstruo ha muerto, **false** en caso contrario
-        def dead
-            return @health <= 0
+            super(name, intelligence, strength, @@INITIAL_HEALTH)
         end
 
         # Método que devuelve la intensidad del ataque de un monstruo.
@@ -71,33 +55,13 @@ module Irrgarten
             return is_dead
         end
 
-        # Modificador de la posición del monstruo
-        #
-        # @param row [int] fila de la posición del monstruo
-        # @param col [int] columna de la posición del monstruo
-        def pos(row, col)
-            @row = row
-            @col = col
-        end
-
         # Método que genera una cadena de caracteres con la información del monstruo
         #
         # @return [String] cadena de caracteres con la información del monstruo
+        # // TODO: Revisar los to_s
         def to_s
 
-            # Formato para mostrar los datos flotantes del monstruo
-            formato='%.10f'
-
-            return "M[#{@name}, i:#{format(formato,@intelligence)}, "+
-                    "s:#{format(formato,@strength)}, h:#{format(formato,@health)}, "+
-                    "p:(#{@row}, #{@col})]"
-        end
-
-        private
-
-        # Método que reduce la salud del monstruo en una unidad
-        def got_wounded
-            @health -= 1
+            return super + "]"
         end
 
     end # class
