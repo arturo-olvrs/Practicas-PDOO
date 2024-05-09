@@ -197,7 +197,7 @@ module Irrgarten
         # Dado un jugador lo añade a la tabla de jugadores.
         #
         # @param fuzzy_player [FuzzyPlayer] Jugador fuzzy a añadir
-        def convert_to_fuzyy(fuzzy_player)
+        def convert_to_fuzzy(fuzzy_player)
             row = fuzzy_player.row
             col = fuzzy_player.col
 
@@ -205,7 +205,6 @@ module Irrgarten
                 @players[row][col] = fuzzy_player
             end
         end
-        # // TODO: Pasar a fuzzy así ??
 
         private
         # Método que indica si la posición suministrada está dentro del tablero

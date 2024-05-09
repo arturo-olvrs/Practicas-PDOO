@@ -55,15 +55,6 @@ module Irrgarten
             return is_dead
         end
 
-        # Método que genera una cadena de caracteres con la información del monstruo
-        #
-        # @return [String] cadena de caracteres con la información del monstruo
-        def to_s
-
-            return super + "]"
-        end
-        # // TODO: Revisar los to_s
-
 
     end # class
 end # module

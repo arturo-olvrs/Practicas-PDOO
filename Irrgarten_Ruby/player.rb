@@ -43,7 +43,7 @@ module Irrgarten
         # @return [char] número del jugador
         attr_reader :number
 
-        protected   # // TODO: Qué visibilidad tienen en Ruby??
+        protected
         # Consultor de @weapons
         # @return [Array<Weapon>] array de armas del jugador
         attr_reader :weapons
@@ -64,7 +64,7 @@ module Irrgarten
         # @param other [Player] jugador al que se quiere copiar
         # @note Al terminar se copian los atributos del jugador **other** al jugador que llama al método
         def copy(other)
-            super(other)
+            super
             @number = other.number
             @weapons = other.weapons
             @shields = other.shields
@@ -172,7 +172,7 @@ module Irrgarten
             end
             to_shields+="]"
 
-            return super + ", ch:#{@consecutive_hits}, w:"+to_weapons+", sh:"+to_shields + " ]"
+            return super + " [ ch:#{@consecutive_hits}, w:"+to_weapons+", sh:"+to_shields + " ]"
         end
 
         private
@@ -228,7 +228,6 @@ module Irrgarten
             return Shield.new(Dice.shield_power, Dice.uses_left)
         end
 
-        # // TODO: Protected en ruby es igual que en Java??
 
         protected
         # Devuelve la suma del resultado de llamar al método {Weapon#attack} de todas sus armas.

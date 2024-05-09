@@ -264,7 +264,6 @@ module Irrgarten
 
             else
                 log_player_skip_turn
-
             end
         end
 

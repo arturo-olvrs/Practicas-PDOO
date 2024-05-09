@@ -72,7 +72,6 @@ module Irrgarten
         #
         # @param other [LabyrinthCharacter] personaje al que se le copiarán los atributos
         # @note Al terminar se copian los atributos del personaje **other** al personaje que llama al método
-        # // TODO: Constructor de copia así??
         def copy(other)
             @name = other.name
             @intelligence = other.intelligence
@@ -104,11 +103,10 @@ module Irrgarten
         def to_s
 
             # Formato para mostrar los datos flotantes del personaje
-            formato='%.10f'
+            formato='%.6f'
 
             return "#{@name}[i:#{format(formato,@intelligence)}, s:#{format(formato,@strength)}, "+
-            "h:#{format(formato,@health)}, p:(#{@row}, #{@col})"
-            # // TODO: Buena práctica el dejar el ] sin cerrar?
+            "h:#{format(formato,@health)}, p:(#{@row}, #{@col})]"
         end
 
         # Método que realiza un ataque.
@@ -118,7 +116,6 @@ module Irrgarten
         def attack
             raise NotImplementedError
         end
-        # // TODO: Preguntar
 
         # Método que defiende al personaje.
         #

@@ -1116,12 +1116,12 @@
       <pre class="lines">
 
 
-118
-119
-120</pre>
+116
+117
+118</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'labyrinth_character.rb', line 118</span>
+      <pre class="code"><span class="info file"># File 'labyrinth_character.rb', line 116</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_attack'>attack</span>
     <span class='id identifier rubyid_raise'>raise</span> <span class='const'>NotImplementedError</span>
@@ -1152,8 +1152,6 @@
 
 
 <p>Método que busca asemejarse a un constructor de copia. Copia los atributos de un personaje a otro.</p>
-
-<p>// TODO: Constructor de copia así??</p>
 
 
   </div>
@@ -1187,16 +1185,16 @@
       <pre class="lines">
 
 
+75
 76
 77
 78
 79
 80
-81
-82</pre>
+81</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'labyrinth_character.rb', line 76</span>
+      <pre class="code"><span class="info file"># File 'labyrinth_character.rb', line 75</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_copy'>copy</span><span class='lparen'>(</span><span class='id identifier rubyid_other'>other</span><span class='rparen'>)</span>
     <span class='ivar'>@name</span> <span class='op'>=</span> <span class='id identifier rubyid_other'>other</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span>
@@ -1254,12 +1252,12 @@
       <pre class="lines">
 
 
+87
 88
-89
-90</pre>
+89</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'labyrinth_character.rb', line 88</span>
+      <pre class="code"><span class="info file"># File 'labyrinth_character.rb', line 87</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_dead'>dead</span>
     <span class='kw'>return</span> <span class='ivar'>@health</span> <span class='op'>&lt;=</span> <span class='int'>0</span>
@@ -1319,12 +1317,12 @@
       <pre class="lines">
 
 
-127
-128
-129</pre>
+124
+125
+126</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'labyrinth_character.rb', line 127</span>
+      <pre class="code"><span class="info file"># File 'labyrinth_character.rb', line 124</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_defend'>defend</span>
     <span class='id identifier rubyid_raise'>raise</span> <span class='const'>NotImplementedError</span>
@@ -1360,12 +1358,12 @@
       <pre class="lines">
 
 
+93
 94
-95
-96</pre>
+95</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'labyrinth_character.rb', line 94</span>
+      <pre class="code"><span class="info file"># File 'labyrinth_character.rb', line 93</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_got_wounded'>got_wounded</span>
     <span class='ivar'>@health</span> <span class='op'>-=</span> <span class='int'>1</span>
@@ -1498,28 +1496,26 @@
       <pre class="lines">
 
 
+103
 104
 105
 106
 107
 108
 109
-110
-111
-112</pre>
+110</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'labyrinth_character.rb', line 104</span>
+      <pre class="code"><span class="info file"># File 'labyrinth_character.rb', line 103</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_to_s'>to_s</span>
 
     <span class='comment'># Formato para mostrar los datos flotantes del personaje
-</span>    <span class='id identifier rubyid_formato'>formato</span><span class='op'>=</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>%.10f</span><span class='tstring_end'>&#39;</span></span>
+</span>    <span class='id identifier rubyid_formato'>formato</span><span class='op'>=</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>%.6f</span><span class='tstring_end'>&#39;</span></span>
 
     <span class='kw'>return</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='ivar'>@name</span><span class='embexpr_end'>}</span><span class='tstring_content'>[i:</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_format'>format</span><span class='lparen'>(</span><span class='id identifier rubyid_formato'>formato</span><span class='comma'>,</span><span class='ivar'>@intelligence</span><span class='rparen'>)</span><span class='embexpr_end'>}</span><span class='tstring_content'>, s:</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_format'>format</span><span class='lparen'>(</span><span class='id identifier rubyid_formato'>formato</span><span class='comma'>,</span><span class='ivar'>@strength</span><span class='rparen'>)</span><span class='embexpr_end'>}</span><span class='tstring_content'>, </span><span class='tstring_end'>&quot;</span></span><span class='op'>+</span>
-    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>h:</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_format'>format</span><span class='lparen'>(</span><span class='id identifier rubyid_formato'>formato</span><span class='comma'>,</span><span class='ivar'>@health</span><span class='rparen'>)</span><span class='embexpr_end'>}</span><span class='tstring_content'>, p:(</span><span class='embexpr_beg'>#{</span><span class='ivar'>@row</span><span class='embexpr_end'>}</span><span class='tstring_content'>, </span><span class='embexpr_beg'>#{</span><span class='ivar'>@col</span><span class='embexpr_end'>}</span><span class='tstring_content'>)</span><span class='tstring_end'>&quot;</span></span>
-    <span class='comment'># // TODO: Buena práctica el dejar el ] sin cerrar?
-</span><span class='kw'>end</span></pre>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>h:</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_format'>format</span><span class='lparen'>(</span><span class='id identifier rubyid_formato'>formato</span><span class='comma'>,</span><span class='ivar'>@health</span><span class='rparen'>)</span><span class='embexpr_end'>}</span><span class='tstring_content'>, p:(</span><span class='embexpr_beg'>#{</span><span class='ivar'>@row</span><span class='embexpr_end'>}</span><span class='tstring_content'>, </span><span class='embexpr_beg'>#{</span><span class='ivar'>@col</span><span class='embexpr_end'>}</span><span class='tstring_content'>)]</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>end</span></pre>
     </td>
   </tr>
 </table>
@@ -1530,7 +1526,7 @@
 </div>
 
       <div id="footer">
-  Generated on Wed May  8 18:10:15 2024 by
+  Generated on Thu May  9 09:52:56 2024 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.36 (ruby-3.0.2).
 </div>
