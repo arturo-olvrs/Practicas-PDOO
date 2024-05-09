@@ -3,18 +3,16 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/joaquiin_724/Documentos/Practicas-PDOO/Irrgarten_Java/src/irrgarten/LabyrinthCharacter.java</file>
+            <file>file:/home/joaquiin_724/Documentos/Practicas-PDOO/Irrgarten_Java/src/irrgarten/ShieldCardDeck.java</file>
             <file>file:/home/joaquiin_724/Documentos/Practicas-PDOO/Irrgarten_Java/src/irrgarten/Player.java</file>
+            <file>file:/home/joaquiin_724/Documentos/Practicas-PDOO/Irrgarten_Java/src/irrgarten/Dice.java</file>
             <file>file:/home/joaquiin_724/Documentos/Practicas-PDOO/Irrgarten_Java/src/irrgarten/TestP3.java</file>
-            <file>file:/home/joaquiin_724/Documentos/Practicas-PDOO/Irrgarten_Java/src/irrgarten/Weapon.java</file>
-            <file>file:/home/joaquiin_724/Documentos/Practicas-PDOO/Irrgarten_Java/src/irrgarten/Shield.java</file>
             <file>file:/home/joaquiin_724/Documentos/Practicas-PDOO/Irrgarten_Java/src/irrgarten/Labyrinth.java</file>
-            <file>file:/home/joaquiin_724/Documentos/Practicas-PDOO/Irrgarten_Java/src/irrgarten/Monster.java</file>
+            <file>file:/home/joaquiin_724/Documentos/Practicas-PDOO/Irrgarten_Java/src/irrgarten/CardDeck.java</file>
             <file>file:/home/joaquiin_724/Documentos/Practicas-PDOO/Irrgarten_Java/src/irrgarten/CombatElement.java</file>
             <file>file:/home/joaquiin_724/Documentos/Practicas-PDOO/Irrgarten_Java/src/irrgarten/FuzzyPlayer.java</file>
+            <file>file:/home/joaquiin_724/Documentos/Practicas-PDOO/Irrgarten_Java/src/irrgarten/WeaponCardDeck.java</file>
             <file>file:/home/joaquiin_724/Documentos/Practicas-PDOO/Irrgarten_Java/src/irrgarten/Game.java</file>
-            <file>file:/home/joaquiin_724/Documentos/Practicas-PDOO/Irrgarten_Java/src/irrgarten/controller/Controller.java</file>
-            <file>file:/home/joaquiin_724/Documentos/Practicas-PDOO/Irrgarten_Java/src/irrgarten/UI/TextUI.java</file>
         </group>
     </open-files>
 </project-private>
