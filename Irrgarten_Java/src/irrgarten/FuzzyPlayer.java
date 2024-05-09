@@ -63,7 +63,7 @@ public class FuzzyPlayer extends Player{
      * @return Representación en forma de cadena de caracteres del estado interno 
      * del fuzzyplayer.
      */
-    @Override // TODO: comprobar que está igual en ruby
+    @Override
     public String toString(){
         String toReturn="(Fuzzy) ";
         toReturn+=super.toString();
