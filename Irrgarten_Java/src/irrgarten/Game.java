@@ -319,7 +319,7 @@ public class Game {
      * por un fuzzyplayer, haciendo uso del método actualizarPos de la clase 
      * Labyrinth
      * 
-     * @see Labyrinth#updatePos(fuzzy) 
+     * @see Labyrinth#convertToFuzzy(fuzzy) 
      */
     private void manageResurrection (){
         if (Dice.resurrectPlayer()){
@@ -330,7 +330,7 @@ public class Game {
             // Se cambia la posición por el fuzzyplayer
             FuzzyPlayer fuzzy= new FuzzyPlayer(this.currentPlayer);
             this.players.set(this.currentPlayerIndex, fuzzy);
-            this.labyrinth.updatePos(fuzzy);
+            this.labyrinth.convertToFuzzy(fuzzy);
         }            
         else
             this.logPlayerSkipTurn();

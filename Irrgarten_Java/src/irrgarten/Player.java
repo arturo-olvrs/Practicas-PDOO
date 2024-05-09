@@ -80,16 +80,20 @@ public class Player extends LabyrinthCharacter {
     
     /**
      * Consctructor de copia
-     * @param other Objeto que copiar // TODO: preguntar a Lastra
+     * @param other Objeto que copiar
      */
     public Player (Player other){
         super(other); // Se usa el constructor de copia de LabyrinthCharacter
         this.number=other.number;
         this.consecutiveHits=other.consecutiveHits;
         
-        // Hay que inicializar los ArrayList, pero vacíos
-        weapons= new ArrayList<>();
-        shields= new ArrayList<>();
+        // Hay que inicializar los ArrayList
+        this.weapons= new ArrayList<>(other.weapons);
+        this.shields= new ArrayList<>(other.shields);
+        
+        // Hay que inicializar las barajas de cartas
+        this.weaponCardDeck=other. weaponCardDeck;
+        this.shieldCardDeck= other.shieldCardDeck;
     }
     
     /**
@@ -181,10 +185,10 @@ public class Player extends LabyrinthCharacter {
      * del estado interno del jugador.
      * @return Representación en forma de cadena de caracteres del estado interno del jugador.
      */
-    @Override // TODO: comprobar que está igual en ruby
+    @Override 
     public String toString(){
         String toReturn=super.toString();
-        toReturn+=", ch:"+this.consecutiveHits+", ";
+        toReturn+=" [ ch:"+this.consecutiveHits+", ";
         
         // Bucles para mostrar con un formato determinado el array de
         // armas y escudos del jugador
@@ -254,7 +258,6 @@ public class Player extends LabyrinthCharacter {
             shields.add(s);
     }
     
-    // TODO: mirar si lo que quiere son estos cambios en newWeapon y newShield
     /**
      * Genera una nueva instancia de la clase Weapon, con los parámetros
      * que indica el dado

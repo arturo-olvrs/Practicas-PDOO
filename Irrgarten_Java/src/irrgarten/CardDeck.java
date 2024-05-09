@@ -18,6 +18,11 @@ abstract class CardDeck <T extends CombatElement> {
     private ArrayList <T> cardDeck;
     
     /**
+     * Tamaño máximo para la baraja de cartas de tipo Escudo
+     */
+    protected static final int TAMANIO_MAX=50;
+    
+    /**
      * Constructor de la clase parametrizable CardDeck
      */
     public CardDeck(){
@@ -49,7 +54,7 @@ abstract class CardDeck <T extends CombatElement> {
      * @return Primera carta de la baraja.
      */
     public T nextCard(){
-        if(this.cardDeck.size()==0) {
+        if(this.cardDeck.size()<=0) {
             this.addCards();
             Collections.shuffle(this.cardDeck); // Baraja el array pasado
         }

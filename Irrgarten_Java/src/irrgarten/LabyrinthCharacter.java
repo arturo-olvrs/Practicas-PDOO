@@ -7,6 +7,7 @@ package irrgarten;
  * @author Arturo Olivares Martos
  * @author Joaquín Avilés de la Fuente
  */
+
 abstract class LabyrinthCharacter {
     /**
      * Nombre del personaje del laberinto.
@@ -33,7 +34,7 @@ abstract class LabyrinthCharacter {
      */
     private int col;
     
-    /** // TODO: esto no está en la clase, pero lo añadimos nosotros
+    /** 
      * Posición inválida para inicializar row y col en el constructor.
      */
     private static final int INVALID_POS=-1;
@@ -143,7 +144,7 @@ abstract class LabyrinthCharacter {
     public String toString(){
         final String FORMAT = "%.6f";
         String toReturn=this.name+"["+"i:"+ String.format(FORMAT, this.intelligence) + ", s:"+String.format(FORMAT, this.strength);
-        toReturn+=", h:"+String.format(FORMAT, this.health)+", p:("+this.row+", "+this.col+")";
+        toReturn+=", h:"+String.format(FORMAT, this.health)+", p:("+this.row+", "+this.col+")]";
         
         return toReturn;
     }

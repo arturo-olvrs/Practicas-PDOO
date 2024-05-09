@@ -280,10 +280,11 @@ public class Labyrinth {
      * @param este Objeto de FuzzyPlayer que sustituirá al objeto Player que haya
      * en su posición
      */
-    public void updatePos(FuzzyPlayer este){
+    public void convertToFuzzy(FuzzyPlayer este){
         int row=este.getRow();
         int col=este.getCol();
-        this.players[row][col]=este;
+        if(this.players[row][col].getNumber() == este.getNumber())
+            this.players[row][col]=este;
     }
     
     /**

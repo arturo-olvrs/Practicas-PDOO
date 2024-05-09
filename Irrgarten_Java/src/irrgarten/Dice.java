@@ -186,21 +186,18 @@ public class Dice {
     
     /**
      * En función de la inteligencia dada, devolverá ,con más probabilidad si <b>intelligence</b> es mayor,
-     * <b>preference</b> y ,con menos, una dirección aleatoria de <b>validMoves</b> // TODO: ver si le gusta a Arturo
+     * <b>preference</b> y ,con menos, una dirección aleatoria de <b>validMoves</b> 
      * @param preference Dirección preferida hacia la que moverse
      * @param validMoves Direcciones posibles para moverse
      * @param intelligence Inteligencia del jugador
      * @return Dirección elegida hacia la que moverse
      */
     public static Directions nextStep(Directions preference, ArrayList<Directions> validMoves, float intelligence){
-        float probabilidad=intelligence/Dice.MAX_INTELLIGENCE;
-        Directions toReturn;
+        Directions toReturn=preference;
         
-        if(generator.nextFloat()<=probabilidad)
-            toReturn=preference;
-        else {
-            int indice=generator.nextInt()%validMoves.size();
-            toReturn=validMoves.get(indice);
+        if(Dice.randomIntelligence()>intelligence){
+            int indice=generator.nextInt(validMoves.size());
+            toReturn=validMoves.get(indice);          
         }
         
         return toReturn;
