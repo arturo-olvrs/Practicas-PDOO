@@ -21,11 +21,11 @@ public class Game {
     /**
      * Número de filas del laberinto.
      */
-    private static final int ROWS=4;
+    private static final int ROWS=12;
     /**
      * Número de columnas del laberinto.
      */
-    private static final int COLS=4;
+    private static final int COLS=12;
     
 
     // Monstruos a incluir
@@ -196,12 +196,12 @@ public class Game {
         
         // Formato jugadores
         for (int i=0; i<this.players.size(); i++){
-            infoPlayers+=this.players.get(i).toString()+"\n";
+            infoPlayers+="- " + this.players.get(i).toString()+"\n";
         }
         
         // Formato monstruos
         for (int i=0; i<this.monsters.size(); i++){
-            infoMonsters+=this.monsters.get(i).toString()+"\n";
+            infoMonsters+="- " + this.monsters.get(i).toString()+"\n";
         }
         
         // Estado general del juego
@@ -319,7 +319,7 @@ public class Game {
      * por un fuzzyplayer, haciendo uso del método actualizarPos de la clase 
      * Labyrinth
      * 
-     * @see Labyrinth#convertToFuzzy(fuzzy) 
+     * @see Labyrinth#convertToFuzzy
      */
     private void manageResurrection (){
         if (Dice.resurrectPlayer()){

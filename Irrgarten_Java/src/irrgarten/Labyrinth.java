@@ -29,7 +29,7 @@ public class Labyrinth {
      */
     private static final char COMBAT_CHAR='C';
     /**
-     * Carácter que indica que hay un jugador en la casilla.
+     * Carácter que indica que la casilla de salida.
      */
     private static final char EXIT_CHAR='E';
     

@@ -1,1 +1,1 @@
-packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"irrgarten"},{"l":"irrgarten.controller"},{"l":"irrgarten.UI"}];updateSearchResults();
+packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"irrgarten"},{"l":"irrgarten.controller"},{"l":"irrgarten.UI"}]

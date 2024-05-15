@@ -2,11 +2,14 @@ package irrgarten.controller;
 
 import irrgarten.Directions;
 import irrgarten.Game;
-import irrgarten.UI.TextUI;
+import irrgarten.UI.*;
 
 /**
  * Esta clase se encarga mantener el control general del juego, es decir, su visualización
  * el estado del juego, su finalización, etc.
+ * 
+ * @autor Arturo Olivares Martos
+ * @autor Joaquín Avilés de la Fuente
  */
 public class Controller {
     
@@ -18,26 +21,29 @@ public class Controller {
     /**
      * Vista del juego
      */
-    private TextUI view;
+    private UI view;
     
     /**
      * Constructor del controlador
      * 
-     * @param game juego
-     * @param view visualización
+     * @param game Juego
+     * @param view Clase que se encarga de la interacción con el usuario
      */
-    public Controller(Game game, TextUI view) {
+    public Controller(Game game, UI view) {
         this.game = game;
         this.view = view;
     }
+    // TODO: UI se puede manejar así?
     
     /**
-     * Juego
+     * Método que se encarga de jugar al juego
      */
     public void play() {
         boolean endOfGame = false;
         while (!endOfGame) {
-            view.showGame(game.getGameState()); 
+            view.showGame(game.getGameState());
+            
+            // TODO: Como parar y que sea cuando lo indica el usuario
             Directions direction = view.nextMove(); 
             endOfGame = game.nextStep(direction);
         }

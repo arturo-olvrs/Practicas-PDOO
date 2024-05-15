@@ -24,7 +24,7 @@ public class FuzzyPlayer extends Player{
      * Método que informa sobre la dirección en la que se va a mover el jugador.
      * Destacar que en este caso se elige de forma aleatoria entre la preferida
      * (obtenida del método move de Player) y las posibles <b>validMoves</b>.
-     * @see Player#move(direction, validMoves) 
+     * @see Player#move
      * 
      * @param direction  Dirección en la que se quiere mover el fuzzyplayer
      * @param validMoves  Lista de movimientos válidos

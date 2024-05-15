@@ -6,11 +6,13 @@ import irrgarten.GameState;
 import java.util.Scanner;
 
 /**
- * Esta clae se encarga de recibir las ordenes de los jugadores y transimitirlas
- * al juego para que haga las gestiones necesarias. También muestra en consola
- * el estado del juego, es decir, el laberinto y los jugadores, monstruos, etc.
+ * Interfaz de usuario de texto. Implementa la interfaz UI.
+ * 
+ * @see UI
+ * @autor Arturo Olivares Martos
+ * @autor Joaquín Avilés de la Fuente
  */
-public class TextUI {
+public class TextUI implements UI {
     
     /**
      * Escáner para leer
@@ -29,9 +31,10 @@ public class TextUI {
     }
 
     /**
-     * Método que recibe las ordenes del jugador para desplazarse
-     * @return dirección hacia la que desea desplazarse el jugador
+     * {@inheritDoc}
+     * Implementación de la interfaz UI de texto.
      */
+    @Override
     public Directions nextMove() {
         System.out.print("Where? ");
         
@@ -67,12 +70,10 @@ public class TextUI {
     }
      
     /**
-     * Método que muestra el estado completo del juego, mostrándo el laberinto,
-     * los monstruos, los jugadores, mensaje con eventos importantes y si ha habido
-     * un ganador.
-     * 
-     * @param gameState estado actual del juego
+     * {@inheritDoc}
+     * Implementación de la interfaz UI de texto.
      */
+    @Override
     public void showGame(GameState gameState) {
         System.out.print(gameState.getLabyrinth() + "\n");
         System.out.print(gameState.getPlayers() + "\n");

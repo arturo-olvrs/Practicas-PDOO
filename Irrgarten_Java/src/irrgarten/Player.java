@@ -152,7 +152,7 @@ public class Player extends LabyrinthCharacter {
     
     /**
      * Método que permite al jugador defenderse de un ataque.
-     * Relega en manageHit(float) la gestión de la defensa.
+     * Relega en #manageHit(float) la gestión de la defensa.
      * @param receivedAttack Intensidad del ataque recibido
      * @return  Devuelve true si el jugador ha muerto y false en caso contrario.
      * @see #manageHit(float)
