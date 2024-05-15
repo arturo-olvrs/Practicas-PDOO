@@ -8,8 +8,8 @@ import irrgarten.UI.*;
  * Esta clase se encarga mantener el control general del juego, es decir, su visualización
  * el estado del juego, su finalización, etc.
  * 
- * @autor Arturo Olivares Martos
- * @autor Joaquín Avilés de la Fuente
+ * @author Arturo Olivares Martos
+ * @author Joaquín Avilés de la Fuente
  */
 public class Controller {
     

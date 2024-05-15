@@ -23,11 +23,14 @@ public class Cursors extends javax.swing.JDialog {
      */
     public Directions getDirection() {
         setVisible(true);   // Hace visible la ventana y bloquea la ejecución hasta que se cierre
-        return direction;
+        return this.direction;
     }
     
     /**
      * Creates new form Cursors
+     * 
+     * @param parent Padre JFrame
+     * @param modal Modal para visibilidad
      */
     public Cursors(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
@@ -135,32 +138,69 @@ public class Cursors extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Establece la dirección en la que se moverá el jugador a abajo
+     * @param evt Evento de pulsación del botón
+     */
     private void down_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_down_buttonActionPerformed
-        direction = Directions.DOWN;
+        this.direction = Directions.DOWN;
         dispose(); // Cierra la ventana. La ejecución continúa
     }//GEN-LAST:event_down_buttonActionPerformed
 
+    /**
+     * Establece la dirección en la que se moverá el jugador a la izquierda
+     * @param evt Evento de pulsación del botón
+     */
     private void left_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_left_buttonActionPerformed
-        direction = Directions.LEFT;
+        this.direction = Directions.LEFT;
         dispose(); // Cierra la ventana. La ejecución continúa
     }//GEN-LAST:event_left_buttonActionPerformed
 
+    /**
+     * Establece la dirección en la que se moverá el jugador a arriba
+     * @param evt Evento de pulsación del botón
+     */
     private void up_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_up_buttonActionPerformed
-        direction = Directions.UP;
+        this.direction = Directions.UP;
         dispose(); // Cierra la ventana. La ejecución continúa
     }//GEN-LAST:event_up_buttonActionPerformed
 
+    /**
+     * Establece la dirección en la que se moverá el jugador a la derecha
+     * @param evt Evento de pulsación del botón
+     */
     private void right_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_right_buttonActionPerformed
-        direction = Directions.RIGHT;
+        this.direction = Directions.RIGHT;
         dispose(); // Cierra la ventana. La ejecución continúa
     }//GEN-LAST:event_right_buttonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+
+    /**
+     * Botón para mover hacia abajo
+     */
     private javax.swing.JButton down_button;
+
+    /**
+     * Botón para mover hacia la izquierda
+     */
     private javax.swing.JButton left_button;
+
+    /**
+     * Botón para mover hacia la derecha
+     */
     private javax.swing.JButton right_button;
-    private javax.swing.JLabel titulo;
+
+    /**
+     * Botón para mover hacia arriba
+     */
     private javax.swing.JButton up_button;
+
+    /**
+     * Título de la ventana
+     */
+    private javax.swing.JLabel titulo;
+    
     // End of variables declaration//GEN-END:variables
 }

@@ -7,8 +7,8 @@ import irrgarten.GameState;
  * Interfaz de usuario gráfica. Implementa la interfaz UI.
  * 
  * @see UI
- * @autor Arturo Olivares Martos
- * @autor Joaquín Avilés de la Fuente
+ * @author Arturo Olivares Martos
+ * @author Joaquín Avilés de la Fuente
  */
 public class GraphicUI extends javax.swing.JFrame implements UI {
     
@@ -213,31 +213,102 @@ public class GraphicUI extends javax.swing.JFrame implements UI {
         pack();
     }// </editor-fold>//GEN-END:initComponents
     
+    /**
+     * Método que se ejecuta al pulsar el botón de siguiente turno.
+     * @param evt Evento de pulsar el botón
+     */
     private void jugadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jugadorActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jugadorActionPerformed
 
+    /**
+     * Método que se ejecuta al pulsar el botón de siguiente turno.
+     * @param evt Evento de pulsar el botón
+     */
     private void sig_jug_botonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sig_jug_botonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_sig_jug_botonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    /**
+     * Etiqueta para mostrar la marca del jugador actual
+     */
     private javax.swing.JLabel ganador_mark;
+
+    /**
+     * Panel para scrollear 
+     */
     private javax.swing.JScrollPane jScrollPane1;
+
+    /**
+     * Panel para scrollear
+     */
     private javax.swing.JScrollPane jScrollPane2;
+
+    /**
+     * Panel para scrollear 
+     */
     private javax.swing.JScrollPane jScrollPane3;
+
+    /**
+     * Panel para scrollear 
+     */
     private javax.swing.JScrollPane jScrollPane4;
+
+    /**
+     * Campo de texto para mostrar el jugador actual
+     */
     private javax.swing.JTextField jugador;
+
+    /**
+     * Campo de texto para mostrar a los jugadores
+     */
     private javax.swing.JTextArea jugadores;
+
+    /**
+     * Etiqueta para mostrar marca de jugadores
+     */
     private javax.swing.JLabel jugadores_mark;
+
+    /**
+     * Campo de texto para mostrar el laberinto
+     */
     private javax.swing.JTextArea laberinto;
+
+    /**
+     * Campo de texto para mostrar el log
+     */
     private javax.swing.JTextArea log;
+
+    /**
+     * Etiqueta para mostrar marca de log
+     */
     private javax.swing.JLabel log_mark;
+
+    /**
+     * Campo de texto para mostrar a los monstruos
+     */
     private javax.swing.JTextArea monstruos;
+
+    /**
+     * Etiqueta para mostrar marca de monstruos
+     */
     private javax.swing.JLabel monstruos_mark;
+
+    /**
+     * Etiqueta para mostrar marca de jugador
+     */
     private javax.swing.JLabel player_mark;
+
+    /**
+     * Botón para pasar al siguiente turno
+     */
     private javax.swing.JButton sig_jug_boton;
+
+    /**
+     * Etiqueta para mostrar el título
+     */
     private javax.swing.JLabel titulo;
     // End of variables declaration//GEN-END:variables
     
@@ -249,7 +320,7 @@ public class GraphicUI extends javax.swing.JFrame implements UI {
      */
     @Override
     public Directions nextMove(){
-        return cursor.getDirection();
+        return this.cursor.getDirection();
     }
 
     /**
@@ -259,20 +330,20 @@ public class GraphicUI extends javax.swing.JFrame implements UI {
     @Override
     public void showGame(GameState gameState){
         
-        laberinto.setText(gameState.getLabyrinth());
-        monstruos.setText(gameState.getMonsters());
-        jugadores.setText(gameState.getPlayers());
-        log.setText(gameState.getLog());
+        this.laberinto.setText(gameState.getLabyrinth());
+        this.monstruos.setText(gameState.getMonsters());
+        this.jugadores.setText(gameState.getPlayers());
+        this.log.setText(gameState.getLog());
 
-        jugador.setText("Player " + Integer.toString(gameState.getCurrentPlayer()));
+        this.jugador.setText("Player " + Integer.toString(gameState.getCurrentPlayer()));
 
 
         if (gameState.getWinner()) {
             // Mostrar la etiqueta de ganador
-            ganador_mark.setVisible(true);
+            this.ganador_mark.setVisible(true);
 
             // Ocultar la etiqueta de siguiente turno
-            sig_jug_boton.setVisible(false);
+            this.sig_jug_boton.setVisible(false);
         }
 
         repaint();

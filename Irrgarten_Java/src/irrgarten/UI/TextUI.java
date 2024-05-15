@@ -9,8 +9,8 @@ import java.util.Scanner;
  * Interfaz de usuario de texto. Implementa la interfaz UI.
  * 
  * @see UI
- * @autor Arturo Olivares Martos
- * @autor Joaquín Avilés de la Fuente
+ * @author Arturo Olivares Martos
+ * @author Joaquín Avilés de la Fuente
  */
 public class TextUI implements UI {
     

@@ -21,11 +21,11 @@ public class Game {
     /**
      * Número de filas del laberinto.
      */
-    private static final int ROWS=12;
+    private static final int ROWS=7;
     /**
      * Número de columnas del laberinto.
      */
-    private static final int COLS=12;
+    private static final int COLS=7;
     
 
     // Monstruos a incluir
