@@ -3,8 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/joaquiin_724/Documentos/Practicas-PDOO/Irrgarten_Java/src/irrgarten/Labyrinth.java</file>
-            <file>file:/home/joaquiin_724/Documentos/Practicas-PDOO/Irrgarten_Java/src/irrgarten/controller/Controller.java</file>
+            <file>file:/home/joaquiin_724/Documentos/Practicas-PDOO/Irrgarten_Java/src/irrgarten/LabyrinthCharacter.java</file>
+            <file>file:/home/joaquiin_724/Documentos/Practicas-PDOO/Irrgarten_Java/src/irrgarten/GameCharacter.java</file>
+            <file>file:/home/joaquiin_724/Documentos/Practicas-PDOO/Irrgarten_Java/src/irrgarten/TestP5.java</file>
+            <file>file:/home/joaquiin_724/Documentos/Practicas-PDOO/Irrgarten_Java/src/irrgarten/Game.java</file>
             <file>file:/home/joaquiin_724/Documentos/Practicas-PDOO/Irrgarten_Java/src/irrgarten/UI/GraphicUI.java</file>
         </group>
     </open-files>

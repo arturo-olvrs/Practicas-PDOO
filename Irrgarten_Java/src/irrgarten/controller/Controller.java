@@ -33,7 +33,6 @@ public class Controller {
         this.game = game;
         this.view = view;
     }
-    // TODO: UI se puede manejar así?
     
     /**
      * Método que se encarga de jugar al juego
@@ -43,7 +42,6 @@ public class Controller {
         while (!endOfGame) {
             view.showGame(game.getGameState());
             
-            // TODO: Como parar y que sea cuando lo indica el usuario
             Directions direction = view.nextMove(); 
             endOfGame = game.nextStep(direction);
         }

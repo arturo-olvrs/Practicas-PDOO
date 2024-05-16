@@ -28,8 +28,6 @@
               <Group type="103" groupAlignment="1" attributes="0">
                   <Group type="102" attributes="0">
                       <Component id="titulo" min="-2" pref="181" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="sig_jug_boton" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                       <Component id="ganador_mark" min="-2" pref="104" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
@@ -71,7 +69,6 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jugador" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="player_mark" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
-                  <Component id="sig_jug_boton" alignment="3" min="-2" pref="51" max="-2" attributes="0"/>
                   <Component id="ganador_mark" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
                   <Component id="titulo" alignment="3" min="-2" pref="61" max="-2" attributes="0"/>
               </Group>
@@ -270,17 +267,6 @@
           </Border>
         </Property>
       </Properties>
-    </Component>
-    <Component class="javax.swing.JButton" name="sig_jug_boton">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Liberation Sans" size="24" style="1"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="Siguiente Turno"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="sig_jug_botonActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="ganador_mark">
       <Properties>

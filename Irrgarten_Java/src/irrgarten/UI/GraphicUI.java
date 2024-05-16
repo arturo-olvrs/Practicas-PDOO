@@ -28,7 +28,6 @@ public class GraphicUI extends javax.swing.JFrame implements UI {
         cursor = new Cursors(this, true);
 
         ganador_mark.setVisible(false); // Para que la etiqueta de ganador no sea visible.
-        sig_jug_boton.setVisible(true); // Para que el botón de siguiente turno sea visible.
         setVisible(true); // Para que la ventana de la aplicación sea visible.
     }
 
@@ -55,7 +54,6 @@ public class GraphicUI extends javax.swing.JFrame implements UI {
         jugadores_mark = new javax.swing.JLabel();
         monstruos_mark = new javax.swing.JLabel();
         log_mark = new javax.swing.JLabel();
-        sig_jug_boton = new javax.swing.JButton();
         ganador_mark = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -128,14 +126,6 @@ public class GraphicUI extends javax.swing.JFrame implements UI {
         log_mark.setText("Resumen");
         log_mark.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
 
-        sig_jug_boton.setFont(new java.awt.Font("Liberation Sans", 1, 24)); // NOI18N
-        sig_jug_boton.setText("Siguiente Turno");
-        sig_jug_boton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                sig_jug_botonActionPerformed(evt);
-            }
-        });
-
         ganador_mark.setBackground(new java.awt.Color(0, 0, 0));
         ganador_mark.setFont(new java.awt.Font("Liberation Sans", 1, 18)); // NOI18N
         ganador_mark.setForeground(new java.awt.Color(0, 0, 204));
@@ -152,8 +142,6 @@ public class GraphicUI extends javax.swing.JFrame implements UI {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(sig_jug_boton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(ganador_mark, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -185,7 +173,6 @@ public class GraphicUI extends javax.swing.JFrame implements UI {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jugador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(player_mark, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(sig_jug_boton, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ganador_mark, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(29, 29, 29)
@@ -218,97 +205,25 @@ public class GraphicUI extends javax.swing.JFrame implements UI {
      * @param evt Evento de pulsar el botón
      */
     private void jugadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jugadorActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_jugadorActionPerformed
-
-    /**
-     * Método que se ejecuta al pulsar el botón de siguiente turno.
-     * @param evt Evento de pulsar el botón
-     */
-    private void sig_jug_botonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sig_jug_botonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_sig_jug_botonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    /**
-     * Etiqueta para mostrar la marca del jugador actual
-     */
     private javax.swing.JLabel ganador_mark;
-
-    /**
-     * Panel para scrollear 
-     */
     private javax.swing.JScrollPane jScrollPane1;
-
-    /**
-     * Panel para scrollear
-     */
     private javax.swing.JScrollPane jScrollPane2;
-
-    /**
-     * Panel para scrollear 
-     */
     private javax.swing.JScrollPane jScrollPane3;
-
-    /**
-     * Panel para scrollear 
-     */
     private javax.swing.JScrollPane jScrollPane4;
-
-    /**
-     * Campo de texto para mostrar el jugador actual
-     */
     private javax.swing.JTextField jugador;
-
-    /**
-     * Campo de texto para mostrar a los jugadores
-     */
     private javax.swing.JTextArea jugadores;
-
-    /**
-     * Etiqueta para mostrar marca de jugadores
-     */
     private javax.swing.JLabel jugadores_mark;
-
-    /**
-     * Campo de texto para mostrar el laberinto
-     */
     private javax.swing.JTextArea laberinto;
-
-    /**
-     * Campo de texto para mostrar el log
-     */
     private javax.swing.JTextArea log;
-
-    /**
-     * Etiqueta para mostrar marca de log
-     */
     private javax.swing.JLabel log_mark;
-
-    /**
-     * Campo de texto para mostrar a los monstruos
-     */
     private javax.swing.JTextArea monstruos;
-
-    /**
-     * Etiqueta para mostrar marca de monstruos
-     */
     private javax.swing.JLabel monstruos_mark;
-
-    /**
-     * Etiqueta para mostrar marca de jugador
-     */
     private javax.swing.JLabel player_mark;
-
-    /**
-     * Botón para pasar al siguiente turno
-     */
-    private javax.swing.JButton sig_jug_boton;
-
-    /**
-     * Etiqueta para mostrar el título
-     */
     private javax.swing.JLabel titulo;
     // End of variables declaration//GEN-END:variables
     
@@ -341,12 +256,9 @@ public class GraphicUI extends javax.swing.JFrame implements UI {
         if (gameState.getWinner()) {
             // Mostrar la etiqueta de ganador
             this.ganador_mark.setVisible(true);
-
-            // Ocultar la etiqueta de siguiente turno
-            this.sig_jug_boton.setVisible(false);
         }
 
-        repaint();
+        repaint(); // Para actualizar la interfaz gráfica
     }
     
 }
