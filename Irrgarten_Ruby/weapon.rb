@@ -17,7 +17,7 @@ module Irrgarten
         #
         # @return [float] Si tiene algún uso disponible devuelve el poder del arma. En caso contrario (**uses**==**0**) devuelve 0
         def attack
-            produce_effect
+            self.produce_effect
         end
 
         # Método que muestra en una cadena el estado del arma, en cuanto a  uso y poder.

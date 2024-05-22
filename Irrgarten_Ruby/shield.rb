@@ -18,7 +18,7 @@ module Irrgarten
         #
         # @return [float] Si tiene algún uso disponible devuelve la protección del escudo. En caso contrario (**uses**==**0**) devuelve 0
         def protect
-            produce_effect
+            self.produce_effect
         end
 
         # Método que muestra en una cadena el estado del escudo, en cuanto a
