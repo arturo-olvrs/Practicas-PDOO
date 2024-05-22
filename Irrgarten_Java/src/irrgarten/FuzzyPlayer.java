@@ -30,6 +30,7 @@ public class FuzzyPlayer extends Player{
      * @param validMoves  Lista de movimientos válidos
      * @return  Devuelve la dirección en la que se moverá el jugador (si es válida)
      */
+    @Override
     public Directions move(Directions direction, ArrayList<Directions> validMoves){
         Directions preference=super.move(direction, validMoves);
         return Dice.nextStep(preference, validMoves, this.getIntelligence());

@@ -48,7 +48,7 @@ public class Game {
     // correspondiente casting para usar el tipo de dato que queramos
     // y sea el correcto con el que hay
     /**
-     * Bloques iniciales a incluir en el laberinto.
+     * Bloques iniciales a incluir en el laberinto donde el último parámetro indica la longitud.
      */
     private static final Object [][] INIT_BLOCKS=
     { {Orientation.HORIZONTAL,0,0,3}, {Orientation.HORIZONTAL,3,3,5}, 

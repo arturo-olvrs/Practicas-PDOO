@@ -277,14 +277,14 @@ public class Labyrinth {
     /**
      * Método para actualizar un jugador del laberinto por un fuzzyplayer en su 
      * posición.
-     * @param este Objeto de FuzzyPlayer que sustituirá al objeto Player que haya
+     * @param other Objeto de FuzzyPlayer que sustituirá al objeto Player que haya
      * en su posición
      */
-    public void convertToFuzzy(FuzzyPlayer este){
-        int row=este.getRow();
-        int col=este.getCol();
-        if(this.players[row][col].getNumber() == este.getNumber())
-            this.players[row][col]=este;
+    public void convertToFuzzy(FuzzyPlayer other){
+        int row=other.getRow();
+        int col=other.getCol();
+        if(this.players[row][col].getNumber() == other.getNumber())
+            this.players[row][col]=other;
     }
     
     /**
@@ -420,9 +420,15 @@ public class Labyrinth {
     }
     
     /**
-     * Método que mueve un jugador en el laberinto en una dirección.
-     * Va desde (oldRow, oldCol) a (row, col).
-     *  
+     * Método que actualiza la posición del jugador dado a la nueva posición, actualizando
+     * el estado de la casilla antigua y nueva.
+     *
+     * Se comprueba si la nueva posición es válida y, además,
+     * si el número del jugador pasado no coincide con el que hay en `players`,
+     * no se cambia el estado de la casilla antigua del jugador.
+     * 
+     * Devuelve el monstruo de la nueva casilla si hay un combate en la posición actualizada.
+     *
      * @param oldRow  Posición antigua del jugador (fila)
      * @param oldCol  Posición antigua del jugador (columna)
      * @param row  Nueva posición del jugador (fila)

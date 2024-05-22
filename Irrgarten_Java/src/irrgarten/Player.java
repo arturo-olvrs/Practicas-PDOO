@@ -92,7 +92,7 @@ public class Player extends LabyrinthCharacter {
         this.shields= new ArrayList<>(other.shields);
         
         // Hay que inicializar las barajas de cartas
-        this.weaponCardDeck=other. weaponCardDeck;
+        this.weaponCardDeck=other.weaponCardDeck;
         this.shieldCardDeck= other.shieldCardDeck;
     }
     

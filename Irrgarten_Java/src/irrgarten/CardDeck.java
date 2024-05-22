@@ -18,7 +18,7 @@ abstract class CardDeck <T extends CombatElement> {
     private ArrayList <T> cardDeck;
     
     /**
-     * Tamaño máximo para la baraja de cartas de tipo Escudo
+     * Tamaño máximo para la baraja de cartas de tipo elemento de combate
      */
     protected static final int TAMANIO_MAX=50;
     
