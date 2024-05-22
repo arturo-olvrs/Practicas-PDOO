@@ -37,8 +37,6 @@ module Irrgarten
             @consecutive_hits = 0   # Número de golpes consecutivos recibidos. Al crearse está en 0
         end
 
-
-
         # Consultor de @number
         # @return [char] número del jugador
         attr_reader :number

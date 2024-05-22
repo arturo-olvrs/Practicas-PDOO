@@ -16,7 +16,7 @@ module Irrgarten
         # Constructor de la clase
         #
         # @param effect [float] efecto del elemento de combate
-        # @param uses [int] usos que tiene el escudo
+        # @param uses [int] usos que tiene el elemento de combate
         def initialize(effect, uses)
             @effect = effect.to_f
             @uses = uses.to_i

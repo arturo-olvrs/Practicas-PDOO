@@ -260,7 +260,7 @@ module Irrgarten
                 @players[@current_player_index] = fuzzy
 
                 # Modificamos la tabla de jugadores en el laberinto
-                @labyrinth.convert_to_fuzyy(fuzzy)
+                @labyrinth.convert_to_fuzzy(fuzzy)
 
             else
                 log_player_skip_turn

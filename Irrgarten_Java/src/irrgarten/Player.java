@@ -117,8 +117,11 @@ public class Player extends LabyrinthCharacter {
     }
     
     /**
-     * Método que informa sobre la dirección en la que se va a mover el jugador
-     * 
+     * Comprueba si la dirección pasada hacia la que se pretende desplazar el personaje
+     * es válida, devolviéndola en caso de que lo sea o si no se puede mover hacia ninguna posición, es decir,
+     * si el array `validMoves` está vacío. Si la dirección no está en `validMoves` y dicho array no está vacío,
+     * se devuelve la primera dirección guardada en el array.
+     *
      * @param direction  Dirección en la que se quiere mover el jugador
      * @param validMoves  Lista de movimientos válidos
      * @return  Devuelve la dirección en la que se moverá el jugador (si es válida)
@@ -163,7 +166,7 @@ public class Player extends LabyrinthCharacter {
     }
     
     /**
-     * Método que actualiza las armas, escudos y salud del jugador tras recibir una recompensa.     * 
+     * Método que actualiza las armas, escudos y salud del jugador tras recibir una recompensa.     
      */
     public void receiveReward(){
         // Weapons rewards
@@ -315,7 +318,8 @@ public class Player extends LabyrinthCharacter {
      * Método que gestiona el ataque recibido por el jugador.
      * 
      * @param receivedAttack Intensidad del ataque recibido
-     * @return Devuelve true si el jugador ha muerto y false en caso contrario.
+     * @return Devuelve true si el jugador ha muerto o llega al limite de 
+     * ataques consecutivos HITS2LOSE y false en caso contrario.
      */
     private boolean manageHit(float receivedAttack){
 
