@@ -1,6 +1,7 @@
 # Programación y Diseño Orientado a Objetos
 
 **Autor:** Joaquín Avilés de la Fuente
+
 **Autor:** Arturo Olivares Martos
 ***
 
