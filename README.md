@@ -1,4 +1,4 @@
-# Programación y Diseño Orientado a Objetos (PDOO) — UGR 🇪🇸🎓
+# Programación y Diseño Orientado a Objetos (PDOO) — UGR 
 
 Este repositorio contiene las prácticas correspondientes a la asignatura **Programación y Diseño Orientado a Objetos (PDOO)**, cursada durante el año académico 2023-24 en el **Doble Grado en Ingeniería Informática y Matemáticas**.
 
